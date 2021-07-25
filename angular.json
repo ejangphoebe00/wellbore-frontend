@@ -27,9 +27,37 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/assets/global/plugins/font-awesome/css/font-awesome.min.css",
+              "src/assets/assets/global/plugins/simple-line-icons/simple-line-icons.min.css",
+              "src/assets/assets/global/plugins/bootstrap/css/bootstrap.min.css",
+              "src/assets/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css",
+
+              "src/assets/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css",
+              "src/assets/assets/global/plugins/morris/morris.css",
+              "src/assets/assets/global/plugins/fullcalendar/fullcalendar.min.css",
+
+              "src/assets/assets/global/plugins/jqvmap/jqvmap/jqvmap.css",
+              "src/assets/assets/global/css/components-md.min.css",
+              "src/assets/assets/global/css/plugins-md.min.css",
+
+              "src/assets/assets/layouts/layout/css/layout.min.css",
+              "src/assets/assets/layouts/layout/css/themes/darkblue.min.css",
+              "src/assets/assets/layouts/layout/css/custom.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/assets/global/plugins/jquery.min.js",
+              "src/assets/assets/global/plugins/bootstrap/js/bootstrap.min.js",
+              "src/assets/assets/global/plugins/js.cookie.min.js",
+              "src/assets/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
+              "src/assets/assets/global/plugins/jquery.blockui.min.js",
+              "src/assets/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js",
+              "src/assets/assets/global/scripts/app.min.js",
+              "src/assets/assets/pages/scripts/dashboard.min.js",
+              "src/assets/assets/layouts/layout/scripts/layout.min.js",
+              "src/assets/assets/global/plugins/morris/morris.min.js"             
+            ]
           },
           "configurations": {
             "production": {
