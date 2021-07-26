@@ -12,13 +12,15 @@ import { LoginComponent } from './Auth/login/login.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { AddUsersComponent } from './Pages/add-users/add-users.component';
 import { TokenInterceptorService } from './Interceptor/token-interceptor.service';
+import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    AddwebSecurityComponent
   ],
   imports: [
     BrowserModule,

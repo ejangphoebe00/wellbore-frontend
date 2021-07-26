@@ -6,9 +6,10 @@
             <div class="page-header-inner">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <!-- <a >
-                        <img src="../assets/assets/layouts/layout/img/logo.png"
-                            alt="logo" class="logo-default" /> </a> -->
+                    <a >
+                        <!-- <img src="..//asts/assets/layouts/layout/img/logo.png"
+                             class="logo-default" /> Wellbore Store -->
+                            </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
                     </div>
@@ -60,7 +61,7 @@
                                
                                 <li>
                                     <a >
-                                        <i class="icon-key"></i> Log Out </a>
+                                        <i (click)="logout()" class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
                         </li>
@@ -69,7 +70,7 @@
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-quick-sidebar-toggler">
                             <a class="dropdown-toggle">
-                                <i class="icon-logout"></i>
+                                <i  class="icon-logout"></i>
                             </a>
                         </li>
                         <!-- END QUICK SIDEBAR TOGGLER -->
@@ -120,7 +121,7 @@
                         <li class="nav-item start active open">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
-                                <span class="title">Dashboard</span>
+                                <span class="title"></span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
@@ -137,15 +138,15 @@
                             <h3 class="uppercase">Components</h3>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link nav-toggle">
+                            <a class="nav-link nav-toggle">
                                 <i class="icon-diamond"></i>
                                 <span class="title">Web Security</span>
-                                <span class="arrow"></span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a 
-                                        class="nav-link">
+                                    <a [routerLink]="['/add-web-security']"class="nav-link">
                                         <span class="title">Add Web Security Levels</span>
                                     </a>
                                 </li>

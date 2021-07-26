@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiPipeService } from 'src/app/Services/api-pipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,19 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authservice: ApiPipeService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    if (!localStorage.getItem('foo')) { 
-      localStorage.setItem('foo', 'no reload') 
-      location.reload() 
-    } else {
-      localStorage.removeItem('foo') 
-    }
+ this.authservice.reload();
  
   }
 
-
+  logout(){
+  this.authservice.logoutuser();
+  }
 
 }
 

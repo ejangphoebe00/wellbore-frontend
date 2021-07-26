@@ -30,6 +30,16 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/user/login',data)
   }
 
+  logOutSucess(){
+    this.toastr.success("Successfully Logged Out", "",{
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation:'increasing'
+    })
+  }
+
+
   loginSucess(){
     this.toastr.success("Successfully Logged In", "",{
       timeOut: 2000,
@@ -47,6 +57,35 @@ export class ApiPipeService {
       progressAnimation:'decreasing'
     })
   }
+
+  reload(){
+  if (!localStorage.getItem('foo')) { 
+    localStorage.setItem('foo', 'no reload') 
+    location.reload() 
+  } else {
+    localStorage.removeItem('foo') 
+  }
+}
+
+logoutuser(){
+   localStorage.removeItem('token') 
+    this.router.navigate(['/login']);
+    this.logOutSucess();
+}
+
+addWebSecurity(data:any): Observable<any>{
+  console.log("add security")
+  return this.http.post('http://127.0.0.1:8899/apiv1/add_web_security_level',data)
+}
+
+securityStatus(){
+  this.toastr.error("add web security failed. Try Again","",{
+    timeOut: 2000,
+    positionClass: 'toast-top-center',
+    progressBar: true,
+    progressAnimation:'decreasing'
+  })
+}
 
 
 
