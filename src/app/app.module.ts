@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTablesModule } from "angular-datatables";
 import { ToastrModule } from 'ngx-toastr';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,6 +14,7 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { AddUsersComponent } from './Pages/add-users/add-users.component';
 import { TokenInterceptorService } from './Interceptor/token-interceptor.service';
 import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
+import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security
     LoginComponent,
     DashboardComponent,
     AddUsersComponent,
-    AddwebSecurityComponent
+    AddwebSecurityComponent,
+    WebSecurityLevelsComponent
   ],
   imports: [
     BrowserModule,
+    DataTablesModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

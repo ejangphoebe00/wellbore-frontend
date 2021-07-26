@@ -1,0 +1,1394 @@
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+        <div class="page-wrapper">
+            <!-- BEGIN HEADER -->
+            <div class="page-header navbar navbar-fixed-top">
+                <!-- BEGIN HEADER INNER -->
+                <div class="page-header-inner">
+                    <!-- BEGIN LOGO -->
+                    <div class="page-logo">
+                        <a>
+                            <!-- <img src="..//asts/assets/layouts/layout/img/logo.png"
+                                     class="logo-default" /> Wellbore Store -->
+                        </a>
+                        <div class="menu-toggler sidebar-toggler">
+                            <span></span>
+                        </div>
+                    </div>
+                    <!-- END LOGO -->
+                    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                    <a class="menu-toggler responsive-toggler"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                        <span></span>
+                    </a>
+                    <!-- END RESPONSIVE MENU TOGGLER -->
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+    
+    
+                    <div class="top-menu">
+    
+                        <ul class="nav navbar-nav pull-right">
+                            <!-- BEGIN NOTIFICATION DROPDOWN -->
+                            <!-- DOC: Apply "dropdown-dark" class after "dropdown-extended" to change the dropdown styte -->
+                            <!-- DOC: Apply "dropdown-hoverable" class after below "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
+                            <!-- DOC: Remove "dropdown-hoverable" and add data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to the below A element with dropdown-toggle class -->
+                            <!-- END NOTIFICATION DROPDOWN -->
+                            <!-- BEGIN INBOX DROPDOWN -->
+                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <!-- END INBOX DROPDOWN -->
+                            <!-- BEGIN TODO DROPDOWN -->
+                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <!-- END TODO DROPDOWN -->
+                            <!-- BEGIN USER LOGIN DROPDOWN -->
+                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <li class="dropdown dropdown-user">
+                                <a class="dropdown-toggle"
+                                    data-toggle="dropdown" data-hover="dropdown"
+                                    data-close-others="true">
+                                    <img alt="" class="img-circle"
+                                        src="../assets/assets/layouts/layout/img/avatar3_small.jpg"
+                                        />
+                                    <span class="username username-hide-on-mobile">
+                                        Admin </span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-default">
+                                    <li>
+                                        <a>
+                                            <i class="icon-user"></i> My Profile
+                                        </a>
+                                    </li>
+    
+                                    <li>
+                                        <a>
+                                            <i (click)="logout()" class="icon-key"></i>
+                                            Log Out </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- END USER LOGIN DROPDOWN -->
+                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <li class="dropdown dropdown-quick-sidebar-toggler">
+                                <a class="dropdown-toggle">
+                                    <i class="icon-logout"></i>
+                                </a>
+                            </li>
+                            <!-- END QUICK SIDEBAR TOGGLER -->
+                        </ul>
+                    </div>
+                    <!-- END TOP NAVIGATION MENU -->
+                </div>
+                <!-- END HEADER INNER -->
+            </div>
+            <!-- END HEADER -->
+            <!-- BEGIN HEADER & CONTENT DIVIDER -->
+            <div class="clearfix"> </div>
+            <!-- END HEADER & CONTENT DIVIDER -->
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN SIDEBAR -->
+                <div class="page-sidebar-wrapper">
+                    <!-- BEGIN SIDEBAR -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <div class="page-sidebar navbar-collapse collapse">
+                        <!-- BEGIN SIDEBAR MENU -->
+                        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                        <ul class="page-sidebar-menu page-header-fixed"
+                            data-keep-expanded="false"
+                            data-auto-scroll="true" data-slide-speed="200"
+                            style="padding-top: 20px">
+    
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <!-- END SIDEBAR TOGGLER BUTTON -->
+                            <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                            <li class="sidebar-search-wrapper">
+                                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                                <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+                                <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+                                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Dashboard</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a [routerLink]="['/dashboard']"
+                                            class="nav-link">
+                                            <span class="title">Wellbore Dashboard</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="heading">
+                                <h3 class="uppercase">Components</h3>
+                            </li>
+                            <li class="nav-item start active open">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Web Security</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a [routerLink]="['/add-web-security']"
+                                            class="nav-link">
+                                            <span class="title">Add Web Security
+                                                Levels</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a [routerLink]="['/web-security-levels']" class="nav-link">
+                                            <span class="title">View Web Security
+                                                Levels</span>
+                                        </a>
+                                    </li>
+    
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-puzzle"></i>
+                                    <span class="title">Users</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">Add Users</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">View Users</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">User Logs</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-bulb"></i>
+                                    <span class="title">Company</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">Add Company</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">View Companies</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Wellbore</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">Add Wellbore</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">View Wellbores</span>
+                                        </a>
+                                    </li>
+    
+                                </ul>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-wallet"></i>
+                                    <span class="title">Strat Litho Unit</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">Add Strat Litho Unit</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">View Strat Litho
+                                                Units</span>
+                                        </a>
+                                    </li>
+    
+                                </ul>
+                            </li>
+    
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">Catalog Security</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">Add Catalog Security</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">View Catalog </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">Core Types</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">Add Core Types</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">View Core Types</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">File Formats</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">Add File Formats</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">View File Formats</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-pointer"></i>
+                                    <span class="title">File Security Grades</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">Add Security Grades</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <span class="title">View Security Grades</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Wellbore Core</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">Add Wellbore Core</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">View Wellbores Cores</span>
+                                        </a>
+                                    </li>
+    
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">Core Catalog</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">Add Core Catalog</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link">
+                                            <span class="title">View Core Catalog</span>
+                                        </a>
+                                    </li>
+    
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- END SIDEBAR MENU -->
+                        <!-- END SIDEBAR MENU -->
+                    </div>
+                    <!-- END SIDEBAR -->
+                </div>
+                <!-- END SIDEBAR -->
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <div class="page-content">
+                        <!-- BEGIN PAGE HEADER-->
+                        <!-- BEGIN THEME PANEL -->
+                        <div class="theme-panel hidden-xs hidden-sm">
+                            <div class="toggler"> </div>
+                            <div class="toggler-close"> </div>
+                            <div class="theme-options">
+                                <div class="theme-option theme-colors clearfix">
+                                    <span> THEME COLOR </span>
+                                    <ul>
+                                        <li class="color-default current tooltips"
+                                            data-style="default"
+                                            data-container="body"
+                                            data-original-title="Default"> </li>
+                                        <li class="color-darkblue tooltips"
+                                            data-style="darkblue"
+                                            data-container="body"
+                                            data-original-title="Dark Blue"> </li>
+                                        <li class="color-blue tooltips"
+                                            data-style="blue" data-container="body"
+                                            data-original-title="Blue"> </li>
+                                        <li class="color-grey tooltips"
+                                            data-style="grey" data-container="body"
+                                            data-original-title="Grey"> </li>
+                                        <li class="color-light tooltips"
+                                            data-style="light" data-container="body"
+                                            data-original-title="Light"> </li>
+                                        <li class="color-light2 tooltips"
+                                            data-style="light2"
+                                            data-container="body" data-html="true"
+                                            data-original-title="Light 2"> </li>
+                                    </ul>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Theme Style </span>
+                                    <select class="layout-style-option form-control
+                                        input-sm">
+                                        <option value="square" selected="selected">Square
+                                            corners</option>
+                                        <option value="rounded">Rounded corners</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Layout </span>
+                                    <select class="layout-option form-control
+                                        input-sm">
+                                        <option value="fluid" selected="selected">Fluid</option>
+                                        <option value="boxed">Boxed</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Header </span>
+                                    <select class="page-header-option form-control
+                                        input-sm">
+                                        <option value="fixed" selected="selected">Fixed</option>
+                                        <option value="default">Default</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Top Menu Dropdown</span>
+                                    <select
+                                        class="page-header-top-dropdown-style-option
+                                        form-control input-sm">
+                                        <option value="light" selected="selected">Light</option>
+                                        <option value="dark">Dark</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Sidebar Mode</span>
+                                    <select class="sidebar-option form-control
+                                        input-sm">
+                                        <option value="fixed">Fixed</option>
+                                        <option value="default" selected="selected">Default</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Sidebar Menu </span>
+                                    <select class="sidebar-menu-option form-control
+                                        input-sm">
+                                        <option value="accordion"
+                                            selected="selected">Accordion</option>
+                                        <option value="hover">Hover</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Sidebar Style </span>
+                                    <select class="sidebar-style-option form-control
+                                        input-sm">
+                                        <option value="default" selected="selected">Default</option>
+                                        <option value="light">Light</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Sidebar Position </span>
+                                    <select class="sidebar-pos-option form-control
+                                        input-sm">
+                                        <option value="left" selected="selected">Left</option>
+                                        <option value="right">Right</option>
+                                    </select>
+                                </div>
+                                <div class="theme-option">
+                                    <span> Footer </span>
+                                    <select class="page-footer-option form-control
+                                        input-sm">
+                                        <option value="fixed">Fixed</option>
+                                        <option value="default" selected="selected">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END THEME PANEL -->
+                        <!-- BEGIN PAGE BAR -->
+                        <div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <a [routerLink]="['/dashboard']">Dashboard</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>web-security-levels</span>
+                                </li>
+                            </ul>
+                            <div class="page-toolbar">
+                                <div id="dashboard-report-range" class="pull-right
+                                    tooltips btn btn-sm" data-container="body"
+                                    data-placement="bottom"
+                                    data-original-title="Change dashboard date
+                                    range">
+                                    <i class="icon-calendar"></i>&nbsp;
+                                    <span class="thin uppercase hidden-xs"></span>&nbsp;
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PAGE BAR -->
+                        <!-- BEGIN PAGE TITLE-->
+    
+                        <!-- END PAGE TITLE-->
+    
+                        <div class="clearfix"></div>
+                        <!-- END DASHBOARD STATS 1-->
+                        <div class="portlet light bordered">
+    
+                            <div class="portlet-body form">
+                                <!-- BEGIN FORM-->
+                                <div class="row">
+                                        <div class="col-md-12">
+                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                            <div class="portlet light bordered">
+                                                <div class="portlet-title">
+                                                    <div class="caption font-dark">
+                                                        <i class="icon-settings font-dark"></i>
+                                                        <span class="caption-subject bold uppercase">Web Security Levels</span>
+                                                    </div>
+                                                    <div class="tools"> </div>
+                                                </div>
+                                                <div class="portlet-body">
+                                                    <table class="table table-striped table-bordered table-hover" id="sample_1">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Position</th>
+                                                                <th>Office</th>
+                                                                <th>Age</th>
+                                                                <th>Start date</th>
+                                                                <th>Salary</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Position</th>
+                                                                <th>Office</th>
+                                                                <th>Age</th>
+                                                                <th>Start date</th>
+                                                                <th>Salary</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Tiger Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>61</td>
+                                                                <td>2011/04/25</td>
+                                                                <td>$320,800</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Garrett Winters</td>
+                                                                <td>Accountant</td>
+                                                                <td>Tokyo</td>
+                                                                <td>63</td>
+                                                                <td>2011/07/25</td>
+                                                                <td>$170,750</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ashton Cox</td>
+                                                                <td>Junior Technical Author</td>
+                                                                <td>San Francisco</td>
+                                                                <td>66</td>
+                                                                <td>2009/01/12</td>
+                                                                <td>$86,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Cedric Kelly</td>
+                                                                <td>Senior Javascript Developer</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>22</td>
+                                                                <td>2012/03/29</td>
+                                                                <td>$433,060</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Airi Satou</td>
+                                                                <td>Accountant</td>
+                                                                <td>Tokyo</td>
+                                                                <td>33</td>
+                                                                <td>2008/11/28</td>
+                                                                <td>$162,700</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Brielle Williamson</td>
+                                                                <td>Integration Specialist</td>
+                                                                <td>New York</td>
+                                                                <td>61</td>
+                                                                <td>2012/12/02</td>
+                                                                <td>$372,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Herrod Chandler</td>
+                                                                <td>Sales Assistant</td>
+                                                                <td>San Francisco</td>
+                                                                <td>59</td>
+                                                                <td>2012/08/06</td>
+                                                                <td>$137,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Rhona Davidson</td>
+                                                                <td>Integration Specialist</td>
+                                                                <td>Tokyo</td>
+                                                                <td>55</td>
+                                                                <td>2010/10/14</td>
+                                                                <td>$327,900</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Colleen Hurst</td>
+                                                                <td>Javascript Developer</td>
+                                                                <td>San Francisco</td>
+                                                                <td>39</td>
+                                                                <td>2009/09/15</td>
+                                                                <td>$205,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Sonya Frost</td>
+                                                                <td>Software Engineer</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>23</td>
+                                                                <td>2008/12/13</td>
+                                                                <td>$103,600</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jena Gaines</td>
+                                                                <td>Office Manager</td>
+                                                                <td>London</td>
+                                                                <td>30</td>
+                                                                <td>2008/12/19</td>
+                                                                <td>$90,560</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Quinn Flynn</td>
+                                                                <td>Support Lead</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>22</td>
+                                                                <td>2013/03/03</td>
+                                                                <td>$342,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Charde Marshall</td>
+                                                                <td>Regional Director</td>
+                                                                <td>San Francisco</td>
+                                                                <td>36</td>
+                                                                <td>2008/10/16</td>
+                                                                <td>$470,600</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Haley Kennedy</td>
+                                                                <td>Senior Marketing Designer</td>
+                                                                <td>London</td>
+                                                                <td>43</td>
+                                                                <td>2012/12/18</td>
+                                                                <td>$313,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tatyana Fitzpatrick</td>
+                                                                <td>Regional Director</td>
+                                                                <td>London</td>
+                                                                <td>19</td>
+                                                                <td>2010/03/17</td>
+                                                                <td>$385,750</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Michael Silva</td>
+                                                                <td>Marketing Designer</td>
+                                                                <td>London</td>
+                                                                <td>66</td>
+                                                                <td>2012/11/27</td>
+                                                                <td>$198,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Paul Byrd</td>
+                                                                <td>Chief Financial Officer (CFO)</td>
+                                                                <td>New York</td>
+                                                                <td>64</td>
+                                                                <td>2010/06/09</td>
+                                                                <td>$725,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Gloria Little</td>
+                                                                <td>Systems Administrator</td>
+                                                                <td>New York</td>
+                                                                <td>59</td>
+                                                                <td>2009/04/10</td>
+                                                                <td>$237,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Bradley Greer</td>
+                                                                <td>Software Engineer</td>
+                                                                <td>London</td>
+                                                                <td>41</td>
+                                                                <td>2012/10/13</td>
+                                                                <td>$132,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Dai Rios</td>
+                                                                <td>Personnel Lead</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>35</td>
+                                                                <td>2012/09/26</td>
+                                                                <td>$217,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jenette Caldwell</td>
+                                                                <td>Development Lead</td>
+                                                                <td>New York</td>
+                                                                <td>30</td>
+                                                                <td>2011/09/03</td>
+                                                                <td>$345,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Yuri Berry</td>
+                                                                <td>Chief Marketing Officer (CMO)</td>
+                                                                <td>New York</td>
+                                                                <td>40</td>
+                                                                <td>2009/06/25</td>
+                                                                <td>$675,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Caesar Vance</td>
+                                                                <td>Pre-Sales Support</td>
+                                                                <td>New York</td>
+                                                                <td>21</td>
+                                                                <td>2011/12/12</td>
+                                                                <td>$106,450</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Doris Wilder</td>
+                                                                <td>Sales Assistant</td>
+                                                                <td>Sidney</td>
+                                                                <td>23</td>
+                                                                <td>2010/09/20</td>
+                                                                <td>$85,600</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Angelica Ramos</td>
+                                                                <td>Chief Executive Officer (CEO)</td>
+                                                                <td>London</td>
+                                                                <td>47</td>
+                                                                <td>2009/10/09</td>
+                                                                <td>$1,200,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Gavin Joyce</td>
+                                                                <td>Developer</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>42</td>
+                                                                <td>2010/12/22</td>
+                                                                <td>$92,575</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jennifer Chang</td>
+                                                                <td>Regional Director</td>
+                                                                <td>Singapore</td>
+                                                                <td>28</td>
+                                                                <td>2010/11/14</td>
+                                                                <td>$357,650</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Brenden Wagner</td>
+                                                                <td>Software Engineer</td>
+                                                                <td>San Francisco</td>
+                                                                <td>28</td>
+                                                                <td>2011/06/07</td>
+                                                                <td>$206,850</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fiona Green</td>
+                                                                <td>Chief Operating Officer (COO)</td>
+                                                                <td>San Francisco</td>
+                                                                <td>48</td>
+                                                                <td>2010/03/11</td>
+                                                                <td>$850,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Shou Itou</td>
+                                                                <td>Regional Marketing</td>
+                                                                <td>Tokyo</td>
+                                                                <td>20</td>
+                                                                <td>2011/08/14</td>
+                                                                <td>$163,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Michelle House</td>
+                                                                <td>Integration Specialist</td>
+                                                                <td>Sidney</td>
+                                                                <td>37</td>
+                                                                <td>2011/06/02</td>
+                                                                <td>$95,400</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Suki Burks</td>
+                                                                <td>Developer</td>
+                                                                <td>London</td>
+                                                                <td>53</td>
+                                                                <td>2009/10/22</td>
+                                                                <td>$114,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Prescott Bartlett</td>
+                                                                <td>Technical Author</td>
+                                                                <td>London</td>
+                                                                <td>27</td>
+                                                                <td>2011/05/07</td>
+                                                                <td>$145,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Gavin Cortez</td>
+                                                                <td>Team Leader</td>
+                                                                <td>San Francisco</td>
+                                                                <td>22</td>
+                                                                <td>2008/10/26</td>
+                                                                <td>$235,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Martena Mccray</td>
+                                                                <td>Post-Sales support</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>46</td>
+                                                                <td>2011/03/09</td>
+                                                                <td>$324,050</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Unity Butler</td>
+                                                                <td>Marketing Designer</td>
+                                                                <td>San Francisco</td>
+                                                                <td>47</td>
+                                                                <td>2009/12/09</td>
+                                                                <td>$85,675</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Howard Hatfield</td>
+                                                                <td>Office Manager</td>
+                                                                <td>San Francisco</td>
+                                                                <td>51</td>
+                                                                <td>2008/12/16</td>
+                                                                <td>$164,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Hope Fuentes</td>
+                                                                <td>Secretary</td>
+                                                                <td>San Francisco</td>
+                                                                <td>41</td>
+                                                                <td>2010/02/12</td>
+                                                                <td>$109,850</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Vivian Harrell</td>
+                                                                <td>Financial Controller</td>
+                                                                <td>San Francisco</td>
+                                                                <td>62</td>
+                                                                <td>2009/02/14</td>
+                                                                <td>$452,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Timothy Mooney</td>
+                                                                <td>Office Manager</td>
+                                                                <td>London</td>
+                                                                <td>37</td>
+                                                                <td>2008/12/11</td>
+                                                                <td>$136,200</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jackson Bradshaw</td>
+                                                                <td>Director</td>
+                                                                <td>New York</td>
+                                                                <td>65</td>
+                                                                <td>2008/09/26</td>
+                                                                <td>$645,750</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Olivia Liang</td>
+                                                                <td>Support Engineer</td>
+                                                                <td>Singapore</td>
+                                                                <td>64</td>
+                                                                <td>2011/02/03</td>
+                                                                <td>$234,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Bruno Nash</td>
+                                                                <td>Software Engineer</td>
+                                                                <td>London</td>
+                                                                <td>38</td>
+                                                                <td>2011/05/03</td>
+                                                                <td>$163,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Sakura Yamamoto</td>
+                                                                <td>Support Engineer</td>
+                                                                <td>Tokyo</td>
+                                                                <td>37</td>
+                                                                <td>2009/08/19</td>
+                                                                <td>$139,575</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Thor Walton</td>
+                                                                <td>Developer</td>
+                                                                <td>New York</td>
+                                                                <td>61</td>
+                                                                <td>2013/08/11</td>
+                                                                <td>$98,540</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Finn Camacho</td>
+                                                                <td>Support Engineer</td>
+                                                                <td>San Francisco</td>
+                                                                <td>47</td>
+                                                                <td>2009/07/07</td>
+                                                                <td>$87,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Serge Baldwin</td>
+                                                                <td>Data Coordinator</td>
+                                                                <td>Singapore</td>
+                                                                <td>64</td>
+                                                                <td>2012/04/09</td>
+                                                                <td>$138,575</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Zenaida Frank</td>
+                                                                <td>Software Engineer</td>
+                                                                <td>New York</td>
+                                                                <td>63</td>
+                                                                <td>2010/01/04</td>
+                                                                <td>$125,250</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Zorita Serrano</td>
+                                                                <td>Software Engineer</td>
+                                                                <td>San Francisco</td>
+                                                                <td>56</td>
+                                                                <td>2012/06/01</td>
+                                                                <td>$115,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jennifer Acosta</td>
+                                                                <td>Junior Javascript Developer</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>43</td>
+                                                                <td>2013/02/01</td>
+                                                                <td>$75,650</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Cara Stevens</td>
+                                                                <td>Sales Assistant</td>
+                                                                <td>New York</td>
+                                                                <td>46</td>
+                                                                <td>2011/12/06</td>
+                                                                <td>$145,600</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Hermione Butler</td>
+                                                                <td>Regional Director</td>
+                                                                <td>London</td>
+                                                                <td>47</td>
+                                                                <td>2011/03/21</td>
+                                                                <td>$356,250</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Lael Greer</td>
+                                                                <td>Systems Administrator</td>
+                                                                <td>London</td>
+                                                                <td>21</td>
+                                                                <td>2009/02/27</td>
+                                                                <td>$103,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jonas Alexander</td>
+                                                                <td>Developer</td>
+                                                                <td>San Francisco</td>
+                                                                <td>30</td>
+                                                                <td>2010/07/14</td>
+                                                                <td>$86,500</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Shad Decker</td>
+                                                                <td>Regional Director</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>51</td>
+                                                                <td>2008/11/13</td>
+                                                                <td>$183,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Michael Bruce</td>
+                                                                <td>Javascript Developer</td>
+                                                                <td>Singapore</td>
+                                                                <td>29</td>
+                                                                <td>2011/06/27</td>
+                                                                <td>$183,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Donna Snider</td>
+                                                                <td>Customer Support</td>
+                                                                <td>New York</td>
+                                                                <td>27</td>
+                                                                <td>2011/01/25</td>
+                                                                <td>$112,000</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- END EXAMPLE TABLE PORTLET-->
+                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                            <div class="portlet box green">
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="fa fa-globe"></i>Buttons </div>
+                                                    <div class="tools"> </div>
+                                                </div>
+                                                <div class="portlet-body">
+                                                    <table class="table table-striped table-bordered table-hover" id="sample_2">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Rendering engine </th>
+                                                                <th> Browser </th>
+                                                                <th> Platform(s) </th>
+                                                                <th> Engine version </th>
+                                                                <th> CSS grade </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> Trident </td>
+                                                                <td> Internet Explorer 4.0 </td>
+                                                                <td> Win 95+ </td>
+                                                                <td> 4 </td>
+                                                                <td> X </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Trident </td>
+                                                                <td> Internet Explorer 5.0 </td>
+                                                                <td> Win 95+ </td>
+                                                                <td> 5 </td>
+                                                                <td> C </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Trident </td>
+                                                                <td> Internet Explorer 5.5 </td>
+                                                                <td> Win 95+ </td>
+                                                                <td> 5.5 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Trident </td>
+                                                                <td> Internet Explorer 6 </td>
+                                                                <td> Win 98+ </td>
+                                                                <td> 6 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Trident </td>
+                                                                <td> Internet Explorer 7 </td>
+                                                                <td> Win XP SP2+ </td>
+                                                                <td> 7 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Trident </td>
+                                                                <td> AOL browser (AOL desktop) </td>
+                                                                <td> Win XP </td>
+                                                                <td> 6 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Firefox 1.0 </td>
+                                                                <td> Win 98+ / OSX.2+ </td>
+                                                                <td> 1.7 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Firefox 1.5 </td>
+                                                                <td> Win 98+ / OSX.2+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Firefox 2.0 </td>
+                                                                <td> Win 98+ / OSX.2+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Firefox 3.0 </td>
+                                                                <td> Win 2k+ / OSX.3+ </td>
+                                                                <td> 1.9 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Camino 1.0 </td>
+                                                                <td> OSX.2+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Camino 1.5 </td>
+                                                                <td> OSX.3+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Netscape 7.2 </td>
+                                                                <td> Win 95+ / Mac OS 8.6-9.2 </td>
+                                                                <td> 1.7 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Netscape Browser 8 </td>
+                                                                <td> Win 98SE+ </td>
+                                                                <td> 1.7 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Netscape Navigator 9 </td>
+                                                                <td> Win 98+ / OSX.2+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.0 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.1 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1.1 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.2 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1.2 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.3 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1.3 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.4 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1.4 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.5 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1.5 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.6 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> 1.6 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.7 </td>
+                                                                <td> Win 98+ / OSX.1+ </td>
+                                                                <td> 1.7 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Mozilla 1.8 </td>
+                                                                <td> Win 98+ / OSX.1+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Seamonkey 1.1 </td>
+                                                                <td> Win 98+ / OSX.2+ </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Gecko </td>
+                                                                <td> Epiphany 2.20 </td>
+                                                                <td> Gnome </td>
+                                                                <td> 1.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> Safari 1.2 </td>
+                                                                <td> OSX.3 </td>
+                                                                <td> 125.5 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> Safari 1.3 </td>
+                                                                <td> OSX.3 </td>
+                                                                <td> 312.8 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> Safari 2.0 </td>
+                                                                <td> OSX.4+ </td>
+                                                                <td> 419.3 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> Safari 3.0 </td>
+                                                                <td> OSX.4+ </td>
+                                                                <td> 522.1 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> OmniWeb 5.5 </td>
+                                                                <td> OSX.4+ </td>
+                                                                <td> 420 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> iPod Touch / iPhone </td>
+                                                                <td> iPod </td>
+                                                                <td> 420.1 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Webkit </td>
+                                                                <td> S60 </td>
+                                                                <td> S60 </td>
+                                                                <td> 413 </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 7.0 </td>
+                                                                <td> Win 95+ / OSX.1+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 7.5 </td>
+                                                                <td> Win 95+ / OSX.2+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 8.0 </td>
+                                                                <td> Win 95+ / OSX.2+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 8.5 </td>
+                                                                <td> Win 95+ / OSX.2+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 9.0 </td>
+                                                                <td> Win 95+ / OSX.3+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 9.2 </td>
+                                                                <td> Win 88+ / OSX.3+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera 9.5 </td>
+                                                                <td> Win 88+ / OSX.3+ </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Opera for Wii </td>
+                                                                <td> Wii </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Nokia N800 </td>
+                                                                <td> N800 </td>
+                                                                <td> - </td>
+                                                                <td> A </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> Presto </td>
+                                                                <td> Nintendo DS browser </td>
+                                                                <td> Nintendo DS </td>
+                                                                <td> 8.5 </td>
+                                                                <td> C/A
+                                                                    <sup>1</sup>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- END EXAMPLE TABLE PORTLET-->
+                                        </div>
+                                    </div>
+                                
+                                <!-- END FORM-->
+                            </div>
+                        </div>
+    
+                    </div>
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
+                <!-- BEGIN QUICK SIDEBAR -->
+                <!-- END QUICK SIDEBAR -->
+            </div>
+            <!-- END CONTAINER -->
+            <!-- BEGIN FOOTER -->
+            <div class="page-footer">
+                <div class="page-footer-inner"> 2021 &copy; Uganda Petroleum
+                    Authourty
+                    &nbsp;|&nbsp;
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+            </div>
+            <!-- END FOOTER -->
+        </div>
+    
+    
+        <div class="quick-nav-overlay"></div>
+    
+    
+    
+    </body>
