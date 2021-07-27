@@ -98,6 +98,10 @@ getLogs(): Observable<any>{
   return this.http.get('http://127.0.0.1:8899/user/get_users_logs')
 }
 
+getAllUsers(): Observable<any>{
+  console.log("get Logs")
+  return this.http.get('http://127.0.0.1:8899/user/get_users')
+}
 
 
 }
