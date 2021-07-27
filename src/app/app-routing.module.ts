@@ -7,6 +7,7 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
 import { UserLogsComponent } from './user-logs/user-logs.component';
+import { UsersListComponent } from './Pages/users-list/users-list.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'add-web-security', component:  AddwebSecurityComponent},
   {path: 'web-security-levels', component:WebSecurityLevelsComponent},
   {path: 'user-logs', component:UserLogsComponent},  
+  {path: 'users', component:UsersListComponent},  
   {path: '', component: LoginComponent, pathMatch: 'full'}
 ];
 
