@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
@@ -6,14 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 
-import { WebSecurity } from 'src/app/models/web-security.model';
-
 @Component({
-  selector: 'app-web-security-levels',
-  templateUrl: './web-security-levels.component.html',
-  styleUrls: ['./web-security-levels.component.css']
+  selector: 'app-user-logs',
+  templateUrl: './user-logs.component.html',
+  styleUrls: ['./user-logs.component.css']
 })
-export class WebSecurityLevelsComponent implements OnInit , OnDestroy{
+export class UserLogsComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
@@ -21,8 +19,6 @@ export class WebSecurityLevelsComponent implements OnInit , OnDestroy{
 
 allusers: any;
 posts: any = [];
-
-
 
   constructor(
     private authservice: ApiPipeService,
@@ -32,7 +28,7 @@ posts: any = [];
   ) { }
 
   ngOnInit(): void {
-    this.users()
+    this.userLogs()
     //  this.getLevels();
   }
 
@@ -40,9 +36,9 @@ posts: any = [];
     this.dtTrigger.unsubscribe();
   }
 
-  users(): void {
+  userLogs(): void {
     this.authservice
-        .getSecurity()
+        .getLogs()
         .subscribe((response: any) => {
           console.log(response)
           this.posts = response;
@@ -55,16 +51,4 @@ posts: any = [];
     this.authservice.logoutuser()
   }
 
-  getLevels(){
-    this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
-    .subscribe(posts => {
-      this.posts = posts;
-      console.log(this.posts)
-  });
-  }
-
-
 }
-
-
-  

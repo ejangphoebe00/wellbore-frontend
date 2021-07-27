@@ -15,6 +15,7 @@ import { AddUsersComponent } from './Pages/add-users/add-users.component';
 import { TokenInterceptorService } from './Interceptor/token-interceptor.service';
 import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
+import { UserLogsComponent } from './user-logs/user-logs.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-secu
     DashboardComponent,
     AddUsersComponent,
     AddwebSecurityComponent,
-    WebSecurityLevelsComponent
+    WebSecurityLevelsComponent,
+    UserLogsComponent
   ],
   imports: [
     BrowserModule,
