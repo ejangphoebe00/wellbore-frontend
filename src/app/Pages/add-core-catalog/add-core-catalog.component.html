@@ -341,12 +341,11 @@ page-content-white">
                         </ul>
                     </li>
 
-                    <li class="nav-item start active open">
+                    <li class="nav-item">
                         <a class="nav-link nav-toggle">
                             <i class="icon-briefcase"></i>
                             <span class="title">Wellbore Core</span>
-                            <span class="selected"></span>
-                            <span class="arrow open"></span>  
+                            <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item">
@@ -364,15 +363,16 @@ page-content-white">
 
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item start active open">
                         <a class="nav-link nav-toggle">
                             <i class="icon-bar-chart"></i>
                             <span class="title">Core Catalog</span>
-                            <span class="arrow"></span>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>  
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item">
-                                <a [routerLink]="['/add-core-catalog']"
+                                <a  [routerLink]="['/add-core-catalog']"
                                     class="nav-link">
                                     <span class="title">Add Core Catalog</span>
                                 </a>
@@ -515,7 +515,7 @@ page-content-white">
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
-                            <span>add-wellbore-core</span>
+                            <span>add Core Catalog</span>
                         </li>
                     </ul>
                     <div class="page-toolbar">
@@ -545,225 +545,138 @@ page-content-white">
 
                                     <div class="form-group">
 
-                                        <label>Wellbore Id</label>
-                                        <input formControlName="Wellbore_id"
+                                        <label>Wellbore Core Id</label>
+                                        <input formControlName="WellboreCore_id"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Number</label>
-                                        <input formControlName="CoreNumber"
+                                        <label>Core Type</label>
+                                        <input formControlName="CoreType"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Coring Date</label>
-                                        <input formControlName="CoringDate"
+                                        <label>Store Identifier</label>
+                                        <input formControlName="StoreIdentifier"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>WB CoringContractor Id</label>
-                                        <input formControlName="WBCoringContractor_id"
+                                        <label>Catalog Core From Depth</label>
+                                        <input formControlName="CatalogCoreFromDepth"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Top MDRT</label>
+                                        <label>Catalog Core From Depth</label>
                                         <input
-                                            formControlName="CoreTopMDRT"
+                                            formControlName="CatalogCoreFromDepth"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Btm MDRT</label>
-                                        <input formControlName="CoreBtmMDRT"
+                                        <label>Catalog Core To Depth</label>
+                                        <input formControlName="CatalogCoreToDepth"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Top TVD</label>
+                                        <label>Core Catalog Security Flag Id</label>
                                         <input
-                                            formControlName="CoreTopTVD"
+                                            formControlName="CoreCatalogSecurityFlag_id"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Btm TVD</label>
+                                        <label>Was Analysed Id</label>
                                         <input
-                                            formControlName="CoreBtmTVD"
+                                            formControlName="UserCategory"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Cut Length</label>
+                                        <label>Top StratLitho Id</label>
                                         <input
-                                            formControlName="CutLength"
+                                            formControlName="TopStratLitho_id"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Cut Length TVD</label>
+                                        <label>BottomStratLitho_id</label>
                                         <input
-                                            formControlName="CutLengthTVD"
+                                            formControlName="BottomStratLitho_id"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                            <label>Recovered Length</label>
-                                            <input
-                                                formControlName="RecoveredLength"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-
-                                        <div class="form-group">
-                                                <label>Core Recovery</label>
-                                                <input
-                                                    formControlName="CoreRecovery"
-                                                    type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Top Strat Litho_id</label>
-                                                <input
-                                                    formControlName="CoreTopStratLitho_id"  type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Bottom StratLitho Id</label>
-                                                <input
-                                                    formControlName="CoreBottomStratLitho_id"
-                                                    type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Picture Softcopy Path</label>
-                                                <input
-                                                    formControlName="CorePictureSoftcopyPath"
-                                                    type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
+                                 
 
                                 </div>
                                 <div class="col-md-6">
+                                        <div class="form-group">
+                                                <label>Catalogue Core Picture Name</label>
+                                                <input
+                                                    formControlName="CatalogueCorePictureName"
+                                                    type="text" class="form-control"
+                                                    placeholder="">
+                                            </div>
                                   
-                                   
                                     <div class="form-group">
-                                        <label>Core Picture Hyperlink</label>
+                                        <label>Catalogue Picture Softcopy Path</label>
                                         <input
-                                            formControlName="CorePictureHyperlink"
+                                            formControlName="CataloguePictureSoftcopyPath"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Picture Upload Date</label>
+                                        <label>Catalogue Report Softcopy Path </label>
                                         <input
-                                            formControlName="PictureUploadDate"
+                                            formControlName="CatalogueReportSoftcopyPath"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Report Softcopy Path</label>
+                                        <label>Catalogue Report Hyperlink</label>
                                         <input
-                                            formControlName="CoreReportSoftcopyPath"
+                                            formControlName="CatalogueReportHyperlink"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Core Report Hyperlink</label>
+                                        <label>Catalog Report Format Id</label>
                                         <input
-                                            formControlName="CoreReportHyperlink"
+                                            formControlName="CatalogReportFormat_id"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Report Upload Date</label>
-                                        <input formControlName="ReportUploadDate"
+                                        <label>Catalog Report FileSize</label>  <input
+                                            formControlName="CatalogReportFileSize"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Report Format Id</label>
+                                        <label>Catalog Report Security Grade Id</label>
                                         <input
-                                            formControlName="ReportFormat_id"
+                                            formControlName="CatalogReportSecurityGrade_id"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Report File Size</label>
+                                        <label>Core Catalog Name</label>
                                         <input
-                                            formControlName="ReportFileSize"
+                                            formControlName="CoreCatalogName"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
-
-
-                               
-                                <div class="form-group">
-                                    <label>Report File Size</label>
-                                    <input
-                                        formControlName="ReportFileSize"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Core Report Security Grade_id</label>
-                                    <input
-                                        formControlName="CoreReportSecurityGrade_id"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Report Open Due Date</label>
-                                    <input
-                                        formControlName="ReportOpenDueDate"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Report Document Title</label>
-                                    <input
-                                        formControlName="ReportDocumentTitle"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Report Received Date</label>
-                                    <input
-                                        formControlName="ReportReceivedDate"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Report Document Date</label>
-                                    <input formControlName="ReportDocumentDate"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Report Document Name</label>
-                                    <input
-                                        formControlName="ReportDocumentName"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Wellbore Core Name</label>
-                                    <input
-                                        formControlName="ReportFileSize"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label>Comments</label>
                                         <input
                                             formControlName="Comments"
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
-                                
-
+                                   
                                 </div>
                             </div>
 
@@ -802,3 +715,6 @@ page-content-white">
 
 
 </body>
+
+
+

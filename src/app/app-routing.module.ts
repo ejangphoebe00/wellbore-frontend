@@ -12,6 +12,7 @@ import { AddWellboreComponent } from './Pages/add-wellbore/add-wellbore.componen
 import { AddFileFormatsComponent } from './Pages/add-file-formats/add-file-formats.component';
 import { AddFileSecurityGradeComponent } from './Pages/add-file-security-grade/add-file-security-grade.component';
 import { WellboreCoreComponent } from './Pages/wellbore-core/wellbore-core.component';
+import { AddCoreCatalogComponent } from './Pages/add-core-catalog/add-core-catalog.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'add-file-formats', component:AddFileFormatsComponent}, 
   {path: 'add-file-grades', component:AddFileSecurityGradeComponent}, 
   {path: 'add-wellbore-core', component:WellboreCoreComponent}, 
+  {path: 'add-core-catalog', component:AddCoreCatalogComponent}, 
   {path: '', component: LoginComponent, pathMatch: 'full'}
 ];
 
