@@ -19,6 +19,8 @@ import { AddCompanyComponent } from './Pages/add-company/add-company.component';
 import { CatalogSecurityComponent } from './Pages/catalog-security/catalog-security.component';
 import { StratLithoUnitComponent } from './Pages/strat-litho-unit/strat-litho-unit.component';
 import { CoreTypesComponent } from './Pages/core-types/core-types.component';
+import { UserLogsComponent } from './user-logs/user-logs.component';
+import { UsersListComponent } from './Pages/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { CoreTypesComponent } from './Pages/core-types/core-types.component';
     CatalogSecurityComponent,
     StratLithoUnitComponent,
     CoreTypesComponent,
+    UserLogsComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
