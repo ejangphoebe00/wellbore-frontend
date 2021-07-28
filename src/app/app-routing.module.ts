@@ -8,6 +8,13 @@ import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
 import { UserLogsComponent } from './user-logs/user-logs.component';
 import { UsersListComponent } from './Pages/users-list/users-list.component';
+import { AddWellboreComponent } from './Pages/add-wellbore/add-wellbore.component';
+import { AddFileFormatsComponent } from './Pages/add-file-formats/add-file-formats.component';
+import { AddFileSecurityGradeComponent } from './Pages/add-file-security-grade/add-file-security-grade.component';
+
+
+
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,6 +24,9 @@ const routes: Routes = [
   {path: 'web-security-levels', component:WebSecurityLevelsComponent},
   {path: 'user-logs', component:UserLogsComponent},  
   {path: 'users', component:UsersListComponent},  
+  {path: 'add-wellbore', component:AddWellboreComponent}, 
+  {path: 'add-file-formats', component:AddFileFormatsComponent}, 
+  {path: 'add-file-grades', component:AddFileSecurityGradeComponent}, 
   {path: '', component: LoginComponent, pathMatch: 'full'}
 ];
 
