@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ApiPipeService {
 
   constructor(
-    private http:HttpClient,
+    private httpClient:HttpClient,
     private toastr: ToastrService,
     private router: Router
   ) { }
@@ -27,7 +27,7 @@ export class ApiPipeService {
 
   Login(data: any): Observable<any>{
     console.log("i am server")
-    return this.http.post('http://127.0.0.1:8899/user/login',data)
+    return this.httpClient.post('http://127.0.0.1:8899/user/login',data)
   }
 
   logOutSucess(){
@@ -59,49 +59,81 @@ export class ApiPipeService {
   }
 
   reload(){
-  if (!localStorage.getItem('foo')) { 
-    localStorage.setItem('foo', 'no reload') 
-    location.reload() 
+  if (!localStorage.getItem('foo')) {
+    localStorage.setItem('foo', 'no reload')
+    location.reload()
   } else {
-    localStorage.removeItem('foo') 
+    localStorage.removeItem('foo')
   }
 }
 
-logoutuser(){
-   localStorage.removeItem('token') 
-    this.router.navigate(['/login']);
-    this.logOutSucess();
-}
+  logoutuser(){
+     localStorage.removeItem('token')
+      this.router.navigate(['/login']);
+      this.logOutSucess();
+  }
 
-addWebSecurity(data:any): Observable<any>{
-  console.log("add security")
-  return this.http.post('http://127.0.0.1:8899/apiv1/add_web_security_level',data)
-}
+  addWebSecurity(data:any): Observable<any>{
+    console.log("add security")
+    return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_web_security_level',data)
+  }
 
-securityStatus(){
-  this.toastr.error("add web security failed. Try Again","",{
-    timeOut: 2000,
-    positionClass: 'toast-top-center',
-    progressBar: true,
-    progressAnimation:'decreasing'
-  })
-}
+  securityStatus(){
+    this.toastr.error("add web security failed. Try Again","",{
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation:'decreasing'
+    })
+  }
 
+  getSecurity(): Observable<any>{
+    console.log("get Security")
+    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
+  }
 
-getSecurity(): Observable<any>{
-  console.log("get Security")
-  return this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
-}
+  getLogs(): Observable<any>{
+    console.log("get Logs")
+    return this.httpClient.get('http://127.0.0.1:8899/user/get_users_logs')
+  }
 
-getLogs(): Observable<any>{
-  console.log("get Logs")
-  return this.http.get('http://127.0.0.1:8899/user/get_users_logs')
-}
+  getAllUsers(): Observable<any>{
+    console.log("get Logs")
+    return this.httpClient.get('http://127.0.0.1:8899/user/get_users')
+  }
 
-getAllUsers(): Observable<any>{
-  console.log("get Logs")
-  return this.http.get('http://127.0.0.1:8899/user/get_users')
-}
+  // COMPANY
 
+  addCompany(data:any): Observable<any>{
+    console.log("add company")
+    return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_company', data)
+  }
+  editCompany(company:any, data:any): Observable<any>{
+    console.log("edit company")
+    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_company/${company}', data)
+  }
+  getAllCompanies(): Observable<any>{
+    console.log("get Companies")
+    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_companies')
+  }
+  getCompany(company:any): Observable<any>{
+    console.log("get Company")
+    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_company/${company}')
+  }
+  deleteCompany(company:any): Observable<any>{
+    console.log("deleted company")
+    return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_company/${company}')
+  }
+  searchByName(name:any): Observable<any>{
+    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_company/?name=${company.companyShortName}')
+  }
+  companyStatus(){
+    this.toastr.error("add company failed. Try Again","",{
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation:'decreasing'
+    })
+  }
 
 }

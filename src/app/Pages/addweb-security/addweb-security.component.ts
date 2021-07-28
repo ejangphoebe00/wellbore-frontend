@@ -19,7 +19,6 @@ export class AddwebSecurityComponent implements OnInit {
     private authservice: ApiPipeService,
     private router: Router,
     private toastr: ToastrService
-        
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +32,7 @@ export class AddwebSecurityComponent implements OnInit {
       WebSecurityLevelDescription:new FormControl(),
       WebSecurityLevelAbbreviation:new FormControl(),
       Comments:new FormControl(),
-  
+
     });
   }
 
@@ -59,12 +58,12 @@ export class AddwebSecurityComponent implements OnInit {
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
-          
-        } else{          
+
+        } else{
           this.authservice.securityStatus()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
         if(error){
           this.toastr.error(error.error.message,"",{
@@ -76,12 +75,10 @@ export class AddwebSecurityComponent implements OnInit {
           // this.authservice.CompanyFaliure()
         }
       }
-      
+
       )
     }
   }
 
   get f(){return this.formGroup.controls}
-
-
 }
