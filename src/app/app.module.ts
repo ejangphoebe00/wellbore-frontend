@@ -21,6 +21,7 @@ import { CdComponent } from './Pages/cd/cd.component';
 import { AddWellboreComponent } from './Pages/add-wellbore/add-wellbore.component';
 import { AddFileFormatsComponent } from './Pages/add-file-formats/add-file-formats.component';
 import { AddFileSecurityGradeComponent } from './Pages/add-file-security-grade/add-file-security-grade.component';
+import { WellboreCoreComponent } from './Pages/wellbore-core/wellbore-core.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddFileSecurityGradeComponent } from './Pages/add-file-security-grade/a
     CdComponent,
     AddWellboreComponent,
     AddFileFormatsComponent,
-    AddFileSecurityGradeComponent
+    AddFileSecurityGradeComponent,
+    WellboreCoreComponent
   ],
   imports: [
     BrowserModule,
