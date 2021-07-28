@@ -15,6 +15,10 @@ import { AddUsersComponent } from './Pages/add-users/add-users.component';
 import { TokenInterceptorService } from './Interceptor/token-interceptor.service';
 import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
+import { AddCompanyComponent } from './Pages/add-company/add-company.component';
+import { CatalogSecurityComponent } from './Pages/catalog-security/catalog-security.component';
+import { StratLithoUnitComponent } from './Pages/strat-litho-unit/strat-litho-unit.component';
+import { CoreTypesComponent } from './Pages/core-types/core-types.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-secu
     DashboardComponent,
     AddUsersComponent,
     AddwebSecurityComponent,
-    WebSecurityLevelsComponent
+    WebSecurityLevelsComponent,
+    AddCompanyComponent,
+    CatalogSecurityComponent,
+    StratLithoUnitComponent,
+    CoreTypesComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,8 +40,8 @@ import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-secu
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, 
-    ToastrModule.forRoot() 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

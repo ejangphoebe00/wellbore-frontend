@@ -1,0 +1,15 @@
+.dropdown:hover .dropdown-menu {display: block !important;}
+.dashboard-stat.blue {
+    background-color: #f8b806;
+}
+.dashboard-stat.red {
+    background-color:  #f8b806;
+}
+
+.dashboard-stat.green{
+    background-color:  #f8b806;
+}
+
+.dashboard-stat.purple{
+    background-color:  #f8b806;
+}
