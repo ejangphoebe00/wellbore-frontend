@@ -24,7 +24,7 @@ export class AddwebSecurityComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    // this.authservice.reload();
+   this.authservice.reload();
   }
 
   initForm(){

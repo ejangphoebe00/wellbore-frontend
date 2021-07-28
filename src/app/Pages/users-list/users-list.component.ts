@@ -26,7 +26,7 @@ users: any = [];
 
   ngOnInit(): void {
     this.userList()
-
+    this.authservice.reload();
   }
 
   ngOnDestroy(): void {

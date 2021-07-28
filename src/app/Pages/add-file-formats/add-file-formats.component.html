@@ -1,6 +1,4 @@
-
-<body class="page-header-fixed page-sidebar-closed-hide-logo
-    page-content-white">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
     <div class="page-wrapper">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
@@ -131,7 +129,7 @@
                                     <a [routerLink]="['/dashboard']"
                                         class="nav-link">
                                         <span class="title">Wellbore Dashboard</span>
-                                        <span class="selected"></span>
+                                        <span class="arrow"></span>
                                     </a>
                                 </li>
                             </ul>
@@ -164,12 +162,11 @@
 
                             </ul>
                         </li>
-                        <li class="nav-item start active open">
+                        <li class="nav-item">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-puzzle"></i>
                                 <span class="title">Users</span>
-                                <span class="selected"></span>
-                                <span class="arrow open"></span>                               
+                                <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
@@ -302,11 +299,12 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item start active open">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-bar-chart"></i>
                                 <span class="title">File Formats</span>
-                                <span class="arrow"></span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
@@ -329,7 +327,7 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li class="nav-item"> 
                                     <a  [routerLink]="['/add-file-grades']" class="nav-link">
                                         <span class="title">Add Security Grades</span>
                                     </a>
@@ -515,7 +513,7 @@
                                 <i class="fa fa-circle"></i>
                             </li>
                             <li>
-                                <span>add-users</span>
+                                <span>add-file-formats</span>
                             </li>
                         </ul>
                         <div class="page-toolbar">
@@ -538,177 +536,61 @@
                     <div class="clearfix"></div>
                     <!-- END DASHBOARD STATS 1-->
                     <div class="portlet light bordered">
+
                         <div class="portlet-body form">
-                            <form role="form">
-                                <div class="form-body row">
-                                    <div class="col-md-6">
-
-                                        <div class="form-group">
-
-                                            <label>First Name</label>
-                                            <input formControlName="FirstName"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>MiddleName</label>
-                                            <input formControlName="MiddleName"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Surname</label>
-                                            <input formControlName="Surname"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>LUID</label>
-                                            <input formControlName="LUID"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Crane User Name</label>
-                                            <input
-                                                formControlName="CraneUserName"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Login ID</label>
-                                            <input formControlName="LoginID"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Login ID Alias</label>
-                                            <input
-                                                formControlName="LoginIDAlias"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Category</label>
-                                            <input
-                                                formControlName="UserCategory"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Company_id</label>
-                                            <input
-                                                formControlName="UserCompany_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Prems User_id</label>
-                                            <input
-                                                formControlName="UserPremsUser_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                                <label>User Staff Id</label>
-                                                <input
-                                                    formControlName="UserStaff_id"
-                                                    type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
-
+                            <!-- BEGIN FORM-->
+                            <form class="form-horizontal"
+                                [formGroup]="formGroup"
+                                (ngSubmit)="addSecurityProcess()">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">File
+                                            Format Name</label>
+                                        <div class="col-md-4">
+                                            <input type="text"
+                                                formControlName="FileSecurityGradeName"
+                                                class="form-control"
+                                                placeholder="Name"> </div>
                                     </div>
-                                    <div class="col-md-6">
-                                      
-                                        <div class="form-group">
-                                            <label>Organisation Name</label>
-                                            <input
-                                                formControlName="OrganisationName"
-                                                type="text" class="form-control"
-                                                placeholder="">
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Sort
+                                            Order</label>
+                                        <div class="col-md-4">
+                                            <input type="text"
+                                                formControlName="SortOrder"
+                                                class="form-control"
+                                                placeholder="Description">
                                         </div>
-                                        <div class="form-group">
-                                            <label>User Email Address</label>
-                                            <input
-                                                formControlName="UserEmailAddress"
-                                                type="text" class="form-control"
-                                                placeholder="">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Comments</label>
+                                        <div class="col-md-4">
+                                            <input type="text"
+                                                class="form-control spinner"
+                                                formControlName="Comments"
+                                                placeholder="Comments" />
+
                                         </div>
-                                        <div class="form-group">
-                                            <label>User Security Level Id</label>
-                                            <input
-                                                formControlName="UserSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Web Security Level_id</label>
-                                            <input
-                                                formControlName="UserWebSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Nogtr Web Security Level
-                                                Id:</label>
-                                            <input
-                                                formControlName="UserNogtrWebSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Prems Web Security Level
-                                                Id</label>
-                                            <input
-                                                formControlName="UserPremsWebSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Intranet Security Level
-                                                Id</label>
-                                            <input
-                                                formControlName="UserIntranetSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Nsd Web Security Level
-                                                Id</label>
-                                            <input
-                                                formControlName="UserNsdWebSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Comments</label>
-                                            <input formControlName="Comments"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Organisation User Name</label>
-                                            <input
-                                                formControlName="OrganisationUserName"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Default Password</label>
-                                            <input
-                                                formControlName="DefaultPassword"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
+
 
                                     </div>
                                 </div>
-
                                 <div class="form-actions">
-                                    <button type="submit" class="btn blue">Submit</button>
-                                    <button type="button" class="btn default">Cancel</button>
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-4">
+                                            <input type="submit" value="submit"
+                                                class="btn
+                                                btn-success">
+                                            <button type="button" class="btn
+                                                default">Cancel</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
+                            <!-- END FORM-->
                         </div>
                     </div>
 

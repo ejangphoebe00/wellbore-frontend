@@ -32,8 +32,9 @@ posts: any = [];
   ) { }
 
   ngOnInit(): void {
-    this.users()
-    //  this.getLevels();
+    this.authservice.reload();
+    this.posts = [];
+    this.users();
   }
 
   ngOnDestroy(): void {

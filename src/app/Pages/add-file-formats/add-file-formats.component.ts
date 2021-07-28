@@ -5,11 +5,11 @@ import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-add-users',
-  templateUrl: './add-users.component.html',
-  styleUrls: ['./add-users.component.css']
+  selector: 'app-add-file-formats',
+  templateUrl: './add-file-formats.component.html',
+  styleUrls: ['./add-file-formats.component.css']
 })
-export class AddUsersComponent implements OnInit {
+export class AddFileFormatsComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
 

@@ -60,7 +60,7 @@
 
                                 <li>
                                     <a>
-                                        <i (click)="logout()" class="icon-key"></i>
+                                        <i ng-click="logout()" class="icon-key"></i>
                                         Log Out </a>
                                 </li>
                             </ul>
@@ -170,7 +170,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a
+                                    <a  [routerLink]="['/add-users']"
                                         class="nav-link">
                                         <span class="title">Add Users</span>
                                     </a>
@@ -219,7 +219,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a
+                                    <a [routerLink]="['/add-wellbore']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore</span>
                                     </a>
@@ -327,7 +327,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/add-file-grades']"  class="nav-link">
                                         <span class="title">Add Security Grades</span>
                                     </a>
                                 </li>
@@ -347,7 +347,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a
+                                    <a [routerLink]="['/add-file-grades']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore Core</span>
                                     </a>
@@ -552,7 +552,7 @@
                                             <div class="tools"> </div>
                                         </div>
                                         <div class="portlet-body">
-                                            <table *ngIf="users.length"
+                                            <table 
                                                 datatable
                                                 [dtOptions]="dtOptions"
                                                 [dtTrigger]="dtTrigger"
@@ -560,40 +560,26 @@
                                                 table-bordered table-hover">
                                                 <thead>
                                                     <tr>
-
                                                         <th>User Name</th>
                                                         <th>User Id</th>
                                                         <th>FirstName</th>
                                                         <th>Login Id</th>
                                                         <th> MiddleName</th>
                                                         <th>Surname</th>
-
-
                                                     </tr>
                                                 </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>User Name</th>
-                                                        <th>User Id</th>
-                                                        <th>FirstName</th>
-                                                        <th>Login Id</th>
-                                                        <th> MiddleName</th>
-                                                        <th>Surname</th>
-
-                                                    </tr>
-                                                </tfoot>
+                                               
                                                 <tbody>
                                                     <tr *ngFor="let post of
                                                         users">
                                                         <td>{{post.CraneUserName}}</td>
-                                                        <td>
-                                                            {{post.CraneUser_id}}</td>
+                                                        <td>{{post.CraneUser_id}}</td>
                                                         <td>{{post.FirstName}}</td>
                                                         <td>{{post.LoginID}}</td>
                                                         <td>{{post.MiddleName}}</td>
                                                         <td>{{post.Surname}}</td>
                                                     <tr>
-                                                        </tbody>
+                                                 </tbody>
 
                                                     </table>
                                                 </div>

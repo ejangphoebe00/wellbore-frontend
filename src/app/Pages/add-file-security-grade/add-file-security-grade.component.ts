@@ -5,11 +5,11 @@ import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-add-users',
-  templateUrl: './add-users.component.html',
-  styleUrls: ['./add-users.component.css']
+  selector: 'app-add-file-security-grade',
+  templateUrl: './add-file-security-grade.component.html',
+  styleUrls: ['./add-file-security-grade.component.css']
 })
-export class AddUsersComponent implements OnInit {
+export class AddFileSecurityGradeComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
 

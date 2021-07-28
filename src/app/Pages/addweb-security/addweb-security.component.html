@@ -58,10 +58,10 @@
                                     </a>
                                 </li>
 
-                                <li>
+                                <li><div>
                                     <a>
                                         <i (click)="logout()" class="icon-key"></i>
-                                        Log Out </a>
+                                        Log Out </a></div>
                                 </li>
                             </ul>
                         </li>
@@ -169,7 +169,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a
+                                    <a  [routerLink]="['/add-users']"
                                         class="nav-link">
                                         <span class="title">Add Users</span>
                                     </a>
@@ -218,7 +218,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a
+                                    <a [routerLink]="['/add-wellbore']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore</span>
                                     </a>
@@ -306,7 +306,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a  [routerLink]="['/add-file-formats']" class="nav-link">
                                         <span class="title">Add File Formats</span>
                                     </a>
                                 </li>
@@ -326,7 +326,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a  [routerLink]="['/add-file-grades']" class="nav-link">
                                         <span class="title">Add Security Grades</span>
                                     </a>
                                 </li>
