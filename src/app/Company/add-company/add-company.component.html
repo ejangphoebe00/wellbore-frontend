@@ -50,15 +50,15 @@
                         </div>
                         <div class="portlet-body form">
                           <!-- <form role="form"> -->
-                            <form [formGroup]="formGroup" (ngSubmit)="addCompanyDetails()">
+                            <form [formGroup]="formGroup" (ngSubmit)="addCompanyDetails()" ngNativeValidate>
                                 <div class="form-body row">
                                   <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>PAUID</label>
-                                        <input type="text" formControlName="PAUID" required class="form-control" placeholder="">
+                                        <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
+                                        <input type="text" formControlName="PAUID" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Company Long Name</label>
+                                        <label>Company Long Name<span class="red asterisk-validate ml-2">*</span></label>
                                         <input type="text" formControlName="CompanyLongName" required class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
@@ -66,44 +66,57 @@
                                         <input type="text" formControlName="CompanyShortName" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>NSD Number</label>
+                                        <label>NSD Number<span class="red asterisk-validate ml-2">*</span></label>
                                         <input type="text" formControlName="NSD_Number" required class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Category ID</label>
-                                        <input type="text" formControlName="CompanyCategory_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CompanyCategory_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Of Origin ID</label>
-                                        <input type="text" formControlName="CountryOfOrigin_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CountryOfOrigin_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Country Of Registration ID</label>
-                                        <input type="text" formControlName="CountryOfRegistration_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CountryOfRegistration_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Registration Number</label>
+                                        <label>Registration Number<span class="red asterisk-validate ml-2">*</span></label>
                                         <input type="text" formControlName="RegistrationNumber" required class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label>TIN Number</label>
+                                        <label>TIN Number<span class="red asterisk-validate ml-2">*</span></label>
                                         <input type="text" formControlName="TINNumber" required class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Telephone</label>
-                                        <input type="text" formControlName="CompanyTelephone" class="form-control" placeholder="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="CompanyTelephone"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Company Email</label>
-                                        <input type="text" formControlName="CompanyEmail" class="form-control" placeholder="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="CompanyEmail"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Company Website</label>
-                                        <input type="text" formControlName="CompanyWebsite" class="form-control" placeholder="">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-link"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="CompanyWebsite"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Company Entity Type ID</label>
-                                        <input type="text" formControlName="CompanyEntityType_id" class="form-control" placeholder="">
+                                        <input type="number" class="form-control" formControlName="CompanyEntityType_id">
                                     </div>
                                   </div>
 
@@ -111,23 +124,23 @@
 
                                     <div class="form-group">
                                         <label>Company Entity Sub Type ID</label>
-                                        <input type="text" formControlName="CompanyEntitySubType_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CompanyEntitySubType_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Major Activity ID</label>
-                                        <input type="text" formControlName="CompanyMajorActivity_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CompanyMajorActivity_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Activity Division ID</label>
-                                        <input type="text" formControlName="CompanyActivityDivision_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CompanyActivityDivision_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Activity Division Class ID</label>
-                                        <input type="text" formControlName="CompanyActivityDivisionClass_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CompanyActivityDivisionClass_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>  Company Activity Division Class Category ID</label>
-                                        <input type="text" formControlName="CompanyActivityDivisionClassCategory_id" class="form-control" placeholder="">
+                                        <input type="number" formControlName="CompanyActivityDivisionClassCategory_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Business Nature Description</label>
@@ -143,35 +156,57 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Company Other Emails</label>
-                                        <input type="text" formControlName="CompanyOtherEmails" class="form-control" placeholder="">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="CompanyOtherEmails"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>NSD Qualification Date</label>
-                                        <input type="text" formControlName="NSDQualificationDate" class="form-control" placeholder="">
+                                        <input type="date" class="form-control" formControlName="NSDQualificationDate">
                                     </div>
                                     <div class="form-group">
                                         <label>NSD Qualification Year</label>
-                                        <input type="text" formControlName="NSDQualificationYear" class="form-control" placeholder="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="NSDQualificationYear"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Primary Contact Entity</label>
                                         <input type="text" formControlName="PrimaryContactEntity" class="form-control" placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Contact Entity Email</label>
-                                        <input type="text" formControlName="ContactEntityEmail" class="form-control" placeholder="">
-                                    </div>
+
                                   </div>
 
                                   <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Contact Entity Email</label>
 
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="ContactEntityEmail"> </div>
+                                    </div>
                                     <div class="form-group">
                                         <label>Contact Entity Telephone</label>
-                                        <input type="text" formControlName="ContactEntityTelephone" class="form-control" placeholder="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="ContactEntityTelephone"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Contact Entity Mobile</label>
-                                        <input type="text" formControlName="ContactEntityMobile" class="form-control" placeholder="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="ContactEntityMobile"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Contact Designation</label>
@@ -187,7 +222,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>PAU Registration Date</label>
-                                        <input type="text" formControlName="PAURegistrationDate" class="form-control" placeholder="">
+                                        <input type="date" class="form-control" formControlName="PAURegistrationDate">
                                     </div>
                                     <div class="form-group">
                                         <label>Crane NOGTRID</label>
@@ -205,10 +240,7 @@
                                         <label>Classify As Ugandan ID</label>
                                         <input type="text" formControlName="ClassifyAsUgandan_id" class="form-control" placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Comments</label>
-                                        <input type="text" formControlName="Comments" class="form-control" placeholder="">
-                                    </div>
+
                                     <div class="form-group">
                                         <label>Primary Company Kind ID</label>
                                         <input type="text" formControlName="PrimaryCompanyKind_id" class="form-control" placeholder="">
@@ -217,21 +249,24 @@
                                         <label>Secondary Company Kind ID</label>
                                         <input type="text" formControlName="SecondaryCompanyKind_id" class="form-control" placeholder="">
                                     </div>
+                                  </div>
+
+                                  <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Other Company Kind ID</label>
                                         <input type="text" formControlName="OtherCompanyKind_id" class="form-control" placeholder="">
                                     </div>
-                                  </div>
-
-                                  <div class="col-md-3">
-
                                     <div class="form-group">
                                         <label>Company Group ID</label>
                                         <input type="text" formControlName="CompanyGroup_id" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Company Mobile</label>
-                                        <input type="text" formControlName="CompanyMobile" class="form-control" placeholder="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </span>
+                                            <input type="text" class="form-control" formControlName="CompanyMobile"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Company Fax</label>
@@ -243,11 +278,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>NSD From Date</label>
-                                        <input type="text" formControlName="NSD_FromDate" class="form-control" placeholder="">
+                                        <input type="date" class="form-control" formControlName="NSD_FromDate">
                                     </div>
                                     <div class="form-group">
                                         <label>NSD To Date</label>
-                                        <input type="text" formControlName="NSD_ToDate" class="form-control" placeholder="">
+                                        <input type="date" class="form-control" formControlName="NSD_ToDate">
                                     </div>
                                     <div class="form-group">
                                         <label>Imported From NSD</label>
@@ -255,11 +290,11 @@
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Imported Date</label>
-                                        <input type="text" formControlName="ImportedDate" class="form-control" placeholder="">
+                                        <input type="date" class="form-control" formControlName="ImportedDate">
                                     </div>
                                     <div class="form-group">
                                         <label>Exported Date</label>
-                                        <input type="text" formControlName="ExportedDate" class="form-control" placeholder="">
+                                        <input type="date" class="form-control" formControlName="ExportedDate">
                                     </div> -->
                                     <div class="form-group">
                                         <label>Exported To Nogtr</label>
@@ -272,6 +307,10 @@
                                     <div class="form-group">
                                         <label>Previous Legal Name</label>
                                         <input type="text" formControlName="PreviousLegalName" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Comments</label>
+                                        <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
                                     </div>
                                   </div>
                               </div>

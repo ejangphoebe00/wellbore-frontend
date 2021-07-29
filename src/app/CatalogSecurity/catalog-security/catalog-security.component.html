@@ -13,7 +13,7 @@
       <!-- BACK Nav -->
       <!-- BEGIN HEADER -->
       <div class="container p-5 middle text-white">
-        <h3> CORE TYPE SDETAILS </h3>
+        <h3> CATALOG SECURITY DETAILS </h3>
       </div>
       <!-- END HEADER -->
         <!-- BEGIN CONTENT BODY -->
@@ -56,21 +56,22 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form role="form">
+                          <!-- <form > -->
+                            <form [formGroup]="formGroup" (ngSubmit)="addCatalogSecurity()" ngNativeValidate>
                                 <div class="form-body">
 
                                     <div class="form-group">
-                                        <label>Core Type Name</label>
-                                        <input type="text" class="form-control" placeholder="">
+                                        <label>Catalog Security Flag Name <span class="red asterisk-validate ml-2">*</span></label>
+                                        <input type="text" required formControlName="CatalogSecurityFlagName"class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Sort Order</label>
-                                        <input type="text" class="form-control" placeholder="">
+                                        <input type="number" formControlName="SortOrder" class="form-control" placeholder="">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Comments</label>
-                                        <textarea name="name" rows="8" cols="80" class="form-control" placeholder=""></textarea>
+                                        <textarea name="name" rows="8" cols="80" formControlName="Comments" class="form-control" placeholder=""></textarea>
                                     </div>
 
                                     <div class="form-actions">

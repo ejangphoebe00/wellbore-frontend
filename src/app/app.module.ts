@@ -15,13 +15,16 @@ import { AddUsersComponent } from './Pages/add-users/add-users.component';
 import { TokenInterceptorService } from './Interceptor/token-interceptor.service';
 import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
-import { CatalogSecurityComponent } from './Pages/catalog-security/catalog-security.component';
-import { StratLithoUnitComponent } from './Pages/strat-litho-unit/strat-litho-unit.component';
-import { CoreTypesComponent } from './Pages/core-types/core-types.component';
+import { StratLithoUnitComponent } from './StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
+import { CoreTypesComponent } from './CoreTypes/core-types/core-types.component';
 import { UserLogsComponent } from './user-logs/user-logs.component';
 import { UsersListComponent } from './Pages/users-list/users-list.component';
 import { AddCompanyComponent } from './Company/add-company/add-company.component';
 import { ViewCompaniesComponent } from './Company/view-companies/view-companies.component';
+import { CatalogSecurityComponent } from './CatalogSecurity/catalog-security/catalog-security.component';
+import { ViewCatalogueSecurityLevelsComponent } from './CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
+import { ViewStratLithoUnitComponent } from './StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
+import { ViewCoreTypeComponent } from './view-core-type/view-core-type.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +37,13 @@ import { ViewCompaniesComponent } from './Company/view-companies/view-companies.
     WebSecurityLevelsComponent,
     AddCompanyComponent,
     CatalogSecurityComponent,
+    ViewCatalogueSecurityLevelsComponent,
     StratLithoUnitComponent,
     CoreTypesComponent,
     UserLogsComponent,
     UsersListComponent,
+    ViewStratLithoUnitComponent,
+    ViewCoreTypeComponent,
   ],
   imports: [
     BrowserModule,

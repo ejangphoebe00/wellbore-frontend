@@ -1,0 +1,372 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210729.082822.22992.0.001.json",
+    "dumpEventTime": "2021-07-29T08:28:22Z",
+    "dumpEventTimeStamp": "1627536502857",
+    "processId": 22992,
+    "cwd": "C:\\Users\\Phibi\\Documents\\gemmar\\wellbore-storeug",
+    "commandLine": [
+      "node",
+      "C:\\Users\\Phibi\\AppData\\Roaming\\npm\\\\node_modules\\@angular\\cli\\bin\\ng",
+      "serve"
+    ],
+    "nodejsVersion": "v12.16.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.1",
+      "v8": "7.8.279.23-node.31",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18363",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz",
+        "speed": 2295,
+        "user": 106341484,
+        "nice": 0,
+        "sys": 130664343,
+        "idle": 737475218,
+        "irq": 17472187
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz",
+        "speed": 2295,
+        "user": 101821171,
+        "nice": 0,
+        "sys": 92467468,
+        "idle": 780192328,
+        "irq": 2685062
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz",
+        "speed": 2295,
+        "user": 115349843,
+        "nice": 0,
+        "sys": 100156921,
+        "idle": 758974156,
+        "irq": 1437625
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz",
+        "speed": 2295,
+        "user": 124876515,
+        "nice": 0,
+        "sys": 93697406,
+        "idle": 755906984,
+        "irq": 1169812
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DESKTOP-KMDT3I7"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff7082619f9",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff708265e1c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff708264dd8",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff7083634cb",
+      "symbol": "v8::base::CPU::has_sse+38363"
+    },
+    {
+      "pc": "0x00007ff708b79f4e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff708b62021",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff708a2e57c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff708a397d0",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff708a362f4",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff708a2bb13",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff708a2a184",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2452"
+    },
+    {
+      "pc": "0x00007ff708a4b36d",
+      "symbol": "v8::internal::Factory::NewFillerObject+61"
+    },
+    {
+      "pc": "0x00007ff7087b0c51",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+1665"
+    },
+    {
+      "pc": "0x00007ff708fc4ddd",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+546637"
+    },
+    {
+      "pc": "0x00007ff70902d87c",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+975340"
+    },
+    {
+      "pc": "0x00007ff708f49d8c",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42748"
+    },
+    {
+      "pc": "0x00007ff708f430bc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+14892"
+    },
+    {
+      "pc": "0x000002f167603798",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2152833024,
+    "totalCommittedMemory": 2152833024,
+    "usedMemory": 2135089280,
+    "availableMemory": 47008032,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 32808,
+        "used": 32808,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1047456,
+        "used": 216680,
+        "available": 830776
+      },
+      "old_space": {
+        "memorySize": 1696481280,
+        "committedMemory": 1696481280,
+        "capacity": 1685302712,
+        "used": 1685155184,
+        "available": 147528
+      },
+      "code_space": {
+        "memorySize": 8818688,
+        "committedMemory": 8818688,
+        "capacity": 7520224,
+        "used": 7520224,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 4984832,
+        "committedMemory": 4984832,
+        "capacity": 4078400,
+        "used": 4078400,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 439566336,
+        "committedMemory": 439566336,
+        "capacity": 437541696,
+        "used": 437541696,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 544288,
+        "used": 544288,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047456,
+        "used": 0,
+        "available": 1047456
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 1223.09,
+    "kernelCpuSeconds": 80.078,
+    "cpuConsumptionPercent": 3.5718,
+    "maxRss": 2116685824,
+    "pageFaults": {
+      "IORequired": 3763713,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 15621,
+      "writes": 5
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "=C:": "C:\\Users\\Phibi\\Documents\\gemmar\\wellbore-storeug",
+    "=ExitCode": "00000000",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\Phibi\\AppData\\Roaming",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-KMDT3I7",
+    "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+    "dp0": "C:\\Users\\Phibi\\AppData\\Roaming\\npm\\",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "GOOGLE_API_KEY": "no",
+    "GOOGLE_DEFAULT_CLIENT_ID": "no",
+    "GOOGLE_DEFAULT_CLIENT_SECRET": "no",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Phibi",
+    "LOCALAPPDATA": "C:\\Users\\Phibi\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-KMDT3I7",
+    "NUMBER_OF_PROCESSORS": "4",
+    "OneDrive": "C:\\Users\\Phibi\\OneDrive",
+    "OS": "Windows_NT",
+    "Path": "C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Yarn\\bin\\;C:\\src\\flutter\\bin;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\Phibi\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\;C:\\Users\\Phibi\\AppData\\Local\\Programs\\Python\\Python38-32\\;C:\\Users\\Phibi\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Phibi\\AppData\\Roaming\\npm;C:\\Users\\Phibi\\AppData\\Local\\atom\\bin;C:\\Users\\Phibi\\AppData\\Local\\Yarn\\bin;C:\\Users\\Phibi\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Program Files\\heroku\\bin;C:\\Program Files\\Inkscape\\bin",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "4501",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Users\\Phibi\\Documents\\WindowsPowerShell\\Modules;C:\\Users\\Phibi\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\platform\\PowerShell",
+    "PUBLIC": "C:\\Users\\Public",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\Windows",
+    "TEMP": "C:\\Users\\Phibi\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\Phibi\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-KMDT3I7",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-KMDT3I7",
+    "USERNAME": "Phibi",
+    "USERPROFILE": "C:\\Users\\Phibi",
+    "VCINSTALLDIR": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC",
+    "VS160COMCOMNTOOLS": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\System32\\UMPDC.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\Windows\\System32\\fwpuclnt.dll"
+  ]
+}

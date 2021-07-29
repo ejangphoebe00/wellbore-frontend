@@ -56,58 +56,58 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form role="form">
+                            <form [formGroup]="formGroup" (ngSubmit)="addStratLitho()" ngNativeValidate>
                                 <div class="form-body row">
                                   <div class="col-md-6">
                                       <div class="form-group">
-                                          <label>PAU ID</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
+                                          <input type="text" formControlName="PAUID" class="form-control" placeholder="" required>
                                       </div>
                                       <div class="form-group">
-                                          <label>Strat Litho Name</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
+                                          <input type="text" formControlName="StratLithoName" class="form-control" placeholder="" required>
                                       </div>
                                       <div class="form-group">
                                           <label>Litho Strat Alias</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratAlias" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
-                                          <label>IsReservoir Unit ID</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <label>Is Reservoir Unit ID</label>
+                                          <input type="text" formControlName="IsReservoirUnit_id" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Litho Strat Age ID</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratAge_id" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Litho Strat Description Softcopy Path</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control" placeholder="">
                                       </div>
                                   </div>
                                   <div class="col-md-6">
                                       <div class="form-group">
                                           <label>Litho Strat Description Hyperlink</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Litho Strat Map Softcopy Path</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Litho Strat Map Hyperlink</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratMapHyperlink" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Map Portal Litho Strat MapLink</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="MapPortalLithoStratMapLink" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Litho Strat Fact site Url</label>
-                                          <input type="text" class="form-control" placeholder="">
+                                          <input type="text" formControlName="LithoStratFactsiteUrl" class="form-control" placeholder="">
                                       </div>
                                       <div class="form-group">
                                           <label>Comments</label>
-                                          <textarea name="name" rows="8" cols="80" class="form-control" placeholder=""></textarea>
+                                          <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
                                       </div>
                                       <div class="form-actions">
                                           <button type="submit" class="btn blue">Submit</button>

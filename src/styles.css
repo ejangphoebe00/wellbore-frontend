@@ -19,11 +19,22 @@
 .text-white{
   color:white;
 }
+.text-red{
+  color:red;
+}
+.asterisk-validate{
+  color:red;
+  font-weight: bold;
+  font-size: 12px;
+}
 .m-5{
   margin:10px;
 }
 .ml-5{
   margin-left: 50px;
+}
+.ml-2{
+  margin-left: 5px;
 }
 .p-5{
   padding:10px;

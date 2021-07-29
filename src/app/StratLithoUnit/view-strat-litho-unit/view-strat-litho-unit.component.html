@@ -50,7 +50,7 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title text-white"> All Companies</h1>
+        <h1 class="page-title text-white"> Strat Litho Units</h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="row">
@@ -103,37 +103,49 @@
                         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                             <thead>
                                 <tr>
-                                    <th> Company ID </th>
+                                    <th> Strat Litho ID </th>
                                     <th> PAUID </th>
-                                    <th> Long Name </th>
-                                    <th> Short Name </th>
-                                    <th> NSD Number </th>
-                                    <th> (C) Category ID </th>
-                                    <th> Country Of Origin ID </th>
-                                    <th> Country Of Registration ID </th>
-                                    <th> Registration No </th>
-                                    <th> TIN </th>
-                                    <th> (C)Telephone </th>
-                                    <th> (C)Email </th>
-                                    <th> (C)Website </th>
+                                    <th> Strat Litho Name </th>
+                                    <th> Reservior Unit </th>
+                                    <th> Litho Strat Alias </th>
+                                    <th> Is Reservoir Unit ID </th>
+                                    <th> Litho Strat Age ID </th>
+                                    <th> Litho Strat Description Softcopy Path </th>
+                                    <th> Litho Strat Description Hyperlink </th>
+                                    <th> Litho Strat Map SoftCopy Path </th>
+                                    <th> Litho Strat Map Hyperlink </th>
+                                    <th> Map Portal Litho Strat Map Link </th>
+                                    <th> Litho Strat Fact site Url </th>
+                                    <th> Comments </th>
+                                    <th> Created By ID </th>
+                                    <th> Date Created </th>
+                                    <th> Modified On </th>
+                                    <th> Modified By </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let company of companyList">
-                                    <td> {{company.Company_id}}</td>
-                                    <td> {{company.PAUID}}</td>
-                                    <td> {{company.CompanyLongName}}</td>
-                                    <td> {{company.CompanyShortName}}</td>
-                                    <td> {{company.NSD_Number}}</td>
-                                    <td> {{company.CompanyCategory_id}}</td>
-                                    <td> {{company.CountryOfOrigin_id}}</td>
-                                    <td> {{company.CountryOfRegistration_id}}</td>
-                                    <td> {{company.RegistrationNumber}}</td>
-                                    <td> {{company.TINNumber}}</td>
-                                    <td> {{company.CompanyTelephone}}</td>
-                                    <td> {{company.CompanyEmail}}</td>
-                                    <td> {{company.CompanyWebsite}}</td>
-
+                              <!-- <tr> -->
+                                <tr *ngFor="let strat of stratLithoUnitList">
+                                    <td>{{strat.StratLitho_id}} </td>
+                                    <td>{{strat.PAUID}} </td>
+                                    <td> {{ strat.StratLitho_id }} </td>
+                                    <td> {{ strat.PAUID }} </td>
+                                    <td> {{ strat.StratLithoName }} </td>
+                                    <td> {{ strat.ReserviorUnit }} </td>
+                                    <td> {{ strat.LithoStratAlias }} </td>
+                                    <td> {{ strat.IsReservoirUnit_id }} </td>
+                                    <td> {{ strat.LithoStratAge_id }} </td>
+                                    <td> {{ strat.LithoStratDescriptionSoftcopyPath }} </td>
+                                    <td> {{ strat.LithoStratDescriptionHyperlink }} </td>
+                                    <td> {{ strat.LithoStratMapSoftCopyPath }} </td>
+                                    <td> {{ strat.LithoStratMapHyperlink }} </td>
+                                    <td> {{ strat.MapPortalLithoStratMapLink }} </td>
+                                    <td> {{ strat.LithoStratFactsiteUrl }} </td>
+                                    <td> {{ strat.Comments }} </td>
+                                    <td> {{ strat.CreatedBy_id }} </td>
+                                    <td> {{ strat.DateCreated }} </td>
+                                    <td> {{ strat.ModifiedOn }} </td>
+                                    <td> {{ strat.ModifiedBy }} </td>
                                     <td>
                                         <a class="edit" href="javascript:;"> Edit </a>
                                     </td>

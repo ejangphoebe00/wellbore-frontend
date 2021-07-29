@@ -5,9 +5,11 @@ import { LoginComponent } from './Auth/login/login.component';
 import { AddUsersComponent } from './Pages/add-users/add-users.component';
 import { AddCompanyComponent } from './Company/add-company/add-company.component';
 import { ViewCompaniesComponent } from './Company/view-companies/view-companies.component';
-import { CatalogSecurityComponent } from './Pages/catalog-security/catalog-security.component';
-import { StratLithoUnitComponent } from './Pages/strat-litho-unit/strat-litho-unit.component';
-import { CoreTypesComponent } from './Pages/core-types/core-types.component';
+import { CatalogSecurityComponent } from './CatalogSecurity/catalog-security/catalog-security.component';
+import { ViewCatalogueSecurityLevelsComponent} from './CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
+import { StratLithoUnitComponent } from './StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
+import { ViewStratLithoUnitComponent } from './StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
+import { CoreTypesComponent } from './CoreTypes/core-types/core-types.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path: 'add-company', component: AddCompanyComponent},
   {path: 'view-companies', component: ViewCompaniesComponent},
   {path: 'catalog-security', component: CatalogSecurityComponent},
+  {path: 'view-catalog-security', component: ViewCatalogueSecurityLevelsComponent},
   {path: 'strat-litho-unit', component: StratLithoUnitComponent},
+  {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
   {path: 'core-types', component: CoreTypesComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'add-web-security', component:  AddwebSecurityComponent},

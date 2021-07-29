@@ -50,7 +50,7 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title text-white"> All Companies</h1>
+        <h1 class="page-title text-white"> All Catalog Security Levels</h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="row">
@@ -103,37 +103,22 @@
                         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                             <thead>
                                 <tr>
-                                    <th> Company ID </th>
-                                    <th> PAUID </th>
-                                    <th> Long Name </th>
-                                    <th> Short Name </th>
-                                    <th> NSD Number </th>
-                                    <th> (C) Category ID </th>
-                                    <th> Country Of Origin ID </th>
-                                    <th> Country Of Registration ID </th>
-                                    <th> Registration No </th>
-                                    <th> TIN </th>
-                                    <th> (C)Telephone </th>
-                                    <th> (C)Email </th>
-                                    <th> (C)Website </th>
+                                    <th>  Catalog Security Flag ID </th>
+                                    <th>  Catalog Security Flag Name </th>
+                                    <th>  SortOrder </th>
+                                    <th>  Comments </th>
+                                    <th>  Modified On </th>
+                                    <th>  Modified By </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let company of companyList">
-                                    <td> {{company.Company_id}}</td>
-                                    <td> {{company.PAUID}}</td>
-                                    <td> {{company.CompanyLongName}}</td>
-                                    <td> {{company.CompanyShortName}}</td>
-                                    <td> {{company.NSD_Number}}</td>
-                                    <td> {{company.CompanyCategory_id}}</td>
-                                    <td> {{company.CountryOfOrigin_id}}</td>
-                                    <td> {{company.CountryOfRegistration_id}}</td>
-                                    <td> {{company.RegistrationNumber}}</td>
-                                    <td> {{company.TINNumber}}</td>
-                                    <td> {{company.CompanyTelephone}}</td>
-                                    <td> {{company.CompanyEmail}}</td>
-                                    <td> {{company.CompanyWebsite}}</td>
-
+                                <tr *ngFor="let catalog of catalogSecurityFlagList">
+                                    <td> catalog.CatalogSecurityFlag_id </td>
+                                    <td> catalog.CatalogSecurityFlagName </td>
+                                    <td> catalog.SortOrder </td>
+                                    <td> catalog.Comments </td>
+                                    <td> catalog.ModifiedOn </td>
+                                    <td> catalog.ModifiedBy </td>
                                     <td>
                                         <a class="edit" href="javascript:;"> Edit </a>
                                     </td>
