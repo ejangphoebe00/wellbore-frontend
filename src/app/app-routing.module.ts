@@ -15,6 +15,7 @@ import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
 import { UserLogsComponent } from './user-logs/user-logs.component';
 import { UsersListComponent } from './Pages/users-list/users-list.component';
+import { ViewCoreTypeComponent } from './CoreTypes/view-core-type/view-core-type.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'strat-litho-unit', component: StratLithoUnitComponent},
   {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
   {path: 'core-types', component: CoreTypesComponent},
+  {path: 'view-core-type', component: ViewCoreTypeComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'add-web-security', component:  AddwebSecurityComponent},
   {path: 'web-security-levels', component:WebSecurityLevelsComponent},

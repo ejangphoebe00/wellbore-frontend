@@ -24,7 +24,7 @@ import { ViewCompaniesComponent } from './Company/view-companies/view-companies.
 import { CatalogSecurityComponent } from './CatalogSecurity/catalog-security/catalog-security.component';
 import { ViewCatalogueSecurityLevelsComponent } from './CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
 import { ViewStratLithoUnitComponent } from './StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
-import { ViewCoreTypeComponent } from './view-core-type/view-core-type.component';
+import { ViewCoreTypeComponent } from './CoreTypes/view-core-type/view-core-type.component';
 
 @NgModule({
   declarations: [
