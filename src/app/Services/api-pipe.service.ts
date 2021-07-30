@@ -25,6 +25,19 @@ export class ApiPipeService {
     return localStorage.getItem("token")
   }
 
+  getRole(){
+    return localStorage.getItem("role")
+  }
+
+  getUpdateId(){
+    return localStorage.getItem("update-id")
+  }
+
+  getEmail(){
+    return localStorage.getItem("Email")
+  }
+
+
   Login(data: any): Observable<any>{
     console.log("i am server")
     return this.http.post('http://127.0.0.1:8899/user/login',data)
@@ -87,6 +100,15 @@ securityStatus(){
   })
 }
 
+securityStatusUpdate(){
+  this.toastr.error("updating web security failed. Try Again","",{
+    timeOut: 2000,
+    positionClass: 'toast-top-center',
+    progressBar: true,
+    progressAnimation:'decreasing'
+  })
+}
+
 
 getSecurity(): Observable<any>{
   console.log("get Security")
@@ -101,6 +123,12 @@ getLogs(): Observable<any>{
 getAllUsers(): Observable<any>{
   console.log("get Logs")
   return this.http.get('http://127.0.0.1:8899/user/get_users')
+}
+
+updateWebSecurity(data:any): Observable<any>{
+  console.log("update Security")
+  return this.http.put('http://127.0.0.1:8899/apiv1/edit_web_security_level/'+this.getUpdateId(),data)
+
 }
 
 

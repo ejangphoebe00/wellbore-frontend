@@ -16,6 +16,9 @@ export class UsersListComponent implements OnInit {
 
 
 users: any = [];
+role:any;
+  userEmail:any;
+  loggedin:any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -25,8 +28,15 @@ users: any = [];
   ) { }
 
   ngOnInit(): void {
-    this.userList()
     this.authservice.reload();
+    this.userList()
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
   }
 
   ngOnDestroy(): void {

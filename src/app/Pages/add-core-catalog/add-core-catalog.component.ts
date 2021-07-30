@@ -13,6 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AddCoreCatalogComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  role:any;
+  userEmail: any;
+  loggedin:any;
 
 
   constructor(
@@ -24,6 +27,13 @@ export class AddCoreCatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
    this.authservice.reload();
   }
 

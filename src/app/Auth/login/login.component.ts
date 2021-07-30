@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   loginProcess() {
     if (this.formGroup.valid) {
+      localStorage.setItem("Email", this.formGroup.value.UserEmailAddress);    
       this.authservice.Login(this.formGroup.value).subscribe(result => {
 
         if (result.message == "Login Successful") {
@@ -38,7 +39,6 @@ export class LoginComponent implements OnInit {
           console.log(result.access_token);
           localStorage.setItem("role",result.user_role);
           localStorage.setItem("token", this.title);
-          localStorage.setItem("Email", this.formGroup.value.Email);
           this.authservice.loginSucess()
           setTimeout(() => {                           
             this.router.navigate(['/dashboard']);

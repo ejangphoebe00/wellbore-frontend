@@ -12,6 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AddUsersComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  role:any;
+  userEmail: any;
+  loggedin: any;
 
 
   constructor(
@@ -22,19 +25,27 @@ export class AddUsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initForm();
-   this.authservice.reload();
+    this.authservice.reload();
+
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
+ 
   }
 
-  initForm(){
-    this.formGroup = new FormGroup({
-      WebSecurityLevelName:new FormControl(),
-      WebSecurityLevelDescription:new FormControl(),
-      WebSecurityLevelAbbreviation:new FormControl(),
-      Comments:new FormControl(),
+  // initForm(){
+  //   this.formGroup = new FormGroup({
+  //     WebSecurityLevelName:new FormControl(),
+  //     WebSecurityLevelDescription:new FormControl(),
+  //     WebSecurityLevelAbbreviation:new FormControl(),
+  //     Comments:new FormControl(),
   
-    });
-  }
+  //   });
+  // }
 
 
   logout(){

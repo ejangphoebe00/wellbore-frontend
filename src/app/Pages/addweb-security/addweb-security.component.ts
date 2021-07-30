@@ -13,6 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AddwebSecurityComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  role:any;
+  userEmail: any;
+  loggedin: any;
 
 
   constructor(
@@ -23,8 +26,17 @@ export class AddwebSecurityComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.authservice.reload();
+
     this.initForm();
-   this.authservice.reload();
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
+
   }
 
   initForm(){
@@ -59,6 +71,9 @@ export class AddwebSecurityComponent implements OnInit {
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
+          setTimeout(() => {                           
+            this.router.navigate(['/web-security-levels']);
+          }, 1000);
           
         } else{          
           this.authservice.securityStatus()

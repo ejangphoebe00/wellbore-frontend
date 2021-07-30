@@ -6,13 +6,13 @@
             <div class="page-header-inner">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a>
+                    <a >
                         <!-- <img src="..//asts/assets/layouts/layout/img/logo.png"
-                                     class="logo-default" /> Wellbore Store -->
-                    </a>
+                             class="logo-default" /> Wellbore Store -->
+                            </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
-                    </div>
+                    </div>                  
                 </div>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -22,10 +22,8 @@
                 </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
-
-
                 <div class="top-menu">
-
+                          
                     <ul class="nav navbar-nav pull-right">
                         <!-- BEGIN NOTIFICATION DROPDOWN -->
                         <!-- DOC: Apply "dropdown-dark" class after "dropdown-extended" to change the dropdown styte -->
@@ -37,40 +35,40 @@
                         <!-- END INBOX DROPDOWN -->
                         <!-- BEGIN TODO DROPDOWN -->
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                       
                         <!-- END TODO DROPDOWN -->
                         <!-- BEGIN USER LOGIN DROPDOWN -->
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
-                            <a class="dropdown-toggle"
+                            <a  class="dropdown-toggle"
                                 data-toggle="dropdown" data-hover="dropdown"
                                 data-close-others="true">
                                 <img alt="" class="img-circle"
                                     src="../assets/assets/layouts/layout/img/avatar3_small.jpg"
                                     />
                                 <span class="username username-hide-on-mobile">
-                                    Admin </span>
+                                    {{userEmail}} </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a>
-                                        <i class="icon-user"></i> My Profile
+                                    <a >
+                                        <i class="icon-user"></i> Logged in as {{loggedin}}
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a>
-                                        <i (click)="logout()" class="icon-key"></i>
-                                        Log Out </a>
+                               
+                                <li >
+                                    <a >
+                                        <i  click="logout()" class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
                         </li>
                         <!-- END USER LOGIN DROPDOWN -->
                         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                        <li click="logout()" class="dropdown dropdown-quick-sidebar-toggler">
                             <a class="dropdown-toggle">
-                                <i class="icon-logout"></i>
+                                <i  class="icon-logout"></i>
                             </a>
                         </li>
                         <!-- END QUICK SIDEBAR TOGGLER -->
@@ -115,20 +113,20 @@
                             <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
                             <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
                             <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+                
                             <!-- END RESPONSIVE QUICK SEARCH FORM -->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
-                                <span class="arrow"></span>
+                                <span class="arrow "></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
-                                    <a [routerLink]="['/dashboard']"
-                                        class="nav-link">
+                                <li class="nav-item start">
+                                    <a class="nav-link">
                                         <span class="title">Wellbore Dashboard</span>
-                                        <span class="selected"></span>
+                                        <span class="arrow"></span>
                                     </a>
                                 </li>
                             </ul>
@@ -136,7 +134,7 @@
                         <li class="heading">
                             <h3 class="uppercase">Components</h3>
                         </li>
-                        <li class="nav-item start active open">
+                        <li *ngIf="role"  class="nav-item start active open">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-diamond"></i>
                                 <span class="title">Web Security</span>
@@ -145,50 +143,46 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a [routerLink]="['/add-web-security']"
-                                        class="nav-link">
-                                        <span class="title">Add Web Security
-                                            Levels</span>
+                                    <a [routerLink]="['/add-web-security']"class="nav-link">
+                                        <span class="title">Add Web Security Levels</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a [routerLink]="['/web-security-levels']"
-                                        class="nav-link">
-                                        <span class="title">View Web Security
-                                            Levels</span>
+                                    <a [routerLink]="['/web-security-levels']" class="nav-link">
+                                        <span class="title">View Web Security Levels</span>
                                     </a>
                                 </li>
-
+                            
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-toggle">
+                        <li *ngIf="role" class="nav-item">
+                            <a  class="nav-link nav-toggle">
                                 <i class="icon-puzzle"></i>
                                 <span class="title">Users</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
+                            <ul  class="sub-menu">
                                 <li class="nav-item">
-                                    <a  [routerLink]="['/add-users']"
+                                    <a   [routerLink]="['/add-users']"
                                         class="nav-link">
                                         <span class="title">Add Users</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a [routerLink]="['/users']"
+                                    <a 
                                         class="nav-link">
                                         <span class="title">View Users</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a [routerLink]="['/user-logs']"
+                                    <a  [routerLink]="['/user-logs']" 
                                         class="nav-link">
                                         <span class="title">User Logs</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
+                     
                         <li class="nav-item">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-bulb"></i>
@@ -196,14 +190,14 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
-                                    <a
+                                <li *ngIf="role" class="nav-item">
+                                    <a 
                                         class="nav-link">
                                         <span class="title">Add Company</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a
+                                    <a 
                                         class="nav-link">
                                         <span class="title">View Companies</span>
                                     </a>
@@ -211,27 +205,27 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-toggle">
+                            <a  class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Wellbore</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
-                                    <a [routerLink]="['/add-wellbore']"
+                                <li *ngIf="role" class="nav-item">
+                                    <a  [routerLink]="['/add-wellbore']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a
+                                    <a 
                                         class="nav-link">
-                                        <span class="title">View Wellbores</span>
+                                        <span class="title">View  Wellbores</span>
                                     </a>
                                 </li>
-
+                           
                             </ul>
-                        </li>
+                        </li>                    
 
                         <li class="nav-item">
                             <a class="nav-link nav-toggle">
@@ -241,19 +235,18 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a
+                                    <a *ngIf="role" 
                                         class="nav-link">
                                         <span class="title">Add Strat Litho Unit</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a
+                                    <a 
                                         class="nav-link">
-                                        <span class="title">View Strat Litho
-                                            Units</span>
+                                        <span class="title">View Strat Litho Units</span>
                                     </a>
                                 </li>
-
+                              
                             </ul>
                         </li>
 
@@ -264,8 +257,8 @@
                                 <span class="title">Catalog Security</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
+                            <ul  class="sub-menu">
+                                <li *ngIf="role"  class="nav-item">
                                     <a class="nav-link">
                                         <span class="title">Add Catalog Security</span>
                                     </a>
@@ -276,7 +269,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> 
 
                         <li class="nav-item">
                             <a class="nav-link nav-toggle">
@@ -284,8 +277,8 @@
                                 <span class="title">Core Types</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
+                            <ul  class="sub-menu">
+                                <li *ngIf="role"  class="nav-item">
                                     <a class="nav-link">
                                         <span class="title">Add Core Types</span>
                                     </a>
@@ -296,7 +289,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> 
 
                         <li class="nav-item">
                             <a class="nav-link nav-toggle">
@@ -305,8 +298,9 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
-                                    <a   [routerLink]="['/add-file-formats']" class="nav-link">
+                                <li  *ngIf="role" class="nav-item">
+                                    <a [routerLink]="['/add-file-formats']"
+                                       class="nav-link">
                                         <span class="title">Add File Formats</span>
                                     </a>
                                 </li>
@@ -316,7 +310,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> 
 
                         <li class="nav-item">
                             <a class="nav-link nav-toggle">
@@ -324,8 +318,8 @@
                                 <span class="title">File Security Grades</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
+                            <ul  class="sub-menu">
+                                <li *ngIf="role"  class="nav-item">
                                     <a  [routerLink]="['/add-file-grades']" class="nav-link">
                                         <span class="title">Add Security Grades</span>
                                     </a>
@@ -336,50 +330,50 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-
+                        </li>  
+ 
                         <li class="nav-item">
-                            <a class="nav-link nav-toggle">
+                            <a  class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Wellbore Core</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li *ngIf="role"  class="nav-item">
                                     <a [routerLink]="['/add-wellbore-core']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore Core</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a
-                                        class="nav-link">
+                                    <a 
+                                        class="nav-link"> 
                                         <span class="title">View Wellbores Cores</span>
                                     </a>
                                 </li>
-
+                           
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-toggle">
+                            <a  class="nav-link nav-toggle">
                                 <i class="icon-bar-chart"></i>
                                 <span class="title">Core Catalog</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li  *ngIf="role"  class="nav-item">
                                     <a [routerLink]="['/add-core-catalog']"
                                         class="nav-link">
                                         <span class="title">Add Core Catalog</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a
+                                    <a 
                                         class="nav-link">
                                         <span class="title">View Core Catalog</span>
                                     </a>
                                 </li>
-
+                               
                             </ul>
                         </li>
                     </ul>
@@ -533,7 +527,7 @@
 
                     <div class="clearfix"></div>
                     <!-- END DASHBOARD STATS 1-->
-                    <div class="portlet light bordered">
+                    <div *ngIf="status"class="portlet light bordered">
 
                         <div class="portlet-body form">
                             <!-- BEGIN FORM-->
@@ -590,14 +584,15 @@
                                                         <td>{{
                                                             post.WebSecurityLevelAbbreviation
                                                             }}</td>
-                                                        <td><button type="button" class="btn blue btn-outline">Edit</button></td>
-                                                        <td><button type="button" class="btn red btn-outline">Delete</button></td>
+                                                        <td><button type="button" (click)="onSelectEdit(post)"  class="btn blue btn-outline">Edit</button></td>
+                                                        <td><button type="button"  (click)="onSelect(post)" class="btn red btn-outline">Delete</button></td>
                                                     </tr>
 
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
+
                                     <!-- END EXAMPLE TABLE PORTLET-->
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
 
@@ -607,6 +602,70 @@
 
                             <!-- END FORM-->
                         </div>
+                    </div>
+
+                    <div *ngIf="editform" class="portlet-body form">
+                        <!-- BEGIN FORM-->
+                        <form class="form-horizontal" [formGroup]="formGroup"
+                            (ngSubmit)="updateSecurityProcess()"> 
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Web
+                                        Security Level Name</label>
+                                    <div class="col-md-4">
+                                        <input type="text"
+                                            formControlName="WebSecurityLevelName"
+                                            class="form-control"
+                                            placeholder="Name"
+                                            > </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Web
+                                        Security Level Description</label>
+                                    <div class="col-md-4">
+                                        <input type="text"
+                                            formControlName="WebSecurityLevelDescription"
+                                            class="form-control"
+                                            placeholder="Description"
+                                            > </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Web
+                                        Security Level Abbreviation</label>
+                                    <div class="col-md-4">
+                                        <input type="text"
+                                            formControlName="WebSecurityLevelAbbreviation"
+                                            class="form-control"                                        
+                                            > </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Comments</label>
+                                    <div class="col-md-4">
+                                        <input type="text"
+                                            class="form-control spinner"
+                                            formControlName="Comments"
+                                            placeholder="Comments" />
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-4">
+                                            <input type="submit" value="update" class="btn
+                                            btn-success">            
+                                        <button (click)="navigateBack()" type="button" class="btn
+                                            default">Back</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
                     </div>
 
                 </div>

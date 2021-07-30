@@ -12,7 +12,7 @@
                             </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
-                    </div>
+                    </div>                  
                 </div>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -22,8 +22,6 @@
                 </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
-                 
-
                 <div class="top-menu">
                           
                     <ul class="nav navbar-nav pull-right">
@@ -49,26 +47,26 @@
                                     src="../assets/assets/layouts/layout/img/avatar3_small.jpg"
                                     />
                                 <span class="username username-hide-on-mobile">
-                                    Admin </span>
+                                    {{userEmail}} </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
                                     <a >
-                                        <i class="icon-user"></i> My Profile
+                                        <i class="icon-user"></i> Logged in as {{loggedin}}
                                     </a>
                                 </li>
                                
-                                <li ng-click="logout()" >
+                                <li >
                                     <a >
-                                        <i ng-click="logout()" class="icon-key"></i> Log Out </a>
+                                        <i  click="logout()" class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
                         </li>
                         <!-- END USER LOGIN DROPDOWN -->
                         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                        <li click="logout()" class="dropdown dropdown-quick-sidebar-toggler">
                             <a class="dropdown-toggle">
                                 <i  class="icon-logout"></i>
                             </a>
@@ -137,7 +135,7 @@
                         <li class="heading">
                             <h3 class="uppercase">Components</h3>
                         </li>
-                        <li class="nav-item">
+                        <li *ngIf="role"  class="nav-item">
                             <a class="nav-link nav-toggle">
                                 <i class="icon-diamond"></i>
                                 <span class="title">Web Security</span>
@@ -158,13 +156,13 @@
                             
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <li *ngIf="role" class="nav-item">
                             <a  class="nav-link nav-toggle">
                                 <i class="icon-puzzle"></i>
                                 <span class="title">Users</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
+                            <ul  class="sub-menu">
                                 <li class="nav-item">
                                     <a   [routerLink]="['/add-users']"
                                         class="nav-link">
@@ -193,7 +191,7 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li *ngIf="role" class="nav-item">
                                     <a 
                                         class="nav-link">
                                         <span class="title">Add Company</span>
@@ -214,7 +212,7 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li *ngIf="role" class="nav-item">
                                     <a  [routerLink]="['/add-wellbore']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore</span>
@@ -238,7 +236,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a 
+                                    <a *ngIf="role" 
                                         class="nav-link">
                                         <span class="title">Add Strat Litho Unit</span>
                                     </a>
@@ -260,8 +258,8 @@
                                 <span class="title">Catalog Security</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
+                            <ul  class="sub-menu">
+                                <li *ngIf="role"  class="nav-item">
                                     <a class="nav-link">
                                         <span class="title">Add Catalog Security</span>
                                     </a>
@@ -280,8 +278,8 @@
                                 <span class="title">Core Types</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
+                            <ul  class="sub-menu">
+                                <li *ngIf="role"  class="nav-item">
                                     <a class="nav-link">
                                         <span class="title">Add Core Types</span>
                                     </a>
@@ -301,7 +299,7 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li  *ngIf="role" class="nav-item">
                                     <a [routerLink]="['/add-file-formats']"
                                        class="nav-link">
                                         <span class="title">Add File Formats</span>
@@ -321,8 +319,8 @@
                                 <span class="title">File Security Grades</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
+                            <ul  class="sub-menu">
+                                <li *ngIf="role"  class="nav-item">
                                     <a  [routerLink]="['/add-file-grades']" class="nav-link">
                                         <span class="title">Add Security Grades</span>
                                     </a>
@@ -342,7 +340,7 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li *ngIf="role"  class="nav-item">
                                     <a [routerLink]="['/add-wellbore-core']"
                                         class="nav-link">
                                         <span class="title">Add Wellbore Core</span>
@@ -364,7 +362,7 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li  *ngIf="role"  class="nav-item">
                                     <a [routerLink]="['/add-core-catalog']"
                                         class="nav-link">
                                         <span class="title">Add Core Catalog</span>

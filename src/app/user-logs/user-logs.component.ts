@@ -15,10 +15,13 @@ export class UserLogsComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  role:any;
 
 
 allusers: any;
 posts: any = [];
+  userEmail:any;
+  loggedin: any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -28,8 +31,15 @@ posts: any = [];
   ) { }
 
   ngOnInit(): void {
+    this.authservice.reload();
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
     this.userLogs()
-    //  this.getLevels();
   }
 
   ngOnDestroy(): void {

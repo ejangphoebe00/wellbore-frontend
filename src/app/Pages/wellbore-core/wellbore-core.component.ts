@@ -13,6 +13,9 @@ export class WellboreCoreComponent implements OnInit {
 
   formGroup!: FormGroup;
   title!: string;
+  role:any;
+  userEmail: any;
+  loggedin: any;
 
 
   constructor(
@@ -23,8 +26,16 @@ export class WellboreCoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.authservice.reload();
     this.initForm();
-   this.authservice.reload();
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
+  
   }
 
   initForm(){

@@ -8,14 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+role:any;
+userEmail:any;
+loggedin:any;
 
   constructor(
     private authservice: ApiPipeService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
- this.authservice.reload();
+  ngOnInit(): void { 
+    this.authservice.reload();
+    this.userEmail = this.authservice.getEmail();
+    this.loggedin = this.authservice.getRole();
+    if(this.authservice.getRole()=="Admin"){
+      this.role=true;
+    }else{
+    this.role= false;
+    }
+    
+ 
+
  
   }
 
