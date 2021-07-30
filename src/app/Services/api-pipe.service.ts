@@ -86,6 +86,22 @@ logoutuser(){
     this.logOutSucess();
 }
 
+adddWellbore(data:any): Observable<any>{
+  console.log("add user")
+  return this.http.post('http://127.0.0.1:8899/apiv1/add_wellbore',data)
+}
+
+
+wellboreFaliure(){
+  this.toastr.error("Adding a user failed please Try Again","",{
+    timeOut: 2000,
+    positionClass: 'toast-top-center',
+    progressBar: true,
+    progressAnimation:'decreasing'
+  })
+}
+
+
 addWebSecurity(data:any): Observable<any>{
   console.log("add security")
   return this.http.post('http://127.0.0.1:8899/apiv1/add_web_security_level',data)
