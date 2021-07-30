@@ -10,152 +10,185 @@ import { Router } from '@angular/router';
 export class ApiPipeService {
 
   constructor(
-    private http:HttpClient,
+    private http: HttpClient,
     private toastr: ToastrService,
     private router: Router
   ) { }
 
-  viewingStatus(){
-    if(this.getToken()== null){
+  viewingStatus() {
+    if (this.getToken() == null) {
       this.router.navigate(['/login']);
     }
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem("token")
   }
 
-  getRole(){
+  getRole() {
     return localStorage.getItem("role")
   }
 
-  getUpdateId(){
+  getUpdateId() {
     return localStorage.getItem("update-id")
   }
 
-  getEmail(){
+  getEmail() {
     return localStorage.getItem("Email")
   }
 
 
-  Login(data: any): Observable<any>{
+  Login(data: any): Observable<any> {
     console.log("i am server")
-    return this.http.post('http://127.0.0.1:8899/user/login',data)
+    return this.http.post('http://127.0.0.1:8899/user/login', data)
   }
 
-  logOutSucess(){
-    this.toastr.success("Successfully Logged Out", "",{
+  logOutSucess() {
+    this.toastr.success("Successfully Logged Out", "", {
       timeOut: 2000,
       positionClass: 'toast-top-center',
       progressBar: true,
-      progressAnimation:'increasing'
+      progressAnimation: 'increasing'
     })
   }
 
 
-  loginSucess(){
-    this.toastr.success("Successfully Logged In", "",{
+  loginSucess() {
+    this.toastr.success("Successfully Logged In", "", {
       timeOut: 2000,
       positionClass: 'toast-top-center',
       progressBar: true,
-      progressAnimation:'increasing'
+      progressAnimation: 'increasing'
     })
   }
 
-  loginFaliure(){
-    this.toastr.error("Wrong Email Or Password","",{
+  loginFaliure() {
+    this.toastr.error("Wrong Email Or Password", "", {
       timeOut: 2000,
       positionClass: 'toast-top-center',
       progressBar: true,
-      progressAnimation:'decreasing'
+      progressAnimation: 'decreasing'
     })
   }
 
-  reload(){
-  if (!localStorage.getItem('foo')) { 
-    localStorage.setItem('foo', 'no reload') 
-    location.reload() 
-  } else {
-    localStorage.removeItem('foo') 
+  reload() {
+    if (!localStorage.getItem('foo')) {
+      localStorage.setItem('foo', 'no reload')
+      location.reload()
+    } else {
+      localStorage.removeItem('foo')
+    }
   }
-}
 
-logoutuser(){
-   localStorage.removeItem('token') 
+  logoutuser() {
+    localStorage.removeItem('token')
     this.router.navigate(['/login']);
     this.logOutSucess();
-}
+  }
 
-adddWellbore(data:any): Observable<any>{
-  console.log("add user")
-  return this.http.post('http://127.0.0.1:8899/apiv1/add_wellbore',data)
-}
+  adddWellbore(data: any): Observable<any> {
+    console.log("add user")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_wellbore', data)
+  }
 
-addSecurityGrade(data:any): Observable<any>{
-  console.log("add security grade")
-  return this.http.post('http://127.0.0.1:8899/apiv1/add_file_security_grade',data)
-}
+  addSecurityGrade(data: any): Observable<any> {
+    console.log("add security grade")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_file_security_grade', data)
+  }
 
-addFileGrades(data:any): Observable<any>{
-  console.log("add security grade")
-  return this.http.post('http://127.0.0.1:8899/apiv1/add_file_format',data)
-}
+  addFileGrades(data: any): Observable<any> {
+    console.log("add security grade")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_file_format', data)
+  }
 
+  adddWellboreCore(data: any): Observable<any> {
+    console.log("add user")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_welbore_core', data)
+  }
 
-wellboreFaliure(){
-  this.toastr.error("Adding a user failed please Try Again","",{
-    timeOut: 2000,
-    positionClass: 'toast-top-center',
-    progressBar: true,
-    progressAnimation:'decreasing'
-  })
-}
+  getWelboreIds(): Observable<any> {
+    console.log("Retrieved Ids")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore')
+  }
 
+  getCoreReportSecurity(): Observable<any> {
+    console.log(" Retrieved Reports")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_file_security_grades')
+  }
 
-addWebSecurity(data:any): Observable<any>{
-  console.log("add security")
-  return this.http.post('http://127.0.0.1:8899/apiv1/add_web_security_level',data)
-}
+  getFormat(): Observable<any> {
+    console.log(" Retrieved Formats")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_file_formats')
+  }
 
-securityStatus(){
-  this.toastr.error("add web security failed. Try Again","",{
-    timeOut: 2000,
-    positionClass: 'toast-top-center',
-    progressBar: true,
-    progressAnimation:'decreasing'
-  })
-}
+  getCompanies(): Observable<any> {
+    console.log(" Retrieved companies")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_companies')
+  }
 
-securityStatusUpdate(){
-  this.toastr.error("updating web security failed. Try Again","",{
-    timeOut: 2000,
-    positionClass: 'toast-top-center',
-    progressBar: true,
-    progressAnimation:'decreasing'
-  })
-}
+  getStrat():Observable<any>{
+    console.log(" Retrieved strats")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_strat_litho_units')
+  }
 
 
-getSecurity(): Observable<any>{
-  console.log("get Security")
-  return this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
-}
 
-getLogs(): Observable<any>{
-  console.log("get Logs")
-  return this.http.get('http://127.0.0.1:8899/user/get_users_logs')
-}
 
-getAllUsers(): Observable<any>{
-  console.log("get Logs")
-  return this.http.get('http://127.0.0.1:8899/user/get_users')
-}
 
-updateWebSecurity(data:any): Observable<any>{
-  console.log("update Security")
-  return this.http.put('http://127.0.0.1:8899/apiv1/edit_web_security_level/'+this.getUpdateId(),data)
+  wellboreFaliure() {
+    this.toastr.error("Adding a user failed please Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
+  }
 
-}
+
+  addWebSecurity(data: any): Observable<any> {
+    console.log("add security")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_web_security_level', data)
+  }
+
+  securityStatus() {
+    this.toastr.error("add web security failed. Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
+  }
+
+  securityStatusUpdate() {
+    this.toastr.error("updating web security failed. Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
+  }
+
+
+  getSecurity(): Observable<any> {
+    console.log("get Security")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
+  }
+
+  getLogs(): Observable<any> {
+    console.log("get Logs")
+    return this.http.get('http://127.0.0.1:8899/user/get_users_logs')
+  }
+
+  getAllUsers(): Observable<any> {
+    console.log("get Logs")
+    return this.http.get('http://127.0.0.1:8899/user/get_users')
+  }
+
+  updateWebSecurity(data: any): Observable<any> {
+    console.log("update Security")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_web_security_level/' + this.getUpdateId(), data)
+
+  }
 
 
 }

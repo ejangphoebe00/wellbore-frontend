@@ -36,15 +36,16 @@ export class AddFileFormatsComponent implements OnInit {
    this.authservice.reload();
   }
 
+  
   initForm(){
     this.formGroup = new FormGroup({
-      WebSecurityLevelName:new FormControl(),
-      WebSecurityLevelDescription:new FormControl(),
-      WebSecurityLevelAbbreviation:new FormControl(),
-      Comments:new FormControl(),
+      FileSecurityGradeName:new FormControl(),
+      SortOrder:new FormControl(),
+      Comments:new FormControl()
   
     });
   }
+
 
 
   logout(){
