@@ -39,13 +39,13 @@ export class AddFileSecurityGradeComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      WebSecurityLevelName:new FormControl(),
-      WebSecurityLevelDescription:new FormControl(),
-      WebSecurityLevelAbbreviation:new FormControl(),
-      Comments:new FormControl(),
+      FileSecurityGradeName:new FormControl(),
+      SortOrder:new FormControl(),
+      Comments:new FormControl()
   
     });
   }
+
 
 
   logout(){
@@ -53,16 +53,14 @@ export class AddFileSecurityGradeComponent implements OnInit {
 
   }
 
-
-  addSecurityProcess(){
+  addSecurityGradeProcess(){
     console.log("tested")
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
-      this.authservice.addWebSecurity(this.formGroup.value).subscribe(result =>{
-        console.log(result)
-
-        if(result.message == "Web security level added successfuly."){
-          this.toastr.success("Web security level added successfuly.","",{
+      this.authservice.addSecurityGrade(this.formGroup.value).subscribe(result =>{
+       
+        if(result.message == "File Security Grade added successfuly."){
+          this.toastr.success("File Security Grade added successfuly.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
@@ -71,7 +69,7 @@ export class AddFileSecurityGradeComponent implements OnInit {
           this.formGroup.reset();
           
         } else{          
-          this.authservice.securityStatus()
+          // this.authservice.CompanyFaliure()
         }
       }, error => {
         

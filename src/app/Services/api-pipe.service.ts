@@ -91,6 +91,11 @@ adddWellbore(data:any): Observable<any>{
   return this.http.post('http://127.0.0.1:8899/apiv1/add_wellbore',data)
 }
 
+addSecurityGrade(data:any): Observable<any>{
+  console.log("add security grade")
+  return this.http.post('http://127.0.0.1:8899/apiv1/add_file_security_grade',data)
+}
+
 
 wellboreFaliure(){
   this.toastr.error("Adding a user failed please Try Again","",{
