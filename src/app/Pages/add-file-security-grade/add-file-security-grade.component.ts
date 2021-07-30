@@ -37,6 +37,13 @@ export class AddFileSecurityGradeComponent implements OnInit {
     }
   }
 
+
+
+  logout(){
+    this.authservice.logoutuser()
+
+  }
+
   initForm(){
     this.formGroup = new FormGroup({
       FileSecurityGradeName:new FormControl(),
@@ -44,13 +51,6 @@ export class AddFileSecurityGradeComponent implements OnInit {
       Comments:new FormControl()
   
     });
-  }
-
-
-
-  logout(){
-    this.authservice.logoutuser()
-
   }
 
   addSecurityGradeProcess(){
@@ -69,7 +69,7 @@ export class AddFileSecurityGradeComponent implements OnInit {
           this.formGroup.reset();
           
         } else{          
-          // this.authservice.CompanyFaliure()
+        //  this.authservice.CompanyFaliure()
         }
       }, error => {
         

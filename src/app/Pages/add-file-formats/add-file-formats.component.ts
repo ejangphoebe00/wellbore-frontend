@@ -53,15 +53,14 @@ export class AddFileFormatsComponent implements OnInit {
   }
 
 
-  addSecurityProcess(){
+  addFileFormatsProcess(){
     console.log("tested")
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
-      this.authservice.addWebSecurity(this.formGroup.value).subscribe(result =>{
-        console.log(result)
-
-        if(result.message == "Web security level added successfuly."){
-          this.toastr.success("Web security level added successfuly.","",{
+      this.authservice.addFileGrades(this.formGroup.value).subscribe(result =>{
+       
+        if(result.message == "File Format added successfuly."){
+          this.toastr.success("File Format added successfuly.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
@@ -70,7 +69,7 @@ export class AddFileFormatsComponent implements OnInit {
           this.formGroup.reset();
           
         } else{          
-          this.authservice.securityStatus()
+         // this.authservice.CompanyFaliure()
         }
       }, error => {
         
