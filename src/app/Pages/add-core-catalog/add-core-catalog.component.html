@@ -529,7 +529,9 @@
                 <!-- END DASHBOARD STATS 1-->
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
-                        <form role="form">
+                        <form class="form-horizontal" [formGroup]="formGroup"
+                        (ngSubmit)="addCoreCatProcess()">
+                
                             <div class="form-body row">
                                 <div class="col-md-6">
 

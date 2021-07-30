@@ -131,6 +131,18 @@ export class ApiPipeService {
     return this.http.get('http://127.0.0.1:8899/apiv1/get_strat_litho_units')
   }
 
+  addStratLitho(data:any): Observable<any>{
+    console.log("add strat")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_strat_litho_unit',data)
+  }
+
+  getWellboreCores(): Observable<any>{
+    console.log("add user")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_cores')
+  }
+
+
+
 
 
 
