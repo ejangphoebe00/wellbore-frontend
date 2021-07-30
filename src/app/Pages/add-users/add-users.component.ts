@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
@@ -34,18 +34,38 @@ export class AddUsersComponent implements OnInit {
     }else{
     this.role= false;
     }
+
+    this.initForm();
  
   }
 
-  // initForm(){
-  //   this.formGroup = new FormGroup({
-  //     WebSecurityLevelName:new FormControl(),
-  //     WebSecurityLevelDescription:new FormControl(),
-  //     WebSecurityLevelAbbreviation:new FormControl(),
-  //     Comments:new FormControl(),
-  
-  //   });
-  // }
+  initForm(){
+    this.formGroup = new FormGroup({
+      FirstName:new FormControl('',Validators.required),
+      MiddleName:new FormControl(),
+      Surname:new FormControl('',Validators.required),
+      LUID:new FormControl(),
+      CraneUserName:new FormControl('',Validators.required),
+      LoginID:new FormControl(),
+      LoginIDAlias:new FormControl(),
+      UserCategory:new FormControl(),
+      UserCompany_id:new FormControl(),
+      UserPremsUser_id:new FormControl(),
+      UserStaff_id:new FormControl(),
+      OrganisationName:new FormControl('',Validators.required),
+      UserEmailAddress:new FormControl('',Validators.required),
+      UserSecurityLevel_id:new FormControl(),
+      UserWebSecurityLevel_id:new FormControl('',Validators.required),
+      UserNogtrWebSecurityLevel_id:new FormControl(),
+      UserPremsWebSecurityLevel_id:new FormControl(),
+      UserIntranetSecurityLevel_id:new FormControl(),
+      UserNsdWebSecurityLevel_id:new FormControl(),
+      Comments:new FormControl(),
+      OrganisationUserName:new FormControl(),
+      DefaultPassword:new FormControl('',Validators.required)
+      
+    });
+  }
 
 
   logout(){
@@ -54,7 +74,7 @@ export class AddUsersComponent implements OnInit {
   }
 
 
-  addSecurityProcess(){
+  addUserProcess(){
     console.log("tested")
     if(this.formGroup.valid){
       console.log(this.formGroup.value)

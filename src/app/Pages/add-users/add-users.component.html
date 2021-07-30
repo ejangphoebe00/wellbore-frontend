@@ -529,7 +529,8 @@
                     <!-- END DASHBOARD STATS 1-->
                     <div class="portlet light bordered">
                         <div class="portlet-body form">
-                            <form [formGroup]="formGroup">
+                            <form [formGroup]="formGroup"
+                            (ngSubmit)="addUserProcess()">
                                 <div class="form-body row">
                                     <div class="col-md-6">
 
