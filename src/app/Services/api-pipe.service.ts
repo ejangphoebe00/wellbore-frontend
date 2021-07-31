@@ -141,6 +141,18 @@ export class ApiPipeService {
     return this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_cores')
   }
 
+  getWebSeurityId(): Observable<any>{
+    console.log("add user")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
+  }
+  
+  addUser(data:any): Observable<any>{
+    console.log("add user")
+    return this.http.post('http://127.0.0.1:8899/user/registration',data)
+  }
+
+
+
 
 
 

@@ -535,11 +535,14 @@
                                     <div class="col-md-6">
 
                                         <div class="form-group">
-
-                                            <label>First Name</label>
+                                           
+                                            <label>First Name</label>                                          
+                                            <span class="error">*</span>
                                             <input formControlName="FirstName"
                                                 type="text" class="form-control"
                                                 placeholder="">
+                                                <div> <span class="errorName" *ngIf="f.FirstName.touched && f.FirstName.invalid">First
+                                                    Name is required</span></div>
                                         </div>
                                         <div class="form-group">
                                             <label>MiddleName</label>
@@ -549,9 +552,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Surname</label>
+                                            <span class="error">*</span>
                                             <input formControlName="Surname"
                                                 type="text" class="form-control"
                                                 placeholder="">
+                                                <div> <span class="errorName" *ngIf="f.Surname.touched && f.Surname.invalid">
+                                                Surname is required</span></div>
                                         </div>
                                         <div class="form-group">
                                             <label>LUID</label>
@@ -561,10 +567,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Crane User Name</label>
+                                            <span class="error">*</span>
                                             <input
                                                 formControlName="CraneUserName"
                                                 type="text" class="form-control"
                                                 placeholder="">
+                                                <div> <span class="errorName" *ngIf="f.CraneUserName.touched && f.CraneUserName.invalid">Crane
+                                                    User Name is required</span></div>
                                         </div>
                                         <div class="form-group">
                                             <label>Login ID</label>
@@ -581,10 +590,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label>User Category</label>
-                                            <input
-                                                formControlName="UserCategory"
-                                                type="text" class="form-control"
-                                                placeholder="">
+                                            <span class="error">*</span>
+                                            <select class="form-control" formControlName="UserCategory">
+                                                    <option *ngFor="let role of Roles" [ngValue]="role"
+                                                        (change)="changeRoles($event)">{{role}}
+                                                    </option>
+                                                    </select>    
+                                                    <div> <span class="errorName" *ngIf="f.UserCategory.touched && f.UserCategory.invalid">
+                                                        User category is required</span></div>                                            
                                         </div>
                                         <div class="form-group">
                                             <label>User Company_id</label>
@@ -602,10 +615,13 @@
                                         </div>
                                         <div class="form-group">
                                                 <label>User Staff Id</label>
+                                                <span class="error">*</span>
                                                 <input
                                                     formControlName="UserStaff_id"
-                                                    type="text" class="form-control"
+                                                    type="number" class="form-control"
                                                     placeholder="">
+                                                    <div> <span class="errorName" *ngIf="f.UserStaff_id.touched && f.UserStaff_id.invalid">
+                                                        User staff id is required</span></div>
                                             </div>
 
                                     </div>
@@ -613,31 +629,48 @@
                                       
                                         <div class="form-group">
                                             <label>Organisation Name</label>
+                                            <span class="error">*</span>
                                             <input
                                                 formControlName="OrganisationName"
                                                 type="text" class="form-control"
                                                 placeholder="">
+                                                <div> <span class="errorName" *ngIf="f.OrganisationName.touched && f.OrganisationName.invalid">
+                                                    Organisation Name is required</span></div>
                                         </div>
                                         <div class="form-group">
                                             <label>User Email Address</label>
+                                            <span class="error">*</span>
                                             <input
                                                 formControlName="UserEmailAddress"
                                                 type="text" class="form-control"
                                                 placeholder="">
+                                                <div> <span class="errorName" *ngIf="f.UserEmailAddress.touched && f.UserEmailAddress.invalid">
+                                                    User Email is required</span></div>
                                         </div>
                                         <div class="form-group">
                                             <label>User Security Level Id</label>
                                             <input
                                                 formControlName="UserSecurityLevel_id"
                                                 type="text" class="form-control"
-                                                placeholder="">
+                                                placeholder="">                                                
+                                               
                                         </div>
                                         <div class="form-group">
                                             <label>User Web Security Level_id</label>
-                                            <input
+                                            <span class="error">*</span>
+                                            <select class="custom-select"
                                                 formControlName="UserWebSecurityLevel_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
+                                                name="UserWebSecurityLevel_id"
+                                                class="form-control">
+                                                <option *ngFor="let city of securityIds"
+                                                [ngValue]="city.WebSecurityLevel_id"
+                                                (change)="changeSecurity($event)">{{city.WebSecurityLevel_id}}-->{{city.WebSecurityLevelName}}
+                                                </option>
+                                            </select>
+                                            <div> <span class="errorName"
+                                                *ngIf="f.UserWebSecurityLevel_id.invalid && f.UserWebSecurityLevel_id.touched">Web
+                                                security-id is required</span></div>
+
                                         </div>
                                         <div class="form-group">
                                             <label>User Nogtr Web Security Level
@@ -686,10 +719,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Default Password</label>
+                                            <span class="error">*</span>
                                             <input
                                                 formControlName="DefaultPassword"
                                                 type="text" class="form-control"
                                                 placeholder="">
+                                                <div> <span class="errorName" *ngIf="f.DefaultPassword.touched && f.DefaultPassword.invalid">
+                                                    Default Password is required</span></div>
                                         </div>
 
                                     </div>

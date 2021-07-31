@@ -15,6 +15,10 @@ export class AddUsersComponent implements OnInit {
   role:any;
   userEmail: any;
   loggedin: any;
+  Roles:any = ['Staff','Admin'];
+  securityIds: any;
+  submitted:boolean = false
+
 
 
   constructor(
@@ -36,8 +40,21 @@ export class AddUsersComponent implements OnInit {
     }
 
     this.initForm();
+    this.getSecurityId();
  
   }
+
+  changeRoles(e:any) {
+    console.log(e.value)
+    this.Roles.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  getRoles() {
+    return this.formGroup.get('UserCategory');
+  }
+
 
   initForm(){
     this.formGroup = new FormGroup({
@@ -48,10 +65,10 @@ export class AddUsersComponent implements OnInit {
       CraneUserName:new FormControl('',Validators.required),
       LoginID:new FormControl(),
       LoginIDAlias:new FormControl(),
-      UserCategory:new FormControl(),
+      UserCategory:new FormControl('',Validators.required),
       UserCompany_id:new FormControl(),
       UserPremsUser_id:new FormControl(),
-      UserStaff_id:new FormControl(),
+      UserStaff_id:new FormControl('',Validators.required),
       OrganisationName:new FormControl('',Validators.required),
       UserEmailAddress:new FormControl('',Validators.required),
       UserSecurityLevel_id:new FormControl(),
@@ -75,20 +92,21 @@ export class AddUsersComponent implements OnInit {
 
 
   addUserProcess(){
-    console.log("tested")
     if(this.formGroup.valid){
-      console.log(this.formGroup.value)
-      this.authservice.addWebSecurity(this.formGroup.value).subscribe(result =>{
+      // console.log(this.formGroup.value)
+      this.authservice.addUser(this.formGroup.value).subscribe(result =>{
         console.log(result)
-
-        if(result.message == "Web security level added successfuly."){
-          this.toastr.success("Web security level added successfuly.","",{
+        if(result.message == "account created successfully"){
+          this.toastr.success("account created successfully","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
+          // setTimeout(() => {                           
+          //   this.router.navigate(['/web-security-levels']);
+          // }, 1000);
           
         } else{          
           this.authservice.securityStatus()
@@ -111,7 +129,22 @@ export class AddUsersComponent implements OnInit {
     }
   }
 
-  get f(){return this.formGroup.controls}
+  getSecurityId(){
+    this.authservice.getWebSeurityId().subscribe(res =>{
+      this.securityIds = res;
+      console.log(this.securityIds);
+    })
+  }
 
+  changeSecurity(e:any) {
+    console.log(e.value)
+    this.securityIds.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  get FirstName(){return this.formGroup.get('FirstName')}
+
+  get f(){return this.formGroup.controls}
 
 }
