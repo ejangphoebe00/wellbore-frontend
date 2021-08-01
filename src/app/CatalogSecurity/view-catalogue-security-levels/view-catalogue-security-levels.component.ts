@@ -1,5 +1,5 @@
 import { Component , OnInit, OnDestroy } from '@angular/core';
-import { CatalogSecurity } from 'src/app/Services/catalog-security.model';
+import { CatalogSecurity } from 'src/app/models/catalog-security.model';
 import { Subscription } from 'rxjs';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 

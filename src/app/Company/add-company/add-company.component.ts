@@ -17,7 +17,7 @@ export class AddCompanyComponent implements OnInit {
   constructor(
     private authservice: ApiPipeService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {

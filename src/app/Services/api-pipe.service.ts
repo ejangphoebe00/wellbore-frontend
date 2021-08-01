@@ -3,9 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Company } from './company.model';
-import { CatalogSecurity } from './catalog-security.model';
-import { StratLithoUnit } from './strat-litho-unit.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -133,7 +131,7 @@ export class ApiPipeService {
   }
 
   searchByName(name:any): Observable<any>{
-    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_company/?name=${company.companyShortName}')
+    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_company/?name=${company.companyLongName}')
   }
 
   companyStatus(){

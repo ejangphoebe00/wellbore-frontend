@@ -1,11 +1,6 @@
-<div class="page-wrapper p-5">
-    <!-- BEGIN CONTENT -->
-    <div class="page-content-wrapper ">
-        <!-- BEGIN CONTENT BODY -->
 
-        <!-- BEGIN PAGE HEADER-->
-
-        <!-- END THEME PANEL -->
+<div class="page-content-wrapper ">
+    <div class="page-content">
         <!-- BEGIN PAGE BAR -->
         <div class="page-bar">
             <ul class="page-breadcrumb">
@@ -108,16 +103,6 @@
                                     <th> Strat Litho Name </th>
                                     <th> Reservior Unit </th>
                                     <th> Litho Strat Alias </th>
-                                    <th> Is Reservoir Unit ID </th>
-                                    <th> Litho Strat Age ID </th>
-                                    <th> Litho Strat Description Softcopy Path </th>
-                                    <th> Litho Strat Description Hyperlink </th>
-                                    <th> Litho Strat Map SoftCopy Path </th>
-                                    <th> Litho Strat Map Hyperlink </th>
-                                    <th> Map Portal Litho Strat Map Link </th>
-                                    <th> Litho Strat Fact site Url </th>
-                                    <th> Comments </th>
-                                    <th> Created By ID </th>
                                     <th> Date Created </th>
                                     <th> Modified On </th>
                                     <th> Modified By </th>
@@ -126,23 +111,13 @@
                             <tbody>
                               <!-- <tr> -->
                                 <tr *ngFor="let strat of stratLithoUnitList">
-                                    <td>{{strat.StratLitho_id}} </td>
-                                    <td>{{strat.PAUID}} </td>
+                                    <td> {{ strat.StratLitho_id }} </td>
+                                    <td> {{ strat.PAUID }} </td>
                                     <td> {{ strat.StratLitho_id }} </td>
                                     <td> {{ strat.PAUID }} </td>
                                     <td> {{ strat.StratLithoName }} </td>
                                     <td> {{ strat.ReserviorUnit }} </td>
                                     <td> {{ strat.LithoStratAlias }} </td>
-                                    <td> {{ strat.IsReservoirUnit_id }} </td>
-                                    <td> {{ strat.LithoStratAge_id }} </td>
-                                    <td> {{ strat.LithoStratDescriptionSoftcopyPath }} </td>
-                                    <td> {{ strat.LithoStratDescriptionHyperlink }} </td>
-                                    <td> {{ strat.LithoStratMapSoftCopyPath }} </td>
-                                    <td> {{ strat.LithoStratMapHyperlink }} </td>
-                                    <td> {{ strat.MapPortalLithoStratMapLink }} </td>
-                                    <td> {{ strat.LithoStratFactsiteUrl }} </td>
-                                    <td> {{ strat.Comments }} </td>
-                                    <td> {{ strat.CreatedBy_id }} </td>
                                     <td> {{ strat.DateCreated }} </td>
                                     <td> {{ strat.ModifiedOn }} </td>
                                     <td> {{ strat.ModifiedBy }} </td>
@@ -161,21 +136,6 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             </div>
         </div>
-
-        <!-- END CONTENT BODY -->
     </div>
-    <!-- END CONTENT -->
 
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
-    <div class="page-footer">
-        <div class="page-footer-inner"> 2016 &copy; Metronic Theme By
-            <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
-            <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
-        </div>
-        <div class="scroll-to-top">
-            <i class="icon-arrow-up"></i>
-        </div>
-    </div>
-    <!-- END FOOTER -->
 </div>

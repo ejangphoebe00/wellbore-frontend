@@ -1,4 +1,4 @@
-export class Company {
+export class CoreType {
   constructor(
     public CoreType_id: number,
     public CoreTypeName: string,

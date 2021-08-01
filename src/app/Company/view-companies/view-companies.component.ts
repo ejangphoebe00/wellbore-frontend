@@ -1,8 +1,15 @@
-import { Component , OnInit, OnDestroy } from '@angular/core';
-import { Company } from 'src/app/Services/company.model';
-import { Subscription } from 'rxjs';
+import { Component , OnInit, OnDestroy} from '@angular/core';
+import { Company } from 'src/app/models/company.model';
+import { HttpClient, HttpResponse} from '@angular/common/http';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
-// import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+class DataTablesResponse {
+  data: any[] = [];
+  draw?: number;
+  recordsFiltered?: number;
+  recordsTotal?: number;
+}
 
 @Component({
   selector: 'app-view-companies',
@@ -10,82 +17,62 @@ import { ApiPipeService } from 'src/app/Services/api-pipe.service';
   styleUrls: ['./view-companies.component.css']
 })
 
-export class ViewCompaniesComponent implements OnInit, OnDestroy {
+export class ViewCompaniesComponent implements OnInit{
 
-    title = 'app';
+    title = 'datatables';
     companyListSubs?: Subscription;
     companyList: Company[] = [];
-    // currentCompany = null;
-    // message = ''
+    dtOptions: DataTables.Settings = {};
 
     constructor(
-      private authservice: ApiPipeService)
-      // private route: ActivatedRoute,
-      // private router: Router)
-      { }
+      private authservice: ApiPipeService,
+      // private router: Router,
+      // private renderer: Renderer2,
+      private http: HttpClient){ }
 
-    ngOnInit() {
-      this.companyListSubs = this.authservice
-        .getAllCompanies()
-        .subscribe(results => {
-            this.companyList = results;
-          },
-          console.error
-        );
-      // this.message = '';
-      // this.getCompany(this.route.snapshot.paramMap.get('company_id'));
+    ngOnInit(): void {
+    const that = this;
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 2,
+      serverSide: true,
+      processing: true,
+      ajax: (dataTablesParameters: any, callback) => {
+        this.companyListSubs = this.authservice
+          .getAllCompanies()
+          .subscribe(results => {
+              this.companyList = results;
+
+              callback({
+                    recordsTotal: results.recordsTotal,
+                    recordsFiltered: results.recordsFiltered,
+                    data: []
+                  });
+            },
+            console.error
+          );
+        // that.http
+        //   .get<any>(
+        //     'http://127.0.0.1:8899/apiv1/get_companies',
+        //
+        //   ).subscribe(resp => {
+        //     that.companyList = resp.data;
+        //
+        //     callback({
+        //       recordsTotal: resp.recordsTotal,
+        //       recordsFiltered: resp.recordsFiltered,
+        //       data: []
+        //     });
+        //   });
+      },
+      columns: [{ data: 'Company ID' }, { data: 'PAUID' }, { data: 'Long Name' },
+                { data: 'NSD Number' }, { data: 'Registration No' }, { data: 'TIN' },
+                { data: 'Telephone' }]
+    };
     }
 
-    ngOnDestroy() {
-      // this.companyListSubs.unsubscribe();
-    }
 
-  //   getCompany(company_id): void {
-  //   this.authservice.read(company_id)
-  //     .subscribe(
-  //       result => {
-  //         this.currentCompany = result;
-  //         console.log(result);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  //   }
-  //
-  //     this.productService.update(this.currentCompany.company_id, data)
-  //       .subscribe(
-  //         response => {
-  //           // this.currentProduct.available = status;
-  //           console.log(response);
-  //         },
-  //         error => {
-  //           console.log(error);
-  //         });
-  //   }
-  //
-  //   updateCompany(): void {
-  //   this.authservice.editcompany(this.company.company_id, this.company)
-  //     .subscribe(
-  //       rresult => {
-  //         console.log(result);
-  //         this.message = 'Company details have been updated!';
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
-  //
-  // delete_Company(): void {
-  //   this.authservice.deleteCompany(this.company.company_id)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.router.navigate(['/company.company_id']);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
 
 
 }

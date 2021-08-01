@@ -1,5 +1,5 @@
 import { Component , OnInit, OnDestroy } from '@angular/core';
-import { StratLithoUnit } from 'src/app/Services/strat-litho-unit.model';
+import { StratLithoUnit } from 'src/app/models/strat-litho-unit.model';
 import { Subscription } from 'rxjs';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 

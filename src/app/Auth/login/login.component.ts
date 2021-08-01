@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token", this.title);
           localStorage.setItem("Email", this.formGroup.value.Email);
           this.authservice.loginSucess()
-          setTimeout(() => {                           
+          setTimeout(() => {
             this.router.navigate(['/dashboard']);
           }, 1000);
         } else {

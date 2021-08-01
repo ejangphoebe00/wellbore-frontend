@@ -25,6 +25,9 @@ import { CatalogSecurityComponent } from './CatalogSecurity/catalog-security/cat
 import { ViewCatalogueSecurityLevelsComponent } from './CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
 import { ViewStratLithoUnitComponent } from './StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { ViewCoreTypeComponent } from './CoreTypes/view-core-type/view-core-type.component';
+import { BaseComponent } from './base/base.component';
+// import { CompanyDetailsComponent } from './Company/company-details/company-details.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { ViewCoreTypeComponent } from './CoreTypes/view-core-type/view-core-type
     UsersListComponent,
     ViewStratLithoUnitComponent,
     ViewCoreTypeComponent,
+    BaseComponent,
+    // CompanyDetailsComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,132 +1,113 @@
 
-<div class="page-container">
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
 
-    <!-- BEGIN CONTENT -->
-    <div class="container">
-      <!-- BACK Nav -->
-      <div class="back-nav">
-          <a class="back-nav-trigger" routerLink="/dashboard">
-            <i class="fa fa-arrow-left text-white"></i>
-          </a>
-          <span aria-hidden="true" class="back-nav-bg"></span>
-      </div>
-      <!-- BACK Nav -->
-      <!-- BEGIN HEADER -->
-      <div class="container p-5 middle text-white">
-        <h3> STRAT LITHO UNIT DETAILS </h3>
-      </div>
-      <!-- END HEADER -->
-        <!-- BEGIN CONTENT BODY -->
-        <div class="page-content">
-
-            <!-- END PAGE HEADER-->
-            <div class="row">
-                <div class="col-md-12 ">
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet light bordered">
-                        <div class="portlet-title">
-                            <div class="caption font-red-sunglo">
-                                <i class="icon-settings font-red-sunglo"></i>
-                                <!-- <span class="caption-subject bold uppercase"> Default Form</span> -->
-                            </div>
-                            <div class="actions">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-pencil"></i> Edit </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-trash-o"></i> Delete </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-ban"></i> Ban </a>
-                                        </li>
-                                        <li class="divider"> </li>
-                                        <li>
-                                            <a href="javascript:;"> Make admin </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+        <!-- END PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 ">
+                <!-- BEGIN SAMPLE FORM PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-red-sunglo">
+                            <i class="icon-settings font-red-sunglo"></i>
+                            <!-- <span class="caption-subject bold uppercase"> Default Form</span> -->
                         </div>
-                        <div class="portlet-body form">
-                            <form [formGroup]="formGroup" (ngSubmit)="addStratLitho()" ngNativeValidate>
-                                <div class="form-body row">
-                                  <div class="col-md-6">
-                                      <div class="form-group">
-                                          <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
-                                          <input type="text" formControlName="PAUID" class="form-control" placeholder="" required>
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
-                                          <input type="text" formControlName="StratLithoName" class="form-control" placeholder="" required>
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Litho Strat Alias</label>
-                                          <input type="text" formControlName="LithoStratAlias" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Is Reservoir Unit ID</label>
-                                          <input type="text" formControlName="IsReservoirUnit_id" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Litho Strat Age ID</label>
-                                          <input type="text" formControlName="LithoStratAge_id" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Litho Strat Description Softcopy Path</label>
-                                          <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control" placeholder="">
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="form-group">
-                                          <label>Litho Strat Description Hyperlink</label>
-                                          <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Litho Strat Map Softcopy Path</label>
-                                          <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Litho Strat Map Hyperlink</label>
-                                          <input type="text" formControlName="LithoStratMapHyperlink" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Map Portal Litho Strat MapLink</label>
-                                          <input type="text" formControlName="MapPortalLithoStratMapLink" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Litho Strat Fact site Url</label>
-                                          <input type="text" formControlName="LithoStratFactsiteUrl" class="form-control" placeholder="">
-                                      </div>
-                                      <div class="form-group">
-                                          <label>Comments</label>
-                                          <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
-                                      </div>
-                                      <div class="form-actions">
-                                          <button type="submit" class="btn blue">Submit</button>
-                                          <button type="button" class="btn default">Cancel</button>
-                                      </div>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-pencil"></i> Edit </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-trash-o"></i> Delete </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-ban"></i> Ban </a>
+                                    </li>
+                                    <li class="divider"> </li>
+                                    <li>
+                                        <a href="javascript:;"> Make admin </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-
+                    <div class="portlet-body form">
+                        <form [formGroup]="formGroup" (ngSubmit)="addStratLitho()" ngNativeValidate>
+                            <div class="form-body row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
+                                      <input type="text" formControlName="PAUID" class="form-control" placeholder="" required>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
+                                      <input type="text" formControlName="StratLithoName" class="form-control" placeholder="" required>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Litho Strat Alias</label>
+                                      <input type="text" formControlName="LithoStratAlias" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Is Reservoir Unit ID</label>
+                                      <input type="text" formControlName="IsReservoirUnit_id" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Litho Strat Age ID</label>
+                                      <input type="text" formControlName="LithoStratAge_id" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Litho Strat Description Softcopy Path</label>
+                                      <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control" placeholder="">
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label>Litho Strat Description Hyperlink</label>
+                                      <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Litho Strat Map Softcopy Path</label>
+                                      <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Litho Strat Map Hyperlink</label>
+                                      <input type="text" formControlName="LithoStratMapHyperlink" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Map Portal Litho Strat MapLink</label>
+                                      <input type="text" formControlName="MapPortalLithoStratMapLink" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Litho Strat Fact site Url</label>
+                                      <input type="text" formControlName="LithoStratFactsiteUrl" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Comments</label>
+                                      <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
+                                  </div>
+                                  <div class="form-actions">
+                                      <button type="submit" class="btn blue">Submit</button>
+                                      <button type="button" class="btn default">Cancel</button>
+                                  </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <!-- END SAMPLE FORM PORTLET-->
 
             </div>
 
         </div>
-        <!-- END CONTENT BODY -->
-    </div>
-    <!-- END CONTENT -->
 
+    </div>
+    <!-- END CONTENT BODY -->
 </div>

@@ -1,95 +1,79 @@
 
-<div class="page-container">
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
 
-    <!-- BEGIN CONTENT -->
-    <div class="container">
-      <!-- BACK Nav -->
-      <div class="back-nav">
-          <a class="back-nav-trigger" routerLink="/dashboard">
-            <i class="fa fa-arrow-left text-white"></i>
-          </a>
-          <span aria-hidden="true" class="back-nav-bg"></span>
-      </div>
-      <!-- BACK Nav -->
-      <!-- BEGIN HEADER -->
-      <div class="container p-5 middle text-white">
-        <h3> CORE TYPE SDETAILS </h3>
-      </div>
-      <!-- END HEADER -->
-        <!-- BEGIN CONTENT BODY -->
-        <div class="page-content">
-
-            <!-- END PAGE HEADER-->
-            <div class="row">
-                <div class="col-md-12 ">
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet light bordered">
-                        <div class="portlet-title">
-                            <div class="caption font-red-sunglo">
-                                <i class="icon-settings font-red-sunglo"></i>
-                                <!-- <span class="caption-subject bold uppercase"> Default Form</span> -->
-                            </div>
-                            <div class="actions">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-pencil"></i> Edit </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-trash-o"></i> Delete </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-ban"></i> Ban </a>
-                                        </li>
-                                        <li class="divider"> </li>
-                                        <li>
-                                            <a href="javascript:;"> Make admin </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+        <!-- END PAGE HEADER-->
+        <div class="row">
+          <div class="container">
+            <h3> Core Types </h3>
+          </div>
+            <div class="col-md-12 ">
+                <!-- BEGIN SAMPLE FORM PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-red-sunglo">
+                            <i class="icon-settings font-red-sunglo"></i>
+                            <!-- <span class="caption-subject bold uppercase"> Default Form</span> -->
                         </div>
-                        <div class="portlet-body form">
-                            <form role="form" [formGroup]="formGroup" (ngSubmit)="addCoreTypeDetails()" ngNativeValidate>
-                                <div class="form-body">
-
-                                    <div class="form-group">
-                                        <label>Core Type Name<span class="red asterisk-validate ml-2">*</span></label>
-                                        <input type="text" formControlName="CoreTypeName" class="form-control" placeholder="" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Sort Order</label>
-                                        <input type="text" formControlName="SortOrder" class="form-control" placeholder="">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Comments</label>
-                                        <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
-                                    </div>
-
-                                    <div class="form-actions">
-                                        <button type="submit" class="btn blue">Submit</button>
-                                        <button type="button" class="btn default">Cancel</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-pencil"></i> Edit </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-trash-o"></i> Delete </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-ban"></i> Ban </a>
+                                    </li>
+                                    <li class="divider"> </li>
+                                    <li>
+                                        <a href="javascript:;"> Make admin </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <!-- END SAMPLE FORM PORTLET-->
+                    <div class="portlet-body form">
+                        <form role="form" [formGroup]="formGroup" (ngSubmit)="addCoreTypeDetails()" ngNativeValidate>
+                            <div class="form-body">
 
+                                <div class="form-group">
+                                    <label>Core Type Name<span class="red asterisk-validate ml-2">*</span></label>
+                                    <input type="text" formControlName="CoreTypeName" class="form-control" placeholder="" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Sort Order</label>
+                                    <input type="text" formControlName="SortOrder" class="form-control" placeholder="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Comments</label>
+                                    <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn blue">Submit</button>
+                                    <button type="button" class="btn default">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <!-- END SAMPLE FORM PORTLET-->
 
             </div>
 
         </div>
-        <!-- END CONTENT BODY -->
-    </div>
-    <!-- END CONTENT -->
 
+    </div>
+    <!-- END CONTENT BODY -->
 </div>
