@@ -1,0 +1,99 @@
+<div class="page-content-wrapper ">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+
+        <!-- BEGIN PAGE TITLE-->
+        <h1 class="page-title text-white"> All Companies</h1>
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-settings font-red"></i>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                <label class="btn btn-transparent red btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- <div class="btn-group">
+                                        <button id="sample_editable_1_new" class="btn green"> Add New
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div> -->
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="btn-group pull-right">
+                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown">Tools
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="javascript:;"> Print </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;"> Save as PDF </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;"> Export to Excel </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table datatable [dtOptions]="dtOptions" class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> CoreType_id </th>
+                                    <th> CoreTypeName </th>
+                                    <th> SortOrder </th>
+                                    <th> Comments </th>
+                                    <th> ModifiedOn </th>
+                                    <th> ModifiedBy </th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="coreTypesList?.length != 0">
+                                <tr *ngFor="let core of coreTypesList">
+                                    <td> {{core.CoreType_id}} </td>
+                                    <td> {{core.CoreTypeName}} </td>
+                                    <td> {{core.SortOrder}} </td>
+                                    <td> {{core.Comments}} </td>
+                                    <td> {{core.ModifiedOn}} </td>
+                                    <td> {{core.ModifiedBy}} </td>
+
+                                    <td>
+                                        <a class="edit" href="javascript:;"> Edit </a>
+                                    </td>
+                                    <td>
+                                        <a class="delete" href="javascript:;"> Delete </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                            <tbody *ngIf="coreTypesList?.length == 0">
+                              <tr>
+                                <td colspan="3" class="no-data-available">No data!</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+    </div>
+
+    <!-- END CONTENT BODY -->
+</div>
+

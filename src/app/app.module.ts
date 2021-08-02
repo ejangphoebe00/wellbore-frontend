@@ -26,6 +26,16 @@ import { AddCoreCatalogComponent } from './Pages/add-core-catalog/add-core-catal
 import { WellboresComponent } from './Pages/wellbores/wellbores.component';
 import { FileFormatsComponent } from './Pages/file-formats/file-formats.component';
 import { FileSecurityGradesComponent } from './Pages/file-security-grades/file-security-grades.component';
+import { BaseComponent } from './base/base.component';
+import { CoreTypesComponent } from './Pages/CoreTypes/core-types/core-types.component';
+import { ViewCoreTypeComponent } from './Pages/CoreTypes/view-core-type/view-core-type.component';
+import { AddCompanyComponent } from './Pages/Company/add-company/add-company.component';
+import { CompanyDetailsComponent } from './Pages/Company/company-details/company-details.component';
+import { ViewCompaniesComponent } from './Pages/Company/view-companies/view-companies.component';
+import { CatalogSecurityComponent } from './Pages/CatalogSecurity/catalog-security/catalog-security.component';
+import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
+import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
+import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +55,17 @@ import { FileSecurityGradesComponent } from './Pages/file-security-grades/file-s
     AddCoreCatalogComponent,
     WellboresComponent,
     FileFormatsComponent,
-    FileSecurityGradesComponent
+    FileSecurityGradesComponent,
+    BaseComponent,
+    CoreTypesComponent,
+    ViewCoreTypeComponent,
+    AddCompanyComponent,
+    CompanyDetailsComponent,
+    ViewCompaniesComponent,
+    CatalogSecurityComponent,
+    ViewCatalogueSecurityLevelsComponent,
+    StratLithoUnitComponent,
+    ViewStratLithoUnitComponent
   ],
   imports: [
     BrowserModule,
