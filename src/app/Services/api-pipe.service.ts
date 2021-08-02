@@ -101,6 +101,11 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/apiv1/add_file_format', data)
   }
 
+  getAllGrades(): Observable<any> {
+    console.log("get security grades")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_file_security_grades')
+  }
+
   adddWellboreCore(data: any): Observable<any> {
     console.log("add user")
     return this.http.post('http://127.0.0.1:8899/apiv1/add_welbore_core', data)
@@ -206,6 +211,23 @@ export class ApiPipeService {
   getAllUsers(): Observable<any> {
     console.log("get Logs")
     return this.http.get('http://127.0.0.1:8899/user/get_users')
+  }
+
+  getAllCompanies(): Observable<any> {
+    console.log("get Logs")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_companies')
+  }
+
+  getAllformats(): Observable<any> {
+    console.log("get Logs")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_file_formats')
+  }
+
+  
+
+  getWellbores(): Observable<any> {
+    console.log("get Logs")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore')
   }
 
   updateWebSecurity(data: any): Observable<any> {

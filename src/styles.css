@@ -1,10 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~bootstrap/dist/css/bootstrap.css" */
+.error{
+    color:red;
+    font-size: 20px;
+}
 
-/* .page-header.navbar.navbar-fixed-top {
-    background-color: #f8b806!important;
-} */
+.errorName{
+    color:red;
+}
+
+.page-header.navbar.navbar-fixed-top {
+    background-color: white!important;
+} 
+ .page-header.navbar .page-logo .logo-default {
+    margin-left: opx;
+    margin-left: -18px!important;
+    margin-top: -3px!important;
+}
+
+b{
+    /* margin-right: 460px; */
+    font-size: 30px;
+        /* float: left; */
+}
 
 /* span.username.username-hide-on-mobile {
     color: black;
 } */
+/* img.logo-default {
+    margin-right: 320px;
+} */
+/* b {
+    margin-top: 9px;
+    font-size: 25px;
+    color: white;
+    /* margin-top: 6px; */
+    /* margin-bottom: -20px;
+} */ 
