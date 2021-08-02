@@ -7,8 +7,8 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a >
-                        <!-- <img src="..//asts/assets/layouts/layout/img/logo.png"
-                             class="logo-default" /> Wellbore Store -->
+                            <img src="..//assets/assets/layouts/layout/img/logo1.png"
+                            class="logo-default" />   
                             </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
@@ -124,7 +124,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/dashboard']" class="nav-link">
                                         <span class="title">Wellbore Dashboard</span>
                                         <span class="selected"></span>
                                     </a>
@@ -168,7 +168,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/users']"
                                         class="nav-link">
                                         <span class="title">View Users</span>
                                     </a>
@@ -218,7 +218,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/wellbores']"
                                         class="nav-link">
                                         <span class="title">View  Wellbores</span>
                                     </a>
@@ -305,7 +305,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a  [routerLink]="['/file-formats']"class="nav-link">
                                         <span class="title">View File Formats</span>
                                     </a>
                                 </li>
@@ -325,7 +325,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/file-security']" class="nav-link">
                                         <span class="title">View Security Grades</span>
                                     </a>
                                 </li>
@@ -551,17 +551,23 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Wellbore Local Name</label>
+                                        <span class="error">*</span>
                                         <input
                                             formControlName="WellboreLocalName"
                                             type="text" class="form-control"
                                             placeholder="">
+                                            <div> <span class="errorName" *ngIf="f.WellboreLocalName.touched && f.WellboreLocalName.invalid">
+                                                Local name is required</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label>Wellbore Alias Name</label>
+                                        <span class="error">*</span>
                                         <input
                                             formControlName="WellboreAliasName"
                                             type="text" class="form-control"
                                             placeholder="">
+                                              <div> <span class="errorName" *ngIf="f.WellboreAliasName.touched && f.WellboreAliasName.invalid">
+                                            Alias name is required</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label>Wellbore Spud Date</label>
@@ -606,10 +612,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Prospect Id</label>
-                                        <input
-                                            formControlName="Prospect_id"
-                                            type="text" class="form-control"
-                                            placeholder="">
+                                        <select class="form-control" formControlName="Prospect_id">                                               
+                                                <option *ngFor="let city of prospectIds"
+                                                [ngValue]="city.Prospect_id"
+                                                (change)="changeProspect($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                                </option>
+                                             </select>
+
                                     </div>
                                     <div class="form-group">
                                             <label>Discovery Id</label>
@@ -642,18 +651,21 @@
                                         </div>
                                         <div class="form-group">
                                             <label>License Operator Company Id</label>
-                                            <input
-                                                formControlName="LicenseOperatorCompany_id"
-                                                type="text" class="form-control"
-                                                placeholder="">
+                                                <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                                        <option *ngFor="let city of licenceIds"
+                                                        [ngValue]="city.Company_id"
+                                                        (change)="changeLicense($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                                        </option>
+                                                     </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Drilling Contractor Company Id</label>
-                                            <input
-                                                formControlName="DrillingContractorCompany_id"
-                                                type="text"
-                                                class="form-control"
-                                                placeholder="">
+                                                <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                                        <option *ngFor="let city of licenceIds"
+                                                        [ngValue]="city.Company_id"
+                                                        (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                        </option>
+                                                     </select>
                                         </div>
                                         <div class="form-group">
                                             <label>WellBore Rig Name</label>
@@ -730,11 +742,12 @@
 
                                             <div class="form-group">
                                                     <label>Core Contractor Id</label>
-                                                    <input
-                                                        formControlName="CoreContractor_id"
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder="">
+                                                        <select class="form-control" formControlName="CoreContractor_id">                                               
+                                                                <option *ngFor="let city of licenceIds"
+                                                                [ngValue]="city.Company_id"
+                                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                                </option>
+                                                         </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>RCI Taken Id</label>
@@ -875,11 +888,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label>DST Contractor Id</label>
-                                        <input
-                                            formControlName="DST_Contractor_id"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
+                                            <select class="form-control" formControlName="DST_Contractor_id">                                               
+                                                    <option *ngFor="let city of licenceIds"
+                                                    [ngValue]="city.Company_id"
+                                                    (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                    </option>
+                                             </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Has PetrophysicalLogs Id</label>
@@ -894,11 +908,12 @@
 
                                     <div class="form-group">
                                         <label>Core Petrophysical Contractor Id</label>
-                                        <input
-                                            formControlName="PetrophysicalContractor_id"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
+                                            <select class="form-control" formControlName="PetrophysicalContractor_id">                                               
+                                                    <option *ngFor="let city of licenceIds"
+                                                    [ngValue]="city.Company_id"
+                                                    (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                    </option>
+                                             </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Top Basement MD</label>

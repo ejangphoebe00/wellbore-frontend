@@ -124,7 +124,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item start">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/dashboard']" class="nav-link">
                                         <span class="title">Wellbore Dashboard</span>
                                         <span class="arrow"></span>
                                     </a>
@@ -169,7 +169,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/users']"
                                         class="nav-link">
                                         <span class="title">View Users</span>
                                     </a>
@@ -569,9 +569,6 @@
                                                     <tr *ngFor="let post of
                                                         posts">
                                                         <td>{{post.Comments}}</td>
-                                                        <!-- <td>{{ post.ModifiedOn
-                                                            }}</td>
-                                                        <td>{{ post.ModifiedBy}}</td> -->
                                                         <td>{{
                                                             post.WebSecurityLevel_id
                                                             }}</td>

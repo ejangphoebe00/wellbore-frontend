@@ -7,8 +7,8 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a >
-                        <!-- <img src="..//asts/assets/layouts/layout/img/logo.png"
-                             class="logo-default" /> Wellbore Store -->
+                            <img src="..//assets/assets/layouts/layout/img/logo1.png"
+                            class="logo-default" />   
                             </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
@@ -124,7 +124,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a  [routerLink]="['/dashboard']" class="nav-link">
                                         <span class="title">Wellbore Dashboard</span>
                                         <span class="arrow"></span>
                                     </a>
@@ -142,7 +142,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a [routerLink]="['/add-web-security']"class="nav-link">
+                                    <a [routerLink]="['/add-web-security']" class="nav-link">
                                         <span class="title">Add Web Security Levels</span>
                                     </a>
                                 </li>
@@ -168,7 +168,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/users']"
                                         class="nav-link">
                                         <span class="title">View Users</span>
                                     </a>
@@ -304,7 +304,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/file-formats']" 
+                                    class="nav-link">
                                         <span class="title">View File Formats</span>
                                     </a>
                                 </li>
@@ -324,7 +325,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/file-security']" 
+                                    class="nav-link">
                                         <span class="title">View Security Grades</span>
                                     </a>
                                 </li>
@@ -345,7 +347,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/wellbores']" 
                                         class="nav-link"> 
                                         <span class="title">View Wellbores Cores</span>
                                     </a>
@@ -529,9 +531,9 @@
                 <!-- END DASHBOARD STATS 1-->
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
-                        <form class="form-horizontal" [formGroup]="formGroup"
-                        (ngSubmit)="addCoreCatProcess()">
-                
+                         <form class="form-horizontal" [formGroup]="formGroup"
+        (ngSubmit)="addCoreCatProcess()">
+
                             <div class="form-body row">
                                 <div class="col-md-6">
 

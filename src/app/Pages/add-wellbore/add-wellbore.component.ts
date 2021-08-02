@@ -15,6 +15,8 @@ export class AddWellboreComponent implements OnInit {
   role:any;
   userEmail: any;
   loggedin: any;
+  prospectIds: any;
+  licenceIds: any
 
 
   constructor(
@@ -35,6 +37,8 @@ export class AddWellboreComponent implements OnInit {
     }else{
     this.role= false;
     }
+    this.getProspectIds();
+    this.getLicenseIds();
   }
 
   initForm(){
@@ -96,6 +100,33 @@ export class AddWellboreComponent implements OnInit {
     });
   }
 
+  getLicenseIds(){
+    this.authservice.getAllCompanies().subscribe(res =>{
+      this.licenceIds = res;
+      console.log(this.licenceIds);
+    })
+  }
+
+  getProspectIds(){
+    this.authservice.getAllCompanies().subscribe(res =>{
+      this.prospectIds = res;
+      console.log(this.prospectIds);
+    })
+  }
+
+  changeProspect(e:any) {
+    console.log(e.value)
+    this.prospectIds.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeLicense(e:any) {
+    console.log(e.value)
+    this.licenceIds.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
 
 
   logout(){

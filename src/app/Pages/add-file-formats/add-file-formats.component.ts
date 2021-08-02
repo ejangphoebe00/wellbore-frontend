@@ -39,7 +39,7 @@ export class AddFileFormatsComponent implements OnInit {
   
   initForm(){
     this.formGroup = new FormGroup({
-      FileSecurityGradeName:new FormControl(),
+      FileFormatName:new FormControl(),
       SortOrder:new FormControl(),
       Comments:new FormControl()
   

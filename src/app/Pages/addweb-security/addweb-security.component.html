@@ -7,8 +7,8 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a >
-                        <!-- <img src="..//asts/assets/layouts/layout/img/logo.png"
-                             class="logo-default" /> Wellbore Store -->
+                            <img src="..//assets/assets/layouts/layout/img/logo1.png"
+                            class="logo-default" />   
                             </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
@@ -124,7 +124,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/dashboard']" class="nav-link">
                                         <span class="title">Wellbore Dashboard</span>
                                         <span class="selected"></span>
                                     </a>
@@ -169,7 +169,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/users']"
                                         class="nav-link">
                                         <span class="title">View Users</span>
                                     </a>
@@ -305,7 +305,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/file-formats']" class="nav-link">
                                         <span class="title">View File Formats</span>
                                     </a>
                                 </li>
@@ -325,7 +325,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">
+                                    <a [routerLink]="['/file-security']" class="nav-link">
                                         <span class="title">View Security Grades</span>
                                     </a>
                                 </li>
@@ -346,7 +346,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a 
+                                    <a [routerLink]="['/wellbores']"
                                         class="nav-link"> 
                                         <span class="title">View Wellbores Cores</span>
                                     </a>
