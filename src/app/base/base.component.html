@@ -62,11 +62,7 @@
                       <!-- END USER LOGIN DROPDOWN -->
                       <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                       <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                      <li class="dropdown dropdown-quick-sidebar-toggler">
-                          <a click="logout()" class="dropdown-toggle">
-                              <i  class="icon-logout"></i>
-                          </a>
-                      </li>
+                    
                       <!-- END QUICK SIDEBAR TOGGLER -->
                   </ul>
               </div>
@@ -132,7 +128,7 @@
                     <li class="heading">
                         <h3 class="uppercase">Components</h3>
                     </li>
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                    <li *ngIf="role" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
                         <a routerLink="add-web-security" class="nav-link nav-toggle">
                             <i class="icon-diamond"></i>
                             <span class="title">Web Security</span>
@@ -154,7 +150,7 @@
                         </ul>
                     </li>
   
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                    <li *ngIf="role" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
                         <a  class="nav-link nav-toggle">
                             <i class="icon-puzzle"></i>
                             <span class="title">Users</span>
@@ -189,7 +185,7 @@
                             <span class="arrow"></span>
                         </a>
                         <ul  class="sub-menu">
-                            <li class="nav-item">
+                            <li *ngIf="role" class="nav-item">
                                 <a routerLink="add-company"
                                     class="nav-link">
                                     <span class="title">Add Company</span>
@@ -212,7 +208,7 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item">
-                                <a routerLink="add-wellbore"
+                                <a *ngIf="role" routerLink="add-wellbore"
                                     class="nav-link">
                                     <span class="title">Add Wellbore</span>
                                 </a>
@@ -234,7 +230,7 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li *ngIf="role" class="nav-item">
                                 <a routerLink="strat-litho-unit"
                                     class="nav-link">
                                     <span class="title">Add Strat Litho Unit</span>
@@ -257,7 +253,7 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li *ngIf="role" class="nav-item">
                                 <a routerLink="catalog-security" class="nav-link">
                                     <span class="title">Add Catalog Security</span>
                                 </a>
@@ -270,7 +266,7 @@
                         </ul>
                     </li>
   
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                    <li *ngIf="role"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
                         <a class="nav-link nav-toggle">
                             <i class="icon-bar-chart"></i>
                             <span class="title">Core Types</span>
@@ -290,7 +286,7 @@
                         </ul>
                     </li>
   
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                    <li *ngIf="role" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
                         <a class="nav-link nav-toggle">
                             <i class="icon-bar-chart"></i>
                             <span class="title">File Formats</span>
@@ -312,7 +308,7 @@
                         </ul>
                     </li>
   
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                    <li *ngIf="role"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
                         <a class="nav-link nav-toggle">
                             <i class="icon-pointer"></i>
                             <span class="title">File Security Grades</span>
@@ -339,8 +335,8 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
-                                <a 
+                            <li *ngIf="role"  class="nav-item">
+                                <a routerLink="add-wellbore-core"
                                     class="nav-link">
                                     <span class="title">Add Wellbore Core</span>
                                 </a>
@@ -362,8 +358,8 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
-                                <a
+                            <li *ngIf="role" class="nav-item">
+                                <a routerLink="add-core-catalog"
                                     class="nav-link">
                                     <span class="title">Add Core Catalog</span>
                                 </a>
@@ -377,6 +373,13 @@
   
                         </ul>
                     </li>
+
+                    <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"class="nav-item">
+                        <a  click="logout()"  class="nav-link nav-toggle">
+                            <i class="icon-logout"></i>
+                            <span class="title">Log Out</span>
+                        </a>                     
+                    </li> -->
                 </ul>
                 <!-- END SIDEBAR MENU -->
                 <!-- END SIDEBAR MENU -->

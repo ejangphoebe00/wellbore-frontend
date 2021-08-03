@@ -25,7 +25,7 @@ loggedin:any;
     if(this.authservice.getRole()=="Admin"){
       this.role=true;
     }else{
-    this.role= false;
+    this.role=false;
     }
    }
 
