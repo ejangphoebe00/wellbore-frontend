@@ -9,6 +9,16 @@
     color:red;
 }
 
+.wellbore {
+  margin-left: 230px;
+  position: absolute;
+  margin-top: 1px;
+  font-size: 30px;
+  font-family: fantasy;
+  color: black;
+  /* background-color: wheat; */
+}
+
 span.username.username-hide-on-mobile {
   color: black!important;
 }
