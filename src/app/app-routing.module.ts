@@ -27,6 +27,7 @@ import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/vi
 import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
 import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/wells/wells.component';
+import { CoreCatalogsComponent } from './Pages/core-catalogs/core-catalogs.component';
 
 
 
@@ -59,8 +60,9 @@ const routes: Routes = [
   {path: 'view-catalog-security', component: ViewCatalogueSecurityLevelsComponent},
   {path: 'strat-litho-unit', component: StratLithoUnitComponent},
   {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
-  {path: 'wells', component: WellsComponent},
- 
+  {path: 'wells', component: WellsComponent}, 
+  {path: 'CoreCatalogs', component:  CoreCatalogsComponent},
+  
 ]
 },
 

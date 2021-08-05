@@ -10,7 +10,7 @@
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <span>Wellbore Cores</span>
+                        <span>Core Catalogs</span>
                     </li>
                 </ul>
              
@@ -35,7 +35,7 @@
                                         <i class="icon-settings
                                             font-dark"></i>
                                         <span class="caption-subject
-                                            bold uppercase">Wellbore Cores</span>
+                                            bold uppercase">Core Catalogs</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -49,9 +49,9 @@
                                             id="sample_1">
                                                 <thead>
                                                   <tr >
-                                                    <th>Wellbore Id</th>
-                                                    <th>CoringDate</th>
-                                                    <th>WellboreCoreName</th>
+                                                    <th>Catalog Id</th>
+                                                    <th>Store Identifier</th>
+                                                    <th>CatalogCoreToDepth</th>
                                                     <th>Details</th>
                                                     <th>Edit</th>
                                                      <th>Delete</th>
@@ -59,9 +59,9 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr *ngFor="let post of users">
-                                                    <td>{{post.WellboreCore_id}}</td>
-                                                    <td>{{post.CoringDate}}</td>
-                                                    <td>{{post.WellboreCoreName}}</td>
+                                                    <td>{{post.CoreCatalog_id}}</td>
+                                                    <td>{{post.StoreIdentifier}}</td>
+                                                    <td>{{post.CatalogCoreToDepth}}</td>
                                                     <td><button type="button"  class="btn blue btn-outline">View</button></td>
                                                     <td><button type="button"  class="btn blue btn-outline">Edit</button></td>
                                                     <td><button type="button"   class="btn red btn-outline">Delete</button></td>

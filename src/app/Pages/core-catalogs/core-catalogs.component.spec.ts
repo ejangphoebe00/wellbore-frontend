@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CdComponent } from './cd.component';
+import { CoreCatalogsComponent } from './core-catalogs.component';
 
-describe('CdComponent', () => {
-  let component: CdComponent;
-  let fixture: ComponentFixture<CdComponent>;
+describe('CoreCatalogsComponent', () => {
+  let component: CoreCatalogsComponent;
+  let fixture: ComponentFixture<CoreCatalogsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CdComponent ]
+      declarations: [ CoreCatalogsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CdComponent);
+    fixture = TestBed.createComponent(CoreCatalogsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

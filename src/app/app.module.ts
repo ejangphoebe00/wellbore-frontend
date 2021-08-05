@@ -17,7 +17,7 @@ import { AddwebSecurityComponent } from './Pages/addweb-security/addweb-security
 import { WebSecurityLevelsComponent } from './Pages/web-security-levels/web-security-levels.component';
 import { UserLogsComponent } from './user-logs/user-logs.component';
 import { UsersListComponent } from './Pages/users-list/users-list.component';
-import { CdComponent } from './Pages/cd/cd.component';
+// import { CdComponent } from './Pages/cd/cd.component';
 import { AddWellboreComponent } from './Pages/add-wellbore/add-wellbore.component';
 import { AddFileFormatsComponent } from './Pages/add-file-formats/add-file-formats.component';
 import { AddFileSecurityGradeComponent } from './Pages/add-file-security-grade/add-file-security-grade.component';
@@ -37,6 +37,7 @@ import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/vi
 import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
 import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/wells/wells.component';
+import { CoreCatalogsComponent } from './Pages/core-catalogs/core-catalogs.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,6 @@ import { WellsComponent } from './Pages/wells/wells.component';
     WebSecurityLevelsComponent,
     UserLogsComponent,
     UsersListComponent,
-    CdComponent,
     AddWellboreComponent,
     AddFileFormatsComponent,
     AddFileSecurityGradeComponent,
@@ -67,7 +67,8 @@ import { WellsComponent } from './Pages/wells/wells.component';
     ViewCatalogueSecurityLevelsComponent,
     StratLithoUnitComponent,
     ViewStratLithoUnitComponent,
-    WellsComponent
+    WellsComponent,
+    CoreCatalogsComponent
   ],
   imports: [
     BrowserModule,

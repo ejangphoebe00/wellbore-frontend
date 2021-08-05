@@ -5,21 +5,21 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
-
 @Component({
-  selector: 'app-wells',
-  templateUrl: './wells.component.html',
-  styleUrls: ['./wells.component.css']
+  selector: 'app-core-catalogs',
+  templateUrl: './core-catalogs.component.html',
+  styleUrls: ['./core-catalogs.component.css']
 })
-export class WellsComponent implements OnInit {
+export class CoreCatalogsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+
 
   users: any = [];
   role:any;
     userEmail:any;
     loggedin:any;
-  
+
     constructor(
       private authservice: ApiPipeService,
       private router: Router,
@@ -29,7 +29,7 @@ export class WellsComponent implements OnInit {
   
     ngOnInit(): void {
       this.authservice.reload();
-      this.wellboresList()
+      this. coreCatalogList();
       this.userEmail = this.authservice.getEmail();
       this.loggedin = this.authservice.getRole();
       // if(this.authservice.getRole()=="Admin"){
@@ -43,9 +43,9 @@ export class WellsComponent implements OnInit {
       this.dtTrigger.unsubscribe();
     }
   
-    wellboresList(): void {
+    coreCatalogList(): void {
       this.authservice
-          .getwellboreCores()
+          .getCatalogList()
           .subscribe((response: any) => {
             console.log(response)
             this.users = response;
