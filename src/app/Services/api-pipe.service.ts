@@ -117,6 +117,11 @@ export class ApiPipeService {
     return this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore')
   }
 
+  getwellboreCores(): Observable<any> {
+    console.log("Wellbore Cores")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_cores')
+  }
+
   getCoreReportSecurity(): Observable<any> {
     console.log(" Retrieved Reports")
     return this.http.get('http://127.0.0.1:8899/apiv1/get_file_security_grades')

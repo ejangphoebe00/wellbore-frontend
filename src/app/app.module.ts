@@ -36,6 +36,7 @@ import { CatalogSecurityComponent } from './Pages/CatalogSecurity/catalog-securi
 import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
 import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
 import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
+import { WellsComponent } from './Pages/wells/wells.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-l
     CatalogSecurityComponent,
     ViewCatalogueSecurityLevelsComponent,
     StratLithoUnitComponent,
-    ViewStratLithoUnitComponent
+    ViewStratLithoUnitComponent,
+    WellsComponent
   ],
   imports: [
     BrowserModule,
