@@ -74,6 +74,7 @@ export class AddCoreCatalogComponent implements OnInit {
       CatalogueCorePictureName: new FormControl(),
       CataloguePictureSoftcopyPath:new FormControl(),
       CataloguePictureHyperlink:new FormControl(),
+      CatPictureUploadDate:new FormControl(),
       CatalogueReportSoftcopyPath:new FormControl(),
       CatalogueReportHyperlink:new FormControl(),
       CatReportUploadDate:new FormControl(),
@@ -98,7 +99,7 @@ export class AddCoreCatalogComponent implements OnInit {
     console.log("tested")
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
-      this.authservice.addStratLitho(this.formGroup.value).subscribe(result =>{
+      this.authservice.addCoreCatalog(this.formGroup.value).subscribe(result =>{
        
         if(result.message == "Core Catalog added successfuly."){
           this.toastr.success("Core Catalog added successfuly.","",{
