@@ -18,7 +18,7 @@ export class AddCoreCatalogComponent implements OnInit {
   loggedin:any;
 
   wellboreCoreIds: any;
-  CoreType: any;
+  CoreTypeIds: any;
   CoreCatalogSecurityFlag_id: any;
   TopStratLitho_id: any;
   BottomStratLitho_id: any;
@@ -35,7 +35,17 @@ export class AddCoreCatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.authservice.reload();
     this.initForm();
+    this.getBottomStratLitho_id();
+    this.getCatalogReportFormat_id();
+    this.getCatalogReportSecurityGrade_id();
+    this.getCoreType();
+    this.getCoreCatalogSecurityFlag_id();
+    this.getWelboreCoreId();
+    this.getTopStratLitho_id();
+ 
+  
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){
@@ -43,15 +53,8 @@ export class AddCoreCatalogComponent implements OnInit {
     }else{
     this.role= false;
     }
-   this.authservice.reload();
+ 
 
-   this.getBottomStratLitho_id();
-   this.getCatalogReportFormat_id();
-   this.getCatalogReportSecurityGrade_id();
-   this.getCoreType();
-   this.getCoreCatalogSecurityFlag_id();
-   this.getWelboreCoreId();
-   this.getTopStratLitho_id();
 
 
   }
@@ -204,7 +207,7 @@ export class AddCoreCatalogComponent implements OnInit {
   } 
 
   getCoreType(){
-    this.authservice.getWellboreCores().subscribe(res =>{
+    this.authservice.getAllCoreTypes().subscribe(res =>{
       this.wellboreCoreIds = res;
       console.log(this.wellboreCoreIds);
     })
@@ -212,22 +215,22 @@ export class AddCoreCatalogComponent implements OnInit {
 
   changeCoreTypes(e:any) {
     console.log(e.value)
-    this.CoreType.setValue(e.target.value, {
+    this.CoreTypeIds.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   getWelboreCoreId(){
-    this.authservice.getWelboreIds().subscribe(res =>{
+    this.authservice.getwellboreCores().subscribe(res =>{
       this.wellboreCoreIds = res;
       console.log(this.wellboreCoreIds);
     })
   }
 
 
-  changeWellboreCoreId(e:any) {
-    console.log(e.value)
-    this.wellboreCoreIds.setValue(e.target.value, {
+  changeWellboreCoreId(m:any) {
+    console.log(m.value)
+    this.wellboreCoreIds.setValue(m.target.value, {
       onlySelf: true
     })
   }

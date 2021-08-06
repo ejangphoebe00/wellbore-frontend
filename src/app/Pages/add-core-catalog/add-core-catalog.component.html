@@ -34,15 +34,38 @@
                             <div class="form-group">
 
                                 <label>Wellbore Core Id</label>
-                                <input formControlName="WellboreCore_id"
+                                <!-- <input formControlName="WellboreCore_id"
                                     type="number" class="form-control"
-                                    placeholder="">
+                                    placeholder=""> -->
+                                    <select class="custom-select"
+                                    formControlName="WellboreCore_id"
+                                    name="WellboreCore_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                        wellboreCoreIds"
+                                        [ngValue]="city.WellboreCore_id"
+                                        (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.WellboreAliasName}}
+                                    </option>
+                                </select>
+
+
                             </div>
                             <div class="form-group">
                                 <label>Core Type</label>
-                                <input formControlName="CoreType"
+                                <!-- <input formControlName="CoreType"
                                     type="number" class="form-control"
-                                    placeholder="">
+                                    placeholder=""> -->
+
+                                 <span class="error">*</span>
+                                <select class="form-control" formControlName="CoreType">
+                                        <option *ngFor="let role of CoreTypeIds" [ngValue]="CoreTypeIds.CoreType_id"
+                                            (change)="changeCoreTypes($event)">{{CoreTypeIds.CoreType_id}}-->{{CoreTypeIds.CoreTypeName}}
+                                        </option>
+                                        </select>    
+                                        <div> <span class="errorName" *ngIf="f.CoreType.touched && f.CoreType.invalid">
+                                            Core type category is required</span></div>   
+                                  
+
                             </div>
                             <div class="form-group">
                                 <label>Store Identifier</label>
@@ -79,7 +102,7 @@
                             <div class="form-group">
                                 <label>Was Analysed Id</label>
                                 <input
-                                    formControlName="UserCategory"
+                                    formControlName="WasAnalysed_id"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>

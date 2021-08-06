@@ -49,7 +49,7 @@ export class WellboreCoreComponent implements OnInit {
     this.getCoreTopStratLitho_id();
     this.getCoreBottomStratLitho_id();
     this.getReportFormat_id();
-
+    this.getCoreReportSecurityGrade_id();
   }
 
   initForm(){
@@ -155,7 +155,7 @@ export class WellboreCoreComponent implements OnInit {
 
 
   getCoreTopStratLitho_id(){
-    this.authservice.getStrat().subscribe(res =>{
+    this.authservice.getAllStratLithoUnits().subscribe(res =>{
       this.CoreTopStratLitho_id = res;
       console.log(this.CoreTopStratLitho_id);
     })
@@ -222,6 +222,12 @@ export class WellboreCoreComponent implements OnInit {
       onlySelf: true
     })
   }
+
+  // get FirstName(){return this.formGroup.get('FirstName')}
+
+  // get f(){return this.formGroup.controls}
+
+
 }
 
 
