@@ -91,8 +91,8 @@ div#login-customise {
 
 
 .full-screen-container {
-  background-image: url('src/assets/assets/pages/img/welbore.jpeg');
-  /* background-image: url('https://images.unsplash.com/photo-1573496782646-e8d943a4bdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80'); */
+  /* background-image: url('src/assets/assets/pages/img/welbore.jpeg'); */
+  background-image: url('https://chorus.stimg.co/22060537/ows_ea676574_e8b5_440b_9579_6db28bcfd92a.jpg?fit=crop&crop=faces');
   height: 100vh;
   width: 100vw;
   background-size: cover;
