@@ -34,9 +34,7 @@
                             <div class="form-group">
 
                                 <label>Wellbore Core Id</label>
-                                <!-- <input formControlName="WellboreCore_id"
-                                    type="number" class="form-control"
-                                    placeholder=""> -->
+                                <span class="error">*</span>
                                     <select class="custom-select"
                                     formControlName="WellboreCore_id"
                                     name="WellboreCore_id"
@@ -44,22 +42,20 @@
                                     <option *ngFor="let city of
                                         wellboreCoreIds"
                                         [ngValue]="city.WellboreCore_id"
-                                        (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.WellboreAliasName}}
+                                        (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.CoreNumber}}
                                     </option>
                                 </select>
+                                <div> <span class="errorName" *ngIf="f.WellboreCore_id.touched && f.WellboreCore_id.invalid">
+                                    Wellbore Id is required</span></div>  
 
 
                             </div>
                             <div class="form-group">
                                 <label>Core Type</label>
-                                <!-- <input formControlName="CoreType"
-                                    type="number" class="form-control"
-                                    placeholder=""> -->
-
-                                 <span class="error">*</span>
+                                <span class="error">*</span>
                                 <select class="form-control" formControlName="CoreType">
-                                        <option *ngFor="let role of CoreTypeIds" [ngValue]="CoreTypeIds.CoreType_id"
-                                            (change)="changeCoreTypes($event)">{{CoreTypeIds.CoreType_id}}-->{{CoreTypeIds.CoreTypeName}}
+                                        <option *ngFor="let  id of CoreTypeIds" [ngValue]="id.CoreType_id"
+                                            (change)="changeCoreTypes($event)">{{id.CoreType_id}}-->{{id.CoreTypeName}}
                                         </option>
                                         </select>    
                                         <div> <span class="errorName" *ngIf="f.CoreType.touched && f.CoreType.invalid">
@@ -94,10 +90,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Core Catalog Security Flag Id</label>
-                                <input
-                                    formControlName="CoreCatalogSecurityFlag_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
+                                <select formControlName="CoreCatalogSecurityFlag_id"
+                                name="CoreCoreCatalogSecurityFlag_id"
+                                class="form-control">
+                                <option *ngFor="let city of
+                                CatalogSecurityFlag_ids"
+                                    [ngValue]="city.CatalogSecurityFlag_id"
+                                    (change)="changeCoreReportSecurityGrade_id($event)">{{city.CatalogSecurityFlag_id}}-->{{city.CatalogSecurityFlagName}}
+                                </option>
+                            </select>
                             </div>
                             <div class="form-group">
                                 <label>Was Analysed Id</label>
@@ -107,18 +108,26 @@
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>Top StratLitho Id</label>
-                                <input
-                                    formControlName="TopStratLitho_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
+                                <label>Top StratLitho Id</label>                               
+                                <select formControlName="TopStratLitho_id"
+                                name="TopStratLitho_id"
+                                class="form-control">
+                                <option *ngFor="let city of TopStratLitho_id"
+                                    [ngValue]="city.StratLitho_id"
+                                    (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                </option>
+                            </select>
                             </div>
                             <div class="form-group">
                                 <label>BottomStratLitho_id</label>
-                                <input
-                                    formControlName="BottomStratLitho_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
+                                <select formControlName="BottomStratLitho_id"
+                                name="BottomStratLitho_id"
+                                class="form-control">
+                                <option *ngFor="let city of TopStratLitho_id"
+                                    [ngValue]="city.StratLitho_id"
+                                    (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                </option>
+                            </select>
                             </div>
                          
 
