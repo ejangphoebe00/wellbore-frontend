@@ -22,6 +22,12 @@ export class ApiPipeService {
     }
   }
 
+  checkLoginStatus(){
+    if (this.getToken()!= null) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
+
   getToken() {
     return localStorage.getItem("token")
   }
