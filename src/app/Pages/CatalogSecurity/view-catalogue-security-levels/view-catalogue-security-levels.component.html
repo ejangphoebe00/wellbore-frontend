@@ -96,6 +96,7 @@
                                        <th>  SortOrder </th>
                                        <th>  Comments </th>
                                        <th>  Modified On </th>
+                                       <th> Actions </th>
                                    </tr>
                                </thead>
                                <tbody *ngIf="posts?.length != 0">
@@ -105,8 +106,13 @@
                                        <td> {{catalog.SortOrder}} </td>
                                        <td> {{catalog.Comments}} </td>
                                        <td> {{catalog.ModifiedOn}} </td>
-                                       <td><button type="button" (click)="onSelectEdit(catalog)"  class="btn blue btn-outline">Edit</button></td>
-                                       <td><button type="button"  (click)="onSelect(catalog)" class="btn red btn-outline">Delete</button></td>
+                                       <td><button type="button" (click)="onSelectEdit(catalog)"
+                                         class="btn blue btn-outline">
+                                         <i class="fa fa-angle-double-right"></i></button>
+                                       <button type="button"  
+                                         class="btn red btn-outline"
+                                         data-toggle="confirmation" data-placement="bottom">
+                                         <i class="fa fa-trash-o"></i></button></td>
                                    </tr>
 
                                </tbody>

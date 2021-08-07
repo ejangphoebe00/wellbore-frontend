@@ -159,7 +159,7 @@
                                 <div class="tools"> </div>
                             </div>
                             <div class="portlet-body">
-                             
+
                                         <table datatable
                                         [dtOptions]="dtOptions"
                                         [dtTrigger]="dtTrigger"
@@ -167,26 +167,33 @@
                                         table-bordered table-hover"
                                         id="sample_1">
                                             <thead>
-                                              <tr >
-                                                <th>Id</th>
+                                              <tr>
+                                                <th>ID</th>
                                                 <th>Format Name</th>
                                                 <th>Sort Order</th>
-                                                <th>Comments</th>                                                                
-                                                <th>Edit</th>
-                                                 <th>Delete</th>
+                                                <th>Comments</th>
+                                                <th>Actions</th>
                                               </tr>
                                             </thead>
                                             <tbody>
                                               <tr *ngFor="let post of formats">
-                                                <td>{{post.FileFormat_id}}</td>  
+                                                <td>{{post.FileFormat_id}}</td>
                                                 <td>{{post.FileFormatName}}</td>
                                                 <td>{{post.SortOrder}}</td>
                                                 <td>{{post.Comments}}</td>
-                                                <td><button type="button"  class="btn blue btn-outline">Edit</button></td>
-                                                <td><button type="button"   class="btn red btn-outline">Delete</button></td>
+                                                <!-- <td><button type="button" (click)="onSelectEdit(post)"
+                                                  class="btn blue btn-outline">
+                                                  <i class="fa fa-angle-double-right"></i></button>
+                                                <button type="button"  (click)="onSelect(post)"
+                                                  class="btn red btn-outline">
+                                                  <i class="fa fa-trash-o"></i></button></td> -->
+                                                  <td><button type="button" class="btn blue btn-outline">
+                                                    <i class="fa fa-angle-double-right"></i></button>
+                                                  <button type="button" class="btn red btn-outline">
+                                                    <i class="fa fa-trash-o"></i></button></td>
                                               </tr>
-                                             
-                                   
+
+
                                             </tbody>
                                           </table>
                                     </div>

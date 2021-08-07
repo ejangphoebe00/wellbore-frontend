@@ -89,15 +89,14 @@
                                              id="sample_1">
                                 <thead>
                                     <tr>
-                                        <th> Company_id </th>
+                                        <th> ID </th>
                                         <th> PAUID </th>
                                         <th> Long Name </th>
                                         <th> NSD Number </th>
                                         <th> Registration No </th>
                                         <th> TIN </th>
-                                        <th> (C)Telephone </th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th> Telephone </th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody *ngIf="posts?.length != 0">
@@ -109,8 +108,12 @@
                                         <td> {{company.RegistrationNumber}}</td>
                                         <td> {{company.TINNumber}}</td>
                                         <td> {{company.CompanyTelephone}}</td>
-                                        <td><button type="button" (click)="onSelectEdit(company)"  class="btn blue btn-outline">Edit</button></td>
-                                        <td><button type="button"  (click)="onSelect(company)" class="btn red btn-outline">Delete</button></td>
+                                        <td><button type="button" (click)="onSelectEdit(company)"
+                                          class="btn blue btn-outline">
+                                          <i class="fa fa-angle-double-right"></i></button>
+                                        <button type="button"  (click)="onSelect(company)"
+                                          class="btn red btn-outline">
+                                          <i class="fa fa-trash-o"></i></button></td>
                                     </tr>
 
                                 </tbody>
@@ -120,7 +123,6 @@
                                   </tr>
                                 </tbody>
                             </table>
-                            <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -265,7 +267,7 @@
                       </div>
 
                       <div class="col-md-5">
-                        
+
                         <div class="">
                           <div class="form-group">
                               <label>Contact Entity Email</label>
