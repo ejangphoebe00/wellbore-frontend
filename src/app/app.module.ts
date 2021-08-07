@@ -30,7 +30,6 @@ import { BaseComponent } from './base/base.component';
 import { CoreTypesComponent } from './Pages/CoreTypes/core-types/core-types.component';
 import { ViewCoreTypeComponent } from './Pages/CoreTypes/view-core-type/view-core-type.component';
 import { AddCompanyComponent } from './Pages/Company/add-company/add-company.component';
-import { CompanyDetailsComponent } from './Pages/Company/company-details/company-details.component';
 import { ViewCompaniesComponent } from './Pages/Company/view-companies/view-companies.component';
 import { CatalogSecurityComponent } from './Pages/CatalogSecurity/catalog-security/catalog-security.component';
 import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
@@ -61,14 +60,13 @@ import { CoreCatalogsComponent } from './Pages/core-catalogs/core-catalogs.compo
     CoreTypesComponent,
     ViewCoreTypeComponent,
     AddCompanyComponent,
-    CompanyDetailsComponent,
     ViewCompaniesComponent,
     CatalogSecurityComponent,
     ViewCatalogueSecurityLevelsComponent,
     StratLithoUnitComponent,
     ViewStratLithoUnitComponent,
     WellsComponent,
-    CoreCatalogsComponent
+    CoreCatalogsComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,8 +75,8 @@ import { CoreCatalogsComponent } from './Pages/core-catalogs/core-catalogs.compo
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, 
-    ToastrModule.forRoot() 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

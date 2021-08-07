@@ -45,7 +45,7 @@ export class CatalogSecurityComponent implements OnInit {
       this.authservice.addCatalogSecurityFlag(this.formGroup.value).subscribe(result =>{
         console.log(result)
 
-        if(result.message == "Catalog Security added successfully."){
+        if(result.message == "Catalog Security Flag added successfuly."){
           this.toastr.success("Catalog Security successfuly.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
@@ -74,4 +74,3 @@ export class CatalogSecurityComponent implements OnInit {
 
   get f(){return this.formGroup.controls}
 }
-

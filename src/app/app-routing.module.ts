@@ -21,7 +21,6 @@ import { CoreTypesComponent } from './Pages/CoreTypes/core-types/core-types.comp
 import { ViewCoreTypeComponent } from './Pages/CoreTypes/view-core-type/view-core-type.component';
 import { AddCompanyComponent } from './Pages/Company/add-company/add-company.component';
 import { ViewCompaniesComponent } from './Pages/Company/view-companies/view-companies.component';
-import { CompanyDetailsComponent } from './Pages/Company/company-details/company-details.component';
 import { CatalogSecurityComponent } from './Pages/CatalogSecurity/catalog-security/catalog-security.component';
 import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
 import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
@@ -35,38 +34,35 @@ import { CoreCatalogsComponent } from './Pages/core-catalogs/core-catalogs.compo
 
 const routes: Routes = [
   {path: 'dashboard', component: BaseComponent,
-  children: [
-  {path: 'add-users', component: AddUsersComponent},
-  // {path: 'dashboard', component: DashboardComponent},
-  {path: '', component: DashboardComponent},
-  {path: 'add-web-security', component:  AddwebSecurityComponent},
-  {path: 'web-security-levels', component:WebSecurityLevelsComponent},
-  {path: 'user-logs', component:UserLogsComponent},  
-  {path: 'users', component:UsersListComponent},  
-  {path: 'add-wellbore', component:AddWellboreComponent}, 
-  {path: 'add-file-formats', component:AddFileFormatsComponent}, 
-  {path: 'add-file-grades', component:AddFileSecurityGradeComponent}, 
-  {path: 'add-wellbore-core', component:WellboreCoreComponent}, 
-  {path: 'add-core-catalog', component:AddCoreCatalogComponent}, 
-  {path: 'file-formats', component: FileFormatsComponent},  
-  {path: 'file-security', component: FileSecurityGradesComponent},  
-  {path: 'wellbores', component:WellboresComponent}, 
-  {path: 'core-types', component: CoreTypesComponent},
-  {path: 'view-core-type', component: ViewCoreTypeComponent},
-  {path: 'add-company', component: AddCompanyComponent},
-  {path: 'view-companies', component: ViewCompaniesComponent},
-  {path: 'company/:id', component: CompanyDetailsComponent},
-  {path: 'catalog-security', component: CatalogSecurityComponent},
-  {path: 'view-catalog-security', component: ViewCatalogueSecurityLevelsComponent},
-  {path: 'strat-litho-unit', component: StratLithoUnitComponent},
-  {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
-  {path: 'wells', component: WellsComponent}, 
-  {path: 'CoreCatalogs', component:  CoreCatalogsComponent},
-  
-]
+    children: [
+      {path: 'add-users', component: AddUsersComponent},
+      {path: '', component: DashboardComponent},
+      {path: 'add-web-security', component:  AddwebSecurityComponent},
+      {path: 'web-security-levels', component:WebSecurityLevelsComponent},
+      {path: 'user-logs', component:UserLogsComponent},
+      {path: 'users', component:UsersListComponent},
+      {path: 'add-wellbore', component:AddWellboreComponent},
+      {path: 'add-file-formats', component:AddFileFormatsComponent},
+      {path: 'add-file-grades', component:AddFileSecurityGradeComponent},
+      {path: 'add-wellbore-core', component:WellboreCoreComponent},
+      {path: 'add-core-catalog', component:AddCoreCatalogComponent},
+      {path: 'file-formats', component: FileFormatsComponent},
+      {path: 'file-security', component: FileSecurityGradesComponent},
+      {path: 'wellbores', component:WellboresComponent},
+      {path: 'core-types', component: CoreTypesComponent},
+      {path: 'view-core-type', component: ViewCoreTypeComponent},
+      {path: 'add-company', component: AddCompanyComponent},
+      {path: 'view-companies', component: ViewCompaniesComponent},
+      {path: 'catalog-security', component: CatalogSecurityComponent},
+      {path: 'view-catalog-security', component: ViewCatalogueSecurityLevelsComponent},
+      {path: 'strat-litho-unit', component: StratLithoUnitComponent},
+      {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
+      {path: 'wells', component: WellsComponent},
+      {path: 'core-catalogs', component:  CoreCatalogsComponent},
+  ]
 },
 
- 
+
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent, pathMatch: 'full'}
 

@@ -2,102 +2,418 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
 
-        <!-- BEGIN PAGE TITLE-->
-        <!-- <h1 class="page-title text-white"> All Companies</h1> -->
-        <!-- END PAGE TITLE-->
-        <!-- END PAGE HEADER-->
-        <div class="row">
-            <div class="col-md-12">
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="icon-settings font-red"></i>
-                            <span class="caption-subject
-                            bold uppercase">Companies</span>
-                        </div>
-                        <!-- <div class="actions">
-                            <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                <label class="btn btn-transparent red btn-outline btn-circle btn-sm">
-                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+      <!-- BEGIN PAGE BAR -->
+      <div class="page-bar">
+          <ul class="page-breadcrumb">
+              <li>
+                  <a [routerLink]="['/dashboard']">Dashboard</a>
+                  <i class="fa fa-circle"></i>
+              </li>
+              <li>
+                  <span>All Companies</span>
+              </li>
+          </ul>
+          <!-- <div class="page-toolbar">
+              <div id="dashboard-report-range" class="pull-right
+                  tooltips btn btn-sm" data-container="body"
+                  data-placement="bottom"
+                  data-original-title="Change dashboard date
+                  range">
+                  <i class="icon-calendar"></i>&nbsp;
+                  <span class="thin uppercase hidden-xs"></span>&nbsp;
+                  <i class="fa fa-angle-down"></i>
+              </div>
+          </div> -->
+      </div>
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+
+      <!-- END PAGE TITLE-->
+
+      <div class="clearfix"></div>
+      <!-- END DASHBOARD STATS 1-->
+      <div  class="portlet light bordered">
+
+          <div *ngIf="status" class="portlet-body form">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light portlet-fit bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-settings font-red"></i>
+                                <span class="caption-subject
+                                bold uppercase">Companies</span>
                             </div>
-                        </div> -->
-                    </div>
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <!-- <div class="btn-group">
-                                        <button id="sample_editable_1_new" class="btn green"> Add New
-                                            <i class="fa fa-plus"></i>
-                                        </button>
+                            <!-- <div class="actions">
+                                <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                    <label class="btn btn-transparent red btn-outline btn-circle btn-sm">
+                                        <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="portlet-body">
+                            <div class="table-toolbar">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- <div class="btn-group">
+                                            <button id="sample_editable_1_new" class="btn green"> Add New
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                    <!-- <div class="col-md-6">
+                                        <div class="btn-group pull-right">
+                                            <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown">Tools
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;"> Print </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;"> Save as PDF </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;"> Export to Excel </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div> -->
                                 </div>
-                                <!-- <div class="col-md-6">
-                                    <div class="btn-group pull-right">
-                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown">Tools
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a href="javascript:;"> Print </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;"> Save as PDF </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;"> Export to Excel </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div> -->
                             </div>
+                            <table datatable [dtOptions]="dtOptions"
+                                             [dtTrigger]="dtTrigger"
+                                             class="table table-striped
+                                             table-hover table-bordered"
+                                             id="sample_1">
+                                <thead>
+                                    <tr>
+                                        <th> Company_id </th>
+                                        <th> PAUID </th>
+                                        <th> Long Name </th>
+                                        <th> NSD Number </th>
+                                        <th> Registration No </th>
+                                        <th> TIN </th>
+                                        <th> (C)Telephone </th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="posts?.length != 0">
+                                    <tr *ngFor="let company of posts">
+                                        <td> {{company.Company_id}}</td>
+                                        <td> {{company.PAUID}}</td>
+                                        <td> {{company.CompanyLongName}}</td>
+                                        <td> {{company.NSD_Number}}</td>
+                                        <td> {{company.RegistrationNumber}}</td>
+                                        <td> {{company.TINNumber}}</td>
+                                        <td> {{company.CompanyTelephone}}</td>
+                                        <td><button type="button" (click)="onSelectEdit(company)"  class="btn blue btn-outline">Edit</button></td>
+                                        <td><button type="button"  (click)="onSelect(company)" class="btn red btn-outline">Delete</button></td>
+                                    </tr>
+
+                                </tbody>
+                                <tbody *ngIf="posts?.length == 0">
+                                  <tr>
+                                    <td colspan="3" class="no-data-available">No data!</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                            <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
                         </div>
-                        <table datatable [dtOptions]="dtOptions" class="table table-striped table-hover table-bordered">
-                            <thead>
-                                <tr>
-                                    <th> Company ID </th>
-                                    <th> PAUID </th>
-                                    <th> Long Name </th>
-                                    <th> NSD Number </th>
-                                    <th> Registration No </th>
-                                    <th> TIN </th>
-                                    <th> (C)Telephone </th>
-                                </tr>
-                            </thead>
-                            <tbody *ngIf="companyList?.length != 0">
-                                <tr *ngFor="let company of companyList">
-                                    <td> {{company.Company_id}}</td>
-                                    <td> {{company.PAUID}}</td>
-                                    <td> {{company.CompanyLongName}}</td>
-
-                                    <td> {{company.NSD_Number}}</td>
-                                    <td> {{company.RegistrationNumber}}</td>
-                                    <td> {{company.TINNumber}}</td>
-                                    <td> {{company.CompanyTelephone}}</td>
-
-                                    <td>
-                                        <a class="edit" href="javascript:;"> Edit </a>
-                                    </td>
-                                    <td>
-                                        <a class="delete" href="javascript:;"> Delete </a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                            <tbody *ngIf="companyList?.length == 0">
-                              <tr>
-                                <td colspan="3" class="no-data-available">No data!</td>
-                              </tr>
-                            </tbody>
-                        </table>
-                        <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
                     </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
             </div>
-        </div>
-    </div>
+          </div>
+
+
+          <div *ngIf="editform" class="portlet-body form">
+              <!-- BEGIN FORM-->
+              <form class="form-horizontal" [formGroup]="formGroup"
+                  (ngSubmit)="updateCompanyProcess()" ngNativeValidate>
+                  <div class="form-body row">
+                      <div class="col-md-5">
+
+                        <div class="p-r-2">
+                          <div class="form-group">
+                              <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
+                              <input type="text" formControlName="PAUID" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Long Name<span class="red asterisk-validate ml-2">*</span></label>
+                              <input type="text" formControlName="CompanyLongName" required class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Short Name</label>
+                              <input type="text" formControlName="CompanyShortName" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>NSD Number<span class="red asterisk-validate ml-2">*</span></label>
+                              <input type="text" formControlName="NSD_Number" required class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Category ID</label>
+                              <input type="number" formControlName="CompanyCategory_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Of Origin ID</label>
+                              <input type="number" formControlName="CountryOfOrigin_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Country Of Registration ID</label>
+                              <input type="number" formControlName="CountryOfRegistration_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Registration Number<span class="red asterisk-validate ml-2">*</span></label>
+                              <input type="text" formControlName="RegistrationNumber" required class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>TIN Number<span class="red asterisk-validate ml-2">*</span></label>
+                              <input type="text" formControlName="TINNumber" required class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Telephone</label>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-phone"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="CompanyTelephone"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Company Email</label>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-envelope"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="CompanyEmail"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Company Website</label>
+
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-link"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="CompanyWebsite"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Company Entity Type ID</label>
+                              <input type="number" class="form-control" formControlName="CompanyEntityType_id">
+                          </div>
+
+                          <div class="form-group">
+                              <label>Company Entity Sub Type ID</label>
+                              <input type="number" formControlName="CompanyEntitySubType_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Major Activity ID</label>
+                              <input type="number" formControlName="CompanyMajorActivity_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Activity Division ID</label>
+                              <input type="number" formControlName="CompanyActivityDivision_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Activity Division Class ID</label>
+                              <input type="number" formControlName="CompanyActivityDivisionClass_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>  Company Activity Division Class Category ID</label>
+                              <input type="number" formControlName="CompanyActivityDivisionClassCategory_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Business Nature Description</label>
+                              <input type="text" formControlName="BusinessNatureDescription" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Postal Address</label>
+                              <input type="text" formControlName="CompanyPostalAddress" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Physical Address</label>
+                              <input type="text" formControlName="CompanyPhysicalAddress" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Other Emails</label>
+
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-envelope"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="CompanyOtherEmails"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>NSD Qualification Date</label>
+                              <input type="datetime-local" class="form-control" formControlName="NSDQualificationDate">
+                          </div>
+                          <div class="form-group">
+                              <label>NSD Qualification Year</label>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="NSDQualificationYear"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Primary Contact Entity</label>
+                              <input type="text" formControlName="PrimaryContactEntity" class="form-control" placeholder="">
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="col-md-5">
+                        
+                        <div class="">
+                          <div class="form-group">
+                              <label>Contact Entity Email</label>
+
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-envelope"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="ContactEntityEmail"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Contact Entity Telephone</label>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-phone"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="ContactEntityTelephone"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Contact Entity Mobile</label>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-phone"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="ContactEntityMobile"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Contact Designation</label>
+                              <input type="text" formControlName="ContactDesignation" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Operator Sort Order</label>
+                              <input type="text" formControlName="OperatorSortOrder" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Contractor Sort Order</label>
+                              <input type="text" formControlName="ContractorSortOrder" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>PAU Registration Date</label>
+                              <input type="datetime-local" class="form-control" formControlName="PAURegistrationDate">
+                          </div>
+                          <div class="form-group">
+                              <label>Crane NOGTRID</label>
+                              <input type="text" formControlName="CraneNOGTRID" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Temp NOGTRIPwd</label>
+                              <input type="text" formControlName="TempNOGTRIPwd" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Registration Status ID</label>
+                              <input type="text" formControlName="RegistrationStatus_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Classify As Ugandan ID</label>
+                              <input type="text" formControlName="ClassifyAsUgandan_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Primary Company Kind ID</label>
+                              <input type="text" formControlName="PrimaryCompanyKind_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Secondary Company Kind ID</label>
+                              <input type="text" formControlName="SecondaryCompanyKind_id" class="form-control" placeholder="">
+                          </div>
+
+                          <div class="form-group">
+                              <label>Other Company Kind ID</label>
+                              <input type="text" formControlName="OtherCompanyKind_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Group ID</label>
+                              <input type="text" formControlName="CompanyGroup_id" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Company Mobile</label>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-phone"></i>
+                                  </span>
+                                  <input type="text" class="form-control" formControlName="CompanyMobile"> </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Company Fax</label>
+                              <input type="text" formControlName="CompanyFax" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Contact Entity Fax</label>
+                              <input type="text" formControlName="ContactEntityFax" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>NSD From Date</label>
+                              <input type="datetime-local" class="form-control" formControlName="NSD_FromDate">
+                          </div>
+                          <div class="form-group">
+                              <label>NSD To Date</label>
+                              <input type="datetime-local" class="form-control" formControlName="NSD_ToDate">
+                          </div>
+                          <div class="form-group">
+                              <label>Imported From NSD</label>
+                              <input type="text" formControlName="ImportedFromNSD" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Imported Date</label>
+                              <input type="datetime-local" class="form-control" formControlName="ImportedDate">
+                          </div>
+                          <div class="form-group">
+                              <label>Exported Date</label>
+                              <input type="datetime-local" class="form-control" formControlName="ExportedDate">
+                          </div>
+                          <div class="form-group">
+                              <label>Exported To Nogtr</label>
+                              <input type="text" formControlName="ExportedToNogtr" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Record Change Stamp</label>
+                              <input type="text" formControlName="RecordChangeStamp" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Previous Legal Name</label>
+                              <input type="text" formControlName="PreviousLegalName" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label>Comments</label>
+                              <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                          </div>
+                        </div>
+
+                      </div>
+                  </div>
+
+                  <div class="form-actions">
+                      <div class="row">
+                          <div class="col-md-offset-3 col-md-4">
+                                  <input type="submit" value="update" class="btn
+                                  btn-success">
+                              <button (click)="navigateBack()" type="button" class="btn
+                                  default">Back</button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+              <!-- END FORM-->
+          </div>
+      </div>
+
+   </div>
 
     <!-- END CONTENT BODY -->
 </div>

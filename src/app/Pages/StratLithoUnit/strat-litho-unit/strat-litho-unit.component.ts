@@ -26,7 +26,6 @@ export class StratLithoUnitComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      StratLitho_id:new FormControl(),
       PAUID:new FormControl(),
       StratLithoName:new FormControl(),
       ReserviorUnit:new FormControl(),
@@ -40,10 +39,6 @@ export class StratLithoUnitComponent implements OnInit {
       MapPortalLithoStratMapLink:new FormControl(),
       LithoStratFactsiteUrl:new FormControl(),
       Comments:new FormControl(),
-      CreatedBy_id:new FormControl(),
-      DateCreated:new FormControl(),
-      ModifiedOn:new FormControl(),
-      ModifiedBy:new FormControl(),
 
     });
   }
@@ -60,8 +55,8 @@ export class StratLithoUnitComponent implements OnInit {
       this.authservice.addStratLithoUnit(this.formGroup.value).subscribe(result =>{
         console.log(result)
 
-        if(result.message == "Company added successfully."){
-          this.toastr.success("Company added successfuly.","",{
+        if(result.message == "Strat Litho Unit added successfuly."){
+          this.toastr.success("Strat Litho Unit added successfuly.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
@@ -79,7 +74,6 @@ export class StratLithoUnitComponent implements OnInit {
             progressBar: true,
             progressAnimation:'decreasing'
           })
-          // this.authservice.CompanyFaliure()
         }
       }
 

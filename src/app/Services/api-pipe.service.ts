@@ -161,7 +161,7 @@ export class ApiPipeService {
     console.log("add user")
     return this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level')
   }
-  
+
   addUser(data:any): Observable<any>{
     console.log("add user")
     return this.http.post('http://127.0.0.1:8899/user/registration',data)
@@ -234,7 +234,7 @@ export class ApiPipeService {
     return this.http.get('http://127.0.0.1:8899/apiv1/get_file_formats')
   }
 
-  
+
 
   getWellbores(): Observable<any> {
     console.log("get Logs")
@@ -255,7 +255,7 @@ export class ApiPipeService {
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_company', data)
   }
 
-  editCompany(company:any, data:any): Observable<any>{
+  editCompany(data:any): Observable<any>{
     console.log("edit company")
     return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_company/${company}', data)
   }
@@ -266,21 +266,27 @@ export class ApiPipeService {
       // .catch(ApiPipeService._handleError)
   }
 
-  deleteCompany(company:any): Observable<any>{
-    console.log("deleted company")
-    return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_company/${company}')
-  }
+  // deleteCompany(company:any): Observable<any>{
+  //   console.log("deleted company")
+  //   return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_company/${company}')
+  // }
 
-  searchByName(name:any): Observable<any>{
-    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_company/?name=${company.companyLongName}')
-  }
 
   companyStatus(){
-    this.toastr.success("add company added","",{
+    this.toastr.success("add company failed. Try Again","",{
       timeOut: 2000,
       positionClass: 'toast-top-center',
       progressBar: true,
       progressAnimation:'decreasing'
+    })
+  }
+
+  companyStatusUpdate() {
+    this.toastr.error("updating company failed. Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
     })
   }
 
@@ -291,19 +297,37 @@ export class ApiPipeService {
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_catalog_security_flag', data)
   }
 
-  editCatalogSecurity(id:any, data:any): Observable<any>{
+  editCatalogSecurity(data:any): Observable<any>{
     console.log("edited catalog security flag")
     return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_catalog_security_flag/?id=${CatalogSecurityFlag_id}', data)
   }
 
   getAllCatalogSecurityFlags(): Observable<any>{
     console.log("getting all catalog security flags")
-    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_all_catalog_security_flags')
+    return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_catalog_security_flags')
   }
 
-  deleteCatalogSecurityFlag(id:any): Observable<any>{
-    console.log("deleted catalog security flag")
-    return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_catalog_security_flag/?id=${CatalogSecurityFlag_id}')
+  // deleteCatalogSecurityFlag(id:any): Observable<any>{
+  //   console.log("deleted catalog security flag")
+  //   return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_catalog_security_flag/?id=${CatalogSecurityFlag_id}')
+  // }
+
+  catalogSecurityStatus(){
+    this.toastr.success("adding catalog security failed. Try Again","",{
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation:'decreasing'
+    })
+  }
+
+  catalogSecurityStatusUpdate() {
+    this.toastr.error("updating catalog security failed. Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
   }
 
   // STRAT-LITHO-UNIT
@@ -313,7 +337,7 @@ export class ApiPipeService {
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_strat_litho_unit', data)
   }
 
-  editStratLithoUnit(Stratlitho_id:any, data:any): Observable<any>{
+  editStratLithoUnit(data:any): Observable<any>{
     console.log("edited strat-litho-unit")
     return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_strat_litho_unit/${StratLitho_id}', data)
   }
@@ -323,9 +347,28 @@ export class ApiPipeService {
     return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_strat_litho_units')
   }
 
-  deleteStratLithoUnit(stratlitho_id:any): Observable<any>{
-    console.log("deleted catalog security flag")
-    return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_strat_litho_unit/${stratlitho_id}')
+  // deleteStratLithoUnit(stratlitho_id:any): Observable<any>{
+  //   console.log("deleted strat-litho-unit")
+  //   return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_strat_litho_unit/${id}')
+  // }
+
+
+  stratLithoStatus(){
+    this.toastr.success("add strato litho failed. Try Again","",{
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation:'decreasing'
+    })
+  }
+
+  stratLithoStatusUpdate() {
+    this.toastr.error("updating strato litho failed. Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
   }
 
   // CORE TYPES
@@ -335,7 +378,7 @@ export class ApiPipeService {
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_core_type', data)
   }
 
-  editCoreType(CoreType_id:any, data:any): Observable<any>{
+  editCoreType(data:any): Observable<any>{
     console.log("edited core type")
     return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_core_type/${CoreType_id}', data)
   }
@@ -345,11 +388,27 @@ export class ApiPipeService {
     return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_core_types')
   }
 
-  deleteCoreTypes(CoreType_id:any): Observable<any>{
-    console.log("deleted core types")
-    return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_core_type/${CoreType_id}')
+  // deleteCoreTypes(CoreType_id:any): Observable<any>{
+  //   console.log("deleted core types")
+  //   return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_core_type/${CoreType_id}')
+  // }
+
+  coreTypesStatus(){
+    this.toastr.success("adding catalog security failed. Try Again","",{
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation:'decreasing'
+    })
   }
 
-
+  coreTypeStatusUpdate() {
+    this.toastr.error("updating catalog security failed. Try Again", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
+  }
 
 }

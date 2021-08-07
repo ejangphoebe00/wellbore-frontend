@@ -25,7 +25,7 @@ span.username.username-hide-on-mobile {
 
 .page-header.navbar.navbar-fixed-top {
     background-color: #f8b806!important;
-} 
+}
  .page-header.navbar .page-logo .logo-default {
     margin-left: opx;
     margin-left: -18px!important;
@@ -50,7 +50,7 @@ b{
     color: white;
     /* margin-top: 6px; */
     /* margin-bottom: -20px;
-} */ 
+} */
 
 .dropdown:hover .dropdown-menu {display: block !important;}
 /* .dashboard-stat.blue {
@@ -89,6 +89,9 @@ b{
 }
 .p-5{
   padding:10px;
+}
+.p-r-2{
+  padding:0px 20px;
 }
 .middle{
   text-align: center;

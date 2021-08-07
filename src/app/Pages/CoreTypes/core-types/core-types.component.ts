@@ -27,12 +27,9 @@ export class CoreTypesComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      CoreType_id:new FormControl(),
       CoreTypeName:new FormControl(),
       SortOrder:new FormControl(),
       Comments:new FormControl(),
-      ModifiedOn:new FormControl(),
-      ModifiedBy:new FormControl(),
     });
   }
 
@@ -48,8 +45,8 @@ export class CoreTypesComponent implements OnInit {
       this.authservice.addCoreType(this.formGroup.value).subscribe(result =>{
         console.log(result)
 
-        if(result.message == "Core Type added successfully."){
-          this.toastr.success("Core Type added successfuly.","",{
+        if(result.message == "Core Type added successfuly."){
+          this.toastr.success("Core Type added successfully.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
@@ -58,7 +55,7 @@ export class CoreTypesComponent implements OnInit {
           this.formGroup.reset();
         }
         else{
-          // this.authservice.companyStatus()
+          this.authservice.coreTypesStatus()
         }
       }, error => {
 
