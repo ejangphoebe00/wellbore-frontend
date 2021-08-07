@@ -18,12 +18,12 @@ export class AddCoreCatalogComponent implements OnInit {
   loggedin:any;
 
   wellboreCoreIds: any;
-  CoreType: any;
-  CoreCatalogSecurityFlag_id: any;
+  CoreTypeIds: any;
   TopStratLitho_id: any;
-  BottomStratLitho_id: any;
-  CatalogReportFormat_id: any;
-  CatalogReportSecurityGrade_id: any;
+  // BottomStratLitho_id: any;
+  // CatalogReportFormat_id: any;
+  CatalogSecurityFlag_ids: any;
+ 
 
 
 
@@ -35,7 +35,18 @@ export class AddCoreCatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.authservice.reload();
     this.initForm();
+    // this.getBottomStratLitho_id();
+    // this.getCatalogReportFormat_id();
+    this.getCoreReportSecurityGrade_id()
+    // this.getCatalogReportSecurityGrade_id();
+    this.getCoreType();
+    // this.getCoreCatalogSecurityFlag_id();
+    this.getWelboreCoreId();
+    this.getTopStratLitho_id();
+ 
+  
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){
@@ -43,15 +54,8 @@ export class AddCoreCatalogComponent implements OnInit {
     }else{
     this.role= false;
     }
-   this.authservice.reload();
+ 
 
-   this.getBottomStratLitho_id();
-   this.getCatalogReportFormat_id();
-   this.getCatalogReportSecurityGrade_id();
-   this.getCoreType();
-   this.getCoreCatalogSecurityFlag_id();
-   this.getWelboreCoreId();
-   this.getTopStratLitho_id();
 
 
   }
@@ -70,6 +74,7 @@ export class AddCoreCatalogComponent implements OnInit {
       CatalogueCorePictureName: new FormControl(),
       CataloguePictureSoftcopyPath:new FormControl(),
       CataloguePictureHyperlink:new FormControl(),
+      CatPictureUploadDate:new FormControl(),
       CatalogueReportSoftcopyPath:new FormControl(),
       CatalogueReportHyperlink:new FormControl(),
       CatReportUploadDate:new FormControl(),
@@ -94,7 +99,7 @@ export class AddCoreCatalogComponent implements OnInit {
     console.log("tested")
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
-      this.authservice.addStratLitho(this.formGroup.value).subscribe(result =>{
+      this.authservice.addCoreCatalog(this.formGroup.value).subscribe(result =>{
        
         if(result.message == "Core Catalog added successfuly."){
           this.toastr.success("Core Catalog added successfuly.","",{
@@ -128,50 +133,42 @@ export class AddCoreCatalogComponent implements OnInit {
 
   get f(){return this.formGroup.controls}
 
-  getCatalogReportSecurityGrade_id(){
-    this.authservice.getCoreReportSecurity().subscribe(res =>{
-      this.CatalogReportSecurityGrade_id = res;
-      console.log(this.CatalogReportSecurityGrade_id);
-    })
-   }
-
-
-   changeCatalogReportSecurityGrade_id(e:any) {
-    console.log(e.value)
-    this.CatalogReportFormat_id.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
+  // changeCatalogReportSecurityGrade_id(e:any) {
+  //   console.log(e.value)
+  //   this.CatalogReportFormat_id.setValue(e.target.value, {
+  //     onlySelf: true
+  //   })
+  // }
 
 
 
-  getCatalogReportFormat_id(){
-    this.authservice.getFormat().subscribe(res =>{
-      this.CatalogReportFormat_id = res;
-      console.log(this.CatalogReportFormat_id);
-    })
-   }
+  // getCatalogReportFormat_id(){
+  //   this.authservice.getAllCatalogSecurityFlags().subscribe(res =>{
+  //     this.CatalogReportFormat_id = res;
+  //     console.log(this.CatalogReportFormat_id);
+  //   })
+  //  }
 
-   changeCatalogReportFormat_id(e:any) {
-    console.log(e.value)
-    this.CatalogReportFormat_id.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
+  //  changeCatalogReportFormat_id(e:any) {
+  //   console.log(e.value)
+  //   this.CatalogReportFormat_id.setValue(e.target.value, {
+  //     onlySelf: true
+  //   })
+  // }
 
-  getBottomStratLitho_id(){
-    this.authservice.getStrat().subscribe(res =>{
-      this.BottomStratLitho_id = res;
-      console.log(this.BottomStratLitho_id);
-    })
-   }
+  // getBottomStratLitho_id(){
+  //   this.authservice.getStrat().subscribe(res =>{
+  //     this.BottomStratLitho_id = res;
+  //     console.log(this.BottomStratLitho_id);
+  //   })
+  //  }
 
-   changeBottomStratLitho_id(e:any) {
-    console.log(e.value)
-    this.BottomStratLitho_id.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
+  //  changeBottomStratLitho_id(e:any) {
+  //   console.log(e.value)
+  //   this.BottomStratLitho_id.setValue(e.target.value, {
+  //     onlySelf: true
+  //   })
+  // }
 
 
   getTopStratLitho_id(){
@@ -189,48 +186,53 @@ export class AddCoreCatalogComponent implements OnInit {
   } 
 
 
-   getCoreCatalogSecurityFlag_id(){
-    this.authservice.getCoreReportSecurity().subscribe(res =>{
-      this.CoreCatalogSecurityFlag_id = res;
-      console.log(this.CoreCatalogSecurityFlag_id);
-    })
-   }
-
-   changeCoreCatalogSecurityFlag_id(e:any) {
-    console.log(e.value)
-    this.CoreCatalogSecurityFlag_id.setValue(e.target.value, {
-      onlySelf: true
-    })
-  } 
 
   getCoreType(){
-    this.authservice.getWellboreCores().subscribe(res =>{
-      this.wellboreCoreIds = res;
-      console.log(this.wellboreCoreIds);
+    this.authservice.getAllCoreTypes().subscribe(res =>{
+      this.CoreTypeIds = res;
+      console.log(this.CoreTypeIds);
     })
   }
 
   changeCoreTypes(e:any) {
     console.log(e.value)
-    this.CoreType.setValue(e.target.value, {
+    this.CoreTypeIds.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   getWelboreCoreId(){
-    this.authservice.getWelboreIds().subscribe(res =>{
+    this.authservice.getwellboreCores().subscribe(res =>{
       this.wellboreCoreIds = res;
       console.log(this.wellboreCoreIds);
     })
   }
 
 
-  changeWellboreCoreId(e:any) {
-    console.log(e.value)
-    this.wellboreCoreIds.setValue(e.target.value, {
+  changeWellboreCoreId(m:any) {
+    console.log(m.value)
+    this.wellboreCoreIds.setValue(m.target.value, {
       onlySelf: true
     })
   }
+
+  getCoreReportSecurityGrade_id(){
+    this.authservice.getAllCatalogSecurityFlags().subscribe(res =>{
+      this.CatalogSecurityFlag_ids = res;
+      console.log(this.CatalogSecurityFlag_ids);
+    })
+  }
+
+
+
+  changeCoreReportSecurityGrade_id(e:any) {
+    console.log(e.value)
+    this.CatalogSecurityFlag_ids.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+
 
 }
 

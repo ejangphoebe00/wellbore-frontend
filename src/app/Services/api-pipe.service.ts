@@ -411,4 +411,12 @@ export class ApiPipeService {
     })
   }
 
+  addCoreCatalog(data:any): Observable<any>{
+    console.log("added catalog security flag")
+    return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_core_catalog', data)
+  }
+
+
+
+
 }
