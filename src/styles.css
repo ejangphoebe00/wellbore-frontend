@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~bootstrap/dist/css/bootstrap.css" */
+.page-sidebar .page-sidebar-menu>li>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li>a {
+  border-top: 1px solid #3d4957;
+  color: #fdfdfd!important;
+}
+
 .error{
     color:red;
     font-size: 20px;
@@ -20,12 +25,23 @@
 }
 
 span.username.username-hide-on-mobile {
-  color: black!important;
+  color: white!important;
 }
 
-.page-header.navbar.navbar-fixed-top {
-    background-color: #f8b806!important;
+.page-content-white .page-content .page-bar {
+  border-top: 4px solid #f8b806;
 }
+
+.portlet.light.bordered {
+  border: 5px solid #f8b806!important;
+}
+/* .page-header.navbar.navbar-fixed-top {
+    background-color: #f8b806!important;
+} */
+
+.page-header.navbar.navbar-fixed-top {
+    background-color: #36C6D3!important;
+} 
  .page-header.navbar .page-logo .logo-default {
     margin-left: opx;
     margin-left: -18px!important;

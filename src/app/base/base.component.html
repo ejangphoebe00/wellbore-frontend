@@ -72,7 +72,7 @@
                   </ul>
               </div>
               <!-- END TOP NAVIGATION MENU -->
-                                  <div class="wellbore">Wellbore Store</div>
+                                  <!-- <div class="wellbore">Wellbore Store</div> -->
 
           </div>
           <!-- END HEADER INNER -->
@@ -139,7 +139,7 @@
                     <!-- <li *ngIf="role" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li *ngIf="role" routerLinkActive="active" class="nav-item">
                         <a routerLink="add-web-security" class="nav-link nav-toggle">
-                            <i class="icon-diamond"></i>
+                            <i class="icon-lock"></i>
                             <span class="title">Web Security</span>
                             <span class="selected"></span>
                             <span class="arrow open"></span>
@@ -147,12 +147,14 @@
                         <ul class="sub-menu">
                             <li class="nav-item">
                                 <a routerLink='add-web-security' class="nav-link">
+                                        <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Web Security Levels</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink='web-security-levels' class="nav-link">
-                                    <span class="title">View Web Security Levels</span>
+                                        <i class="fa fa-circle-o"></i>
+                                    <span class="title">Web Security Levels</span>
                                 </a>
                             </li>
 
@@ -162,7 +164,7 @@
                     <!-- <li *ngIf="role" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li *ngIf="role" routerLinkActive="active" class="nav-item">
                         <a  class="nav-link nav-toggle">
-                            <i class="icon-puzzle"></i>
+                            <i class="icon-user"></i>
                             <span class="title">Users</span>
                             <span class="arrow"></span>
                         </a>
@@ -170,18 +172,21 @@
                             <li class="nav-item">
                                 <a routerLink='add-users'
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Users</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink='users'
                                     class="nav-link">
-                                    <span class="title">View Users</span>
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">Users</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink='user-logs'
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">User Logs</span>
                                 </a>
                             </li>
@@ -191,7 +196,7 @@
                     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li routerLinkActive="active" class="nav-item">
                         <a class="nav-link nav-toggle">
-                            <i class="icon-bulb"></i>
+                            <i class="fa fa-bank"></i>
                             <span class="title">Company</span>
                             <span class="arrow"></span>
                         </a>
@@ -199,13 +204,15 @@
                             <li *ngIf="role" class="nav-item">
                                 <a routerLink="add-company"
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Company</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="view-companies"
                                     class="nav-link">
-                                    <span class="title">View Companies</span>
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">Companies</span>
                                 </a>
                             </li>
                         </ul>
@@ -222,13 +229,15 @@
                             <li class="nav-item">
                                 <a *ngIf="role" routerLink="add-wellbore"
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Wells</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="wellbores"
                                     class="nav-link">
-                                    <span class="title">View  Wells</span>
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">Wells</span>
                                 </a>
                             </li>
 
@@ -246,13 +255,15 @@
                             <li *ngIf="role" class="nav-item">
                                 <a routerLink="strat-litho-unit"
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Lithostratigraphy</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="view-strat-litho-unit"
                                     class="nav-link">
-                                    <span class="title">View Lithostratigraphy</span>
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">Lithostratigraphy</span>
                                 </a>
                             </li>
 
@@ -262,19 +273,21 @@
                     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li routerLinkActive="active" class="nav-item">
                         <a class="nav-link nav-toggle">
-                            <i class="icon-bar-chart"></i>
+                            <i class="icon-settings"></i>
                             <span class="title">Catalog Security</span>
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
                             <li *ngIf="role" class="nav-item">
                                 <a routerLink="catalog-security" class="nav-link">
+                                        <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Catalog Security</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="view-catalog-security" class="nav-link">
-                                    <span class="title">View Catalog </span>
+                                        <i class="fa fa-circle-o"></i>
+                                    <span class="title">Catalog </span>
                                 </a>
                             </li>
                         </ul>
@@ -283,19 +296,21 @@
                     <!-- <li *ngIf="role"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li *ngIf="role"  routerLinkActive="active" class="nav-item">
                         <a class="nav-link nav-toggle">
-                            <i class="icon-bar-chart"></i>
+                            <i class="fa fa-cubes"></i>
                             <span class="title">Core Types</span>
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item">
                                 <a routerLink="core-types" class="nav-link">
+                                        <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Core Types</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a  routerLink="view-core-type" class="nav-link">
-                                    <span class="title">View Core Types</span>
+                                        <i class="fa fa-circle-o"></i>
+                                    <span class="title">Core Types</span>
                                 </a>
                             </li>
                         </ul>
@@ -304,7 +319,7 @@
                     <!-- <li *ngIf="role" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li *ngIf="role" routerLinkActive="active" class="nav-item">
                         <a class="nav-link nav-toggle">
-                            <i class="icon-bar-chart"></i>
+                            <i class="icon-folder"></i>
                             <span class="title">File Formats</span>
                             <span class="arrow"></span>
                         </a>
@@ -312,13 +327,15 @@
                             <li class="nav-item">
                                 <a routerLink="add-file-formats"
                                 class="nav-link">
+                                <i class="fa fa-circle-o"></i>
                                     <span class="title">Add File Formats</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a  routerLink="file-formats"
                                 class="nav-link">
-                                    <span class="title">View File Formats</span>
+                                <i class="fa fa-circle-o"></i>
+                                    <span class="title">File Formats</span>
                                 </a>
                             </li>
                         </ul>
@@ -327,19 +344,22 @@
                     <!-- <li *ngIf="role"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li *ngIf="role"  routerLinkActive="active" class="nav-item">
                         <a class="nav-link nav-toggle">
-                            <i class="icon-pointer"></i>
+                            <i class="fa fa-file-archive-o"></i>
                             <span class="title">File Security Grades</span>
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item">
+                              
                                 <a routerLink="add-file-grades" class="nav-link">
+                                       <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Security Grades</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="file-security" class="nav-link">
-                                    <span class="title">View Security Grades</span>
+                                        <i class="fa fa-circle-o"></i>
+                                    <span class="title">Security Grades</span>
                                 </a>
                             </li>
                         </ul>
@@ -348,7 +368,7 @@
                     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li routerLinkActive="active" class="nav-item">
                         <a  class="nav-link nav-toggle">
-                            <i class="icon-briefcase"></i>
+                            <i class="fa fa-share-square-o"></i>
                             <span class="title">Wellbore Core</span>
                             <span class="arrow"></span>
                         </a>
@@ -356,13 +376,15 @@
                             <li *ngIf="role"  class="nav-item">
                                 <a routerLink="add-wellbore-core"
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Wellbore Core</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="wells"
                                     class="nav-link">
-                                    <span class="title">View Wellbores Cores</span>
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">Wellbores Cores</span>
                                 </a>
                             </li>
 
@@ -372,7 +394,7 @@
                     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
                     <li routerLinkActive="active" class="nav-item">
                         <a  class="nav-link nav-toggle">
-                            <i class="icon-bar-chart"></i>
+                            <i class="fa fa-cogs"></i>
                             <span class="title">Core Catalog</span>
                             <span class="arrow"></span>
                         </a>
@@ -380,13 +402,15 @@
                             <li *ngIf="role" class="nav-item">
                                 <a routerLink="add-core-catalog"
                                     class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Core Catalog</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a routerLink="core-catalogs"
                                     class="nav-link">
-                                    <span class="title">View Core Catalog</span>
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">Core Catalog</span>
                                 </a>
                             </li>
 

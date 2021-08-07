@@ -1,0 +1,55 @@
+.icon-home:before {
+    color: white;
+    content: "\e069";
+}
+.icon-lock:before {
+    color: white;
+    content: "\e08e";
+}
+.icon-user:before {
+    color: white;
+    content: "\e005";
+}
+.fa-circle-o:before {
+    color: white;
+    content: "\f10c";
+}
+.fa-institution:before, .fa-bank:before, .fa-university:before {
+    content: "\f19c";
+    color: white;
+}
+.icon-briefcase:before {
+    color: white;
+    content: "\e04b";
+}
+.icon-wallet:before {
+    color: white;
+    content: "\e02a";
+}
+.icon-settings:before {
+    color: white;
+    content: "\e09a";
+}
+.fa-cubes:before {
+    color: white;
+    content: "\f1b3";
+}
+.icon-folder:before {
+    color: white;
+    content: "\e089";
+}
+.fa-file-zip-o:before, .fa-file-archive-o:before {
+    color: white;
+    content: "\f1c6";
+}
+.fa-share-square-o:before {
+    color: white;
+    content: "\f045";
+}
+.fa-gears:before, .fa-cogs:before {
+    color: white;
+    content: "\f085";
+}
+.portlet.light.bordered {
+    border: 5px solid #f8b806!important;
+  }
