@@ -58,6 +58,9 @@
     color: white;
     content: "\e065";
 }
+.page-sidebar .page-sidebar-menu>li.heading>h3, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.heading>h3 {
+    color: white;
+}
 
 .page-sidebar .page-sidebar-menu>li:last-child>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:last-child>a {
     position: relative;

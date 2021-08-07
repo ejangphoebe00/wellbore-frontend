@@ -19,6 +19,8 @@ users: any = [];
 role:any;
   userEmail:any;
   loggedin:any;
+  id: any;
+
 
   constructor(
     private authservice: ApiPipeService,
@@ -52,6 +54,32 @@ role:any;
           
           this.dtTrigger.next();
         });
+      }
+
+      onSelect(selectedItem: any) {
+        this.id = selectedItem.CraneUser_id
+        console.log(this.id);
+        // console.log("Selected item Id: ", selectedItem.WebSecurityLevel_id);
+        // this.http.delete('http://127.0.0.1:8899/apiv1/delete_web_security_level/' + this.id)
+        //   .subscribe(response => {
+        //     this.deleteresp = response;
+        //     console.log(this.deleteresp.message)
+        //     if (this.deleteresp.message == "Web security level successfully deleted.") {
+        //       this.toastr.success("Web security level successfully deleted.", "", {
+        //         timeOut: 2000,
+        //         positionClass: 'toast-top-center',
+        //         progressBar: true,
+        //         progressAnimation: 'increasing'
+        //       })
+        //       setTimeout(() => {                           
+        //         this.authservice.reload();
+        //       }, 1000);
+    
+        //     } else {
+        //       this.authservice.securityStatusUpdate()
+        //     }
+        //     console.log(this.deleteresp)
+        //   });
       }
 
   logout(){

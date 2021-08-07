@@ -2,3 +2,16 @@
     top:-9;
     right:50!important;
 }
+
+.fa-eye-slash:before {
+    margin-left: 22px;
+    content: "\f070";
+    color: #36C6D3;
+    font-size: large;
+}
+
+.fa-trash-o:before {
+    content: "\f014";
+    color: red;
+    font-size: large;
+}
