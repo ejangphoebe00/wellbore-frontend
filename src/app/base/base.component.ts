@@ -20,6 +20,7 @@ loggedin:any;
   ) { }
 
   ngOnInit(): void { 
+    this.authservice.viewingStatus();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){

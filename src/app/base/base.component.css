@@ -53,3 +53,13 @@
 .portlet.light.bordered {
     border: 5px solid #f8b806!important;
   }
+
+  .icon-logout:before {
+    color: white;
+    content: "\e065";
+}
+
+.page-sidebar .page-sidebar-menu>li:last-child>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:last-child>a {
+    position: relative;
+    border-bottom: 1px solid transparent!important;
+}

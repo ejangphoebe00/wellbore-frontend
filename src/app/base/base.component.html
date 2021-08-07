@@ -85,7 +85,7 @@
       <div class="page-container">
 
         <!-- BEGIN SIDEBAR -->
-        <div class="page-sidebar-wrapper">
+        <div  class="page-sidebar-wrapper">
             <!-- BEGIN SIDEBAR -->
             <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
             <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
@@ -417,12 +417,12 @@
                         </ul>
                     </li>
 
-                    <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"class="nav-item">
-                        <a  click="logout()"  class="nav-link nav-toggle">
+                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"class="nav-item">
+                        <a  (mousedown)="logout()"  class="nav-link nav-toggle">
                             <i class="icon-logout"></i>
                             <span class="title">Log Out</span>
                         </a>
-                    </li> -->
+                    </li>
                 </ul>
                 <!-- END SIDEBAR MENU -->
                 <!-- END SIDEBAR MENU -->
