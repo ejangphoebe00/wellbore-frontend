@@ -13,3 +13,7 @@
 .dashboard-stat.purple{
     background-color:  #f8b806;  
 } */
+.portlet.light.bordered {
+    border: 2px solid #f8b806!important;
+}
+

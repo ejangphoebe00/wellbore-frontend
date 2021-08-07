@@ -4,7 +4,7 @@
 
         <!-- BEGIN PAGE BAR -->
         <div class="page-bar">
-            <ul class="page-breadcrumb">
+            <!-- <ul class="page-breadcrumb">
                 <li>
                     <a [routerLink]="['/dashboard']">Dashboard</a>
                     <i class="fa fa-circle"></i>
@@ -12,7 +12,7 @@
                 <li>
                     <span>Users</span>
                 </li>
-            </ul>
+            </ul> -->
             <!-- <div class="page-toolbar">
                 <div id="dashboard-report-range" class="pull-right
                     tooltips btn btn-sm" data-container="body"
@@ -91,7 +91,11 @@
                                                 <th>User ID</th>
                                                 <th>FirstName</th>
                                                 <th>Surname</th>
-                                                <th>Actions</th>
+                                                <th>LUID</th>
+                                                <th>Organisation</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -99,6 +103,10 @@
                                                 <td>{{post.CraneUser_id}}</td>
                                                 <td>{{post.FirstName}}</td>
                                                 <td>{{post.Surname}}</td>
+                                                <td>{{post.LUID}}</td>
+                                                <td>{{post.OrganisationName}}</td>
+                                                <td>{{post.UserEmailAddress}}</td>
+                                                <!-- <td><i (click)="onSelect(post)" class="fa fa-trash-o"></i> <span></span> <i class="fa fa-eye-slash"></i></td> -->
                                                 <td><button type="button" class="btn blue btn-outline">
                                                   <i class="fa fa-angle-double-right"></i></button>
                                                 <button type="button" class="btn red btn-outline">
@@ -120,6 +128,6 @@
                     </div>
                 </div>
 
-            </div>
+            <!-- </div> -->
             <!-- END CONTENT BODY -->
         </div>
