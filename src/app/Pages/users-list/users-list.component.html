@@ -1,7 +1,7 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-     
+
         <!-- BEGIN PAGE BAR -->
         <div class="page-bar">
             <!-- <ul class="page-breadcrumb">
@@ -66,7 +66,7 @@
                                             <th>Surname</th>
                                         </tr>
                                     </thead>
-                                   
+
                                     <tbody>
                                         <tr *ngFor="let post of
                                             users">
@@ -89,15 +89,13 @@
                                             <thead>
                                               <tr >
                                                 <th>User ID</th>
-                                                <th>First name</th>
+                                                <th>FirstName</th>
                                                 <th>Surname</th>
                                                 <th>LUID</th>
                                                 <th>Organisation</th>
                                                 <th>Email</th>
                                                 <th>Action</th>
-                                                <!-- <th>Details</th>
-                                                <th>Edit</th>
-                                                 <th>Delete</th> -->
+
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -108,13 +106,14 @@
                                                 <td>{{post.LUID}}</td>
                                                 <td>{{post.OrganisationName}}</td>
                                                 <td>{{post.UserEmailAddress}}</td>
-                                                <td><i (click)="onSelect(post)" class="fa fa-trash-o"></i> <span></span> <i class="fa fa-eye-slash"></i></td>
-                                                <!-- <td><button type="button"  class="btn blue btn-outline">View</button></td>
-                                                <td><button type="button"  class="btn blue btn-outline">Edit</button></td>
-                                                <td><button type="button"   class="btn red btn-outline">Delete</button></td> -->
+                                                <!-- <td><i (click)="onSelect(post)" class="fa fa-trash-o"></i> <span></span> <i class="fa fa-eye-slash"></i></td> -->
+                                                <td><button type="button" class="btn blue btn-outline">
+                                                  <i class="fa fa-angle-double-right"></i></button>
+                                                <button type="button" class="btn red btn-outline">
+                                                  <i class="fa fa-trash-o"></i></button></td>
                                               </tr>
-                                             
-                                   
+
+
                                             </tbody>
                                           </table>
                                     </div>

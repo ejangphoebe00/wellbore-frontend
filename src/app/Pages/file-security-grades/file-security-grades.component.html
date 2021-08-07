@@ -175,7 +175,7 @@
                                             <th>Surname</th>
                                         </tr>
                                     </thead>
-                                   
+
                                     <tbody>
                                         <tr *ngFor="let post of
                                             users">
@@ -196,13 +196,12 @@
                                         table-bordered table-hover"
                                         id="sample_1">
                                             <thead>
-                                              <tr >
-                                                <th>Grade Id</th>
+                                              <tr>
+                                                <th>ID</th>
                                                 <th>Grade Name</th>
                                                 <th>Sort Order</th>
                                                 <th>Comments</th>
-                                                <th>Edit</th>
-                                                 <th>Delete</th>
+                                                <th>Actions</th>
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -211,11 +210,13 @@
                                                 <td>{{post.FileSecurityGradeName}}</td>
                                                 <td>{{post.SortOrder}}</td>
                                                 <td>{{post.Comments}}</td>
-                                                <td><button type="button"  class="btn blue btn-outline">Edit</button></td>
-                                                <td><button type="button"   class="btn red btn-outline">Delete</button></td>
+                                                <td><button type="button" class="btn blue btn-outline">
+                                                  <i class="fa fa-angle-double-right"></i></button>
+                                                <button type="button" class="btn red btn-outline">
+                                                  <i class="fa fa-trash-o"></i></button></td>
                                               </tr>
-                                             
-                                   
+
+
                                             </tbody>
                                           </table>
                                     </div>

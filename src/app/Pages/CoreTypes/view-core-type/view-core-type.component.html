@@ -86,16 +86,15 @@
                             <table datatable [dtOptions]="dtOptions"
                                              [dtTrigger]="dtTrigger"
                                              class="table table-striped
-                                             table-hover table-bordered"
-                                             id="sample_1">
+                                             table-hover table-bordered">
                                <thead>
                                    <tr>
-                                       <th> CoreType_id </th>
-                                       <th> CoreTypeName </th>
-                                       <th> SortOrder </th>
+                                       <th> ID </th>
+                                       <th> Type Name </th>
+                                       <th> Sort Order </th>
                                        <th> Comments </th>
-                                       <th> ModifiedOn </th>
-                                       <th> ModifiedBy </th>
+                                       <th> Modified On </th>
+                                       <th> Actions </th>
                                    </tr>
                                </thead>
                                <tbody *ngIf="posts?.length != 0">
@@ -105,9 +104,12 @@
                                        <td> {{core.SortOrder}} </td>
                                        <td> {{core.Comments}} </td>
                                        <td> {{core.ModifiedOn}} </td>
-                                       <td> {{core.ModifiedBy}} </td>
-                                       <td><button type="button" (click)="onSelectEdit(core)"  class="btn blue btn-outline">Edit</button></td>
-                                       <td><button type="button"  (click)="onSelect(core)" class="btn red btn-outline">Delete</button></td>
+                                       <td><button type="button" class="btn blue btn-outline"
+                                         (click)="onSelectEdit(core)">
+                                         <i class="fa fa-angle-double-right"></i></button>
+                                       <button type="button" class="btn red btn-outline"
+                                         (click)="onSelect(core)">
+                                         <i class="fa fa-trash-o"></i></button></td>
                                    </tr>
 
                                </tbody>
