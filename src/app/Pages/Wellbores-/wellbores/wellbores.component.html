@@ -175,7 +175,7 @@
                                             <th>Surname</th>
                                         </tr>
                                     </thead>
-                                   
+
                                     <tbody>
                                         <tr *ngFor="let post of
                                             users">
@@ -200,9 +200,7 @@
                                                 <th>Wellbore Id</th>
                                                 <th>Local Name</th>
                                                 <th>Alias Name</th>
-                                                <th>Details</th>
-                                                <th>Edit</th>
-                                                 <th>Delete</th>
+                                                <th>Actions</th>
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -210,12 +208,12 @@
                                                 <td>{{post.Wellbore_id}}</td>
                                                 <td>{{post.WellboreLocalName}}</td>
                                                 <td>{{post.WellboreAliasName}}</td>
-                                                <td><button type="button"  class="btn blue btn-outline">View</button></td>
-                                                <td><button type="button"  class="btn blue btn-outline">Edit</button></td>
-                                                <td><button type="button"   class="btn red btn-outline">Delete</button></td>
+                                                <td><button type="button"
+                                                  class="btn blue btn-outline">
+                                                  <i class="fa fa-angle-double-right"></i></button>
+                                                <button type="button" class="btn red btn-outline"
+                                                ><i class="fa fa-trash-o"></i></button></td>
                                               </tr>
-                                             
-                                   
                                             </tbody>
                                           </table>
                                     </div>

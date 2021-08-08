@@ -14,6 +14,7 @@
               <li>
                   <span>Catalog security flags</span>
               </li>
+
           </ul>
           <!-- <div class="page-toolbar">
               <div id="dashboard-report-range" class="pull-right
@@ -58,6 +59,7 @@
                             <div class="table-toolbar">
                                 <div class="row">
                                     <div class="col-md-6">
+
                                         <!-- <div class="btn-group">
                                             <button id="sample_editable_1_new" class="btn green"> Add New
                                                 <i class="fa fa-plus"></i>
@@ -109,10 +111,9 @@
                                        <td><button type="button" (click)="onSelectEdit(catalog)"
                                          class="btn blue btn-outline">
                                          <i class="fa fa-angle-double-right"></i></button>
-                                       <button type="button"  
-                                         class="btn red btn-outline"
-                                         data-toggle="confirmation" data-placement="bottom">
-                                         <i class="fa fa-trash-o"></i></button></td>
+                                       <button type="button" class="btn red btn-outline"
+                                       (click)="onSelect(catalog)"><i class="fa fa-trash-o"></i></button>
+                                            </td>
                                    </tr>
 
                                </tbody>

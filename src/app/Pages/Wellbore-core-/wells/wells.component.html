@@ -1,7 +1,7 @@
 <div class="page-content-wrapper">
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
-         
+
             <!-- BEGIN PAGE BAR -->
             <div class="page-bar">
                 <ul class="page-breadcrumb">
@@ -13,17 +13,17 @@
                         <span>Wellbore Cores</span>
                     </li>
                 </ul>
-             
+
             </div>
             <!-- END PAGE BAR -->
             <!-- BEGIN PAGE TITLE-->
-    
+
             <!-- END PAGE TITLE-->
-    
+
             <div class="clearfix"></div>
             <!-- END DASHBOARD STATS 1-->
             <div class="portlet light bordered">
-    
+
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
                     <div class="row">
@@ -40,7 +40,7 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    
+
                                             <table datatable
                                             [dtOptions]="dtOptions"
                                             [dtTrigger]="dtTrigger"
@@ -52,9 +52,7 @@
                                                     <th>Wellbore Id</th>
                                                     <th>CoringDate</th>
                                                     <th>WellboreCoreName</th>
-                                                    <th>Details</th>
-                                                    <th>Edit</th>
-                                                     <th>Delete</th>
+                                                    <th>Actions</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
@@ -62,12 +60,14 @@
                                                     <td>{{post.WellboreCore_id}}</td>
                                                     <td>{{post.CoringDate}}</td>
                                                     <td>{{post.WellboreCoreName}}</td>
-                                                    <td><button type="button"  class="btn blue btn-outline">View</button></td>
-                                                    <td><button type="button"  class="btn blue btn-outline">Edit</button></td>
-                                                    <td><button type="button"   class="btn red btn-outline">Delete</button></td>
+                                                    <td><button type="button"
+                                                      class="btn blue btn-outline">
+                                                      <i class="fa fa-angle-double-right"></i></button>
+                                                    <button type="button" class="btn red btn-outline"
+                                                    ><i class="fa fa-trash-o"></i></button></td>
                                                   </tr>
-                                                 
-                                       
+
+
                                                 </tbody>
                                               </table>
                                         </div>
@@ -77,11 +77,11 @@
                                     <!-- END EXAMPLE TABLE PORTLET-->
                                 </div>
                             </div>
-    
+
                             <!-- END FORM-->
                         </div>
                     </div>
-    
+
                 </div>
                 <!-- END CONTENT BODY -->
             </div>

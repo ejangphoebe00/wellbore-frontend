@@ -99,8 +99,7 @@
                                        <th> Date Created </th>
                                        <th> Modified On </th>
                                        <!-- <th> Modified By </th> -->
-                                       <th>Edit</th>
-                                       <th>Delete</th>
+                                       <th>Actions</th>
                                    </tr>
                                </thead>
                                <tbody>
@@ -114,8 +113,12 @@
                                        <td> {{ strat.DateCreated }} </td>
                                        <td> {{ strat.ModifiedOn }} </td>
                                        <!-- <td> {{ strat.ModifiedBy }} </td> -->
-                                       <td><button type="button" (click)="onSelectEdit(strat)"  class="btn blue btn-outline">Edit</button></td>
-                                       <td><button type="button"  (click)="onSelect(strat)" class="btn red btn-outline">Delete</button></td>
+
+                                       <td><button type="button" (click)="onSelectEdit(strat)"
+                                         class="btn blue btn-outline">
+                                         <i class="fa fa-angle-double-right"></i></button>
+                                       <button type="button" class="btn red btn-outline"
+                                       (click)="onSelect(strat)"><i class="fa fa-trash-o"></i></button></td>
                                    </tr>
 
                                </tbody>

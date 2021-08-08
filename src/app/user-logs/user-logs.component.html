@@ -205,7 +205,7 @@
                                             <th>Company Id</th>
                                             <th>User Name</th>
                                             <th>Login Date</th>
-                                            <th>Action</th>
+                                            <th>Actions</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -214,7 +214,10 @@
                                             <td>{{post.CraneCompany_id}}</td>
                                             <td>{{post.LogAuthorisedUserName}}</td>
                                             <td>{{post.LogLoginDate}}</td>
-                                            <td><button type="button"  class="btn blue btn-outline">Details</button></td>
+                                            <td><button type="button" class="btn blue btn-outline">
+                                              <i class="fa fa-angle-double-right"></i></button>
+                                            <button type="button" class="btn red btn-outline">
+                                              <i class="fa fa-trash-o"></i></button></td>
                                           </tr>
 
                                         </tbody>
