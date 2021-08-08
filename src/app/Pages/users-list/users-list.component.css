@@ -18,7 +18,11 @@
 
 .fa-angle-double-right:before {
     margin-left: 22px;
-    color:blue;
+    color:#3598dc;
     content: "\f101";
     font-size: large;
+}
+
+.portlet.light.portlet-fit>.portlet-title {
+    padding: 2px 2px 2px;
 }

@@ -253,6 +253,12 @@ export class ApiPipeService {
 
   }
 
+  getSpecificData(): Observable<any> {
+    console.log("update Security")
+    return this.http.get('http://127.0.0.1:8899/apiv1/edit_web_security_level/' + this.getUpdateId())
+
+  }
+
 
   // COMPANY
 
