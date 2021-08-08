@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                        <div class="portlet light bordered">
+                        <div *ngIf="editForm" class="portlet light bordered">
                             <div class="portlet-title">
                                 <div class="caption font-dark">
                                     <i class="icon-settings
@@ -50,84 +50,456 @@
                                 <div class="tools"> </div>
                             </div>
                             <div class="portlet-body">
-                                <!-- <table datatable
-                                [dtOptions]="dtOptions"
-                                [dtTrigger]="dtTrigger"
-                                class="table table-striped
-                                table-bordered table-hover"
-                                id="sample_1">
+
+                                <table datatable
+                                    [dtOptions]="dtOptions"
+                                    [dtTrigger]="dtTrigger"
+                                    class="table table-striped
+                                    table-bordered table-hover"
+                                    id="sample_1">
                                     <thead>
                                         <tr>
-                                            <th>User Name</th>
-                                            <th>User Id</th>
+                                            <th>User ID</th>
                                             <th>FirstName</th>
-                                            <th>Login Id</th>
-                                            <th> MiddleName</th>
                                             <th>Surname</th>
+                                            <th>LUID</th>
+                                            <th>Organisation</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
+
                                         </tr>
                                     </thead>
-
                                     <tbody>
-                                        <tr *ngFor="let post of
-                                            users">
-                                            <td>{{post.CraneUserName}}</td>
+                                        <tr *ngFor="let post of users">
                                             <td>{{post.CraneUser_id}}</td>
                                             <td>{{post.FirstName}}</td>
-                                            <td>{{post.LoginID}}</td>
-                                            <td>{{post.MiddleName}}</td>
                                             <td>{{post.Surname}}</td>
-                                        <tr>
-                                     </tbody>
-
-                                        </table> -->
-                                        <table datatable
-                                        [dtOptions]="dtOptions"
-                                        [dtTrigger]="dtTrigger"
-                                        class="table table-striped
-                                        table-bordered table-hover"
-                                        id="sample_1">
-                                            <thead>
-                                              <tr >
-                                                <th>User ID</th>
-                                                <th>FirstName</th>
-                                                <th>Surname</th>
-                                                <th>LUID</th>
-                                                <th>Organisation</th>
-                                                <th>Email</th>
-                                                <th>Action</th>
-
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr *ngFor="let post of users">
-                                                <td>{{post.CraneUser_id}}</td>
-                                                <td>{{post.FirstName}}</td>
-                                                <td>{{post.Surname}}</td>
-                                                <td>{{post.LUID}}</td>
-                                                <td>{{post.OrganisationName}}</td>
-                                                <td>{{post.UserEmailAddress}}</td>
-                                                <td><i (click)="onSelect(post)" class="fa fa-trash-o"></i> <span></span> <i class="fa fa-angle-double-right"></i></td>
-                                                <!-- <td><button type="button" class="btn blue btn-outline">
+                                            <td>{{post.LUID}}</td>
+                                            <td>{{post.OrganisationName}}</td>
+                                            <td>{{post.UserEmailAddress}}</td>
+                                            <td><i (click)="onSelect(post)"
+                                                    class="fa fa-trash-o"></i>
+                                                <span></span> <i
+                                                    (mousedown)="onEdit(post)"
+                                                    class="fa
+                                                    fa-angle-double-right"></i></td>
+                                            <!-- <td><button type="button" class="btn blue btn-outline">
                                                   <i class="fa fa-angle-double-right"></i></button>
                                                 <button type="button" class="btn red btn-outline">
                                                   <i class="fa fa-trash-o"></i></button></td> -->
-                                              </tr>
+                                        </tr>
 
 
-                                            </tbody>
-                                          </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <!-- END EXAMPLE TABLE PORTLET-->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
-                        <!-- END FORM-->
+                        <div *ngIf="formDetails" class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-dark">
+                                    <i class="icon-settings
+                                        font-dark"></i>
+                                    <span class="caption-subject
+                                        bold uppercase">User Details</span>
+                                </div>
+                                <div class="tools"> </div>
+                            </div>
+                            <div class="portlet-body">
+
+                                <div  *ngFor="let user of users" class="row">
+                                    <div class="col-lg-4">
+                                        <div class="portlet light portlet-fit
+                                            bordered">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.CraneUser_id}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">First Name</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.FirstName}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Middle Name</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.MiddleName}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Surname</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.Surname}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">LUID</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.LUID}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Crane User Name</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.CraneUserName}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Login ID</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.LoginID}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Login ID Alias</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.LoginIDAlias}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="icon-layers
+                                                            font-green"></i>
+                                                        <span class="caption-subject
+                                                            font-green bold
+                                                            uppercase">User Intranet SecurityLevel Id</span>
+                                                        <div class="caption-desc
+                                                            font-grey-cascade">
+                                                            {{user.UserIntranetSecurityLevel_id}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="icon-layers
+                                                            font-green"></i>
+                                                        <span class="caption-subject
+                                                            font-green bold
+                                                            uppercase">User Nsd Web SecurityLevel Id</span>
+                                                        <div class="caption-desc
+                                                            font-grey-cascade">
+                                                           {{user.UserNsdWebSecurityLevel_id}} </div>
+                                                    </div>
+                                                </div>
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="icon-layers
+                                                            font-green"></i>
+                                                        <span class="caption-subject
+                                                            font-green bold
+                                                            uppercase">Login Error Count</span>
+                                                        <div class="caption-desc
+                                                            font-grey-cascade">
+                                                            {{user.LoginErrorCount}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="portlet light portlet-fit
+                                            bordered">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">UserCategory</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.UserCategory}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Company id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.UserCompany_id}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">To Do List</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        Default list element
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">To Do List</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        Default list element
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.Id}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Prems User Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.UserPremsUser_id}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Staff Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.UserStaff_id}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Organisation Name</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.OrganisationName}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="portlet light portlet-fit
+                                            bordered">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Login Status Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.LoginStatus_id}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Email Address</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.UserEmailAddress}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Security Level Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.UserSecurityLevel_id}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Web SecurityLevel Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.UserWebSecurityLevel_id}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Nogtr WebSecurity Level Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.UserNogtrWebSecurityLevel_id}} </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">User Prems WebSecurity Level Id</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                       {{user.UserPremsWebSecurityLevel_id}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Last Seen</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.LastSeen}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">Activation Change Date</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.ActivationChangeDate}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-layers
+                                                        font-green"></i>
+                                                    <span class="caption-subject
+                                                        font-green bold
+                                                        uppercase">OrganisationUserName</span>
+                                                    <div class="caption-desc
+                                                        font-grey-cascade">
+                                                        {{user.	OrganisationUserName}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <!-- END EXAMPLE TABLE PORTLET-->
                     </div>
                 </div>
 
-            <!-- </div> -->
-            <!-- END CONTENT BODY -->
+                <!-- END FORM-->
+            </div>
         </div>
+
+        <!-- </div> -->
+        <!-- END CONTENT BODY -->
+    </div>
