@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from "angular-datatables";
 import { ToastrModule } from 'ngx-toastr';
+import { NgPopupsModule } from 'ng-popups';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -76,6 +77,7 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgPopupsModule.forRoot(),
     ToastrModule.forRoot()
   ],
   providers: [{
