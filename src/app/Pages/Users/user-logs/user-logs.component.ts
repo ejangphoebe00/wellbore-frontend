@@ -32,7 +32,7 @@ posts: any = [];
   ) { }
 
   ngOnInit(): void {
-    this.authservice.reload();
+    // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){

@@ -35,7 +35,7 @@ export class AddCoreCatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authservice.reload();
+    // this.authservice.reload();
     this.initForm();
     // this.getBottomStratLitho_id();
     // this.getCatalogReportFormat_id();

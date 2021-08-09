@@ -16,4 +16,8 @@
 .portlet.light.bordered {
     border: 2px solid #f8b806!important;
 }
+.page-footer .page-footer-inner {
+    color: #fdfdfd;
+    margin-left: 50%;
+}
 

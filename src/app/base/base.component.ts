@@ -20,6 +20,7 @@ loggedin:any;
   ) { }
 
   ngOnInit(): void { 
+    this.authservice.reload();
     this.authservice.viewingStatus();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();

@@ -66,3 +66,15 @@
     position: relative;
     border-bottom: 1px solid transparent!important;
 }
+.page-footer .page-footer-inner {
+    color: #fdfdfd;
+    margin-left: 50%;
+}
+.page-header.navbar .menu-toggler.sidebar-toggler {
+    color: white!important;
+    font-size: large;
+    float: right;
+    margin: 13.5px 0 0;
+    font-weight: bolder;
+    /* background-color: white; */
+}

@@ -36,7 +36,7 @@ role:any;
   ) { }
 
   ngOnInit(): void {
-    this.authservice.reload();
+    // this.authservice.reload();
     this.userList()
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
