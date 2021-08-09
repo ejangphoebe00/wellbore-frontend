@@ -12,12 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
-import { AddUsersComponent } from './Pages/add-users/add-users.component';
+import { AddUsersComponent } from './Pages/Users/add-users/add-users.component';
 import { TokenInterceptorService } from './Interceptor/token-interceptor.service';
 import { AddwebSecurityComponent } from './Pages/Web-security/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/Web-security/web-security-levels/web-security-levels.component';
-import { UserLogsComponent } from './user-logs/user-logs.component';
-import { UsersListComponent } from './Pages/users-list/users-list.component';
+import { UserLogsComponent } from './Pages/Users/user-logs/user-logs.component';
+import { UsersListComponent } from './Pages/Users/users-list/users-list.component';
 // import { CdComponent } from './Pages/cd/cd.component';
 import { AddWellboreComponent } from './Pages/Wellbores-/add-wellbore/add-wellbore.component';
 import { AddFileFormatsComponent } from './Pages/File-format/add-file-formats/add-file-formats.component';
@@ -38,6 +38,7 @@ import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit
 import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/Wellbore-core-/wells/wells.component';
 import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-catalogs.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -71,14 +72,15 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
   ],
   imports: [
     BrowserModule,
-    DataTablesModule,
+    DataTablesModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgPopupsModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

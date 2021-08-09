@@ -11,7 +11,8 @@ import { Subject } from 'rxjs';
   styleUrls: ['./file-security-grades.component.css']
 })
 export class FileSecurityGradesComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
@@ -37,6 +38,34 @@ role:any;
     }else{
     this.role= false;
     }
+    this.dtOptions = {
+      dom:'Bfrtip',
+      // dom:'Btp',
+      buttons: [
+        // 'columnsToggle',
+        // 'colvis',
+        {
+          extend:'copy',
+          tag: 'button',
+          className: "btn blue btn-outline"
+        },
+        {
+          extend:'print',
+          tag: 'button',
+          className: "btn yellow btn-outline"
+        },
+        {
+          extend:'excel',
+          tag: 'button',
+          className: "btn green btn-outline"
+        },
+        {
+          extend:'pdf',
+          tag: 'button',
+          className: "btn red btn-outline"
+        },
+      ]
+    }
   }
 
   ngOnDestroy(): void {
@@ -49,7 +78,7 @@ role:any;
         .subscribe((response: any) => {
           console.log(response)
           this.grades = response;
-          
+
           this.dtTrigger.next();
         });
       }

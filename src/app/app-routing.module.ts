@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './base/base.component';
 
 import { LoginComponent } from './Auth/login/login.component';
-import { AddUsersComponent } from './Pages/add-users/add-users.component';
+import { AddUsersComponent } from './Pages/Users/add-users/add-users.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { AddwebSecurityComponent } from './Pages/Web-security/addweb-security/addweb-security.component';
 import { WebSecurityLevelsComponent } from './Pages/Web-security/web-security-levels/web-security-levels.component';
-import { UserLogsComponent } from './user-logs/user-logs.component';
-import { UsersListComponent } from './Pages/users-list/users-list.component';
+import { UserLogsComponent } from './Pages/Users/user-logs/user-logs.component';
+import { UsersListComponent } from './Pages/Users/users-list/users-list.component';
 import { AddWellboreComponent } from './Pages/Wellbores-/add-wellbore/add-wellbore.component';
 import { AddFileFormatsComponent } from './Pages/File-format/add-file-formats/add-file-formats.component';
 import { AddFileSecurityGradeComponent } from './Pages/File-security/add-file-security-grade/add-file-security-grade.component';

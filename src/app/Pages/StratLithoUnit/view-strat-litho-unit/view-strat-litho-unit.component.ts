@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { NgPopupsService } from 'ng-popups';
 
 
 import { StratLithoUnit } from 'src/app/models/strat-litho-unit.model';
@@ -20,7 +21,8 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
   title!: string;
   role:any;
 
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
@@ -40,7 +42,9 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     private authservice: ApiPipeService,
     private router: Router,
     private toastr: ToastrService,
-    private http: HttpClient
+    private http: HttpClient,
+    private ngPopups: NgPopupsService,
+
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +60,34 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     this.posts = [];
     this.users();
     this.initForm();
+    this.dtOptions = {
+      dom:'Bfrtip',
+      // dom:'Btp',
+      buttons: [
+        // 'columnsToggle',
+        // 'colvis',
+        {
+          extend:'copy',
+          tag: 'button',
+          className: "btn blue btn-outline"
+        },
+        {
+          extend:'print',
+          tag: 'button',
+          className: "btn yellow btn-outline"
+        },
+        {
+          extend:'excel',
+          tag: 'button',
+          className: "btn green btn-outline"
+        },
+        {
+          extend:'pdf',
+          tag: 'button',
+          className: "btn red btn-outline"
+        },
+      ]
+    }
   }
 
   ngOnDestroy(): void {
@@ -87,27 +119,41 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
 
   onSelect(selectedItem: any) {
     this.id = selectedItem.StratLitho_id
-    console.log("Selected item Id: ", selectedItem.StratLitho_id);
-    this.http.delete('http://127.0.0.1:8899/apiv1/delete_strat_litho_unit/' + this.id)
-      .subscribe(response => {
-        this.deleteresp = response;
-        console.log(this.deleteresp.message)
-        if (this.deleteresp.message == "Strat Litho Unit successfully deleted.") {
-          this.toastr.success("Strat litho unit successfully deleted.", "", {
-            timeOut: 2000,
-            positionClass: 'toast-top-center',
-            progressBar: true,
-            progressAnimation: 'increasing'
-          })
-          setTimeout(() => {
-            this.authservice.reload();
-          }, 1000);
 
-        } else {
-          this.authservice.stratLithoStatusUpdate()
-        }
-        console.log(this.deleteresp)
-      });
+    this.ngPopups.confirm("Are you sure you want to delete ?",{
+      // theme: 'material',
+      color:'OrangeRed',
+      okButtonText: 'Yes',
+      cancelButtonText:'No',
+      title: "Confirm",
+    })
+    .subscribe(res => {
+      if (res) {
+        console.log("Selected item Id: ", selectedItem.StratLitho_id);
+        this.http.delete('http://127.0.0.1:8899/apiv1/delete_strat_litho_unit/' + this.id)
+          .subscribe(response => {
+            this.deleteresp = response;
+            console.log(this.deleteresp.message)
+            if (this.deleteresp.message == "Strat Litho Unit successfully deleted.") {
+              this.toastr.success("Strat litho unit successfully deleted.", "", {
+                timeOut: 2000,
+                positionClass: 'toast-top-center',
+                progressBar: true,
+                progressAnimation: 'increasing'
+              })
+              setTimeout(() => {
+                this.authservice.reload();
+              }, 1000);
+
+            } else {
+              this.authservice.stratLithoStatusUpdate()
+            }
+            console.log(this.deleteresp)
+          });
+      } else {
+        console.log("You clicked cancel.")
+      }
+    });
   }
 
   onSelectEdit(selectedItem: any) {

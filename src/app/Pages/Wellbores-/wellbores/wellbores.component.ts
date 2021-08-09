@@ -12,7 +12,8 @@ import { Subject } from 'rxjs';
   styleUrls: ['./wellbores.component.css']
 })
 export class WellboresComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 wellbores: any = [];
@@ -37,6 +38,34 @@ ngOnInit(): void {
   }else{
   this.role= false;
   }
+  this.dtOptions = {
+    dom:'Bfrtip',
+    // dom:'Btp',
+    buttons: [
+      // 'columnsToggle',
+      // 'colvis',
+      {
+        extend:'copy',
+        tag: 'button',
+        className: "btn blue btn-outline"
+      },
+      {
+        extend:'print',
+        tag: 'button',
+        className: "btn yellow btn-outline"
+      },
+      {
+        extend:'excel',
+        tag: 'button',
+        className: "btn green btn-outline"
+      },
+      {
+        extend:'pdf',
+        tag: 'button',
+        className: "btn red btn-outline"
+      },
+    ]
+  }
 }
 
 ngOnDestroy(): void {
@@ -49,7 +78,7 @@ userList(): void {
       .subscribe((response: any) => {
         console.log(response)
         this.wellbores = response;
-        
+
         this.dtTrigger.next();
       });
     }

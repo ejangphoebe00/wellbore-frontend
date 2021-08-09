@@ -11,7 +11,8 @@ import { Subject } from 'rxjs';
   styleUrls: ['./core-catalogs.component.css']
 })
 export class CoreCatalogsComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
@@ -26,7 +27,7 @@ export class CoreCatalogsComponent implements OnInit {
       private toastr: ToastrService,
       private http: HttpClient
     ) { }
-  
+
     ngOnInit(): void {
       this.authservice.reload();
       this. coreCatalogList();
@@ -37,26 +38,54 @@ export class CoreCatalogsComponent implements OnInit {
       // }else{
       // this.role= false;
       // }
+
+      this.dtOptions = {
+        dom:'Bfrtip',
+        // dom:'Btp',
+        buttons: [
+          // 'columnsToggle',
+          // 'colvis',
+          {
+            extend:'copy',
+            tag: 'button',
+            className: "btn blue btn-outline"
+          },
+          {
+            extend:'print',
+            tag: 'button',
+            className: "btn yellow btn-outline"
+          },
+          {
+            extend:'excel',
+            tag: 'button',
+            className: "btn green btn-outline"
+          },
+          {
+            extend:'pdf',
+            tag: 'button',
+            className: "btn red btn-outline"
+          },
+        ]
+      }
     }
-  
+
     ngOnDestroy(): void {
       this.dtTrigger.unsubscribe();
     }
-  
+
     coreCatalogList(): void {
       this.authservice
           .getCatalogList()
           .subscribe((response: any) => {
             console.log(response)
             this.users = response;
-            
+
             this.dtTrigger.next();
           });
         }
-  
+
     logout(){
       this.authservice.logoutuser()
     }
-  
+
   }
-  

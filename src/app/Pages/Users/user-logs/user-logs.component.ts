@@ -13,7 +13,8 @@ import { Subject } from 'rxjs';
 })
 export class UserLogsComponent implements OnInit {
 
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
   role:any;
 
@@ -40,6 +41,34 @@ posts: any = [];
     this.role= false;
     }
     this.userLogs()
+    this.dtOptions = {
+      dom:'Bfrtip',
+      // dom:'Btp',
+      buttons: [
+        // 'columnsToggle',
+        // 'colvis',
+        {
+          extend:'copy',
+          tag: 'button',
+          className: "btn blue btn-outline"
+        },
+        {
+          extend:'print',
+          tag: 'button',
+          className: "btn yellow btn-outline"
+        },
+        {
+          extend:'excel',
+          tag: 'button',
+          className: "btn green btn-outline"
+        },
+        {
+          extend:'pdf',
+          tag: 'button',
+          className: "btn red btn-outline"
+        },
+      ]
+    }
   }
 
   ngOnDestroy(): void {
@@ -52,7 +81,7 @@ posts: any = [];
         .subscribe((response: any) => {
           console.log(response)
           this.posts = response;
-          
+
           this.dtTrigger.next();
         });
       }
