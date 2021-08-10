@@ -70,11 +70,6 @@
     color: #fdfdfd;
     margin-left: 50%;
 }
-.page-header.navbar .menu-toggler.sidebar-toggler {
-    color: white!important;
-    font-size: large;
-    float: right;
-    margin: 13.5px 0 0;
-    font-weight: bolder;
-    /* background-color: white; */
+.page-header.navbar .menu-toggler>span, .page-header.navbar .menu-toggler>span:after, .page-header.navbar .menu-toggler>span:before, .page-header.navbar .menu-toggler>span:hover, .page-header.navbar .menu-toggler>span:hover:after, .page-header.navbar .menu-toggler>span:hover:before {
+    background: #fafcfb;
 }
