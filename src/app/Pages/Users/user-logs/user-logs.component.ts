@@ -18,9 +18,9 @@ export class UserLogsComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
   role:any;
 
+  posts: any = [];
 
-allusers: any;
-posts: any = [];
+  allusers: any;
   userEmail:any;
   loggedin: any;
 
@@ -33,6 +33,7 @@ posts: any = [];
 
   ngOnInit(): void {
     // this.authservice.reload();
+    this.userLogs()
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){
@@ -40,8 +41,12 @@ posts: any = [];
     }else{
     this.role= false;
     }
-    this.userLogs()
+   
     this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      lengthMenu : [5, 10, 25],
+      processing: true,
       dom:'Bfrtip',
       // dom:'Btp',
       buttons: [

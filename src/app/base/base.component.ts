@@ -21,6 +21,7 @@ loggedin:any;
 
   ngOnInit(): void { 
     this.authservice.reload();
+    // this.loadScripts();
     this.authservice.viewingStatus();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
@@ -33,6 +34,20 @@ loggedin:any;
 
   logout(){
   this.authservice.logoutuser();
+  }
+
+  loadScripts() {
+    
+    const dynamicScripts = [
+      './src/assets/assets/global/plugins/jquery.min.js'
+    ];
+    for (let i = 0; i < dynamicScripts.length; i++) {
+      const node = document.createElement('script');
+      node.src = dynamicScripts[i];
+      node.type = 'text/javascript';
+      node.async = false;
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
   }
 
 }
