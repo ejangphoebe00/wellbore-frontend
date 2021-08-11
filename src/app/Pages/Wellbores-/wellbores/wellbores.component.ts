@@ -98,7 +98,7 @@ export class WellboresComponent implements OnInit {
   }
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.WebSecurityLevel_id
+    this.id = selectedItem.Wellbore_id
 
     this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
@@ -109,13 +109,13 @@ export class WellboresComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.WebSecurityLevel_id);
-          this.http.delete('http://127.0.0.1:8899/apiv1/delete_web_security_level/' + this.id)
+          console.log("Selected item Id: ", selectedItem.Wellbore_id);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_wellbore/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;
               console.log(this.deleteresp.message)
-              if (this.deleteresp.message == "Web security level successfully deleted.") {
-                this.toastr.success("Web security level successfully deleted.", "", {
+              if (this.deleteresp.message == "Welbore successfully deleted.") {
+                this.toastr.success("Welbore successfully deleted.", "", {
                   timeOut: 2000,
                   positionClass: 'toast-top-center',
                   progressBar: true,
