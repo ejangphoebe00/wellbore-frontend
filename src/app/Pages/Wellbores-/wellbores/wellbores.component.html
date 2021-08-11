@@ -25,7 +25,7 @@
 
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
-        <div class="portlet light bordered">
+        <div *ngIf="status" class="portlet light bordered">
 
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
@@ -69,11 +69,16 @@
                                                 <td>{{post.WellboreSpudDate}}</td>
                                                 <td>{{post.SpudYear}}</td>
                                                 <td>{{post.Well_id}}</td>
-                                                <td><button type="button"
+                                                <td><button type="button" (click)="onSelectEdit(post)"
+                                                    class="btn blue btn-outline">
+                                                    <i class="fa fa-angle-double-right"></i></button>
+                                                  <button type="button" class="btn red btn-outline"
+                                                  (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button></td>
+                                                <!-- <td><button type="button"
                                                   class="btn blue btn-outline">
                                                   <i class="fa fa-angle-double-right"></i></button>
                                                 <button type="button" class="btn red btn-outline"
-                                                ><i class="fa fa-trash-o"></i></button></td>
+                                                ><i class="fa fa-trash-o"></i></button></td> -->
                                               </tr>
                                             </tbody>
                                           </table>
@@ -88,6 +93,471 @@
                         <!-- END FORM-->
                     </div>
                 </div>
+
+                <div *ngIf="editform"  class="portlet light bordered">
+                        <div class="portlet-body form">
+                            <form [formGroup]="formGroup"
+                            (ngSubmit)="updateWellboreProcess()" ngNativeValidate>
+                    
+                                <div class="form-body row">
+                                    <div class="col-md-3">
+            
+                                        <div class="form-group">
+            
+                                            <label>PAUID</label>
+                                            <input formControlName="PAUID"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore Official Name</label>
+                                            <input
+                                                formControlName="WellboreOfficialName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore Local Name</label>
+                                            <span class="error">*</span>
+                                            <input
+                                               required formControlName="WellboreLocalName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                                
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore Alias Name</label>
+                                            <span class="error">*</span>
+                                            <input
+                                            required formControlName="WellboreAliasName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                                 
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore Spud Date</label>
+                                            <input
+                                                formControlName="WellboreSpudDate"
+                                                type="date" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Spud Year</label>
+                                            <input formControlName="SpudYear"
+                                                type="date" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore Type Id</label>
+                                            <input
+                                                formControlName="WellboreType_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Initial Wellbore Purpose Id</label>
+                                            <input
+                                                formControlName="InitialWellborePurpose_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>PurposeChangeDate</label>
+                                            <input
+                                                formControlName="PurposeChangeDate"
+                                                type="date" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Well Id</label>
+                                            <input
+                                                formControlName="Well_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Prospect Id</label>
+                                            <select class="form-control" formControlName="Prospect_id">                                               
+                                                    <option *ngFor="let city of prospectIds"
+                                                    [ngValue]="city.Prospect_id"
+                                                    (change)="changeProspect($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                                    </option>
+                                                 </select>
+            
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Discovery Id</label>
+                                                <input
+                                                    formControlName="Discovery_id"
+                                                    type="number" class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                        <div class="form-group">
+                                                <label>WellboreContent Id</label>
+                                                <input
+                                                    formControlName="WellboreContent_id"
+                                                    type="text" class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label>Wellbore Status Id</label>
+                                                    <input
+                                                        formControlName="WellboreStatus_id"
+                                                        type="number" class="form-control"
+                                                        placeholder="">
+                                                </div>
+                                             
+            
+                                    </div>  
+                                    <div class="col-md-3">  
+                                            
+                                                <div class="form-group">
+                                                    <label>Wellbore Responsible Licence
+                                                        Id</label>
+                                                    <input
+                                                        formControlName="WellboreResponsibleLicence_id"
+                                                        type="number" class="form-control"
+                                                        placeholder="">
+                                                </div>  
+                                           
+                                            <div class="form-group">
+                                                <label>License Operator Company Id</label>
+                                                    <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                                            <option *ngFor="let city of licenceIds"
+                                                            [ngValue]="city.Company_id"
+                                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                                            </option>
+                                                         </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Drilling Contractor Company Id</label>
+                                                    <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                                            <option *ngFor="let city of licenceIds"
+                                                            [ngValue]="city.Company_id"
+                                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                            </option>
+                                                         </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>WellBore Rig Name</label>
+                                                <input
+                                                    formControlName="WellBoreRigName"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Basin Id</label>
+                                                <input
+                                                    formControlName="Basin_id"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label>Former Expl Area Name</label>
+                                                    <input
+                                                        formControlName="FormerExplAreaName"
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>SeismicLine</label>
+                                                    <input
+                                                        formControlName="SeismicLine"
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder="">
+                                                </div>
+            
+                                                <div class="form-group">
+                                                        <label>TD_TVD</label>
+                                                        <input
+                                                            formControlName="TD_TVD"
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder="">
+                                                 </div>
+                                                  
+                                                    <div class="form-group">
+                                                            <label>Core Contractor Id</label>
+                                                                <select class="form-control" formControlName="CoreContractor_id">                                               
+                                                                        <option *ngFor="let city of licenceIds"
+                                                                        [ngValue]="city.Company_id"
+                                                                        (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                                        </option>
+                                                                 </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>RCI Taken Id</label>
+                                                        <input
+                                                            formControlName="RCI_Taken_id"
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>MDT Done Id</label>
+                                                        <input
+                                                            formControlName="MDT_Done_id"
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label>FET Done Id</label>
+                                                            <input
+                                                                formControlName="FET_Done_id"
+                                                                type="number"
+                                                                class="form-control"
+                                                                placeholder="">
+                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>Rotary Table Elavation</label>
+                                                        <input
+                                                            formControlName="RotaryTableElavation"
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label>Ground Level Elavation Id</label>
+                                                            <input
+                                                                formControlName="GroundLevelElavation"
+                                                                type="number"
+                                                                class="form-control"
+                                                                placeholder="">
+                                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-3">                   
+                                        <div class="form-group">
+                                            <label>TD_MD</label>
+                                            <input
+                                                formControlName="TD_MD"
+                                                type="number"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <label>TD_Date</label>
+                                            <input
+                                                formControlName="TD_Date"
+                                                type="date"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                                <label>WFT Contractor</label>
+                                                <input
+                                                    formControlName="WFTContractor"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>DST Done Id</label>
+                                                <input
+                                                    formControlName="DST_Done_id"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Manifold Flow Tested Id</label>
+                                                <input
+                                                    formControlName="ManifoldFlowTested_id"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>DST Contractor Id</label>
+                                                    <select class="form-control" formControlName="DST_Contractor_id">                                               
+                                                            <option *ngFor="let city of licenceIds"
+                                                            [ngValue]="city.Company_id"
+                                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                            </option>
+                                                     </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Has PetrophysicalLogs Id</label>
+                                                <input
+                                                    formControlName="HasPetrophysicalLogs_id"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Core Petrophysical Contractor Id</label>
+                                                    <select class="form-control" formControlName="PetrophysicalContractor_id">                                               
+                                                            <option *ngFor="let city of licenceIds"
+                                                            [ngValue]="city.Company_id"
+                                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                            </option>
+                                                     </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Top Basement MD</label>
+                                                <input
+                                                    formControlName="TopBasementMD"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Top Basement TVD</label>
+                                                <input
+                                                    formControlName="TopBasementTVD"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Wellbore Test Status</label>
+                                                <input
+                                                    formControlName="WellboreTestStatus"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="">
+                                            </div> 
+                                            <div class="form-group">
+                                                    <label>Planned Wellbore Cost </label>
+                                                    <input
+                                                        formControlName="PlannedWellboreCost"
+                                                        type="number"
+                                                        class="form-control"
+                                                        placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>ActualWellboreCost</label>
+                                                    <input
+                                                        formControlName="ActualWellboreCost"
+                                                        type="number"
+                                                        class="form-control"
+                                                        placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Wellbore Test Cost</label>
+                                                    <input
+                                                        formControlName="WellboreTestCost"
+                                                        type="number"
+                                                        class="form-control"
+                                                        placeholder="">
+                                                </div>
+            
+            
+                                      
+                                    </div>
+                                    <div class="col-md-3">
+             
+                                      
+                                        <div class="form-group">
+                                            <label>Completion Date</label>
+                                            <input
+                                                formControlName="CompletionDate"
+                                                type="date"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label> Three Word Wellbore Location</label>
+                                            <input
+                                                formControlName="What3WordWellboreLocation"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label> LocationPictureName</label>
+                                            <input
+                                                formControlName="LocationPictureName"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+            
+                                        <div class="form-group">
+                                            <label>Location Picture</label>
+                                            <input
+                                                formControlName="LocationPicture"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Location Picture SoftcopyPath</label>
+                                            <input
+                                                formControlName="LocationPictureSoftcopyPath"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Location Picture Hyperlink</label>
+                                            <input
+                                                formControlName="LocationPictureHyperlink"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore MapSoftcopyPath</label>
+                                            <input
+                                                formControlName="WellboreMapSoftcopyPath"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wellbore MapHyperlink</label>
+                                            <input
+                                                formControlName="WellboreMapHyperlink"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label>Map Portal Wellbore MapLink</label>
+                                            <input
+                                                formControlName="MapPortalWellboreMapLink"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label>Wellbore Factsite Url</label>
+                                            <input
+                                                formControlName="WellboreFactsiteUrl"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+            
+                                        <div class="form-group">
+                                                <label> Comments</label>
+                                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                                            </div>
+            
+                                    </div>
+                                </div>
+            
+                                <div class="form-actions">
+                                    <button type="submit" class="btn blue">Update</button>
+                                    <button (click)="navigateBack()" type="button" class="btn
+                                    default">Back</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>      
 
             </div>
             <!-- END CONTENT BODY -->
