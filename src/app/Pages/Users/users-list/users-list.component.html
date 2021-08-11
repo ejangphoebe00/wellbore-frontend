@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="tools"> </div>
                             </div>
-                            <div class="portlet-body">
+                            <!-- <div class="portlet-body">
 
                                 <div  *ngFor="let user of users" class="row">
                                     <div class="col-lg-4">
@@ -486,7 +486,223 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                       
+                            <form [formGroup]="formGroup"
+                            (ngSubmit)="addUserProcess()" ngNativeValidate>
+                                <div class="form-body row">
+                                    <div class="col-md-3">
+            
+                                        <div class="form-group">
+                                           
+                                            <label>First Name</label>                                          
+                                            <span class="error">*</span>
+                                            <input required formControlName="FirstName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                                
+                                        </div>
+                                        <div class="form-group">
+                                            <label>MiddleName</label>
+                                            <input formControlName="MiddleName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Surname</label>
+                                            <span class="error">*</span>
+                                            <input required formControlName="Surname"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                              
+                                        </div>
+                                        <div class="form-group">
+                                            <label>LUID</label>
+                                            <input formControlName="LUID"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Crane User Name</label>
+                                            <span class="error">*</span>
+                                            <input
+                                            required formControlName="CraneUserName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                               
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Login ID</label>
+                                                <input formControlName="LoginID"
+                                                    type="text" class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                    </div> 
+                                    <div class="col-md-3">
+                                   
+                                        <div class="form-group">
+                                            <label>Login ID Alias</label>
+                                            <input
+                                                formControlName="LoginIDAlias"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+                                        <div class="form-group">
+                                                <label>User Category</label>
+                                                <span class="error">*</span>
+                                                <select class="form-control"  required formControlName="UserCategory">
+                                                        <option *ngFor="let role of Roles" [ngValue]="role"
+                                                            (change)="changeRoles($event)">{{role}}
+                                                        </option>
+                                                        </select>    
+                                                                                                   
+                                            </div>
+            
+                                    <div class="form-group">
+                                        <label>User Company_id</label>
+                                        <input
+                                            formControlName="UserCompany_id"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+            
+                                    <div class="form-group">
+                                            <label>User Prems User_id</label>
+                                            <input
+                                                formControlName="UserPremsUser_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+            
+                                        <div class="form-group">
+                                                <label>User Staff Id</label>
+                                                <span class="error">*</span>
+                                                <input
+                                                required formControlName="UserStaff_id"
+                                                    type="number" class="form-control"
+                                                    placeholder="">
+                                                    
+                                            </div>
+            
+                                            <div class="form-group">
+                                                    <label>Organisation Name</label>
+                                                    <span class="error">*</span>
+                                                    <input
+                                                    required formControlName="OrganisationName"
+                                                        type="text" class="form-control"
+                                                        placeholder="">
+                                                        
+                                                </div>
+                                       
+                                    </div>   
+                                    <div class="col-md-3">
+            
+                                        <div class="form-group">
+            
+                                            <label>User Email Address</label>
+                                            
+                                            <span class="error">*</span>
+                                            <input
+                                            required formControlName="UserEmailAddress"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                             
+                                        </div>
+                                        <div class="form-group">
+                                            <label>User Security Level Id</label>
+                                            <input
+                                                formControlName="UserSecurityLevel_id"
+                                                type="number" class="form-control"
+                                                placeholder="">                                                
+                                               
+                                        </div>
+                                        <div class="form-group">
+                                            <label>User Web Security Level_id</label>
+                                            <span class="error">*</span>
+                                            <select class="custom-select"
+                                            required formControlName="UserWebSecurityLevel_id"
+                                                name="UserWebSecurityLevel_id"
+                                                class="form-control">
+                                                <option *ngFor="let city of securityIds"
+                                                [ngValue]="city.WebSecurityLevel_id"
+                                                (change)="changeSecurity($event)">{{city.WebSecurityLevel_id}}-->{{city.WebSecurityLevelName}}
+                                                </option>
+                                            </select>
+                                            
+            
+                                        </div>
+            
+                                         <div class="form-group">
+                                                <label> Nogtr Web Security Level
+                                                    Id:</label>
+                                                <input
+                                                    formControlName="UserNogtrWebSecurityLevel_id"
+                                                    type="number" class="form-control"
+                                                    placeholder="">
+                                            </div>
+            
+                                        <div class="form-group">
+                                            <label> Prems Web Security Level
+                                                Id</label>
+                                            <input
+                                                formControlName="UserPremsWebSecurityLevel_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Intranet Security Level
+                                                Id</label>
+                                            <input
+                                                formControlName="UserIntranetSecurityLevel_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                     
+                                    </div>  
+            
+                                    <div class="col-md-3">
+                                       
+                                        <div class="form-group">
+                                            <label>User Nsd Web Security Level
+                                                Id</label>
+                                            <input
+                                                formControlName="UserNsdWebSecurityLevel_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <label>Organisation User Name</label>
+                                            <input
+                                                formControlName="OrganisationUserName"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>New Password</label>
+                                            <span class="error">*</span>
+                                            <input
+                                            required formControlName="DefaultPassword"
+                                                type="password" class="form-control"
+                                                placeholder="">
+                                               
+                                        </div>
+            
+                                        <div class="form-group">
+                                                <label>Comments</label>
+                                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+            
+                                            </div>
+            
+                                    </div>
+                                </div>
+            
+                                <div class="form-actions">
+                                    <button type="submit" class="btn blue">update</button>
+                                    <button type="button" (click)="back()" class="btn default">Back</button>
+                                </div>
+                            </form>
                         </div>
 
 

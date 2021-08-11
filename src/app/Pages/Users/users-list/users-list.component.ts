@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { NgPopupsService } from 'ng-popups';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-users-list',
@@ -12,12 +13,16 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
+  formGroup!: FormGroup;
+  title!: string;
   // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 useredit:any = [];
 users: any = [];
+Roles:any = ['Staff','Admin'];
+securityIds: any;
 role:any;
   userEmail:any;
   loggedin:any;
@@ -137,4 +142,67 @@ role:any;
     this.authservice.logoutuser()
   }
 
+  changeSecurity(e:any) {
+    console.log(e.value)
+    this.securityIds.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+
+  changeRoles(e:any) {
+    console.log(e.value)
+    this.Roles.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  getRoles() {
+    return this.formGroup.get('UserCategory');
+  }
+
+
+  addUserProcess(){
+    if(this.formGroup.valid){
+      // console.log(this.formGroup.value)
+      this.authservice.addUser(this.formGroup.value).subscribe(result =>{
+        console.log(result)
+        if(result.message == "account created successfully"){
+          this.toastr.success("account created successfully","",{
+            timeOut: 2000,
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            progressAnimation:'increasing'
+          })
+          this.formGroup.reset();
+          // setTimeout(() => {                           
+          //   this.router.navigate(['/web-security-levels']);
+          // }, 1000);
+          
+        } else{          
+          this.authservice.securityStatus()
+        }
+      }, error => {
+        
+        console.log('oops', error.message)
+        if(error){
+          this.toastr.error(error.error.message,"",{
+            timeOut: 2000,
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            progressAnimation:'decreasing'
+          })
+          // this.authservice.CompanyFaliure()
+        }
+      }
+      
+      )
+    }
+  }
+
+  back() {
+    // this.router.navigate(['/web-security-levels']);
+    this.authservice.reload();
+
+  }
 }
