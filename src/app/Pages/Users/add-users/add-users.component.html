@@ -146,7 +146,7 @@
                 <form [formGroup]="formGroup"
                 (ngSubmit)="addUserProcess()" ngNativeValidate>
                     <div class="form-body row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
 
                             <div class="form-group">
                                
@@ -190,11 +190,14 @@
                                         User Name is required</span></div>
                             </div>
                             <div class="form-group">
-                                <label>Login ID</label>
-                                <input formControlName="LoginID"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                            </div>
+                                    <label>Login ID</label>
+                                    <input formControlName="LoginID"
+                                        type="text" class="form-control"
+                                        placeholder="">
+                                </div>
+                        </div> 
+                        <div class="col-md-3">
+                       
                             <div class="form-group">
                                 <label>Login ID Alias</label>
                                 <input
@@ -202,31 +205,35 @@
                                     type="text" class="form-control"
                                     placeholder="">
                             </div>
+
                             <div class="form-group">
-                                <label>User Category</label>
-                                <span class="error">*</span>
-                                <select class="form-control"  required formControlName="UserCategory">
-                                        <option *ngFor="let role of Roles" [ngValue]="role"
-                                            (change)="changeRoles($event)">{{role}}
-                                        </option>
-                                        </select>    
-                                        <div> <span class="errorName" *ngIf="f.UserCategory.touched && f.UserCategory.invalid">
-                                            User category is required</span></div>                                            
-                            </div>
-                            <div class="form-group">
-                                <label>User Company_id</label>
-                                <input
-                                    formControlName="UserCompany_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
+                                    <label>User Category</label>
+                                    <span class="error">*</span>
+                                    <select class="form-control"  required formControlName="UserCategory">
+                                            <option *ngFor="let role of Roles" [ngValue]="role"
+                                                (change)="changeRoles($event)">{{role}}
+                                            </option>
+                                            </select>    
+                                            <div> <span class="errorName" *ngIf="f.UserCategory.touched && f.UserCategory.invalid">
+                                                User category is required</span></div>                                            
+                                </div>
+
+                        <div class="form-group">
+                            <label>User Company_id</label>
+                            <input
+                                formControlName="UserCompany_id"
+                                type="number" class="form-control"
+                                placeholder="">
+                        </div>
+
+                        <div class="form-group">
                                 <label>User Prems User_id</label>
                                 <input
                                     formControlName="UserPremsUser_id"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
+
                             <div class="form-group">
                                     <label>User Staff Id</label>
                                     <span class="error">*</span>
@@ -238,21 +245,24 @@
                                             User staff id is required</span></div>
                                 </div>
 
-                        </div>
-                        <div class="col-md-6">
-                          
+                                <div class="form-group">
+                                        <label>Organisation Name</label>
+                                        <span class="error">*</span>
+                                        <input
+                                        required formControlName="OrganisationName"
+                                            type="text" class="form-control"
+                                            placeholder="">
+                                            <div> <span class="errorName" *ngIf="f.OrganisationName.touched && f.OrganisationName.invalid">
+                                                Organisation Name is required</span></div>
+                                    </div>
+                           
+                        </div>   
+                        <div class="col-md-3">
+
                             <div class="form-group">
-                                <label>Organisation Name</label>
-                                <span class="error">*</span>
-                                <input
-                                required formControlName="OrganisationName"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                                    <div> <span class="errorName" *ngIf="f.OrganisationName.touched && f.OrganisationName.invalid">
-                                        Organisation Name is required</span></div>
-                            </div>
-                            <div class="form-group">
+
                                 <label>User Email Address</label>
+                                
                                 <span class="error">*</span>
                                 <input
                                 required formControlName="UserEmailAddress"
@@ -286,14 +296,16 @@
                                     security-id is required</span></div>
 
                             </div>
-                            <div class="form-group">
-                                <label>User Nogtr Web Security Level
-                                    Id:</label>
-                                <input
-                                    formControlName="UserNogtrWebSecurityLevel_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
+
+                             <div class="form-group">
+                                    <label>User Nogtr Web Security Level
+                                        Id:</label>
+                                    <input
+                                        formControlName="UserNogtrWebSecurityLevel_id"
+                                        type="number" class="form-control"
+                                        placeholder="">
+                                </div>
+
                             <div class="form-group">
                                 <label>User Prems Web Security Level
                                     Id</label>
@@ -310,6 +322,11 @@
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
+                         
+                        </div>  
+
+                        <div class="col-md-3">
+                           
                             <div class="form-group">
                                 <label>User Nsd Web Security Level
                                     Id</label>
@@ -318,12 +335,7 @@
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label>Comments</label>
-                                <input formControlName="Comments"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                            </div>
+                          
                             <div class="form-group">
                                 <label>Organisation User Name</label>
                                 <input
@@ -341,6 +353,12 @@
                                     <div> <span class="errorName" *ngIf="f.DefaultPassword.touched && f.DefaultPassword.invalid">
                                         Default Password is required</span></div>
                             </div>
+
+                            <div class="form-group">
+                                    <label>Comments</label>
+                                    <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+
+                                </div>
 
                         </div>
                     </div>
