@@ -171,6 +171,8 @@ export class AddWellboreComponent implements OnInit {
     }
   }
 
+  
+
   get f(){return this.formGroup.controls}
 }
 
