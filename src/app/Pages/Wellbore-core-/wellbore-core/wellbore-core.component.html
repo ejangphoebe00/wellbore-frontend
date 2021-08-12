@@ -5,7 +5,7 @@
    
         <!-- END THEME PANEL -->
         <!-- BEGIN PAGE BAR -->
-        <div class="page-bar">
+        <div   class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
                     <a [routerLink]="['/dashboard']">Dashboard</a>
@@ -39,8 +39,7 @@
                                 <span class="error">*</span>
                                     <select class="form-control"
                                          required formControlName="Wellbore_id"
-                                        name="Wellbore_id"
-                                       >
+                                        name="Wellbore_id">
                                         <option *ngFor="let city of wellboreIds"
                                             [ngValue]="city.Wellbore_id"
                                             (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
