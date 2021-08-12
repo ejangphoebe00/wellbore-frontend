@@ -134,6 +134,11 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/apiv1/add_welbore_core', data)
   }
 
+  updateWellboreCore(data: any): Observable<any> {
+    console.log("updatewellborecore")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_welbore_core'+this.getUpdateId(), data)
+  }
+
   getWelboreIds(): Observable<any> {
     console.log("Retrieved Ids")
     return this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore')

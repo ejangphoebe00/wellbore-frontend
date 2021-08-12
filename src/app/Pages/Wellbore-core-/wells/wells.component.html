@@ -51,7 +51,10 @@
                                                   <tr >
                                                     <th>Wellbore Id</th>
                                                     <th>CoringDate</th>
-                                                    <th>WellboreCoreName</th>
+                                                    <th>WellboreCoreName</th>                                                
+                                                    <th>CoreNumber</th>
+                                                    <th>CoringDate</th>
+                                                    <th>CoreTopMDRT</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
@@ -60,6 +63,9 @@
                                                     <td>{{post.WellboreCore_id}}</td>
                                                     <td>{{post.CoringDate}}</td>
                                                     <td>{{post.WellboreCoreName}}</td>
+                                                    <td>{{post.CoreNumber}}</td>
+                                                    <td>{{post.CoringDate}}</td>
+                                                    <td>{{post.CoreTopMDRT}}</td>
                                                     <td><button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button>
@@ -86,7 +92,7 @@
                     <div  *ngIf="editform" class="portlet light bordered">
                             <div class="portlet-body form">
                                 <form class="form-horizontal" [formGroup]="formGroup"
-                                (ngSubmit)="addWellboreCoreProcess()" ngNativeValidate>
+                                (ngSubmit)="updateWellboreCoreProcess()" ngNativeValidate>
                         
                                     <div class="form-body row">
                                         <div class="col-md-3">
@@ -370,7 +376,7 @@
                 
                                     <div class="form-actions">
                                         <button type="submit" class="btn blue">Update</button>
-                                        <button type="button" class="btn default">Back</button>
+                                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                                     </div>
                                 </form>
                             </div>

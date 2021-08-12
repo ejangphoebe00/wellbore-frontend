@@ -79,6 +79,10 @@ body {
   background-color: hsla(201, 100%, 50%, 0.5);
 } */
 
+button.btn.green.uppercase {
+  background-color: black;
+}
+
 .login {
      background-color: white!important; 
 }

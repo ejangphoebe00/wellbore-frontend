@@ -85,6 +85,13 @@ export class WellsComponent implements OnInit {
           },
         ]
       }
+
+      this.getWelboreId();
+      this.getWBCoringContractorId();
+      this.getCoreTopStratLitho_id();
+      this.getCoreBottomStratLitho_id();
+      this.getReportFormat_id();
+      this.getCoreReportSecurityGrade_id();
     }
 
     ngOnDestroy(): void {
@@ -266,7 +273,7 @@ export class WellsComponent implements OnInit {
     }
 
     onSelect(selectedItem: any) {
-      this.id = selectedItem.WebSecurityLevel_id
+      this.id = selectedItem.WellboreCore_id
   
       this.ngPopups.confirm("Are you sure you want to delete ?",{
         // theme: 'material',
@@ -277,13 +284,13 @@ export class WellsComponent implements OnInit {
       })
       .subscribe(res => {
         if (res) {
-        console.log("Selected item Id: ", selectedItem.WebSecurityLevel_id);
-        this.http.delete('http://127.0.0.1:8899/apiv1/delete_web_security_level/' + this.id)
+        console.log("Selected item Id: ", selectedItem.WellboreCore_id);
+        this.http.delete('http://127.0.0.1:8899/apiv1/delete_welbore_core/' + this.id)
           .subscribe(response => {
             this.deleteresp = response;
             console.log(this.deleteresp.message)
-            if (this.deleteresp.message == "Web security level successfully deleted.") {
-              this.toastr.success("Web security level successfully deleted.", "", {
+            if (this.deleteresp.message == "Welbore Core successfully deleted.") {
+              this.toastr.success("Welbore Core successfully deleted.", "", {
                 timeOut: 2000,
                 positionClass: 'toast-top-center',
                 progressBar: true,
@@ -309,18 +316,44 @@ export class WellsComponent implements OnInit {
       console.log("hide the elements");
       this.status = false;
       this.editform = true;
-      this.id = selectedItem.WebSecurityLevel_id
+      this.id = selectedItem.WellboreCore_id
       localStorage.setItem("update-id", this.id);
-      console.log("Selected item Id: ", selectedItem.WebSecurityLevel_id);
-      this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level/' + this.id)
+      console.log("Selected item Id: ", selectedItem.WellboreCore_id);
+      this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
         .subscribe(response => {
           this.updatevalue = response;
           this.formGroup.patchValue({
-  
-            WebSecurityLevelAbbreviation: this.updatevalue.WebSecurityLevelAbbreviation,
-            WebSecurityLevelName: this.updatevalue.WebSecurityLevelName,
-            WebSecurityLevelDescription: this.updatevalue.WebSecurityLevelDescription,
-            Comments: this.updatevalue.Comments
+         
+        Wellbore_id:this.updatevalue.Wellbore_id,
+        CoreNumber:this.updatevalue.CoreNumber,
+        CoringDate:this.updatevalue.CoringDate,
+        WBCoringContractor_id:this.updatevalue.WBCoringContractor_id,
+        CoreTopMDRT:this.updatevalue.CoreTopMDRT,
+        CoreBtmMDRT:this.updatevalue.CoreBtmMDRT,
+        CoreTopTVD:this.updatevalue.CoreTopTVD,
+        CoreBtmTVD:this.updatevalue.CoreBtmTVD,
+        CutLength:this.updatevalue.CutLength,
+        CutLengthTVD:this.updatevalue.CutLengthTVD,
+        RecoveredLength:this.updatevalue.RecoveredLength,
+        CoreRecovery:this.updatevalue.CoreRecovery,
+        CoreTopStratLitho_id:this.updatevalue.changeCoreTopStratLitho_id,
+        CoreBottomStratLitho_id: this.updatevalue.CoreBottomStratLitho_id,
+        CorePictureSoftcopyPath:this.updatevalue.CorePictureSoftcopyPath,
+        CorePictureHyperlink:this.updatevalue.CorePictureHyperlink,
+        PictureUploadDate:this.updatevalue.PictureUploadDate,
+        CoreReportSoftcopyPath:this.updatevalue.CoreReportSoftcopyPath,
+        CoreReportHyperlink:this.updatevalue.CoreReportHyperlink,
+        ReportUploadDate:this.updatevalue.ReportUploadDate,
+        ReportFormat_id:this.updatevalue.ReportFormat_id,
+        ReportFileSize:this.updatevalue.ReportFileSize,
+        CoreReportSecurityGrade_id:this.updatevalue.CoreReportSecurityGrade_id,
+        ReportOpenDueDate:this.updatevalue.ReportOpenDueDate,
+        ReportDocumentTitle:this.updatevalue.ReportDocumentTitle,
+        ReportReceivedDate:this.updatevalue.ReportReceivedDate,
+        ReportDocumentDate:this.updatevalue.ReportDocumentDate,
+        ReportDocumentName:this.updatevalue.ReportDocumentName,
+        WellboreCoreName:this.updatevalue.WellboreCoreName,
+        Comments:this.updatevalue.Comment
           });
           console.log(this.updatevalue)
         });
@@ -334,15 +367,15 @@ export class WellsComponent implements OnInit {
   
     }
   
-    updateSecurityProcess() {
+    updateWellboreCoreProcess() {
       console.log("tested")
       if (this.formGroup.valid) {
         console.log(this.formGroup.value)
-        this.authservice.updateWebSecurity(this.formGroup.value).subscribe(result => {
+        this.authservice.updateWellboreCore(this.formGroup.value).subscribe(result => {
           console.log(result)
   
-          if (result.message == "Web security level updated successfuly.") {
-            this.toastr.success("Web security level updated successfuly.", "", {
+          if (result.message == "Welbore Core updated successfuly.") {
+            this.toastr.success("Welbore Core updated successfuly.", "", {
               timeOut: 2000,
               positionClass: 'toast-top-center',
               progressBar: true,
