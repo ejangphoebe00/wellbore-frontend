@@ -15,6 +15,11 @@ export class AddFileSecurityGradeComponent implements OnInit {
   role:any;
   userEmail:any;
   loggedin:any;
+  deleteresp: any;
+  status: boolean = true;
+  editform: boolean = false;
+  updatevalue: any;
+  id: any;
 
 
   constructor(
@@ -25,7 +30,7 @@ export class AddFileSecurityGradeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authservice.reload();
+    // this.authservice.reload();
 
     this.initForm();
     this.userEmail = this.authservice.getEmail();
@@ -88,6 +93,7 @@ export class AddFileSecurityGradeComponent implements OnInit {
       )
     }
   }
+
 
   get f(){return this.formGroup.controls}
 

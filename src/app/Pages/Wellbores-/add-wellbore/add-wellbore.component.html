@@ -11,20 +11,10 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Add Wellbore</span>
+                    <span>Add Wells</span>
                 </li>
             </ul>
-            <!-- <div class="page-toolbar">
-                <div id="dashboard-report-range" class="pull-right
-                    tooltips btn btn-sm" data-container="body"
-                    data-placement="bottom"
-                    data-original-title="Change dashboard date
-                    range">
-                    <i class="icon-calendar"></i>&nbsp;
-                    <span class="thin uppercase hidden-xs"></span>&nbsp;
-                    <i class="fa fa-angle-down"></i>
-                </div>
-            </div> -->
+
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
@@ -36,10 +26,10 @@
         <div class="portlet light bordered">
             <div class="portlet-body form">
                 <form [formGroup]="formGroup"
-                (ngSubmit)="addWellboreProcess()">
+                (ngSubmit)="addWellboreProcess()" ngNativeValidate>
         
                     <div class="form-body row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
 
                             <div class="form-group">
 
@@ -59,21 +49,19 @@
                                 <label>Wellbore Local Name</label>
                                 <span class="error">*</span>
                                 <input
-                                    formControlName="WellboreLocalName"
+                                   required formControlName="WellboreLocalName"
                                     type="text" class="form-control"
                                     placeholder="">
-                                    <div> <span class="errorName" *ngIf="f.WellboreLocalName.touched && f.WellboreLocalName.invalid">
-                                        Local name is required</span></div>
+                                    
                             </div>
                             <div class="form-group">
                                 <label>Wellbore Alias Name</label>
                                 <span class="error">*</span>
                                 <input
-                                    formControlName="WellboreAliasName"
+                                required formControlName="WellboreAliasName"
                                     type="text" class="form-control"
                                     placeholder="">
-                                      <div> <span class="errorName" *ngIf="f.WellboreAliasName.touched && f.WellboreAliasName.invalid">
-                                    Alias name is required</span></div>
+                                     
                             </div>
                             <div class="form-group">
                                 <label>Wellbore Spud Date</label>
@@ -133,7 +121,7 @@
                                         type="number" class="form-control"
                                         placeholder="">
                                 </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>WellboreContent Id</label>
                                     <input
                                         formControlName="WellboreContent_id"
@@ -141,20 +129,26 @@
                                         placeholder="">
                                 </div>
                                 <div class="form-group">
-                                    <label>Wellbore Status Id</label>
-                                    <input
-                                        formControlName="WellboreStatus_id"
-                                        type="number" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Wellbore Responsible Licence
-                                        Id</label>
-                                    <input
-                                        formControlName="WellboreResponsibleLicence_id"
-                                        type="number" class="form-control"
-                                        placeholder="">
-                                </div>
+                                        <label>Wellbore Status Id</label>
+                                        <input
+                                            formControlName="WellboreStatus_id"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                 
+
+                        </div>  
+                        <div class="col-md-3">  
+                                
+                                    <div class="form-group">
+                                        <label>Wellbore Responsible Licence
+                                            Id</label>
+                                        <input
+                                            formControlName="WellboreResponsibleLicence_id"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>  
+                               
                                 <div class="form-group">
                                     <label>License Operator Company Id</label>
                                         <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
@@ -205,55 +199,24 @@
                                             class="form-control"
                                             placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Rotary Table Elavation</label>
-                                        <input
-                                            formControlName="RotaryTableElavation"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ground Level Elavation Id</label>
-                                        <input
-                                            formControlName="GroundLevelElavation"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>TD_MD</label>
-                                        <input
-                                            formControlName="TD_MD"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>TD_TVD</label>
-                                        <input
-                                            formControlName="TD_TVD"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>TD_Date</label>
-                                        <input
-                                            formControlName="TD_Date"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="">
-                                    </div>
 
                                     <div class="form-group">
-                                            <label>Core Contractor Id</label>
-                                                <select class="form-control" formControlName="CoreContractor_id">                                               
-                                                        <option *ngFor="let city of licenceIds"
-                                                        [ngValue]="city.Company_id"
-                                                        (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
-                                                        </option>
-                                                 </select>
+                                            <label>TD_TVD</label>
+                                            <input
+                                                formControlName="TD_TVD"
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="">
+                                     </div>
+                                      
+                                        <div class="form-group">
+                                                <label>Core Contractor Id</label>
+                                                    <select class="form-control" formControlName="CoreContractor_id">                                               
+                                                            <option *ngFor="let city of licenceIds"
+                                                            [ngValue]="city.Company_id"
+                                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                            </option>
+                                                     </select>
                                         </div>
                                         <div class="form-group">
                                             <label>RCI Taken Id</label>
@@ -278,36 +241,26 @@
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="">
-                                            </div>
-        
-                                            <div class="form-group">
-                                                <label>Rotary Table Elavation</label>
+                                         </div>
+                                        <div class="form-group">
+                                            <label>Rotary Table Elavation</label>
+                                            <input
+                                                formControlName="RotaryTableElavation"
+                                                type="number"
+                                                class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Ground Level Elavation Id</label>
                                                 <input
-                                                    formControlName="RotaryTableElavation"
+                                                    formControlName="GroundLevelElavation"
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="">
                                             </div>
-
-
                         </div>
                         
-                        <div class="col-md-6">
-
-                          
-                            
-
-
-                            
-                          
-                            <div class="form-group">
-                                <label>Ground Level Elavation Id</label>
-                                <input
-                                    formControlName="GroundLevelElavation"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
+                        <div class="col-md-3">                   
                             <div class="form-group">
                                 <label>TD_MD</label>
                                 <input
@@ -316,14 +269,7 @@
                                     class="form-control"
                                     placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label>TD_TVD</label>
-                                <input
-                                    formControlName="TD_TVD"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
+                           
                             <div class="form-group">
                                 <label>TD_Date</label>
                                 <input
@@ -332,147 +278,111 @@
                                     class="form-control"
                                     placeholder="">
                             </div>
+                            <div class="form-group">
+                                    <label>WFT Contractor</label>
+                                    <input
+                                        formControlName="WFTContractor"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>DST Done Id</label>
+                                    <input
+                                        formControlName="DST_Done_id"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Manifold Flow Tested Id</label>
+                                    <input
+                                        formControlName="ManifoldFlowTested_id"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>DST Contractor Id</label>
+                                        <select class="form-control" formControlName="DST_Contractor_id">                                               
+                                                <option *ngFor="let city of licenceIds"
+                                                [ngValue]="city.Company_id"
+                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                </option>
+                                         </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Has PetrophysicalLogs Id</label>
+                                    <input
+                                        formControlName="HasPetrophysicalLogs_id"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Core Petrophysical Contractor Id</label>
+                                        <select class="form-control" formControlName="PetrophysicalContractor_id">                                               
+                                                <option *ngFor="let city of licenceIds"
+                                                [ngValue]="city.Company_id"
+                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                </option>
+                                         </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Top Basement MD</label>
+                                    <input
+                                        formControlName="TopBasementMD"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Top Basement TVD</label>
+                                    <input
+                                        formControlName="TopBasementTVD"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Wellbore Test Status</label>
+                                    <input
+                                        formControlName="WellboreTestStatus"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="">
+                                </div> 
+                                <div class="form-group">
+                                        <label>Planned Wellbore Cost </label>
+                                        <input
+                                            formControlName="PlannedWellboreCost"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ActualWellboreCost</label>
+                                        <input
+                                            formControlName="ActualWellboreCost"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Wellbore Test Cost</label>
+                                        <input
+                                            formControlName="WellboreTestCost"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="">
+                                    </div>
 
 
-
-                            <div class="form-group">
-                                <label>Core Contractor Id</label>
-                                <input
-                                    formControlName="CoreContractor_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>RCI Taken Id</label>
-                                <input
-                                    formControlName="RCI_Taken_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>MDT Done Id</label>
-                                <input
-                                    formControlName="MDT_Done_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>FET Done Id</label>
-                                <input
-                                    formControlName="FET_Done_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label>WFT Contractor</label>
-                                <input
-                                    formControlName="WFTContractor"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>DST Done Id</label>
-                                <input
-                                    formControlName="DST_Done_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Manifold Flow Tested Id</label>
-                                <input
-                                    formControlName="ManifoldFlowTested_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>DST Contractor Id</label>
-                                    <select class="form-control" formControlName="DST_Contractor_id">                                               
-                                            <option *ngFor="let city of licenceIds"
-                                            [ngValue]="city.Company_id"
-                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
-                                            </option>
-                                     </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Has PetrophysicalLogs Id</label>
-                                <input
-                                    formControlName="HasPetrophysicalLogs_id"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <label>Core Petrophysical Contractor Id</label>
-                                    <select class="form-control" formControlName="PetrophysicalContractor_id">                                               
-                                            <option *ngFor="let city of licenceIds"
-                                            [ngValue]="city.Company_id"
-                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
-                                            </option>
-                                     </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Top Basement MD</label>
-                                <input
-                                    formControlName="TopBasementMD"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Top Basement TVD</label>
-                                <input
-                                    formControlName="TopBasementTVD"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Wellbore Test Status</label>
-                                <input
-                                    formControlName="WellboreTestStatus"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <label>Planned Wellbore Cost </label>
-                                <input
-                                    formControlName="PlannedWellboreCost"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>ActualWellboreCost</label>
-                                <input
-                                    formControlName="ActualWellboreCost"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Wellbore Test Cost</label>
-                                <input
-                                    formControlName="WellboreTestCost"
-                                    type="number"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
+                          
+                        </div>
+                        <div class="col-md-3">
+ 
+                          
                             <div class="form-group">
                                 <label>Completion Date</label>
                                 <input
@@ -486,15 +396,6 @@
                                 <label> Three Word Wellbore Location</label>
                                 <input
                                     formControlName="What3WordWellboreLocation"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="">
-                            </div>
-
-                            <div class="form-group">
-                                <label> Comments</label>
-                                <input
-                                    formControlName="Comments"
                                     type="text"
                                     class="form-control"
                                     placeholder="">
@@ -570,7 +471,10 @@
                             </div>
 
 
-
+                            <div class="form-group">
+                                    <label> Comments</label>
+                                    <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                                </div>
 
                         </div>
                     </div>

@@ -27,7 +27,7 @@ export class AddWellboreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authservice.reload();
+    // this.authservice.reload();
 
     this.initForm();
     this.userEmail = this.authservice.getEmail();
@@ -170,6 +170,8 @@ export class AddWellboreComponent implements OnInit {
       )
     }
   }
+
+  
 
   get f(){return this.formGroup.controls}
 }

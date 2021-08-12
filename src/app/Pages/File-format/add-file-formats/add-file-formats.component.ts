@@ -33,7 +33,7 @@ export class AddFileFormatsComponent implements OnInit {
     }else{
     this.role= false;
     }
-   this.authservice.reload();
+  //  this.authservice.reload();
   }
 
   

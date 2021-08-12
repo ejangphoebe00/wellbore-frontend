@@ -12,13 +12,15 @@ import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  date: any;
+
   constructor(
     private authservice: ApiPipeService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.authservice.checkLoginStatus();
+    // this.authservice.checkLoginStatus();
     this.initForm();
   }
 

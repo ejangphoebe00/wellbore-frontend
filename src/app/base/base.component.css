@@ -66,3 +66,10 @@
     position: relative;
     border-bottom: 1px solid transparent!important;
 }
+.page-footer .page-footer-inner {
+    color: #fdfdfd;
+    margin-left: 50%;
+}
+.page-header.navbar .menu-toggler>span, .page-header.navbar .menu-toggler>span:after, .page-header.navbar .menu-toggler>span:before, .page-header.navbar .menu-toggler>span:hover, .page-header.navbar .menu-toggler>span:hover:after, .page-header.navbar .menu-toggler>span:hover:before {
+    background: #fafcfb;
+}

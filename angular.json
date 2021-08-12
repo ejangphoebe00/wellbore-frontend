@@ -30,7 +30,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/assets/global/plugins/font-awesome/css/font-awesome.min.css",
@@ -49,14 +48,14 @@
               "src/assets/assets/global/plugins/datatables/datatables.min.css",
               "src/assets/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css",
               "src/assets/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-              "node_modules/datatables.net-buttons-dt/css/buttons.datatables.css"
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
 
             ],
             "scripts": [
 
               "src/assets/assets/global/plugins/js.cookie.min.js",
               "node_modules/jquery/dist/jquery.js",
+              "src/assets/assets/global/plugins/jquery.min.js",
               "src/assets/assets/global/plugins/bootstrap/js/bootstrap.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/jszip/dist/jszip.js",

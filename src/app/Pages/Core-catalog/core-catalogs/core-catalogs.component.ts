@@ -29,7 +29,7 @@ export class CoreCatalogsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.authservice.reload();
+      // this.authservice.reload();
       this. coreCatalogList();
       this.userEmail = this.authservice.getEmail();
       this.loggedin = this.authservice.getRole();

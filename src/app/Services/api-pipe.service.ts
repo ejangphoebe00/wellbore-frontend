@@ -98,6 +98,22 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/apiv1/add_wellbore', data)
   }
 
+  updateWellbore(data: any): Observable<any> {
+    console.log("update Security")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_wellbore/'+this.getUpdateId(), data)
+
+  }
+
+  updateFileGrades(data: any): Observable<any> {
+    console.log("update Security")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_file_format/'+this.getUpdateId(), data)
+  }
+
+  updateSecurityGrade(data: any): Observable<any> {
+    console.log("update Security")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_file_security_grade/'+this.getUpdateId(), data)
+  }
+
   addSecurityGrade(data: any): Observable<any> {
     console.log("add security grade")
     return this.http.post('http://127.0.0.1:8899/apiv1/add_file_security_grade', data)

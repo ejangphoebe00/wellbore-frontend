@@ -17,6 +17,7 @@ export class WellboreCoreComponent implements OnInit {
   userEmail: any;
   loggedin: any;
 
+
   wellboreIds: any;
   WBCoringContractor_id: any;
   CoreTopStratLitho_id: any;
@@ -34,7 +35,7 @@ export class WellboreCoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authservice.reload();
+    // this.authservice.reload();
     this.initForm();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
@@ -161,16 +162,12 @@ export class WellboreCoreComponent implements OnInit {
     })
   }
 
-  
-
-
   getWBCoringContractorId(){
     this.authservice.getCompanies().subscribe(res =>{
       this.WBCoringContractor_id = res;
       console.log(this.WBCoringContractor_id);
     })
   }
-
 
   getWelboreId(){
     this.authservice.getWelboreIds().subscribe(res =>{
@@ -185,8 +182,6 @@ export class WellboreCoreComponent implements OnInit {
       onlySelf: true
     })
   }
-
-
 
   changeReportFormat_id(e:any) {
     console.log(e.value)
