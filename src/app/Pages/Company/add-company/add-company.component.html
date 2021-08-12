@@ -38,7 +38,7 @@
                       <!-- <form role="form"> -->
                         <form [formGroup]="formGroup" (ngSubmit)="addCompanyDetails()" ngNativeValidate>
                             <div class="form-body row">
-                              <div class="col-md-5">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
                                     <input type="text" formControlName="PAUID" class="form-control" placeholder="">
@@ -104,7 +104,8 @@
                                     <label>Company Entity Type ID</label>
                                     <input type="number" class="form-control" formControlName="CompanyEntityType_id">
                                 </div>
-
+                              </div>
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Company Entity Sub Type ID</label>
                                     <input type="number" formControlName="CompanyEntitySubType_id" class="form-control" placeholder="">
@@ -162,10 +163,9 @@
                                     <label>Primary Contact Entity</label>
                                     <input type="text" formControlName="PrimaryContactEntity" class="form-control" placeholder="">
                                 </div>
-
                               </div>
 
-                              <div class="col-md-5">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Contact Entity Email</label>
 
@@ -231,7 +231,9 @@
                                     <label>Secondary Company Kind ID</label>
                                     <input type="text" formControlName="SecondaryCompanyKind_id" class="form-control" placeholder="">
                                 </div>
+                              </div>
 
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Other Company Kind ID</label>
                                     <input type="text" formControlName="OtherCompanyKind_id" class="form-control" placeholder="">
