@@ -26,17 +26,17 @@
         <!-- END DASHBOARD STATS 1-->
         <div class="portlet light bordered">
             <div class="portlet-body form">
-                 <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="addCoreCatProcess()">
+                 <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="addCoreCatProcess()" ngNativeValidate>
 
                     <div class="form-body row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
 
                             <div class="form-group">
 
                                 <label>Wellbore Core Id</label>
                                 <span class="error">*</span>
                                     <select class="custom-select"
-                                    formControlName="WellboreCore_id"
+                                   required formControlName="WellboreCore_id"
                                     name="WellboreCore_id"
                                     class="form-control">
                                     <option *ngFor="let city of
@@ -45,22 +45,18 @@
                                         (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.CoreNumber}}
                                     </option>
                                 </select>
-                                <div> <span class="errorName" *ngIf="f.WellboreCore_id.touched && f.WellboreCore_id.invalid">
-                                    Wellbore Id is required</span></div>  
+                                
 
 
                             </div>
                             <div class="form-group">
                                 <label>Core Type</label>
                                 <span class="error">*</span>
-                                <select class="form-control" formControlName="CoreType">
+                                <select class="form-control" required formControlName="CoreType">
                                         <option *ngFor="let  id of CoreTypeIds" [ngValue]="id.CoreType_id"
                                             (change)="changeCoreTypes($event)">{{id.CoreType_id}}-->{{id.CoreTypeName}}
                                         </option>
                                         </select>    
-                                        <div> <span class="errorName" *ngIf="f.CoreType.touched && f.CoreType.invalid">
-                                            Core type category is required</span></div>   
-                                  
 
                             </div>
                             <div class="form-group">
@@ -69,12 +65,7 @@
                                     type="text" class="form-control"
                                     placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label>Catalog Core From Depth</label>
-                                <input formControlName="CatalogCoreFromDepth"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
+                          
                             <div class="form-group">
                                 <label>Catalog Core From Depth</label>
                                 <input
@@ -88,6 +79,8 @@
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
+                        </div>
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Core Catalog Security Flag Id</label>
                                 <select formControlName="CoreCatalogSecurityFlag_id"
@@ -101,38 +94,34 @@
                             </select>
                             </div>
                             <div class="form-group">
-                                <label>Was Analysed Id</label>
-                                <input
-                                    formControlName="WasAnalysed_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Top StratLitho Id</label>                               
-                                <select formControlName="TopStratLitho_id"
-                                name="TopStratLitho_id"
-                                class="form-control">
-                                <option *ngFor="let city of TopStratLitho_id"
-                                    [ngValue]="city.StratLitho_id"
-                                    (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
-                                </option>
-                            </select>
-                            </div>
-                            <div class="form-group">
-                                <label>BottomStratLitho_id</label>
-                                <select formControlName="BottomStratLitho_id"
-                                name="BottomStratLitho_id"
-                                class="form-control">
-                                <option *ngFor="let city of TopStratLitho_id"
-                                    [ngValue]="city.StratLitho_id"
-                                    (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
-                                </option>
-                            </select>
-                            </div>
-                         
-
-                        </div>
-                        <div class="col-md-6">
+                                    <label>Was Analysed Id</label>
+                                    <input
+                                        formControlName="WasAnalysed_id"
+                                        type="number" class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Top StratLitho Id</label>                               
+                                    <select formControlName="TopStratLitho_id"
+                                    name="TopStratLitho_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of TopStratLitho_id"
+                                        [ngValue]="city.StratLitho_id"
+                                        (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                    </option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>BottomStratLitho_id</label>
+                                    <select formControlName="BottomStratLitho_id"
+                                    name="BottomStratLitho_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of TopStratLitho_id"
+                                        [ngValue]="city.StratLitho_id"
+                                        (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                    </option>
+                                </select>
+                                </div>
                                 <div class="form-group">
                                         <label>Catalogue Core Picture Name</label>
                                         <input
@@ -140,41 +129,50 @@
                                             type="text" class="form-control"
                                             placeholder="">
                                     </div>
-                          
-                            <div class="form-group">
-                                <label>Catalogue Picture Softcopy Path</label>
-                                <input
-                                    formControlName="CataloguePictureSoftcopyPath"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Catalogue Report Softcopy Path </label>
-                                <input
-                                    formControlName="CatalogueReportSoftcopyPath"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Catalogue Report Hyperlink</label>
-                                <input
-                                    formControlName="CatalogueReportHyperlink"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Catalog Report Format Id</label>
-                                <input
-                                    formControlName="CatalogReportFormat_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Catalog Report FileSize</label>  <input
-                                    formControlName="CatalogReportFileSize"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                      
+                                <div class="form-group">
+                                    <label>Catalogue Picture Softcopy Path</label>
+                                    <input
+                                        formControlName="CataloguePictureSoftcopyPath"
+                                        type="text" class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Catalogue Report Softcopy Path </label>
+                                    <input
+                                        formControlName="CatalogueReportSoftcopyPath"
+                                        type="text" class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Catalogue Report Hyperlink</label>
+                                    <input
+                                        formControlName="CatalogueReportHyperlink"
+                                        type="text" class="form-control"
+                                        placeholder="">
+                                </div>
+                                <div class="form-group">
+                                        <label>Catalog Report Format Id</label>
+                                        <input
+                                            formControlName="CatalogReportFormat_id"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Catalog Report FileSize</label>  <input
+                                            formControlName="CatalogReportFileSize"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+
+                        </div>
+                        <div class="col-md-3">
+                           
+                            
                             <div class="form-group">
                                 <label>Catalog Report Security Grade Id</label>
                                 <input
@@ -191,17 +189,14 @@
                             </div>
                             <div class="form-group">
                                 <label>Comments</label>
-                                <input
-                                    formControlName="Comments"
-                                    type="text" class="form-control"
-                                    placeholder="">
+                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
                             </div>
                            
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn blue">Submit</button>
+                        <button type="submit" class="btn blue">Save</button>
                         <button type="button" class="btn default">Cancel</button>
                     </div>
                 </form>
