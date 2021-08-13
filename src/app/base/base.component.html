@@ -271,14 +271,14 @@
                     </li>
 
                     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-item"> -->
-                    <li routerLinkActive="active" class="nav-item">
+                    <li *ngIf="role" routerLinkActive="active" class="nav-item">
                         <a class="nav-link nav-toggle">
                             <i class="icon-settings"></i>
                             <span class="title">Catalog Security</span>
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li *ngIf="role" class="nav-item">
+                            <li class="nav-item">
                                 <a routerLink="catalog-security" class="nav-link">
                                         <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Catalog Security</span>

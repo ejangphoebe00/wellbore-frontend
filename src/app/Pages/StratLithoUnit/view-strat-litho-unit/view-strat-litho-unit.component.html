@@ -117,7 +117,7 @@
                                        <td><button type="button" (click)="onSelectEdit(strat)"
                                          class="btn blue btn-outline">
                                          <i class="fa fa-angle-double-right"></i></button>
-                                       <button type="button" class="btn red btn-outline"
+                                       <button *ngIf="role" type="button" class="btn red btn-outline"
                                        (click)="onSelect(strat)"><i class="fa fa-trash-o"></i></button></td>
                                    </tr>
 
@@ -195,7 +195,7 @@
                   <div class="form-actions">
                       <div class="row">
                           <div class="col-md-offset-3 col-md-4">
-                              <input type="submit" value="update" class="btn
+                              <input *ngIf="role" type="submit" value="update" class="btn
                                   btn-success">
                               <button (click)="navigateBack()" type="button" class="btn
                                   default">Back</button>
