@@ -108,7 +108,7 @@
                                 <label>Prospect Id</label>
                                 <select class="form-control" formControlName="Prospect_id">                                               
                                         <option *ngFor="let city of prospectIds"
-                                        [ngValue]="city.Prospect_id"
+                                        [ngValue]="city.Company_id"
                                         (change)="changeProspect($event)">{{city.Company_id}}-->{{city.PAUID}}
                                         </option>
                                      </select>
