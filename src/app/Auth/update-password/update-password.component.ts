@@ -54,6 +54,7 @@ export class UpdatePasswordComponent implements OnInit {
         console.log(result)
 
         if(result.message == "Details updated successfully"){
+          // localStorage.setItem("token",result.access_token);
           this.toastr.success("Password Updated Successfully.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
@@ -62,7 +63,7 @@ export class UpdatePasswordComponent implements OnInit {
           })
           this.formGroup.reset();
           setTimeout(() => {                           
-            this.router.navigate(['/login']);
+            this.router.navigate(['/dashboard']);
           }, 1000);
           
         } else{          

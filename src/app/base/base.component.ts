@@ -36,6 +36,10 @@ loggedin:any;
   this.authservice.logoutuser();
   }
 
+  switchAccount(){
+    this.authservice.switchAccounts();
+    }
+
   updatePassword(){
     this.router.navigate(['/update-password']);
   }
