@@ -36,6 +36,10 @@ loggedin:any;
   this.authservice.logoutuser();
   }
 
+  updatePassword(){
+    
+  }
+
   loadScripts() {
     
     const dynamicScripts = [

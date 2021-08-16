@@ -322,6 +322,7 @@ export class WellsComponent implements OnInit {
       this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
         .subscribe(response => {
           this.updatevalue = response;
+          console.log(this.updatevalue)
           this.formGroup.patchValue({
          
         Wellbore_id:this.updatevalue.Wellbore_id,
