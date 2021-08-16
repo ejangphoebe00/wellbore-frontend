@@ -93,9 +93,9 @@ export class AddCompanyComponent implements OnInit {
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
       this.authservice.addCompany(this.formGroup.value).subscribe(result =>{
-        console.log(result)
+        console.log(result.message)
 
-        if(result.message == "Company added successfully."){
+        if(result.message == "Company added successfuly."){
           this.toastr.success("Company added successfuly.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
