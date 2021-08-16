@@ -13,7 +13,6 @@ userEmail:any;
 loggedin:any;
 
 
-
   constructor(
     private authservice: ApiPipeService,
     private router: Router
@@ -30,6 +29,7 @@ loggedin:any;
     }else{
     this.role=false;
     }
+
    }
 
   logout(){
@@ -53,5 +53,9 @@ loggedin:any;
       document.getElementsByTagName('head')[0].appendChild(node);
     }
   }
+
+
+    
+
 
 }

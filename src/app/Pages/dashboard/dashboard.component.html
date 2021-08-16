@@ -34,7 +34,7 @@
                     <div class="details">
                         <div class="number">
                             <span data-counter="counterup"
-                                data-value="1349">144</span>
+                                >{{users}}</span>
                         </div>
                         <div  routerLink='users' class="desc">Users</div>
                     </div>
@@ -49,7 +49,7 @@
                     <div class="details">
                         <div class="number">
                             <span data-counter="counterup"
-                                data-value="12,5">70</span> </div>
+                               >{{companies}}</span> </div>
                         <div class="desc">Companies</div>
                     </div>
                 </a>
@@ -63,7 +63,7 @@
                     <div class="details">
                         <div class="number">
                             <span data-counter="counterup"
-                                data-value="549">120</span>
+                                >{{wells}}</span>
                         </div>
                         <div class="desc">Wells </div>
                     </div>
@@ -78,7 +78,7 @@
                         <div class="details">
                             <div class="number">
                                 <span data-counter="counterup"
-                                    data-value="549">120</span>
+                                    >{{coreCatalogz}}</span>
                             </div>
                             <div  routerLink="core-catalogs" class="desc">Core Catalog </div>
                         </div>
@@ -138,7 +138,7 @@
                                                                     </div>
                                                         </span>
                                                     </div>
-                                                    <div class="mt-comment-text"> 90 Lithostratigraphies </div>
+                                                    <div class="mt-comment-text"> {{lithoz}} Lithostratigraphies </div>
                                                   
                                                    
                                                 </div>
@@ -188,7 +188,7 @@
                                                                         </div>
                                                             </span>
                                                         </div>
-                                                        <div class="mt-comment-text"> 70 Wells </div>
+                                                        <div class="mt-comment-text"> {{wells}} Wells </div>
                                                       
                                                        
                                                     </div>
@@ -232,7 +232,7 @@
                                                         </div>
                                                         <div class="mt-action-details ">
                                                             <span class="mt-action-author">Registered</span>
-                                                            <p class="mt-action-desc"> 80 Core Catalogs</p>
+                                                            <p class="mt-action-desc"> {{coreCatalogz}} Core Catalogs</p>
                                                         </div>
                                                     </div>
                                                 
@@ -285,7 +285,7 @@
                                                             </div>
                                                             <div class="mt-action-details ">
                                                                 <span class="mt-action-author">Registered</span>
-                                                                <p class="mt-action-desc"> 60 Wellbore Cores</p>
+                                                                <p class="mt-action-desc"> {{wellborecore}} Wellbore Cores</p>
                                                             </div>
                                                         </div>
                                                     
@@ -336,13 +336,9 @@
                                                                 <div class="mt-action-icon ">
                                                                     
                                                                 </div>
-                                                                <div routerLink='users' class="mt-action-details ">
-                                                                    <span class="mt-action-author">Staff</span>
-                                                                    <p class="mt-action-desc"> 80 Staff </p>
-                                                                    <span class="mt-action-author">Administrators</span>
-                                                                    <p class="mt-action-desc"> 80 Administartors </p>
+                                                                <div routerLink='users' class="mt-action-details ">                             
                                                                     <span class="mt-action-author">Accounts</span>
-                                                                    <p class="mt-action-desc"> 160 Accounts </p>
+                                                                    <p class="mt-action-desc"> {{users}} Accounts </p>
                                                                 </div>
                                                             </div>
                                                         
@@ -395,7 +391,7 @@
                                                                     </div>
                                                                     <div class="mt-action-details ">
                                                                         <span class="mt-action-author">Registered</span>
-                                                                        <p class="mt-action-desc"> 60 Companies</p>
+                                                                        <p class="mt-action-desc"> {{companies}} Companies</p>
                                                                     </div>
                                                                 </div>
                                                             

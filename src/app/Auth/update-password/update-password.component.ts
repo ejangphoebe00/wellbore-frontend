@@ -38,10 +38,10 @@ export class UpdatePasswordComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      FirstName:new FormControl(),
-      MiddleName:new FormControl(),
-      Surname:new FormControl(),
-      UserEmailAddressname:new FormControl(),
+      // FirstName:new FormControl(),
+      // MiddleName:new FormControl(),
+      // Surname:new FormControl(),
+      UserEmailAddress:new FormControl(),
       UserPassword:new FormControl()
     });
   }

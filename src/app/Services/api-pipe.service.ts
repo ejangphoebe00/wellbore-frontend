@@ -39,6 +39,10 @@ export class ApiPipeService {
   getUpdateId() {
     return localStorage.getItem("update-id")
   }
+  
+  getUserId() {
+    return localStorage.getItem("user-id")
+  }
 
   getEmail() {
     return localStorage.getItem("Email")
@@ -106,7 +110,7 @@ export class ApiPipeService {
 
   updatePassword(data: any): Observable<any> {
     console.log("update Security")
-    return this.http.put('http://127.0.0.1:8899/user/edit_profile/'+1, data)
+    return this.http.put('http://127.0.0.1:8899/user/edit_profile/'+this.getUserId(), data)
   }
 
   updateFileGrades(data: any): Observable<any> {
