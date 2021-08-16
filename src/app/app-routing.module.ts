@@ -27,6 +27,7 @@ import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit
 import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/Wellbore-core-/wells/wells.component';
 import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-catalogs.component';
+import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
 
 
 
@@ -59,6 +60,8 @@ const routes: Routes = [
       {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
       {path: 'wells', component: WellsComponent},
       {path: 'core-catalogs', component:  CoreCatalogsComponent},
+      {path: 'update-password', component:  UpdatePasswordComponent},
+      
   ]
 },
 

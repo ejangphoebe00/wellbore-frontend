@@ -37,7 +37,7 @@ loggedin:any;
   }
 
   updatePassword(){
-    
+    this.router.navigate(['/update-password']);
   }
 
   loadScripts() {
