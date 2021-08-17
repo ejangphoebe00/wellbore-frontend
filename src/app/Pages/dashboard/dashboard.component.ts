@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+staffstatus:any;  
 role:any;
 userEmail:any;
 loggedin:any;
@@ -31,6 +32,12 @@ wells:any;
       this.role=true;
     }else{
     this.role= false;
+    }
+
+    if(this.authservice.getRole()=="Staff"){
+      this.staffstatus=true;
+    }else{
+    this.staffstatus= false;
     }
     this.userList();
     this.CompanyList();
