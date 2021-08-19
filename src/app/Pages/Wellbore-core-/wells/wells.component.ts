@@ -323,7 +323,7 @@ export class WellsComponent implements OnInit {
         .subscribe(response => {
           this.updatevalue = response;
           console.log(this.updatevalue)
-          this.formGroup.patchValue({
+          this.formGroup.setValue({
          
         Wellbore_id:this.updatevalue.Wellbore_id,
         CoreNumber:this.updatevalue.CoreNumber,
@@ -337,7 +337,7 @@ export class WellsComponent implements OnInit {
         CutLengthTVD:this.updatevalue.CutLengthTVD,
         RecoveredLength:this.updatevalue.RecoveredLength,
         CoreRecovery:this.updatevalue.CoreRecovery,
-        CoreTopStratLitho_id:this.updatevalue.changeCoreTopStratLitho_id,
+        CoreTopStratLitho_id:this.updatevalue.CoreTopStratLitho_id,
         CoreBottomStratLitho_id: this.updatevalue.CoreBottomStratLitho_id,
         CorePictureSoftcopyPath:this.updatevalue.CorePictureSoftcopyPath,
         CorePictureHyperlink:this.updatevalue.CorePictureHyperlink,
@@ -354,7 +354,7 @@ export class WellsComponent implements OnInit {
         ReportDocumentDate:this.updatevalue.ReportDocumentDate,
         ReportDocumentName:this.updatevalue.ReportDocumentName,
         WellboreCoreName:this.updatevalue.WellboreCoreName,
-        Comments:this.updatevalue.Comment
+        Comments:this.updatevalue.Comments
           });
           console.log(this.updatevalue)
         });

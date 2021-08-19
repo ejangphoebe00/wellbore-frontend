@@ -69,7 +69,7 @@
                                                     <td><button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button>
-                                                      <button *ngIf="role" type="button" class="btn red btn-outline"
+                                                      <button  type="button" class="btn red btn-outline"
                                                       (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button></td>
                                                   </tr>
 
@@ -376,7 +376,7 @@
                                     </div>
                 
                                     <div class="form-actions">
-                                        <button  *ngIf="role" type="submit" class="btn blue">Update</button>
+                                        <button  type="submit" class="btn blue">Update</button>
                                         <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                                     </div>
                                 </form>
