@@ -35,7 +35,7 @@
 
                             <div class="form-group">
 
-                                <label>Wellbore Id</label>
+                                <label>Wellbore</label>
                                 <span class="error">*</span>
                                     <select class="form-control"
                                          required formControlName="Wellbore_id"
@@ -50,8 +50,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Core Number</label>
-                                <input formControlName="CoreNumber"
-                                    type="text" class="form-control"
+                                <span class="error">*</span>
+                                <input required formControlName="CoreNumber"
+                                    type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
