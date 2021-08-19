@@ -239,16 +239,21 @@
                                     <i class="fa fa-circle-o"></i>
                                     <span class="title">Add Wells</span>
                                 </a>
+                                <a routerLink="wellbores"
+                                    class="nav-link">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span class="title">All wells</span>
+                                </a>
                             </li>
                             <li routerLinkActive="active" class="nav-item">
                                 <a class="nav-link nav-toggle">
                                     <!-- <i class="fa fa-circle-o"></i> -->
-                                    <span class="title">Wells</span>
+                                    <span class="title">Specific Wells</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul  class="sub-menu">
                                         <li *ngIf="role" class="nav-item">
-                                            <a routerLink="wellbores"
+                                            <a routerLink="king-fisher"
                                                 class="nav-link">
                                                 <i class="fa fa-circle-o"></i>
                                                 <span class="title">KFDA</span>
@@ -256,7 +261,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a routerLink="wellbores"
+                                            <a routerLink="tillenga"
                                                 class="nav-link">
                                                 <i class="fa fa-circle-o"></i>
                                                 <span class="title">TDA</span>

@@ -39,6 +39,8 @@ import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-l
 import { WellsComponent } from './Pages/Wellbore-core-/wells/wells.component';
 import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-catalogs.component';
 import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
+import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
+import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { UpdatePasswordComponent } from './Auth/update-password/update-password.
     WellsComponent,
     CoreCatalogsComponent,
     UpdatePasswordComponent,
+    KfdaComponent,
+    TdaComponent,
   ],
   imports: [
     BrowserModule,
