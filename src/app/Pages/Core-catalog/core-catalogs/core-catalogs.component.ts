@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgPopupsService } from 'ng-popups';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-core-catalogs',
@@ -13,6 +14,7 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./core-catalogs.component.css']
 })
 export class CoreCatalogsComponent implements OnInit {
+  closeResult = '';
   formGroup!: FormGroup;
   title!: string;
   role:any;
@@ -43,7 +45,8 @@ export class CoreCatalogsComponent implements OnInit {
       private router: Router,
       private toastr: ToastrService,
       private http: HttpClient,
-      private ngPopups: NgPopupsService
+      private ngPopups: NgPopupsService,
+      private modalService: NgbModal
     ) { }
 
     ngOnInit(): void {
@@ -289,33 +292,60 @@ export class CoreCatalogsComponent implements OnInit {
           this.updatevalue = response;
           this.formGroup.patchValue({
 
-            WellboreCore_id:this.updatevalue.WellboreCore_id,
-            CoreType:this.updatevalue.CoreType,
-            StoreIdentifier:this.updatevalue.StoreIdentifier,
-            CatalogCoreFromDepth:this.updatevalue.CatalogCoreFromDepth,
-            CatalogCoreToDepth: this.updatevalue.CatalogCoreToDepth,
-            CoreCatalogSecurityFlag_id:this.updatevalue.CoreCatalogSecurityFlag_id,
-            WasAnalysed_id:this.updatevalue.WasAnalysed_id,
-            TopStratLitho_id:this.updatevalue.TopStratLitho_id,
-            BottomStratLitho_id:this.updatevalue.BottomStratLitho_id,
-            CatalogueCorePictureName: this.updatevalue.CatalogueCorePictureName,
-            CataloguePictureSoftcopyPath:this.updatevalue.CataloguePictureSoftcopyPath,
-            CataloguePictureHyperlink:this.updatevalue.CataloguePictureHyperlink,
-            CatPictureUploadDate:this.updatevalue.CatPictureUploadDate,
-            CatalogueReportSoftcopyPath:this.updatevalue.CatalogueReportSoftcopyPath,
-            CatalogueReportHyperlink:this.updatevalue.CatalogueReportHyperlink,
-            CatReportUploadDate:this.updatevalue.CatReportUploadDate,
-            CatalogReportFormat_id:this.updatevalue.CatalogReportFormat_id,
-            CatalogReportFileSize:this.updatevalue.CatalogReportFileSize,
-            CatalogReportSecurityGrade_id:this.updatevalue.CatalogReportSecurityGrade_id,
-            CoreCatalogName:this.updatevalue.CoreCatalogName,
-            Comments:this.updatevalue.Comments
+            WellboreCore_id:this.stripFormValue(this.updatevalue.WellboreCore_id),
+            CoreType:this.stripFormValue(this.updatevalue.CoreType),
+            StoreIdentifier:this.stripFormValue(this.updatevalue.StoreIdentifier),
+            CatalogCoreFromDepth:this.stripFormValue(this.updatevalue.CatalogCoreFromDepth),
+            CatalogCoreToDepth:this.stripFormValue( this.updatevalue.CatalogCoreToDepth),
+            CoreCatalogSecurityFlag_id:this.stripFormValue(this.updatevalue.CoreCatalogSecurityFlag_id),
+            WasAnalysed_id:this.stripFormValue(this.updatevalue.WasAnalysed_id),
+            TopStratLitho_id:this.stripFormValue(this.updatevalue.TopStratLitho_id),
+            BottomStratLitho_id:this.stripFormValue(this.updatevalue.BottomStratLitho_id),
+            CatalogueCorePictureName:this.stripFormValue( this.updatevalue.CatalogueCorePictureName),
+            CataloguePictureSoftcopyPath:this.stripFormValue(this.updatevalue.CataloguePictureSoftcopyPath),
+            CataloguePictureHyperlink:this.stripFormValue(this.updatevalue.CataloguePictureHyperlink),
+            CatPictureUploadDate:this.stripFormValue(this.updatevalue.CatPictureUploadDate),
+            CatalogueReportSoftcopyPath:this.stripFormValue(this.updatevalue.CatalogueReportSoftcopyPath),
+            CatalogueReportHyperlink:this.stripFormValue(this.updatevalue.CatalogueReportHyperlink),
+            CatReportUploadDate:this.stripFormValue(this.updatevalue.CatReportUploadDate),
+            CatalogReportFormat_id:this.stripFormValue(this.updatevalue.CatalogReportFormat_id),
+            CatalogReportFileSize:this.stripFormValue(this.updatevalue.CatalogReportFileSize),
+            CatalogReportSecurityGrade_id:this.stripFormValue(this.updatevalue.CatalogReportSecurityGrade_id),
+            CoreCatalogName:this.stripFormValue(this.updatevalue.CoreCatalogName),
+            Comments:this.stripFormValue(this.updatevalue.Comments)
          
           });
           console.log(this.updatevalue)
         });
+
+    }
+
+    stripFormValue(formValue: any){
+      if (formValue == 'None'){
+        return null;
+      }else {
+
+        return formValue
+      }
+
+    }  
+
+    open(content: any) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
   
-  
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return `with: ${reason}`;
+      }
     }
   
 

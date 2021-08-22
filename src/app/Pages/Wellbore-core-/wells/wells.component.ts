@@ -322,39 +322,40 @@ export class WellsComponent implements OnInit {
       this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
         .subscribe(response => {
           this.updatevalue = response;
+          console.log("grab update value")
           console.log(this.updatevalue)
-          this.formGroup.setValue({
+          this.formGroup.patchValue({
          
-        Wellbore_id:this.updatevalue.Wellbore_id,
-        CoreNumber:this.updatevalue.CoreNumber,
-        CoringDate:this.updatevalue.CoringDate,
-        WBCoringContractor_id:this.updatevalue.WBCoringContractor_id,
-        CoreTopMDRT:this.updatevalue.CoreTopMDRT,
-        CoreBtmMDRT:this.updatevalue.CoreBtmMDRT,
-        CoreTopTVD:this.updatevalue.CoreTopTVD,
-        CoreBtmTVD:this.updatevalue.CoreBtmTVD,
-        CutLength:this.updatevalue.CutLength,
-        CutLengthTVD:this.updatevalue.CutLengthTVD,
-        RecoveredLength:this.updatevalue.RecoveredLength,
-        CoreRecovery:this.updatevalue.CoreRecovery,
-        CoreTopStratLitho_id:this.updatevalue.CoreTopStratLitho_id,
-        CoreBottomStratLitho_id: this.updatevalue.CoreBottomStratLitho_id,
-        CorePictureSoftcopyPath:this.updatevalue.CorePictureSoftcopyPath,
-        CorePictureHyperlink:this.updatevalue.CorePictureHyperlink,
-        PictureUploadDate:this.updatevalue.PictureUploadDate,
-        CoreReportSoftcopyPath:this.updatevalue.CoreReportSoftcopyPath,
-        CoreReportHyperlink:this.updatevalue.CoreReportHyperlink,
-        ReportUploadDate:this.updatevalue.ReportUploadDate,
-        ReportFormat_id:this.updatevalue.ReportFormat_id,
-        ReportFileSize:this.updatevalue.ReportFileSize,
-        CoreReportSecurityGrade_id:this.updatevalue.CoreReportSecurityGrade_id,
-        ReportOpenDueDate:this.updatevalue.ReportOpenDueDate,
-        ReportDocumentTitle:this.updatevalue.ReportDocumentTitle,
-        ReportReceivedDate:this.updatevalue.ReportReceivedDate,
-        ReportDocumentDate:this.updatevalue.ReportDocumentDate,
-        ReportDocumentName:this.updatevalue.ReportDocumentName,
-        WellboreCoreName:this.updatevalue.WellboreCoreName,
-        Comments:this.updatevalue.Comments
+        Wellbore_id:this.authservice.stripFormValue(this.updatevalue.Wellbore_id),
+        CoreNumber:this.authservice.stripFormValue(this.updatevalue.CoreNumber),
+        CoringDate:this.authservice.stripFormValue(this.updatevalue.CoringDate),
+        WBCoringContractor_id:this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
+        CoreTopMDRT:this.authservice.stripFormValue(this.updatevalue.CoreTopMDRT),
+        CoreBtmMDRT:this.authservice.stripFormValue(this.updatevalue.CoreBtmMDRT),
+        CoreTopTVD:this.authservice.stripFormValue(this.updatevalue.CoreTopTVD),
+        CoreBtmTVD:this.authservice.stripFormValue(this.updatevalue.CoreBtmTVD),
+        CutLength:this.authservice.stripFormValue(this.updatevalue.CutLength),
+        CutLengthTVD:this.authservice.stripFormValue(this.updatevalue.CutLengthTVD),
+        RecoveredLength:this.authservice.stripFormValue(this.updatevalue.RecoveredLength),
+        CoreRecovery:this.authservice.stripFormValue(this.updatevalue.CoreRecovery),
+        CoreTopStratLitho_id:this.authservice.stripFormValue(this.updatevalue.CoreTopStratLitho_id),
+        CoreBottomStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLitho_id),
+        CorePictureSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CorePictureSoftcopyPath),
+        CorePictureHyperlink:this.authservice.stripFormValue(this.updatevalue.CorePictureHyperlink),
+        PictureUploadDate:this.authservice.stripFormValue(this.updatevalue.PictureUploadDate),
+        CoreReportSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CoreReportSoftcopyPath),
+        CoreReportHyperlink:this.authservice.stripFormValue(this.updatevalue.CoreReportHyperlink),
+        ReportUploadDate:this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
+        ReportFormat_id:this.authservice.stripFormValue(this.updatevalue.ReportFormat_id),
+        ReportFileSize:this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
+        CoreReportSecurityGrade_id:this.authservice.stripFormValue(this.updatevalue.CoreReportSecurityGrade_id),
+        ReportOpenDueDate:this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
+        ReportDocumentTitle:this.authservice.stripFormValue(this.updatevalue.ReportDocumentTitle),
+        ReportReceivedDate:this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),
+        ReportDocumentDate:this.authservice.stripFormValue(this.updatevalue.ReportDocumentDate),
+        ReportDocumentName:this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
+        WellboreCoreName:this.authservice.stripFormValue(this.updatevalue.WellboreCoreName),
+        Comments:this.authservice.stripFormValue(this.updatevalue.Comments)
           });
           console.log(this.updatevalue)
         });

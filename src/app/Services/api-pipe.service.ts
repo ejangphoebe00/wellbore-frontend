@@ -478,6 +478,16 @@ export class ApiPipeService {
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_core_catalog', data)
   }
 
+  stripFormValue(formValue: any){
+    if (formValue == 'None'){
+      return null;
+    }else {
+
+      return formValue
+    }
+
+  } 
+
 
 
 
