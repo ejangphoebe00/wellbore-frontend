@@ -42,7 +42,8 @@
                     <div class="portlet-body form">
                         <form [formGroup]="formGroup" (ngSubmit)="addStratLitho()" ngNativeValidate>
                             <div class="form-body row">
-                              <div class="col-md-6">
+                              <div class="col-md-5">
+
                                   <div class="form-group">
                                       <label>PAUID</label>
                                       <input type="text" formControlName="PAUID" class="form-control" placeholder="" required>
@@ -54,6 +55,10 @@
                                   <div class="form-group">
                                       <label>Litho Strat Alias<span class="red asterisk-validate ml-2">*</span></label>
                                       <input type="text" required formControlName="LithoStratAlias" class="form-control" placeholder="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Reservior Unit</label>
+                                      <input type="text" formControlName="ReservoirUnit" class="form-control" placeholder=" 0 or 1 only">
                                   </div>
                                   <div class="form-group">
                                       <label>Is Reservoir Unit ID</label>
@@ -70,10 +75,14 @@
                                   <div class="form-group">
                                         <label>Litho Strat Description Hyperlink</label>
                                         <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
-                                    </div>
+                                  </div>
                               </div>
-                              <div class="col-md-6">
-                                
+                              <div class="col-md-5">
+
+                                  <div class="form-group">
+                                      <label>Litho Strat Description Hyperlink</label>
+                                      <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
+                                  </div>
                                   <div class="form-group">
                                       <label>Litho Strat Map Softcopy Path</label>
                                       <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
@@ -98,7 +107,8 @@
                                       <button type="submit" class="btn blue">Submit</button>
                                       <button type="button" class="btn default">Cancel</button>
                                   </div>
-                                </div>
+                              </div>
+
                             </div>
                         </form>
                     </div>

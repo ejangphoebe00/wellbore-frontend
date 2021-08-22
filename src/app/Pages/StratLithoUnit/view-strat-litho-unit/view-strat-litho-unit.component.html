@@ -95,10 +95,8 @@
                                        <th> PAUID </th>
                                        <th> Name </th>
                                        <th> Reservior Unit </th>
-                                       <!-- <th> Litho Strat Alias </th> -->
                                        <th> Date Created </th>
                                        <th> Modified On </th>
-                                       <!-- <th> Modified By </th> -->
                                        <th>Actions</th>
                                    </tr>
                                </thead>
@@ -109,35 +107,127 @@
                                        <td> {{ strat.PAUID }} </td>
                                        <td> {{ strat.StratLithoName }} </td>
                                        <td> {{ strat.ReserviorUnit }} </td>
-                                       <!-- <td> {{ strat.LithoStratAlias }} </td> -->
                                        <td> {{ strat.DateCreated }} </td>
                                        <td> {{ strat.ModifiedOn }} </td>
-                                       <!-- <td> {{ strat.ModifiedBy }} </td> -->
 
-                                       <td><button type="button" (click)="onSelectEdit(strat)"
-                                         class="btn blue btn-outline">
-                                         <i class="fa fa-angle-double-right"></i></button>
-                                       <button *ngIf="role" type="button" class="btn red btn-outline"
+                                       <td>  <a class="btn purple btn-outline bold" (click)="onView(strat)"
+                                            data-toggle="modal" href="#large"> More </a>
+                                         <!-- <button type="button" (click)="onSelectEdit(strat)"
+                                         class="btn blue btn-outline"> -->
+                                         <!-- <i class="fa fa-angle-double-right"></i></button> -->
+                                       <button type="button" class="btn red btn-outline"
                                        (click)="onSelect(strat)"><i class="fa fa-trash-o"></i></button></td>
+                                       <td>
+
+                                       </td>
                                    </tr>
 
                                </tbody>
                            </table>
-
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
           </div>
+          <!-- /.modal -->
+          <div  *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                          <h4 class="modal-title">Modal Title</h4>
+                          <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
+                      </div>
+                      <div class="modal-body">
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                              <tr>
+                                <td style="width:25%"> ID </td>
+                                <td style="width:50%"> {{ data.StratLitho_id }} </td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> PAUID </td>
+                                <td> {{ data.PAUID }} </td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> Name </td>
+                                <td> {{ data.StratLithoName }} </td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> Reservior Unit </td>
+                                <td> {{ data.ReserviorUnit }} </td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> Litho Strat Alias </td>
+                                <td> {{ data.LithoStratAlias }} </td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> IsReservoirUnit_id </td>
+                                <td> {{ data.IsReservoirUnit_id }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> LithoStratAge_id </td>
+                                <td> {{ data.LithoStratAge_id }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> LithoStratDescriptionSoftcopyPath </td>
+                                <td> {{ data.LithoStratDescriptionSoftcopyPath }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> LithoStratDescriptionHyperlink </td>
+                                <td> {{ data.LithoStratDescriptionHyperlink }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> LithoStratMapSoftCopyPath </td>
+                                <td> {{ data.LithoStratMapSoftCopyPath }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> LithoStratMapHyperlink </td>
+                                <td> {{ data.LithoStratMapHyperlink }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> MapPortalLithoStratMapLink </td>
+                                <td> {{ data.MapPortalLithoStratMapLink }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> LithoStratFactsiteUrl </td>
+                                <td> {{ data.LithoStratFactsiteUrl }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> Comments </td>
+                                <td> {{ data.Comments }}</td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%"> Date Created </td>
+                                <td> {{ data.DateCreated }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%"> Modified On </td>
+                                <td> {{ data.ModifiedOn }} </td>
+                              </tr>
+                              <tr>
+                                <td   style="width:25%"> Modified By </td>
+                                <td> {{ data.ModifiedBy }} </td>
+                              </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                     <!-- <div class="modal-footer">
+                         <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                         <button type="button" class="btn green">Save changes</button>
+                     </div> -->
+                     <!-- /.modal-content -->
+                 </div>
 
+                 <!-- /.modal-dialog -->
+             </div>
+          </div>
 
           <div *ngIf="editform" class="portlet-body form">
-              <!-- BEGIN FORM-->
-              <form class="form-horizontal" [formGroup]="formGroup"
-                  (ngSubmit)="updateStratLithoProcess()" ngNativeValidate>
+              <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateStratLithoProcess()" ngNativeValidate>
                   <div class="form-body row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="form-group">
                             <label>PAUID</label>
                             <input type="text" formControlName="PAUID" class="form-control" placeholder="" required>
@@ -163,17 +253,16 @@
                             <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
-                                <label>Litho Strat Description Hyperlink</label>
-                                <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
-                            </div>
-                          
+                            <label>Litho Strat Description Hyperlink</label>
+                            <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
+                        </div>
+
                     </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                    <label>Litho Strat Map Softcopy Path</label>
-                                    <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
-                                </div>
-                      
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Litho Strat Map Softcopy Path</label>
+                            <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
+                        </div>
                         <div class="form-group">
                             <label>Litho Strat Map Hyperlink</label>
                             <input type="text" formControlName="LithoStratMapHyperlink" class="form-control" placeholder="">
@@ -190,22 +279,21 @@
                             <label>Comments</label>
                             <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
                         </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-4">
+                                    <input *ngIf="role" type="submit" value="update" class="btn
+                                        btn-success">
+                                    <button (click)="navigateBack()" type="button" class="btn
+                                        default">Back</button>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-                  </div>
 
-                  <div class="form-actions">
-                      <div class="row">
-                          <div class="col-md-offset-3 col-md-4">
-                              <input *ngIf="role" type="submit" value="update" class="btn
-                                  btn-success">
-                              <button (click)="navigateBack()" type="button" class="btn
-                                  default">Back</button>
-                          </div>
-                      </div>
-                  </div>
-              </form>
-              <!-- END FORM-->
+                 </div>
+               </form>
           </div>
       </div>
 

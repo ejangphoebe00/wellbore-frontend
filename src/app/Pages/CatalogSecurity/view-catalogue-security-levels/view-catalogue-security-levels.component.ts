@@ -32,9 +32,11 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  details: boolean = false;
   updatevalue: any;
   userEmail: any;
   loggedin: any;
+  data:any;
 
 
 
@@ -155,10 +157,25 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
     });
   }
 
+  onView(selectedItem: any) {
+    this.status = true;
+    this.details= true;
+    this.editform = false;
+    this.data = {
+      CatalogSecurityFlag_id:selectedItem.CatalogSecurityFlag_id,
+      CatalogSecurityFlagName:selectedItem.CatalogSecurityFlagName,
+      SortOrder:selectedItem.SortOrder,
+      Comments:selectedItem.Comments,
+      ModifiedOn:selectedItem.ModifiedOn,
+      ModifiedBy:selectedItem.ModifiedBy,
+    }
+  }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
     this.editform = true;
+    this.details = false;
     this.id = selectedItem.CatalogSecurityFlag_id
     localStorage.setItem("update-id", this.id);
     console.log("Selected item Id: ", selectedItem.CatalogSecurityFlag_id);

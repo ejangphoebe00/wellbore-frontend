@@ -109,9 +109,8 @@
                                         <td> {{company.RegistrationNumber}}</td>
                                         <td> {{company.TINNumber}}</td>
                                         <td> {{company.CompanyTelephone}}</td>
-                                        <td><button type="button" (click)="onSelectEdit(company)"
-                                          class="btn blue btn-outline">
-                                          <i class="fa fa-angle-double-right"></i></button>
+                                        <td><a class="btn purple btn-outline sbold"
+                                          (click)="onView(company)" data-toggle="modal" href="#large">More</a>
                                         <button *ngIf="role" type="button"  (click)="onSelect(company)"
                                           class="btn red btn-outline">
                                           <i class="fa fa-trash-o"></i></button></td>
@@ -131,6 +130,251 @@
             </div>
           </div>
 
+          <!-- /.modal -->
+          <div  *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                          <h4 class="modal-title">Modal Title</h4>
+                          <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
+                      </div>
+                      <div class="modal-body">
+                        <table  class="table table-bordered table-striped">
+                            <tbody>
+
+                              <tr>
+                                <td  style="width:25%">ID</td>
+                                <td> {{ data.Company_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">PAUID</td>
+                                <td> {{ data.PAUID }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyLongName</td>
+                                <td> {{ data.CompanyLongName }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyShortName</td>
+                                <td> {{ data.CompanyShortName }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%"> NSD_Number </td>
+                                <td> {{ data.NSD_Number }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%"> CompanyCategory_id </td>
+                                <td> {{ data.CompanyCategory_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CountryOfOrigin_id</td>
+                                <td> {{ data.CountryOfOrigin_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CountryOfRegistration_id</td>
+                                <td> {{ data.CountryOfRegistration_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">RegistrationNumber</td>
+                                <td> {{ data.RegistrationNumber }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">TINNumber</td>
+                                <td> {{ data.TINNumber }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyTelephone</td>
+                                <td> {{ data.CompanyTelephone }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyEmail</td>
+                                <td> {{ data.CompanyEmail }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyWebsite</td>
+                                <td> {{ data.CompanyWebsite }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyEntityType_id</td>
+                                <td> {{ data.CompanyEntityType_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyEntitySubType_id</td>
+                                <td> {{ data.CompanyEntitySubType_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyMajorActivity_id</td>
+                                <td> {{ data.CompanyMajorActivity_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyActivityDivision_id</td>
+                                <td> {{ data.CompanyActivityDivision_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyActivityDivisionClass_id</td>
+                                <td> {{ data.CompanyActivityDivisionClass_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyActivityDivisionClassCategory_id</td>
+                                <td> {{ data.CompanyActivityDivisionClassCategory_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">BusinessNatureDescription</td>
+                                <td> {{ data.BusinessNatureDescription }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyPostalAddress</td>
+                                <td> {{ data.CompanyPostalAddress }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyPhysicalAddress</td>
+                                <td> {{ data.CompanyPhysicalAddress }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyOtherEmails</td>
+                                <td> {{ data.CompanyOtherEmails }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">NSDQualificationDate</td>
+                                <td> {{ data.NSDQualificationDate }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">NSDQualificationYear</td>
+                                <td> {{ data.NSDQualificationYear }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">PrimaryContactEntity</td>
+                                <td> {{ data.PrimaryContactEntity }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ContactEntityEmail</td>
+                                <td> {{ data.ContactEntityEmail }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ContactEntityTelephone</td>
+                                <td> {{ data.ContactEntityTelephone }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ContactEntityMobile</td>
+                                <td> {{ data.ContactEntityMobile }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ContactDesignation</td>
+                                <td> {{ data.ContactDesignation }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">OperatorSortOrder</td>
+                                <td> {{ data.OperatorSortOrder }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ContractorSortOrder</td>
+                                <td> {{ data.ContractorSortOrder }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">PAURegistrationDate</td>
+                                <td> {{ data.PAURegistrationDate }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CraneNOGTRID</td>
+                                <td> {{ data.CraneNOGTRID }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">TempNOGTRIPwd</td>
+                                <td> {{ data.TempNOGTRIPwd }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">RegistrationStatus_id</td>
+                                <td> {{ data.RegistrationStatus_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ClassifyAsUgandan_id</td>
+                                <td> {{ data.ClassifyAsUgandan_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">Comments</td>
+                                <td> {{ data.Comments }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">PrimaryCompanyKind_id</td>
+                                <td> {{ data.PrimaryCompanyKind_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">SecondaryCompanyKind_id</td>
+                                <td> {{ data.SecondaryCompanyKind_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">OtherCompanyKind_id</td>
+                                <td> {{ data.OtherCompanyKind_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyGroup_id</td>
+                                <td> {{ data.CompanyGroup_id }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyMobile</td>
+                                <td> {{ data.CompanyMobile }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CompanyFax</td>
+                                <td> {{ data.CompanyFax }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ContactEntityFax</td>
+                                <td> {{ data.ContactEntityFax }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">NSD_FromDate</td>
+                                <td> {{ data.NSD_FromDate }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">NSD_ToDate</td>
+                                <td> {{ data.NSD_ToDate }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ImportedFromNSD</td>
+                                <td> {{ data.ImportedFromNSD }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ImportedDate</td>
+                                <td> {{ data.ImportedDate }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ExportedDate</td>
+                                <td> {{ data.ExportedDate }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">ExportedToNogtr</td>
+                                <td> {{ data.ExportedToNogtr }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">CreatedBy</td>
+                                <td> {{ data.CreatedBy }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">DateCreated</td>
+                                <td> {{ data.DateCreated }} </td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%">PreviousLegalName</td>
+                                <td> {{ data.PreviousLegalName }} </td>
+                              </tr>
+                             </tbody>
+                         </table>
+
+
+
+                      </div>
+                      <div class="modal-footer">
+                          <!-- <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn green">Save changes</button> -->
+
+                      </div>
+                  </div>
+                  <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
 
           <div *ngIf="editform" class="portlet-body form">
               <!-- BEGIN FORM-->
@@ -412,7 +656,7 @@
                       </div>
                   </div>
               </form> -->
-             
+
               <form class="form-horizontal" [formGroup]="formGroup"
                   (ngSubmit)="updateCompanyProcess()" ngNativeValidate>
                     <div class="form-body row">
@@ -686,7 +930,7 @@
                     </div>
                 </div>
               </form>
-             
+
               <!-- END FORM-->
           </div>
       </div>

@@ -32,9 +32,11 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  details: boolean = false;
   updatevalue: any;
   userEmail: any;
   loggedin: any;
+  data:any;
 
 
 
@@ -113,6 +115,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
         this.posts = posts;
         console.log(this.posts)
       });
+      // Object.keys(this.posts).forEach((key) => (this.posts[key] == "None") && (this.posts[key] == ""));
+
   }
 
   onSelect(selectedItem: any) {
@@ -154,18 +158,81 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     });
   }
 
+  onView(selectedItem: any) {
+    this.status = true;
+    this.details= true;
+    this.editform = false;
+    this.data = {
+      Company_id: selectedItem.Company_id,
+      PAUID: selectedItem.PAUID,
+      CompanyLongName: selectedItem.CompanyLongName,
+      CompanyShortName: selectedItem.CompanyShortName,
+      NSD_Number: selectedItem.NSD_Number,
+      CompanyCategory_id: selectedItem.CompanyCategory_id,
+      CountryOfOrigin_id: selectedItem.CountryOfOrigin_id,
+      CountryOfRegistration_id: selectedItem.CountryOfRegistration_id,
+      RegistrationNumber: selectedItem.RegistrationNumber,
+      TINNumber: selectedItem.TINNumber,
+      CompanyTelephone: selectedItem.CompanyTelephone,
+      CompanyEmail: selectedItem.CompanyEmail,
+      CompanyWebsite: selectedItem.CompanyWebsite,
+      CompanyEntityType_id: selectedItem.CompanyEntityType_id,
+      CompanyEntitySubType_id: selectedItem.CompanyEntitySubType_id,
+      CompanyMajorActivity_id: selectedItem.CompanyMajorActivity_id,
+      CompanyActivityDivision_id: selectedItem.CompanyActivityDivision_id,
+      CompanyActivityDivisionClass_id: selectedItem.CompanyActivityDivisionClass_id,
+      CompanyActivityDivisionClassCategory_id: selectedItem.CompanyActivityDivisionClassCategory_id,
+      BusinessNatureDescription: selectedItem.BusinessNatureDescription,
+      CompanyPostalAddress: selectedItem.CompanyPostalAddress,
+      CompanyPhysicalAddress: selectedItem.CompanyPhysicalAddress,
+      CompanyOtherEmails: selectedItem.CompanyOtherEmails,
+      NSDQualificationDate: selectedItem.NSDQualificationDate,
+      NSDQualificationYear: selectedItem.NSDQualificationYear,
+      PrimaryContactEntity: selectedItem.PrimaryContactEntity,
+      ContactEntityEmail: selectedItem.ContactEntityEmail,
+      ContactEntityTelephone: selectedItem.ContactEntityTelephone,
+      ContactEntityMobile: selectedItem.ContactEntityMobile,
+      ContactDesignation: selectedItem.ContactDesignation,
+      OperatorSortOrder: selectedItem.OperatorSortOrder,
+      ContractorSortOrder: selectedItem.ContractorSortOrder,
+      PAURegistrationDate: selectedItem.PAURegistrationDate,
+      CraneNOGTRID: selectedItem.CraneNOGTRID,
+      TempNOGTRIPwd: selectedItem.TempNOGTRIPwd,
+      RegistrationStatus_id: selectedItem.RegistrationStatus_id,
+      ClassifyAsUgandan_id: selectedItem.ClassifyAsUgandan_id,
+      Comments: selectedItem.Comments,
+      PrimaryCompanyKind_id: selectedItem.PrimaryCompanyKind_id,
+      SecondaryCompanyKind_id: selectedItem.SecondaryCompanyKind_id,
+      OtherCompanyKind_id: selectedItem.OtherCompanyKind_id,
+      CompanyGroup_id: selectedItem.CompanyGroup_id,
+      CompanyMobile: selectedItem.CompanyMobile,
+      CompanyFax: selectedItem.CompanyFax,
+      ContactEntityFax: selectedItem.ContactEntityFax,
+      NSD_FromDate: selectedItem.NSD_FromDate,
+      NSD_ToDate: selectedItem.NSD_ToDate,
+      ImportedFromNSD: selectedItem.ImportedFromNSD,
+      ImportedDate: selectedItem.ImportedDate,
+      ExportedDate: selectedItem.ExportedDate,
+      ExportedToNogtr: selectedItem.ExportedToNogtr,
+      CreatedBy: selectedItem.CreatedBy,
+      DateCreated: selectedItem.DateCreated,
+      PreviousLegalName: selectedItem.PreviousLegalName,
+    }
+  }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
     this.editform = true;
+    this.details = false;
     this.id = selectedItem.Company_id
     localStorage.setItem("update-id", this.id);
     console.log("Selected item Id: ", selectedItem.Company_id);
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue({
-
+        this.formGroup.patchValue(
+          {
            Company_id: this.updatevalue.Company_id,
            PAUID: this.updatevalue.PAUID,
            CompanyLongName: this.updatevalue.CompanyLongName,
@@ -227,6 +294,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
 
   }
 
+
+
   navigateBack() {
     this.authservice.reload();
   }
@@ -238,8 +307,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       this.authservice.editCompany(this.formGroup.value).subscribe(result => {
         console.log(result)
 
-        if (result.message == "Web security level updated successfuly.") {
-          this.toastr.success("Web security level updated successfuly.", "", {
+        if (result.message == "Company updated successfuly.") {
+          this.toastr.success("Company updated successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,

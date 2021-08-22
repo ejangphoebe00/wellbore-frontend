@@ -1,11 +1,11 @@
 export class CoreType {
      constructor(
-    public CoreType_id: number,
-    public CoreTypeName: string,
-    public SortOrder: number,
-    public Comments: string,
+    public CoreType_id: number = 0,
+    public CoreTypeName: string = "",
+    public SortOrder: number = 0,
+    public Comments: string = "",
     public ModifiedOn: Date,
-    public ModifiedBy: number,
+    public ModifiedBy: number = 0,
 
   ) { }
 
