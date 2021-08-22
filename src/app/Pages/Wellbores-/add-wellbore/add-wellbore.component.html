@@ -40,8 +40,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Wellbore Official Name</label>
+                                <span class="error">*</span>
                                 <input
-                                    formControlName="WellboreOfficialName"
+                                    required formControlName="WellboreOfficialName"
                                     type="text" class="form-control"
                                     placeholder="">
                             </div>
@@ -108,7 +109,7 @@
                                 <label>Prospect Id</label>
                                 <select class="form-control" formControlName="Prospect_id">                                               
                                         <option *ngFor="let city of prospectIds"
-                                        [ngValue]="city.Prospect_id"
+                                        [ngValue]="city.Company_id"
                                         (change)="changeProspect($event)">{{city.Company_id}}-->{{city.PAUID}}
                                         </option>
                                      </select>
@@ -480,7 +481,7 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn blue">Submit</button>
+                        <button type="submit" class="btn blue">Save</button>
                         <button type="button" class="btn
                             default">Cancel</button>
                     </div>

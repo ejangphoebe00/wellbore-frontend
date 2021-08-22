@@ -163,9 +163,10 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
   onView(selectedItem: any) {
     this.status = true;
     this.details= true;
-    // this.editform = true;
+    this.editform = false;
     this.data = {
       PAUID:selectedItem.PAUID,
+      StratLitho_id:selectedItem.StratLitho_id,
       StratLithoName:selectedItem.StratLithoName,
       ReserviorUnit:selectedItem.ReserviorUnit,
       LithoStratAlias:selectedItem.LithoStratAlias,
@@ -183,7 +184,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
 
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
-    this.status = true;
+    this.status = false;
     this.editform = true;
     this.details = false;
     this.id = selectedItem.StratLitho_id

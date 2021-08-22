@@ -35,14 +35,10 @@ export class AddCoreCatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.authservice.reload();
+  
     this.initForm();
-    // this.getBottomStratLitho_id();
-    // this.getCatalogReportFormat_id();
     this.getCoreReportSecurityGrade_id()
-    // this.getCatalogReportSecurityGrade_id();
     this.getCoreType();
-    // this.getCoreCatalogSecurityFlag_id();
     this.getWelboreCoreId();
     this.getTopStratLitho_id();
  
@@ -62,8 +58,8 @@ export class AddCoreCatalogComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      WellboreCore_id:new FormControl('',Validators.required),
-      CoreType:new FormControl('',Validators.required),
+      WellboreCore_id:new FormControl(),
+      CoreType:new FormControl(),
       StoreIdentifier:new FormControl(),
       CatalogCoreFromDepth:new FormControl(),
       CatalogCoreToDepth: new FormControl(),
@@ -231,6 +227,8 @@ export class AddCoreCatalogComponent implements OnInit {
       onlySelf: true
     })
   }
+
+  
 
 
 

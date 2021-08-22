@@ -41,8 +41,8 @@
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet light portlet-fit bordered">
                         <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-cubes font-dark"></i>
+                            <div class="caption font-red-sunglo">
+                                <i class="fa fa-cubes font-red-sunglo"></i>
                                 <span class="caption-subject
                                 bold uppercase">Core Types</span>
                             </div>
@@ -132,7 +132,7 @@
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                           <h4 class="modal-title">Modal Title</h4>
-                          <button type="button" *ngIf="details" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
+                          <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
                       </div>
                       <div class="modal-body">
                         <table  class="table table-bordered table-striped">
@@ -180,7 +180,7 @@
           </div>
 
 
-          <div *ngIf="editform" class="">
+          <div *ngIf="editform" class="portlet_body form">
               <!-- BEGIN FORM-->
               <form class="form-horizontal" [formGroup]="formGroup"
                   (ngSubmit)="updateCoreTypeProcess()" ngNativeValidate>

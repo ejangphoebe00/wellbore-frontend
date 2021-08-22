@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authservice: ApiPipeService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
           console.log(result)
           console.log(result.access_token);
           localStorage.setItem("role",result.user_role);
+          localStorage.setItem("user-id",result.CraneUser_id);
           localStorage.setItem("token", this.title);
           this.authservice.loginSucess()
           setTimeout(() => {
@@ -50,9 +53,16 @@ export class LoginComponent implements OnInit {
           this.authservice.loginFaliure()
         }
       }, error => {
-        console.log('oops', error)
-        if (error) {
-          this.authservice.loginFaliure()
+        
+        console.log('oops', error.message)
+        if(error){
+          this.toastr.error(error.error.message,"",{
+            timeOut: 2000,
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            progressAnimation:'decreasing'
+          })
+          // this.authservice.CompanyFaliure()
         }
       }
 

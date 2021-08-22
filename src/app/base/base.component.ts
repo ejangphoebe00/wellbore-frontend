@@ -13,7 +13,6 @@ userEmail:any;
 loggedin:any;
 
 
-
   constructor(
     private authservice: ApiPipeService,
     private router: Router
@@ -30,10 +29,19 @@ loggedin:any;
     }else{
     this.role=false;
     }
+
    }
 
   logout(){
   this.authservice.logoutuser();
+  }
+
+  switchAccount(){
+    this.authservice.switchAccounts();
+    }
+
+  updatePassword(){
+    this.router.navigate(['/update-password']);
   }
 
   loadScripts() {
@@ -49,5 +57,9 @@ loggedin:any;
       document.getElementsByTagName('head')[0].appendChild(node);
     }
   }
+
+
+    
+
 
 }

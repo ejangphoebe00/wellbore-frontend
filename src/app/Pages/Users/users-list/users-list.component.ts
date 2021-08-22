@@ -88,7 +88,8 @@ role:any;
     this.authservice
         .getAllUsers()
         .subscribe((response: any) => {
-          console.log(response)
+          console.log("users List")
+          console.log(response.length)
           this.users = response;
 
           this.dtTrigger.next();

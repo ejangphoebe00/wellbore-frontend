@@ -43,8 +43,8 @@
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet light portlet-fit bordered">
                         <div class="portlet-title">
-                            <div class="caption font-dark">
-                                <i class="icon-settings font-dark"></i>
+                            <div class="caption font-red-sunglo">
+                                <i class="icon-settings font-red-sunglo"></i>
                                 <span class="caption-subject
                                 bold uppercase">Catalog Security Flags</span>
                             </div>
@@ -109,10 +109,9 @@
                                        <td> {{catalog.SortOrder}} </td>
                                        <td> {{catalog.Comments}} </td>
                                        <td> {{catalog.ModifiedOn}} </td>
-                                       <td><button type="button" (click)="onSelectEdit(catalog)"
-                                         class="btn blue btn-outline">
-                                         <i class="fa fa-angle-double-right"></i></button>
-                                       <button type="button" class="btn red btn-outline"
+                                       <td><a class="btn purple btn-outline sbold"
+                                         (click)="onView(catalog)" data-toggle="modal" href="#large">More</a>
+                                       <button  type="button" class="btn red btn-outline"
                                        (click)="onSelect(catalog)"><i class="fa fa-trash-o"></i></button>
                                             </td>
                                    </tr>
@@ -128,6 +127,57 @@
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
+          </div>
+
+          <!-- /.modal -->
+          <div  *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                          <h4 class="modal-title">Modal Title</h4>
+                          <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
+                      </div>
+                      <div class="modal-body">
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                              <tr>
+                                <td style="width:25%"> ID </td>
+                                <td style="width:50%"> {{ data.CatalogSecurityFlag_id }} </td>
+                              </tr>
+
+                              <tr>
+                                <td style="width:25%"> CatalogSecurityFlagName </td>
+                                <td> {{ data.CatalogSecurityFlagName }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> SortOrder </td>
+                                <td> {{ data.SortOrder }}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:25%"> Comments </td>
+                                <td> {{ data.Comments }}</td>
+                              </tr>
+                              <tr>
+                                <td  style="width:25%"> Modified On </td>
+                                <td> {{ data.ModifiedOn }} </td>
+                              </tr>
+                              <tr>
+                                <td   style="width:25%"> Modified By </td>
+                                <td> {{ data.ModifiedBy }} </td>
+                              </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                     <!-- <div class="modal-footer">
+                         <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                         <button type="button" class="btn green">Save changes</button>
+                     </div> -->
+                     <!-- /.modal-content -->
+                 </div>
+
+                 <!-- /.modal-dialog -->
+             </div>
           </div>
 
 

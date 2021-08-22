@@ -25,53 +25,85 @@
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 blue"
-                    href="#">
+            <div  *ngIf="role"class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a routerLink='users' class="dashboard-stat dashboard-stat-v2 blue"
+                   >
                     <div class="visual">
                         <i class="fa fa-comments"></i>
                     </div>
                     <div class="details">
                         <div class="number">
                             <span data-counter="counterup"
-                                data-value="1349">144</span>
+                                >{{users}}</span>
                         </div>
-                        <div class="desc">Users</div>
+                        <div  routerLink='users' class="desc">Users</div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 red"
-                    href="#">
+
+
+      <div *ngIf="staffstatus" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a routerLink='view-strat-litho-unit' class="dashboard-stat dashboard-stat-v2 blue"
+                       >
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup"
+                                    >{{lithoz}}</span>
+                            </div>
+                            <div  routerLink='view-strat-litho-unit' class="desc">Startigraphies</div>
+                        </div>
+                    </a>
+                </div>
+            <div routerLink="view-companies" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a routerLink="view-companies" class="dashboard-stat dashboard-stat-v2 red"
+                    >
                     <div class="visual">
                         <i class="fa fa-bar-chart-o"></i>
                     </div>
                     <div class="details">
                         <div class="number">
                             <span data-counter="counterup"
-                                data-value="12,5">70</span> </div>
+                               >{{companies}}</span> </div>
                         <div class="desc">Companies</div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 green"
-                    href="#">
+            <div routerLink="wellbores" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a  routerLink="wellbores" class="dashboard-stat dashboard-stat-v2 green"
+                    >
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
                     </div>
                     <div class="details">
                         <div class="number">
                             <span data-counter="counterup"
-                                data-value="549">120</span>
+                                >{{wells}}</span>
                         </div>
-                        <div class="desc">Wellbores </div>
+                        <div class="desc">Wells </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 purple"
-                    href="#">
+            <div routerLink="core-catalogs" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a routerLink="core-catalogs" routerLink="core-catalogs" class="dashboard-stat dashboard-stat-v2 green"
+                        >
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup"
+                                    >{{coreCatalogz}}</span>
+                            </div>
+                            <div  routerLink="core-catalogs" class="desc">Core Catalog </div>
+                        </div>
+                    </a>
+                </div>
+            <!-- <div routerLink="view-strat-litho-unit" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a routerLink="view-strat-litho-unit" class="dashboard-stat dashboard-stat-v2 purple"
+                   >
                     <div class="visual">
                         <i class="fa fa-globe"></i>
                     </div>
@@ -79,10 +111,10 @@
                         <div class="number"> 
                             <span data-counter="counterup"
                                 data-value="89"></span> 90 </div>
-                        <div class="desc">Lithostratigraphy</div>
+                        <div routerLink="view-strat-litho-unit" class="desc">Lithostratigraphy</div>
                     </div>
                 </a>
-            </div>
+            </div> -->
         </div>
         <div class="clearfix"></div>
 
@@ -90,18 +122,18 @@
         <div class="row">
                 <div class="col-lg-6 col-xs-12 col-sm-12">
                         <div class="portlet light bordered">
-                            <div class="portlet-title tabbable-line">
+                            <div routerLink="view-strat-litho-unit" class="portlet-title tabbable-line">
                                 <div class="caption">
                                     <i class="icon-bubbles font-dark hide"></i>
-                                    <span class="caption-subject font-dark bold uppercase">Lithostratigraphy</span>
+                                    <span  routerLink="view-strat-litho-unit"class="caption-subject font-dark bold uppercase">Stratigraphy</span>
                                 </div>
                                 <ul class="nav nav-tabs">
                                     <li class="active">
-                                        <a href="#portlet_comments_2" data-toggle="tab"> Actions </a>
+                                        <a data-toggle="tab"> Actions </a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="portlet-body">
+                            <div routerLink="view-strat-litho-unit" class="portlet-body">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="portlet_comments_1">
                                         <!-- BEGIN: Comments -->
@@ -114,8 +146,8 @@
                                                        
                                                         <span class="mt-comment-date">
                                                                 
-                                                                <div class="mt-action-buttons ">
-                                                                        <div class="btn-group btn-group-circle">
+                                                                <div routerLink="view-strat-litho-unit" class="mt-action-buttons ">
+                                                                        <div routerLink="view-strat-litho-unit" class="btn-group btn-group-circle">
                                                                             <button type="button" class="btn btn-outline green btn-sm">View</button>
                                                                             <button type="button" class="btn btn-outline black btn-sm">Search</button>
                                                                             <button type="button" class="btn btn-outline green btn-sm">Print</button>
@@ -123,7 +155,7 @@
                                                                     </div>
                                                         </span>
                                                     </div>
-                                                    <div class="mt-comment-text"> 90 Lithostratigraphies </div>
+                                                    <div class="mt-comment-text"> {{lithoz}} Stratigraphies </div>
                                                   
                                                    
                                                 </div>
@@ -138,16 +170,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xs-12 col-sm-12">
+                    <div routerLink="wellbores" class="col-lg-6 col-xs-12 col-sm-12">
                             <div class="portlet light bordered">
                                 <div class="portlet-title tabbable-line">
-                                    <div class="caption">
+                                    <div routerLink="wellbores" class="caption">
                                         <i class="icon-bubbles font-dark hide"></i>
                                         <span class="caption-subject font-dark bold uppercase">Wells</span>
                                     </div>
                                     <ul class="nav nav-tabs">
                                         <li class="active">
-                                            <a href="#portlet_comments_2" data-toggle="tab"> Actions </a>
+                                            <a data-toggle="tab"> Actions </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -159,13 +191,13 @@
                                                 <div class="mt-comment">
                                                   
                                                     <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
+                                                        <div routerLink="wellbores" class="mt-comment-info">
                                                             <span class="mt-comment-author">Registered</span>
                                                            
                                                             <span class="mt-comment-date">
                                                                     
                                                                     <div class="mt-action-buttons ">
-                                                                            <div class="btn-group btn-group-circle">
+                                                                            <div routerLink="wellbores" class="btn-group btn-group-circle">
                                                                                 <button type="button" class="btn btn-outline green btn-sm">View</button>
                                                                                 <button type="button" class="btn btn-outline black btn-sm">Search</button>
                                                                                 <button type="button" class="btn btn-outline green btn-sm">Print</button>
@@ -173,7 +205,7 @@
                                                                         </div>
                                                             </span>
                                                         </div>
-                                                        <div class="mt-comment-text"> 70 Wells </div>
+                                                        <div class="mt-comment-text"> {{wells}} Wells </div>
                                                       
                                                        
                                                     </div>
@@ -191,13 +223,13 @@
                 <div class="col-lg-6 col-xs-12 col-sm-12">
                     <div class="portlet light bordered">
                         <div class="portlet-title tabbable-line">
-                            <div class="caption">
+                            <div routerLink="core-catalogs" class="caption">
                                 <i class=" icon-social-twitter font-dark hide"></i>
                                 <span class="caption-subject font-dark bold uppercase">Core Catalog</span>
                             </div>
                             <ul class="nav nav-tabs">
                                 <li class="active">
-                                    <a href="#tab_actions_pending" data-toggle="tab"> Actions </a>
+                                    <a data-toggle="tab"> Actions </a>
                                 </li>
                               
                             </ul>
@@ -209,7 +241,7 @@
                                     <!-- BEGIN: Actions -->
                                     <div class="mt-actions">
                                         <div class="mt-action">
-                                            <div class="mt-action-body">
+                                            <div routerLink="core-catalogs" class="mt-action-body">
                                                 <div class="mt-action-row">
                                                     <div class="mt-action-info ">
                                                         <div class="mt-action-icon ">
@@ -217,7 +249,7 @@
                                                         </div>
                                                         <div class="mt-action-details ">
                                                             <span class="mt-action-author">Registered</span>
-                                                            <p class="mt-action-desc"> 80 Core Catalogs</p>
+                                                            <p class="mt-action-desc"> {{coreCatalogz}} Core Catalogs</p>
                                                         </div>
                                                     </div>
                                                 
@@ -243,14 +275,14 @@
                 </div>
                 <div class="col-lg-6 col-xs-12 col-sm-12">
                         <div class="portlet light bordered">
-                            <div class="portlet-title tabbable-line">
+                            <div routerLink="wells" class="portlet-title tabbable-line">
                                 <div class="caption">
                                     <i class=" icon-social-twitter font-dark hide"></i>
                                     <span class="caption-subject font-dark bold uppercase">Wellbore Cores</span>
                                 </div>
                                 <ul class="nav nav-tabs">
                                     <li class="active">
-                                        <a href="#tab_actions_pending" data-toggle="tab"> Actions </a>
+                                        <a data-toggle="tab"> Actions </a>
                                     </li>
                                   
                                 </ul>
@@ -270,12 +302,12 @@
                                                             </div>
                                                             <div class="mt-action-details ">
                                                                 <span class="mt-action-author">Registered</span>
-                                                                <p class="mt-action-desc"> 60 Wellbore Cores</p>
+                                                                <p class="mt-action-desc"> {{wellborecore}} Wellbore Cores</p>
                                                             </div>
                                                         </div>
                                                     
-                                                        <div class="mt-action-buttons ">
-                                                            <div class="btn-group btn-group-circle">
+                                                        <div  class="mt-action-buttons ">
+                                                            <div routerLink="wells" class="btn-group btn-group-circle">
                                                                 <button type="button" class="btn btn-outline green btn-sm">View</button>
                                                                 <button type="button" class="btn btn-outline black btn-sm">Search</button>
                                                                 <button type="button" class="btn btn-outline green btn-sm">Print</button>
@@ -294,22 +326,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xs-12 col-sm-12">
+                    <div *ngIf="role" class="col-lg-6 col-xs-12 col-sm-12">
                             <div class="portlet light bordered">
                                 <div class="portlet-title tabbable-line">
                                     <div class="caption">
                                         <i class=" icon-social-twitter font-dark hide"></i>
-                                        <span class="caption-subject font-dark bold uppercase">Users</span>
+                                        <span  routerLink='users' class="caption-subject font-dark bold uppercase">Users</span>
                                     </div>
                                     <ul class="nav nav-tabs">
                                         <li class="active">
-                                            <a href="#tab_actions_pending" data-toggle="tab"> Actions </a>
+                                            <a  data-toggle="tab"> Actions </a>
                                         </li>
                                       
                                     </ul>
                                     
                                 </div>
-                                <div class="portlet-body">
+                                <div  class="portlet-body">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_actions_pending">
                                             <!-- BEGIN: Actions -->
@@ -321,18 +353,14 @@
                                                                 <div class="mt-action-icon ">
                                                                     
                                                                 </div>
-                                                                <div class="mt-action-details ">
-                                                                    <span class="mt-action-author">Staff</span>
-                                                                    <p class="mt-action-desc"> 80 Staff </p>
-                                                                    <span class="mt-action-author">Administrators</span>
-                                                                    <p class="mt-action-desc"> 80 Administartors </p>
+                                                                <div routerLink='users' class="mt-action-details ">                             
                                                                     <span class="mt-action-author">Accounts</span>
-                                                                    <p class="mt-action-desc"> 160 Accounts </p>
+                                                                    <p class="mt-action-desc"> {{users}} Accounts </p>
                                                                 </div>
                                                             </div>
                                                         
                                                             <div class="mt-action-buttons ">
-                                                                <div class="btn-group btn-group-circle">
+                                                                <div routerLink='users' class="btn-group btn-group-circle">
                                                                     <button type="button" class="btn btn-outline green btn-sm">View</button>
                                                                     <button type="button" class="btn btn-outline black btn-sm">Search</button>
                                                                     <button type="button" class="btn btn-outline green btn-sm">Print</button>
@@ -356,11 +384,11 @@
                                     <div class="portlet-title tabbable-line">
                                         <div class="caption">
                                             <i class=" icon-social-twitter font-dark hide"></i>
-                                            <span class="caption-subject font-dark bold uppercase">Companies</span>
+                                            <span routerLink="view-companies" class="caption-subject font-dark bold uppercase">Companies</span>
                                         </div>
                                         <ul class="nav nav-tabs">
                                             <li class="active">
-                                                <a href="#tab_actions_pending" data-toggle="tab"> Actions </a>
+                                                <a data-toggle="tab"> Actions </a>
                                             </li>
                                           
                                         </ul>
@@ -380,12 +408,12 @@
                                                                     </div>
                                                                     <div class="mt-action-details ">
                                                                         <span class="mt-action-author">Registered</span>
-                                                                        <p class="mt-action-desc"> 60 Companies</p>
+                                                                        <p class="mt-action-desc"> {{companies}} Companies</p>
                                                                     </div>
                                                                 </div>
                                                             
                                                                 <div class="mt-action-buttons ">
-                                                                    <div class="btn-group btn-group-circle">
+                                                                    <div routerLink="view-companies" class="btn-group btn-group-circle">
                                                                         <button type="button" class="btn btn-outline green btn-sm">View</button>
                                                                         <button type="button" class="btn btn-outline black btn-sm">Search</button>
                                                                         <button type="button" class="btn btn-outline green btn-sm">Print</button>

@@ -13,7 +13,7 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Wells</span>
+                    <span>Tillenga Wells</span>
                 </li>
             </ul>
      
@@ -38,7 +38,7 @@
                                     <i class="icon-briefcase
                                         font-red-sunglo"></i>
                                     <span class="caption-subject
-                                        bold uppercase">Wells</span>
+                                        bold uppercase">Tillenga  Wells</span>
                                 </div>
                                 <div class="tools"> </div>
                             </div>
@@ -72,7 +72,7 @@
                                                 <td><button type="button" (click)="onSelectEdit(post)"
                                                     class="btn blue btn-outline">
                                                     <i class="fa fa-angle-double-right"></i></button>
-                                                  <button  type="button" class="btn red btn-outline"
+                                                  <button *ngIf="role" type="button" class="btn red btn-outline"
                                                   (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button></td>
                                                 <!-- <td><button type="button"
                                                   class="btn blue btn-outline">

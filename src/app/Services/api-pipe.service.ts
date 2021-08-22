@@ -40,6 +40,10 @@ export class ApiPipeService {
     return localStorage.getItem("update-id")
   }
 
+  getUserId() {
+    return localStorage.getItem("user-id")
+  }
+
   getEmail() {
     return localStorage.getItem("Email")
   }
@@ -51,6 +55,15 @@ export class ApiPipeService {
 
   logOutSucess() {
     this.toastr.success("Successfully Logged Out", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+  }
+
+  switchSucess() {
+    this.toastr.success("Successfully Logged Out to switch", "Login with new account details", {
       timeOut: 2000,
       positionClass: 'toast-top-center',
       progressBar: true,
@@ -91,6 +104,12 @@ export class ApiPipeService {
     this.logOutSucess();
   }
 
+  switchAccounts() {
+    localStorage.removeItem('token')
+    this.router.navigate(['/login']);
+    this.switchSucess();
+  }
+
   adddWellbore(data: any): Observable<any> {
     console.log("add user")
     return this.http.post('http://127.0.0.1:8899/apiv1/add_wellbore', data)
@@ -100,6 +119,11 @@ export class ApiPipeService {
     console.log("update Security")
     return this.http.put('http://127.0.0.1:8899/apiv1/edit_wellbore/'+this.getUpdateId(), data)
 
+  }
+
+  updatePassword(data: any): Observable<any> {
+    console.log("update Security")
+    return this.http.put('http://127.0.0.1:8899/user/edit_profile/'+this.getUserId(), data)
   }
 
   updateFileGrades(data: any): Observable<any> {
@@ -130,6 +154,16 @@ export class ApiPipeService {
   adddWellboreCore(data: any): Observable<any> {
     console.log("add user")
     return this.http.post('http://127.0.0.1:8899/apiv1/add_welbore_core', data)
+  }
+
+  updateWellboreCore(data: any): Observable<any> {
+    console.log("updatewellborecore")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_welbore_core/'+this.getUpdateId(), data)
+  }
+
+  updateCoreCatalog(data: any): Observable<any> {
+    console.log("updatewellborecore")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_core_catalog/'+this.getUpdateId(), data)
   }
 
   getWelboreIds(): Observable<any> {
@@ -446,6 +480,16 @@ export class ApiPipeService {
   addCoreCatalog(data:any): Observable<any>{
     console.log("added catalog security flag")
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_core_catalog', data)
+  }
+
+  stripFormValue(formValue: any){
+    if (formValue == 'None'){
+      return null;
+    }else {
+
+      return formValue
+    }
+
   }
 
 

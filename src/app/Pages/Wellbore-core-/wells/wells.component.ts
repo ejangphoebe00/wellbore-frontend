@@ -52,11 +52,11 @@ export class WellsComponent implements OnInit {
       this.wellboresList()
       this.userEmail = this.authservice.getEmail();
       this.loggedin = this.authservice.getRole();
-      // if(this.authservice.getRole()=="Admin"){
-      //   this.role=true;
-      // }else{
-      // this.role= false;
-      // }
+      if(this.authservice.getRole()=="Admin"){
+        this.role=true;
+      }else{
+      this.role= false;
+      }
       this.dtOptions = {
         dom:'Bfrtip',
         // dom:'Btp',
@@ -85,6 +85,13 @@ export class WellsComponent implements OnInit {
           },
         ]
       }
+
+      this.getWelboreId();
+      this.getWBCoringContractorId();
+      this.getCoreTopStratLitho_id();
+      this.getCoreBottomStratLitho_id();
+      this.getReportFormat_id();
+      this.getCoreReportSecurityGrade_id();
     }
 
     ngOnDestroy(): void {
@@ -266,7 +273,7 @@ export class WellsComponent implements OnInit {
     }
 
     onSelect(selectedItem: any) {
-      this.id = selectedItem.WebSecurityLevel_id
+      this.id = selectedItem.WellboreCore_id
   
       this.ngPopups.confirm("Are you sure you want to delete ?",{
         // theme: 'material',
@@ -277,13 +284,13 @@ export class WellsComponent implements OnInit {
       })
       .subscribe(res => {
         if (res) {
-        console.log("Selected item Id: ", selectedItem.WebSecurityLevel_id);
-        this.http.delete('http://127.0.0.1:8899/apiv1/delete_web_security_level/' + this.id)
+        console.log("Selected item Id: ", selectedItem.WellboreCore_id);
+        this.http.delete('http://127.0.0.1:8899/apiv1/delete_welbore_core/' + this.id)
           .subscribe(response => {
             this.deleteresp = response;
             console.log(this.deleteresp.message)
-            if (this.deleteresp.message == "Web security level successfully deleted.") {
-              this.toastr.success("Web security level successfully deleted.", "", {
+            if (this.deleteresp.message == "Welbore Core successfully deleted.") {
+              this.toastr.success("Welbore Core successfully deleted.", "", {
                 timeOut: 2000,
                 positionClass: 'toast-top-center',
                 progressBar: true,
@@ -309,18 +316,46 @@ export class WellsComponent implements OnInit {
       console.log("hide the elements");
       this.status = false;
       this.editform = true;
-      this.id = selectedItem.WebSecurityLevel_id
+      this.id = selectedItem.WellboreCore_id
       localStorage.setItem("update-id", this.id);
-      console.log("Selected item Id: ", selectedItem.WebSecurityLevel_id);
-      this.http.get('http://127.0.0.1:8899/apiv1/get_web_security_level/' + this.id)
+      console.log("Selected item Id: ", selectedItem.WellboreCore_id);
+      this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
         .subscribe(response => {
           this.updatevalue = response;
+          console.log("grab update value")
+          console.log(this.updatevalue)
           this.formGroup.patchValue({
-  
-            WebSecurityLevelAbbreviation: this.updatevalue.WebSecurityLevelAbbreviation,
-            WebSecurityLevelName: this.updatevalue.WebSecurityLevelName,
-            WebSecurityLevelDescription: this.updatevalue.WebSecurityLevelDescription,
-            Comments: this.updatevalue.Comments
+         
+        Wellbore_id:this.authservice.stripFormValue(this.updatevalue.Wellbore_id),
+        CoreNumber:this.authservice.stripFormValue(this.updatevalue.CoreNumber),
+        CoringDate:this.authservice.stripFormValue(this.updatevalue.CoringDate),
+        WBCoringContractor_id:this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
+        CoreTopMDRT:this.authservice.stripFormValue(this.updatevalue.CoreTopMDRT),
+        CoreBtmMDRT:this.authservice.stripFormValue(this.updatevalue.CoreBtmMDRT),
+        CoreTopTVD:this.authservice.stripFormValue(this.updatevalue.CoreTopTVD),
+        CoreBtmTVD:this.authservice.stripFormValue(this.updatevalue.CoreBtmTVD),
+        CutLength:this.authservice.stripFormValue(this.updatevalue.CutLength),
+        CutLengthTVD:this.authservice.stripFormValue(this.updatevalue.CutLengthTVD),
+        RecoveredLength:this.authservice.stripFormValue(this.updatevalue.RecoveredLength),
+        CoreRecovery:this.authservice.stripFormValue(this.updatevalue.CoreRecovery),
+        CoreTopStratLitho_id:this.authservice.stripFormValue(this.updatevalue.CoreTopStratLitho_id),
+        CoreBottomStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLitho_id),
+        CorePictureSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CorePictureSoftcopyPath),
+        CorePictureHyperlink:this.authservice.stripFormValue(this.updatevalue.CorePictureHyperlink),
+        PictureUploadDate:this.authservice.stripFormValue(this.updatevalue.PictureUploadDate),
+        CoreReportSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CoreReportSoftcopyPath),
+        CoreReportHyperlink:this.authservice.stripFormValue(this.updatevalue.CoreReportHyperlink),
+        ReportUploadDate:this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
+        ReportFormat_id:this.authservice.stripFormValue(this.updatevalue.ReportFormat_id),
+        ReportFileSize:this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
+        CoreReportSecurityGrade_id:this.authservice.stripFormValue(this.updatevalue.CoreReportSecurityGrade_id),
+        ReportOpenDueDate:this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
+        ReportDocumentTitle:this.authservice.stripFormValue(this.updatevalue.ReportDocumentTitle),
+        ReportReceivedDate:this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),
+        ReportDocumentDate:this.authservice.stripFormValue(this.updatevalue.ReportDocumentDate),
+        ReportDocumentName:this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
+        WellboreCoreName:this.authservice.stripFormValue(this.updatevalue.WellboreCoreName),
+        Comments:this.authservice.stripFormValue(this.updatevalue.Comments)
           });
           console.log(this.updatevalue)
         });
@@ -334,15 +369,15 @@ export class WellsComponent implements OnInit {
   
     }
   
-    updateSecurityProcess() {
+    updateWellboreCoreProcess() {
       console.log("tested")
       if (this.formGroup.valid) {
         console.log(this.formGroup.value)
-        this.authservice.updateWebSecurity(this.formGroup.value).subscribe(result => {
+        this.authservice.updateWellboreCore(this.formGroup.value).subscribe(result => {
           console.log(result)
   
-          if (result.message == "Web security level updated successfuly.") {
-            this.toastr.success("Web security level updated successfuly.", "", {
+          if (result.message == "Welbore Core updated successfuly.") {
+            this.toastr.success("Welbore Core updated successfuly.", "", {
               timeOut: 2000,
               positionClass: 'toast-top-center',
               progressBar: true,

@@ -22,7 +22,7 @@
 
             <div class="clearfix"></div>
             <!-- END DASHBOARD STATS 1-->
-            <div class="portlet light bordered">
+            <div *ngIf="status"  class="portlet light bordered">
 
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
@@ -31,9 +31,9 @@
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
-                                    <div class="caption font-dark">
+                                    <div class="caption font-red-sunglo">
                                         <i class="fa fa-gears
-                                            font-dark"></i>
+                                        font-red-sunglo"></i>
                                         <span class="caption-subject
                                             bold uppercase">Core Catalogs</span>
                                     </div>
@@ -52,6 +52,8 @@
                                                     <th>ID</th>
                                                     <th>Store Identifier</th>
                                                     <th>Core To Depth</th>
+                                                    <th>Core Type</th>
+                                                    <th>Catalog Core From Depth</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
@@ -60,10 +62,15 @@
                                                     <td>{{post.CoreCatalog_id}}</td>
                                                     <td>{{post.StoreIdentifier}}</td>
                                                     <td>{{post.CatalogCoreToDepth}}</td>
-                                                    <td><button type="button" class="btn blue btn-outline">
-                                                      <i class="fa fa-angle-double-right"></i></button>
-                                                    <button type="button" class="btn red btn-outline">
-                                                      <i class="fa fa-trash-o"></i></button></td>
+                                                    <td>{{post.CoreType}}</td>
+                                                    <td>{{post.CatalogCoreFromDepth}}</td>
+                                                    <td><button type="button" (click)="onSelectEdit(post)"
+                                                        class="btn blue btn-outline">
+                                                        <i class="fa fa-angle-double-right"></i></button>
+                                                      <button type="button" class="btn red btn-outline"
+                                                      (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
+                                                      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+                                                    </td>
                                                   </tr>
 
 
@@ -80,6 +87,213 @@
                             <!-- END FORM-->
                         </div>
                     </div>
+
+            <div *ngIf="editform" class="portlet light bordered">
+                    <div class="portlet-body form">
+                            <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateCoreCatProcess()" ngNativeValidate>
+        
+                            <div class="form-body row">
+                                <div class="col-md-3">
+        
+                                    <div class="form-group">
+        
+                                        <label>Wellbore Core Id</label>
+                                        <span class="error">*</span>
+                                            <select class="custom-select"
+                                            required formControlName="WellboreCore_id"
+                                            name="WellboreCore_id"
+                                            class="form-control">
+                                            <option *ngFor="let city of
+                                                wellboreCoreIds"
+                                                [ngValue]="city.WellboreCore_id"
+                                                (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.CoreNumber}}
+                                            </option>
+                                        </select>
+                                        
+        
+        
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Core Type</label>
+                                        <span class="error">*</span>
+                                        <select class="form-control" required formControlName="CoreType">
+                                                <option *ngFor="let  id of CoreTypeIds" [ngValue]="id.CoreType_id"
+                                                    (change)="changeCoreTypes($event)">{{id.CoreType_id}}-->{{id.CoreTypeName}}
+                                                </option>
+                                                </select>    
+        
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Store Identifier</label>
+                                        <input formControlName="StoreIdentifier"
+                                            type="text" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Catalog Core From Depth</label>
+                                        <input
+                                            formControlName="CatalogCoreFromDepth"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Catalog Core To Depth</label>
+                                        <input formControlName="CatalogCoreToDepth"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Core Catalog Security Flag Id</label>
+                                        <select formControlName="CoreCatalogSecurityFlag_id"
+                                        name="CoreCoreCatalogSecurityFlag_id"
+                                        class="form-control">
+                                        <option *ngFor="let city of
+                                        CatalogSecurityFlag_ids"
+                                            [ngValue]="city.CatalogSecurityFlag_id"
+                                            (change)="changeCoreReportSecurityGrade_id($event)">{{city.CatalogSecurityFlag_id}}-->{{city.CatalogSecurityFlagName}}
+                                        </option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                            <label>Was Analysed Id</label>
+                                            <input
+                                                formControlName="WasAnalysed_id"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Top StratLitho Id</label>                               
+                                            <select formControlName="TopStratLitho_id"
+                                            name="TopStratLitho_id"
+                                            class="form-control">
+                                            <option *ngFor="let city of TopStratLitho_id"
+                                                [ngValue]="city.StratLitho_id"
+                                                (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                            </option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>BottomStratLitho_id</label>
+                                            <select formControlName="BottomStratLitho_id"
+                                            name="BottomStratLitho_id"
+                                            class="form-control">
+                                            <option *ngFor="let city of TopStratLitho_id"
+                                                [ngValue]="city.StratLitho_id"
+                                                (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                            </option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Catalogue Core Picture Name</label>
+                                                <input
+                                                    formControlName="CatalogueCorePictureName"
+                                                    type="text" class="form-control"
+                                                    placeholder="">
+                                            </div>
+        
+                                </div>
+                                <div class="col-md-3">
+        
+                                
+                                        <div class="form-group">
+                                            <label>Catalogue Picture Softcopy Path</label>
+                                            <input
+                                                formControlName="CataloguePictureSoftcopyPath"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Catalogue Report Softcopy Path </label>
+                                            <input
+                                                formControlName="CatalogueReportSoftcopyPath"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Catalogue Report Hyperlink</label>
+                                            <input
+                                                formControlName="CatalogueReportHyperlink"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Catalog Report Format Id</label>
+                                                <input
+                                                    formControlName="CatalogReportFormat_id"
+                                                    type="number" class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Catalog Report FileSize</label>  <input
+                                                    formControlName="CatalogReportFileSize"
+                                                    type="number" class="form-control"
+                                                    placeholder="">
+                                            </div>
+        
+                                </div>
+                                <div class="col-md-3">
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label>Catalog Report Security Grade Id</label>
+                                        <input
+                                            formControlName="CatalogReportSecurityGrade_id"
+                                            type="number" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Core Catalog Name</label>
+                                        <input
+                                            formControlName="CoreCatalogName"
+                                            type="text" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Comments</label>
+                                        <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+        
+                            <div class="form-actions">
+                                <button  type="submit" class="btn blue">Update</button>
+                                <button (click)="navigateBack()" type="button" class="btn default">Back</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>  
+                
+                
+
+                <ng-template #content let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="form-group">
+                              <label for="dateOfBirth">Date of birth</label>
+                              <div class="input-group">
+                                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                        </div>
+                      </ng-template> 
+
 
                 </div>
                 <!-- END CONTENT BODY -->

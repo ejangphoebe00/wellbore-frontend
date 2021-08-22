@@ -31,9 +31,9 @@
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
-                                    <div class="caption font-dark">
+                                    <div class="caption font-red-sunglo">
                                         <i class=" fa fa-share-square-o
-                                            font-dark"></i>
+                                        font-red-sunglo"></i>
                                         <span class="caption-subject
                                             bold uppercase">Wellbore Cores</span>
                                     </div>
@@ -51,7 +51,10 @@
                                                   <tr >
                                                     <th>Wellbore Id</th>
                                                     <th>CoringDate</th>
-                                                    <th>WellboreCoreName</th>
+                                                    <th>WellboreCoreName</th>                                                
+                                                    <th>CoreNumber</th>
+                                                    <th>CoringDate</th>
+                                                    <th>CoreTopMDRT</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
@@ -60,10 +63,13 @@
                                                     <td>{{post.WellboreCore_id}}</td>
                                                     <td>{{post.CoringDate}}</td>
                                                     <td>{{post.WellboreCoreName}}</td>
+                                                    <td>{{post.CoreNumber}}</td>
+                                                    <td>{{post.CoringDate}}</td>
+                                                    <td>{{post.CoreTopMDRT}}</td>
                                                     <td><button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button>
-                                                      <button type="button" class="btn red btn-outline"
+                                                      <button  type="button" class="btn red btn-outline"
                                                       (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button></td>
                                                   </tr>
 
@@ -86,7 +92,7 @@
                     <div  *ngIf="editform" class="portlet light bordered">
                             <div class="portlet-body form">
                                 <form class="form-horizontal" [formGroup]="formGroup"
-                                (ngSubmit)="addWellboreCoreProcess()" ngNativeValidate>
+                                (ngSubmit)="updateWellboreCoreProcess()" ngNativeValidate>
                         
                                     <div class="form-body row">
                                         <div class="col-md-3">
@@ -94,7 +100,7 @@
                 
                                             <div class="form-group">
                 
-                                                <label>Wellbore Id</label>
+                                                <label>Wellbore </label>
                                                 <span class="error">*</span>
                                                     <select class="form-control"
                                                          required formControlName="Wellbore_id"
@@ -109,8 +115,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Core Number</label>
+                                                <span class="error">*</span>
                                                 <input formControlName="CoreNumber"
-                                                    type="text" class="form-control"
+                                                    type="number" class="form-control"
                                                     placeholder="">
                                             </div>
                                             <div class="form-group">
@@ -369,8 +376,8 @@
                                     </div>
                 
                                     <div class="form-actions">
-                                        <button type="submit" class="btn blue">Update</button>
-                                        <button type="button" class="btn default">Back</button>
+                                        <button  type="submit" class="btn blue">Update</button>
+                                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                                     </div>
                                 </form>
                             </div>

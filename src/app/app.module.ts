@@ -40,6 +40,10 @@ import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit
 import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/Wellbore-core-/wells/wells.component';
 import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-catalogs.component';
+import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
+import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
+import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,9 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
     ViewStratLithoUnitComponent,
     WellsComponent,
     CoreCatalogsComponent,
+    UpdatePasswordComponent,
+    KfdaComponent,
+    TdaComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +88,7 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
     BrowserAnimationsModule,
     NgPopupsModule.forRoot(),
     ToastrModule.forRoot(),
+    NgbModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
