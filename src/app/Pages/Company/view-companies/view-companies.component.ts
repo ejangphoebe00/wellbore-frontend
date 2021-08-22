@@ -164,8 +164,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue({
-
+        this.formGroup.patchValue(
+          {
            Company_id: this.updatevalue.Company_id,
            PAUID: this.updatevalue.PAUID,
            CompanyLongName: this.updatevalue.CompanyLongName,
@@ -227,6 +227,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
 
   }
 
+  
+
   navigateBack() {
     this.authservice.reload();
   }
@@ -238,8 +240,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       this.authservice.editCompany(this.formGroup.value).subscribe(result => {
         console.log(result)
 
-        if (result.message == "Web security level updated successfuly.") {
-          this.toastr.success("Web security level updated successfuly.", "", {
+        if (result.message == "Company updated successfuly.") {
+          this.toastr.success("Company updated successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,

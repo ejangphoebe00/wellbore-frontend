@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   loginProcess() {
     if (this.formGroup.valid) {
-      localStorage.setItem("Email", this.formGroup.value.UserEmailAddress);    
+      localStorage.setItem("Email", this.formGroup.value.UserEmailAddress);
       this.authservice.Login(this.formGroup.value).subscribe(result => {
 
         if (result.message == "Login Successful") {
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("role",result.user_role);
           localStorage.setItem("token", this.title);
           this.authservice.loginSucess()
-          setTimeout(() => {                           
+          setTimeout(() => {
             this.router.navigate(['/dashboard']);
           }, 1000);
         } else {
@@ -57,6 +57,9 @@ export class LoginComponent implements OnInit {
       }
 
       )
+    }
+    else {
+      console.log("form fields invalid")
     }
   }
 

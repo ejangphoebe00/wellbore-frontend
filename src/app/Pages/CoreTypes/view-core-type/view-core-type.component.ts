@@ -33,9 +33,12 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  details: boolean = false;
   updatevalue: any;
   userEmail: any;
   loggedin: any;
+  data: any;
+  value:any;
 
 
 
@@ -118,6 +121,7 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
       });
   }
 
+
   onSelect(selectedItem: any) {
     this.id = selectedItem.CoreType_id
 
@@ -157,16 +161,32 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
     });
   }
 
+  onView(selectedItem: any) {
+    this.status = true;
+    this.details= true;
+    this.editform = false;
+    this.data = {
+      CoreType_id:selectedItem.CoreType_id,
+      CoreTypeName:selectedItem.CoreTypeName,
+      SortOrder:selectedItem.SortOrder,
+      Comments:selectedItem.Comments,
+      ModifiedOn:selectedItem.ModifiedOn,
+      ModifiedBy:selectedItem.ModifiedBy,
+    }
+  }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
     this.editform = true;
+    this.details = false;
     this.id = selectedItem.CoreType_id
     localStorage.setItem("update-id", this.id);
     console.log("Selected item Id: ", selectedItem.CoreType_id);
     this.http.get('http://127.0.0.1:8899/apiv1/get_core_type/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
+
         this.formGroup.patchValue({
           CoreTypeName:this.updatevalue.CoreTypeName,
           SortOrder:this.updatevalue.SortOrder,

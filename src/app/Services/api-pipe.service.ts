@@ -44,9 +44,8 @@ export class ApiPipeService {
     return localStorage.getItem("Email")
   }
 
-
   Login(data: any): Observable<any> {
-    console.log("i am server")
+    console.log("Logging in process")
     return this.http.post('http://127.0.0.1:8899/user/login', data)
   }
 
@@ -58,7 +57,6 @@ export class ApiPipeService {
       progressAnimation: 'increasing'
     })
   }
-
 
   loginSucess() {
     this.toastr.success("Successfully Logged In", "", {
@@ -285,7 +283,7 @@ export class ApiPipeService {
 
   editCompany(data:any): Observable<any>{
     console.log("edit company")
-    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_company/${company}', data)
+    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_company/' + this.getUpdateId(), data)
   }
 
   getAllCompanies(): Observable<any>{
@@ -327,7 +325,7 @@ export class ApiPipeService {
 
   editCatalogSecurity(data:any): Observable<any>{
     console.log("edited catalog security flag")
-    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_catalog_security_flag/?id=${CatalogSecurityFlag_id}', data)
+    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_catalog_security_flag/' + this.getUpdateId(), data)
   }
 
   getAllCatalogSecurityFlags(): Observable<any>{
@@ -365,10 +363,15 @@ export class ApiPipeService {
     return this.httpClient.post('http://127.0.0.1:8899/apiv1/add_strat_litho_unit', data)
   }
 
-  editStratLithoUnit(data:any): Observable<any>{
-    console.log("edited strat-litho-unit")
-    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_strat_litho_unit/${StratLitho_id}', data)
+  updateStratLitho(data:any): Observable<any>{
+    console.log("update strat-litho-unit")
+    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_strat_litho_unit/' + this.getUpdateId(), data)
   }
+  // updateWebSecurity(data: any): Observable<any> {
+  //   console.log("update Security")
+  //   return this.http.put('http://127.0.0.1:8899/apiv1/edit_web_security_level/' + this.getUpdateId(), data)
+  //
+  // }
 
   getAllStratLithoUnits(): Observable<any>{
     console.log("getting all strat-litho-units")
@@ -391,7 +394,7 @@ export class ApiPipeService {
   }
 
   stratLithoStatusUpdate() {
-    this.toastr.error("updating strato litho failed. Try Again", "", {
+    this.toastr.error("Updating strato litho failed. Try Again", "", {
       timeOut: 2000,
       positionClass: 'toast-top-center',
       progressBar: true,
@@ -408,8 +411,9 @@ export class ApiPipeService {
 
   editCoreType(data:any): Observable<any>{
     console.log("edited core type")
-    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_core_type/${CoreType_id}', data)
+    return this.httpClient.put('http://127.0.0.1:8899/apiv1/edit_core_type/' + this.getUpdateId(), data)
   }
+
 
   getAllCoreTypes(): Observable<any>{
     console.log("getting all coretypes")

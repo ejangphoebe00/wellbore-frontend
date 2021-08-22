@@ -51,6 +51,7 @@ export class StratLithoUnitComponent implements OnInit {
   addStratLitho(){
     console.log("tested")
     if(this.formGroup.valid){
+      Object.keys(this.formGroup.value).forEach((key) => (this.formGroup.value[key] == null) && this.formGroup.value[key] == "");
       console.log(this.formGroup.value)
       this.authservice.addStratLithoUnit(this.formGroup.value).subscribe(result =>{
         console.log(result)

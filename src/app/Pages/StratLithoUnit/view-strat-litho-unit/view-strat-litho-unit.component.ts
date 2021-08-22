@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
 import { NgPopupsService } from 'ng-popups';
 
 
-import { StratLithoUnit } from 'src/app/models/strat-litho-unit.model';
+
+import { StratLithoUnit} from 'src/app/models/strat-litho-unit.model';
 
 @Component({
   selector: 'app-view-strat-litho-unit',
@@ -32,9 +33,11 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  details: boolean = false;
   updatevalue: any;
   userEmail: any;
   loggedin: any;
+  data: any;
 
 
 
@@ -61,6 +64,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     this.users();
     this.initForm();
     this.dtOptions = {
+      responsive: 'true',
       dom:'Bfrtip',
       // dom:'Btp',
       buttons: [
@@ -156,10 +160,32 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     });
   }
 
+  onView(selectedItem: any) {
+    this.status = true;
+    this.details= true;
+    // this.editform = true;
+    this.data = {
+      PAUID:selectedItem.PAUID,
+      StratLithoName:selectedItem.StratLithoName,
+      ReserviorUnit:selectedItem.ReserviorUnit,
+      LithoStratAlias:selectedItem.LithoStratAlias,
+      IsReservoirUnit_id:selectedItem.IsReservoirUnit_id,
+      LithoStratAge_id:selectedItem.LithoStratAge_id,
+      LithoStratDescriptionSoftcopyPath:selectedItem.LithoStratDescriptionSoftcopyPath,
+      LithoStratDescriptionHyperlink:selectedItem.LithoStratDescriptionHyperlink,
+      LithoStratMapSoftCopyPath:selectedItem.LithoStratMapSoftCopyPath,
+      LithoStratMapHyperlink:selectedItem.LithoStratMapHyperlink,
+      MapPortalLithoStratMapLink:selectedItem.MapPortalLithoStratMapLink,
+      LithoStratFactsiteUrl:selectedItem.LithoStratFactsiteUrl,
+      Comments:selectedItem.Comments,
+    }
+  }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
-    this.status = false;
+    this.status = true;
     this.editform = true;
+    this.details = false;
     this.id = selectedItem.StratLitho_id
     localStorage.setItem("update-id", this.id);
     console.log("Selected item Id: ", selectedItem.StratLitho_id);
@@ -196,7 +222,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     console.log("tested")
     if (this.formGroup.valid) {
       console.log(this.formGroup.value)
-      this.authservice.editStratLithoUnit(this.formGroup.value).subscribe(result => {
+      this.authservice.updateStratLitho(this.formGroup.value).subscribe(result => {
         console.log(result)
 
         if (result.message == "Strat litho unit updated successfuly.") {
