@@ -13,10 +13,11 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./kfda.component.css']
 })
 export class KfdaComponent implements OnInit {
+  DevAreas:any = ['KFDA','TDA'];
   formGroup!: FormGroup;
   title!: string;
   prospectIds: any;
-  licenceIds: any
+  licenceIds: any;
   // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
@@ -88,7 +89,7 @@ export class KfdaComponent implements OnInit {
 
   userList(): void {
     this.authservice
-      .getWellbores()
+      .getKdaWellbores()
       .subscribe((response: any) => {
         console.log(response)
         this.wellbores = response;
@@ -193,6 +194,7 @@ export class KfdaComponent implements OnInit {
           WellboreTestCost:this.updatevalue.WellboreTestCost,
           CompletionDate:this.updatevalue.CompletionDate,
           What3WordWellboreLocation:this.updatevalue.What3WordWellboreLocation,
+      //    DevelopmentAreaName:new FormControl(),
           Comments:this.updatevalue.Comments,
           LocationPictureName:this.updatevalue.LocationPictureName,
           LocationPicture:this.updatevalue.LocationPicture,
@@ -345,6 +347,13 @@ export class KfdaComponent implements OnInit {
 
   logout() {
     this.authservice.logoutuser()
+  }
+
+  changeDevAreas(e:any) {
+    console.log(e.value)
+    this.DevAreas.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
 

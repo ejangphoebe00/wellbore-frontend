@@ -28,6 +28,7 @@ export class WellboresComponent implements OnInit {
   status: boolean = true;
   editform: boolean = false;
   updatevalue: any;
+  DevAreas:any = ['KFDA','TDA'];
 
   wellbores: any = [];
   role: any;
@@ -346,6 +347,13 @@ export class WellboresComponent implements OnInit {
 
   logout() {
     this.authservice.logoutuser()
+  }
+
+  changeDevAreas(e:any) {
+    console.log(e.value)
+    this.DevAreas.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
 

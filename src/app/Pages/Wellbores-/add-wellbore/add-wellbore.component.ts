@@ -17,6 +17,7 @@ export class AddWellboreComponent implements OnInit {
   loggedin: any;
   prospectIds: any;
   licenceIds: any
+  DevAreas:any = ['KFDA','TDA'];
 
 
   constructor(
@@ -88,6 +89,7 @@ export class AddWellboreComponent implements OnInit {
       WellboreTestCost:new FormControl(),
       CompletionDate:new FormControl(),
       What3WordWellboreLocation:new FormControl(),
+      DevelopmentAreaName:new FormControl(),
       Comments:new FormControl(),
       LocationPictureName:new FormControl(),
       LocationPicture:new FormControl(),
@@ -169,6 +171,13 @@ export class AddWellboreComponent implements OnInit {
       
       )
     }
+  }
+
+  changeDevAreas(e:any) {
+    console.log(e.value)
+    this.DevAreas.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
   

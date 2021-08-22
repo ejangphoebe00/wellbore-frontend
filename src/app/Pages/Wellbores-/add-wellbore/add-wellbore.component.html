@@ -471,6 +471,17 @@
                                     placeholder="">
                             </div>
 
+                            <div class="form-group">
+                                    <label>Development Area Name</label>
+                                    <span class="error">*</span>
+                                    <select class="form-control"  required formControlName="DevelopmentAreaName">
+                                            <option *ngFor="let area of DevAreas" [ngValue]="area"
+                                                (change)="changeDevAreas($event)">{{area}}
+                                            </option>
+                                            </select>    
+                                                                                   
+                                </div>
+
 
                             <div class="form-group">
                                     <label> Comments</label>
