@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { NgPopupsService } from 'ng-popups';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-users-list',
@@ -15,6 +15,7 @@ import { FormGroup } from '@angular/forms';
 export class UsersListComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  updatevalue: any;
   // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
@@ -42,7 +43,10 @@ role:any;
 
   ngOnInit(): void {
     // this.authservice.reload();
-    this.userList()
+    this.initForm();
+    this.userList();
+    this.getSecurityId();
+
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){
@@ -83,6 +87,15 @@ role:any;
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
+
+  getSecurityId(){
+    this.authservice.getWebSeurityId().subscribe(res =>{
+      this.securityIds = res;
+      console.log(this.securityIds);
+    })
+  }
+
+ 
 
   userList(): void {
     this.authservice
@@ -137,7 +150,68 @@ role:any;
         console.log(this.id);
         localStorage.setItem("update-id", this.id);
 
+      this.http.get('http://127.0.0.1:8899/user/get_user/' + this.id)
+      .subscribe(response => {
+        this.updatevalue = response;
+        this.formGroup.patchValue({ 
+          FirstName:this.authservice.stripFormValue(this.updatevalue.FirstName),
+          MiddleName:this.authservice.stripFormValue(this.updatevalue.MiddleName),
+          Surname:this.authservice.stripFormValue(this.updatevalue.Surname),
+          LUID:this.authservice.stripFormValue(this.updatevalue.LUID),
+          CraneUserName:this.authservice.stripFormValue(this.updatevalue.CraneUserName),
+          LoginID:this.authservice.stripFormValue(this.updatevalue.LoginID),
+          LoginIDAlias:this.authservice.stripFormValue(this.updatevalue.LoginIDAlias),
+          UserCategory:this.authservice.stripFormValue(this.updatevalue.UserCategory),
+          UserCompany_id:this.authservice.stripFormValue(this.updatevalue.UserCompany_id),
+          UserPremsUser_id:this.authservice.stripFormValue(this.updatevalue.UserPremsUser_id),
+          UserStaff_id:this.authservice.stripFormValue(this.updatevalue.UserStaff_id),
+          OrganisationName:this.authservice.stripFormValue(this.updatevalue.OrganisationName),
+          UserEmailAddress:this.authservice.stripFormValue(this.updatevalue.UserEmailAddress),
+          UserSecurityLevel_id:this.authservice.stripFormValue(this.updatevalue.UserSecurityLevel_id),
+          UserWebSecurityLevel_id:this.authservice.stripFormValue(this.updatevalue.UserWebSecurityLevel_id),
+          UserNogtrWebSecurityLevel_id:this.authservice.stripFormValue(this.updatevalue.UserNogtrWebSecurityLevel_id),
+          UserPremsWebSecurityLevel_id:this.authservice.stripFormValue(this.updatevalue.UserPremsWebSecurityLevel_id),
+          UserIntranetSecurityLevel_id:this.authservice.stripFormValue(this.updatevalue.UserIntranetSecurityLevel_id),
+          UserNsdWebSecurityLevel_id:this.authservice.stripFormValue(this.updatevalue.UserNsdWebSecurityLevel_id),
+          Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
+          OrganisationUserName:this.authservice.stripFormValue(this.updatevalue.OrganisationUserName),
+          DefaultPassword:this.authservice.stripFormValue(this.updatevalue.DefaultPassword)
+          
+        });
+        console.log(this.updatevalue)
+      });
+
       }
+
+      initForm(){
+        this.formGroup = new FormGroup({
+          FirstName:new FormControl(),
+          MiddleName:new FormControl(),
+          Surname:new FormControl(),
+          LUID:new FormControl(),
+          CraneUserName:new FormControl(),
+          LoginID:new FormControl(),
+          LoginIDAlias:new FormControl(),
+          UserCategory:new FormControl(),
+          UserCompany_id:new FormControl(),
+          UserPremsUser_id:new FormControl(),
+          UserStaff_id:new FormControl(),
+          OrganisationName:new FormControl(),
+          UserEmailAddress:new FormControl(),
+          UserSecurityLevel_id:new FormControl(),
+          UserWebSecurityLevel_id:new FormControl(),
+          UserNogtrWebSecurityLevel_id:new FormControl(),
+          UserPremsWebSecurityLevel_id:new FormControl(),
+          UserIntranetSecurityLevel_id:new FormControl(),
+          UserNsdWebSecurityLevel_id:new FormControl(),
+          Comments:new FormControl(),
+          OrganisationUserName:new FormControl(),
+          DefaultPassword:new FormControl('',Validators.required)
+          
+        });
+      }    
+
+      
 
   logout(){
     this.authservice.logoutuser()
