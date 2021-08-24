@@ -295,6 +295,16 @@ export class ApiPipeService {
     return this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore')
   }
 
+  getKdaWellbores(): Observable<any> {
+    console.log("get kda")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_kfda_welbores')
+  }
+
+ getTdaWellbores(): Observable<any> {
+    console.log("get Tda")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_tda_welbores')
+  }
+
   updateWebSecurity(data: any): Observable<any> {
     console.log("update Security")
     return this.http.put('http://127.0.0.1:8899/apiv1/edit_web_security_level/' + this.getUpdateId(), data)
