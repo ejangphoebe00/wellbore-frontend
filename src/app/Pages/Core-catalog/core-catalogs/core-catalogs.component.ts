@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
@@ -6,7 +6,11 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgPopupsService } from 'ng-popups';
+import {MatDialog} from '@angular/material/dialog'
+
+
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ModalManager } from 'ngb-modal'
 
 @Component({
   selector: 'app-core-catalogs',
@@ -14,7 +18,6 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./core-catalogs.component.css']
 })
 export class CoreCatalogsComponent implements OnInit {
-  closeResult = '';
   formGroup!: FormGroup;
   title!: string;
   role:any;
@@ -29,15 +32,13 @@ export class CoreCatalogsComponent implements OnInit {
   wellboreCoreIds: any;
   CoreTypeIds: any;
   TopStratLitho_id: any;
-  // BottomStratLitho_id: any;
-  // CatalogReportFormat_id: any;
   CatalogSecurityFlag_ids: any;
-  // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
   users: any = [];
+  dialog: any;
 
 
     constructor(
@@ -46,7 +47,7 @@ export class CoreCatalogsComponent implements OnInit {
       private toastr: ToastrService,
       private http: HttpClient,
       private ngPopups: NgPopupsService,
-      private modalService: NgbModal
+      
     ) { }
 
     ngOnInit(): void {
@@ -329,29 +330,19 @@ export class CoreCatalogsComponent implements OnInit {
       }
 
     }  
-
-    open(content: any) {
-      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
-    }
-  
-    private getDismissReason(reason: any): string {
-      if (reason === ModalDismissReasons.ESC) {
-        return 'by pressing ESC';
-      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-        return 'by clicking on a backdrop';
-      } else {
-        return `with: ${reason}`;
-      }
-    }
-  
+    
 
   navigateBack() {
-    // this.router.navigate(['/web-security-levels']);
     this.authservice.reload();
-
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open();
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
+  }
+
+
 }

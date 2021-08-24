@@ -43,7 +43,6 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
 import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
 import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -88,7 +87,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     NgPopupsModule.forRoot(),
     ToastrModule.forRoot(),
-    NgbModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
