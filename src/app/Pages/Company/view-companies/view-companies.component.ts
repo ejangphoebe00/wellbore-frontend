@@ -37,6 +37,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   userEmail: any;
   loggedin: any;
   data:any;
+  formdata:any;
 
 
 
@@ -112,10 +113,9 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   getAllCompanies() {
     this.http.get('http://127.0.0.1:8899/apiv1/get_companies')
       .subscribe(posts => {
-        this.posts = posts;
+        this.posts = posts
         console.log(this.posts)
       });
-      // Object.keys(this.posts).forEach((key) => (this.posts[key] == "None") && (this.posts[key] == ""));
 
   }
 
@@ -134,7 +134,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
         console.log("Selected item Id: ", selectedItem.Company_id);
         this.http.delete('http://127.0.0.1:8899/apiv1/delete_company/' + this.id)
           .subscribe(response => {
-            this.deleteresp = response;
+            this.deleteresp = response
             console.log(this.deleteresp.message)
             if (this.deleteresp.message == "Company successfully deleted.") {
               this.toastr.success("Company successfully deleted.", "", {
@@ -231,7 +231,13 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue(
+        this.formdata = response
+        console.log(response)
+        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
+
+        console.log("New values")
+        console.log(this.formdata)
+        this.formGroup.setValue(
           {
            Company_id: this.updatevalue.Company_id,
            PAUID: this.updatevalue.PAUID,

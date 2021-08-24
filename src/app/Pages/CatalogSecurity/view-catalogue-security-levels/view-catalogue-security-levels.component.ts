@@ -37,6 +37,7 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
   userEmail: any;
   loggedin: any;
   data:any;
+  formdata:any;
 
 
 
@@ -182,7 +183,9 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
     this.http.get('http://127.0.0.1:8899/apiv1/get_catalog_security_flag/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue({
+        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
+
+        this.formGroup.setValue({
           CatalogSecurityFlagName:this.updatevalue.CatalogSecurityFlagName,
           SortOrder:this.updatevalue.SortOrder,
           Comments:this.updatevalue.Comments,

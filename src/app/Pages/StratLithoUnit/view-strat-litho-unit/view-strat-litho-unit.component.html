@@ -136,7 +136,7 @@
                   <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                          <h4 class="modal-title">Modal Title</h4>
+                          <h4 class="modal-title">{{ data.StratLithoName }}</h4>
                           <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
                       </div>
                       <div class="modal-body">
@@ -144,65 +144,57 @@
                             <tbody>
                               <tr>
                                 <td style="width:25%"> ID </td>
-                                <td style="width:50%"> {{ data.StratLitho_id }} </td>
-                              </tr>
-                              <tr>
+                                <td style="width:25%"> {{ data.StratLitho_id }} </td>
+
                                 <td style="width:25%"> PAUID </td>
                                 <td> {{ data.PAUID }} </td>
                               </tr>
                               <tr>
                                 <td style="width:25%"> Name </td>
                                 <td> {{ data.StratLithoName }} </td>
-                              </tr>
-                              <tr>
+
                                 <td style="width:25%"> Reservior Unit </td>
                                 <td> {{ data.ReserviorUnit }} </td>
                               </tr>
                               <tr>
                                 <td style="width:25%"> Litho Strat Alias </td>
                                 <td> {{ data.LithoStratAlias }} </td>
-                              </tr>
-                              <tr>
+
                                 <td style="width:25%"> IsReservoirUnit_id </td>
                                 <td> {{ data.IsReservoirUnit_id }}</td>
                               </tr>
                               <tr>
                                 <td style="width:25%"> LithoStratAge_id </td>
                                 <td> {{ data.LithoStratAge_id }}</td>
-                              </tr>
-                              <tr>
+
                                 <td style="width:25%"> LithoStratDescriptionSoftcopyPath </td>
                                 <td> {{ data.LithoStratDescriptionSoftcopyPath }}</td>
                               </tr>
                               <tr>
                                 <td style="width:25%"> LithoStratDescriptionHyperlink </td>
                                 <td> {{ data.LithoStratDescriptionHyperlink }}</td>
-                              </tr>
-                              <tr>
+
                                 <td style="width:25%"> LithoStratMapSoftCopyPath </td>
                                 <td> {{ data.LithoStratMapSoftCopyPath }}</td>
                               </tr>
                               <tr>
                                 <td style="width:25%"> LithoStratMapHyperlink </td>
                                 <td> {{ data.LithoStratMapHyperlink }}</td>
-                              </tr>
-                              <tr>
+
                                 <td style="width:25%"> MapPortalLithoStratMapLink </td>
                                 <td> {{ data.MapPortalLithoStratMapLink }}</td>
                               </tr>
                               <tr>
                                 <td style="width:25%"> LithoStratFactsiteUrl </td>
                                 <td> {{ data.LithoStratFactsiteUrl }}</td>
-                              </tr>
-                              <tr>
+
                                 <td style="width:25%"> Comments </td>
                                 <td> {{ data.Comments }}</td>
                               </tr>
                               <tr>
                                 <td  style="width:25%"> Date Created </td>
                                 <td> {{ data.DateCreated }} </td>
-                              </tr>
-                              <tr>
+
                                 <td  style="width:25%"> Modified On </td>
                                 <td> {{ data.ModifiedOn }} </td>
                               </tr>
@@ -227,57 +219,69 @@
           <div *ngIf="editform" class="portlet-body form">
               <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateStratLithoProcess()" ngNativeValidate>
                   <div class="form-body row">
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>PAUID</label>
-                            <input type="text" formControlName="PAUID" class="form-control" placeholder="" required>
+                            <input type="text" formControlName="PAUID"
+                            class="form-control" placeholder="{{formdata.PAUID}}" required>
                         </div>
                         <div class="form-group">
                             <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" required formControlName="StratLithoName" class="form-control" placeholder="" required>
+                            <input type="text" formControlName="StratLithoName"
+                            class="form-control" value="{{formdata.StratLithoName}}" placeholder="{{formdata.StratLithoName}}" required>
                         </div>
                         <div class="form-group">
                             <label>Litho Strat Alias<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" required formControlName="LithoStratAlias" class="form-control" placeholder="">
+                            <input type="text" required formControlName="LithoStratAlias"
+                            class="form-control" value="{{formdata.LithoStratAlias}}" placeholder="{{formdata.LithoStratAlias}}">
                         </div>
                         <div class="form-group">
                             <label>Is Reservoir Unit ID</label>
-                            <input type="text" formControlName="IsReservoirUnit_id" class="form-control" placeholder="">
+                            <input type="text" formControlName="IsReservoirUnit_id"
+                            class="form-control" placeholder="{{formdata.IsReservoirUnit_id}}">
                         </div>
                         <div class="form-group">
                             <label>Litho Strat Age <span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" required formControlName="LithoStratAge_id" class="form-control" placeholder="">
+                            <input type="text" required formControlName="LithoStratAge_id"
+                            class="form-control" placeholder="{{formdata.LithoStratAge_id}}">
                         </div>
                         <div class="form-group">
                             <label>Litho Strat Description Softcopy Path</label>
-                            <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control" placeholder="">
+                            <input type="text" formControlName="LithoStratDescriptionSoftcopyPath"
+                            class="form-control" placeholder="{{formdata.LithoStratDescriptionSoftcopyPath}}">
                         </div>
                         <div class="form-group">
                             <label>Litho Strat Description Hyperlink</label>
-                            <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control" placeholder="">
+                            <input type="text" formControlName="LithoStratDescriptionHyperlink"
+                            class="form-control" placeholder="{{formdata.LithoStratDescriptionHyperlink}}">
                         </div>
 
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Litho Strat Map Softcopy Path</label>
-                            <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control" placeholder="">
+                            <input type="text" formControlName="LithoStratMapSoftcopyPath"
+                            class="form-control" placeholder="{{formdata.LithoStratMapSoftcopyPath}}">
                         </div>
                         <div class="form-group">
                             <label>Litho Strat Map Hyperlink</label>
-                            <input type="text" formControlName="LithoStratMapHyperlink" class="form-control" placeholder="">
+                            <input type="text" formControlName="LithoStratMapHyperlink"
+                            class="form-control" placeholder="{{formdata.LithoStratMapHyperlink}}">
                         </div>
                         <div class="form-group">
                             <label>Map Portal Litho Strat MapLink</label>
-                            <input type="text" formControlName="MapPortalLithoStratMapLink" class="form-control" placeholder="">
+                            <input type="text" formControlName="MapPortalLithoStratMapLink"
+                            class="form-control" placeholder="{{formdata.MapPortalLithoStratMapLink}}">
                         </div>
                         <div class="form-group">
                             <label>Litho Strat Fact site Url</label>
-                            <input type="text" formControlName="LithoStratFactsiteUrl" class="form-control" placeholder="">
+                            <input type="text" formControlName="LithoStratFactsiteUrl"
+                            class="form-control" placeholder="{{formdata.LithoStratFactsiteUrl}}">
                         </div>
                         <div class="form-group">
                             <label>Comments</label>
-                            <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
+                            <textarea name="name" formControlName="Comments" rows="8"
+                            cols="80" class="form-control" placeholder="{{formdata.Comments}}"></textarea>
                         </div>
                         <div class="form-actions">
                             <div class="row">

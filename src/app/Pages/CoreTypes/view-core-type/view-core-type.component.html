@@ -104,8 +104,9 @@
                                        <td> {{core.SortOrder}} </td>
                                        <td> {{core.Comments}} </td>
                                        <td> {{core.ModifiedOn}} </td>
-                                       <td><a class="btn purple btn-outline sbold"
-                                         (click)="onView(core)" data-toggle="modal" href="#large">More</a>
+                                       <td><button type="button" class="btn blue btn-outline"
+                                         (click)="onSelectEdit(core)">
+                                         <i class="fa fa-edit"></i></button>
                                        <button type="button" class="btn red btn-outline"
                                          (click)="onSelect(core)">
                                          <i class="fa fa-trash-o"></i></button></td>
@@ -125,60 +126,6 @@
             </div>
           </div>
 
-          <!-- /.modal -->
-          <div  *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                          <h4 class="modal-title">Modal Title</h4>
-                          <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
-                      </div>
-                      <div class="modal-body">
-                        <table  class="table table-bordered table-striped">
-                            <tbody>
-                              <tr>
-                                <td style="width:25%"> ID </td>
-                                <td style="width:50%"> {{ data.CoreType_id }} </td>
-                              </tr>
-                              <tr>
-                                <td style="width:25%"> CoreTypeName </td>
-                                <td> {{ data.CoreTypeName }} </td>
-                              </tr>
-                              <tr>
-                                <td style="width:25%"> SortOrder </td>
-                                <td> {{ data.SortOrder }} </td>
-                              </tr>
-                              <tr>
-                                <td style="width:25%"> Comments </td>
-                                <td> {{ data.Comments }} </td>
-                              </tr>
-
-                              <tr>
-                                <td  style="width:25%"> Modified On </td>
-                                <td> {{ data.ModifiedOn }} </td>
-                              </tr>
-                              <tr>
-                                <td   style="width:25%"> Modified By </td>
-                                <td> {{ data.ModifiedBy }} </td>
-                              </tr>
-                             </tbody>
-                         </table>
-
-
-
-                      </div>
-                      <div class="modal-footer">
-                          <!-- <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn green">Save changes</button> -->
-
-                      </div>
-                  </div>
-                  <!-- /.modal-content -->
-              </div>
-              <!-- /.modal-dialog -->
-          </div>
-
 
           <div *ngIf="editform" class="portlet_body form">
               <!-- BEGIN FORM-->
@@ -188,16 +135,19 @@
 
                       <div class="form-group">
                           <label>Core Type Name<span class="red asterisk-validate ml-2">*</span></label>
-                          <input type="text" formControlName="CoreTypeName" class="form-control" placeholder="" >
+                          <input type="text" formControlName="CoreTypeName" class="form-control"
+                          placeholder="{{formdata.CoreTypeName}}" >
                       </div>
                       <div class="form-group">
                           <label>Sort Order</label>
-                          <input type="number" formControlName="SortOrder" class="form-control" placeholder="">
+                          <input type="number" formControlName="SortOrder" class="form-control"
+                          placeholder="{{formdata.SortOrder}}">
                       </div>
 
                       <div class="form-group">
                           <label>Comments</label>
-                          <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea>
+                          <textarea name="name" formControlName="Comments" rows="8" cols="80"
+                          class="form-control" placeholder="{{formdata.Comments}}"></textarea>
                       </div>
                   </div>
 

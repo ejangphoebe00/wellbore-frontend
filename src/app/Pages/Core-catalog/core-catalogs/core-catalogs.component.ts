@@ -27,7 +27,9 @@ export class CoreCatalogsComponent implements OnInit {
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  details:boolean= false;
   updatevalue: any;
+  catalogs:any;
 
   wellboreCoreIds: any;
   CoreTypeIds: any;
@@ -280,14 +282,83 @@ export class CoreCatalogsComponent implements OnInit {
       });
   
     }
+
+    onView(item: any) {
+      this.details = true;
+       this.id = item.CoreCatalog_id
+      localStorage.setItem("update-id", this.id);
+      this.captureCoreInstance();
+      this.catalogs = {
+        WellboreCore_id:item.WellboreCore_id,
+        CoreType:item.CoreType,
+        StoreIdentifier:item.StoreIdentifier,
+        CatalogCoreFromDepth:item.CatalogCoreFromDepth,
+        CatalogCoreToDepth:item.CatalogCoreToDepth,
+        CoreCatalogSecurityFlag_id:item.CoreCatalogSecurityFlag_id,
+        WasAnalysed_id:item.WasAnalysed_id,
+        TopStratLitho_id:item.TopStratLitho_id,
+        BottomStratLitho_id:item.BottomStratLitho_id,
+        CatalogueCorePictureName:item.CatalogueCorePictureName,
+        CataloguePictureSoftcopyPath:item.CataloguePictureSoftcopyPath,
+        CataloguePictureHyperlink:item.CataloguePictureHyperlink,
+        CatPictureUploadDate:item.CatPictureUploadDate,
+        CatalogueReportSoftcopyPath:item.CatalogueReportSoftcopyPath,
+        CatalogueReportHyperlink:item.CatalogueReportHyperlink,
+        CatReportUploadDate:item.CatReportUploadDate,
+        CatalogReportFormat_id:item.CatalogReportFormat_id,
+        CatalogReportFileSize:item.CatalogReportFileSize,
+        CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
+        CoreCatalogName:item.CoreCatalogName,
+        Comments:item.Comments, 
+      }
+    }
   
     onSelectEdit(selectedItem: any) {
       console.log("hide the elements");
       this.status = false;
+      this.details= false;
       this.editform = true;
-      this.id = selectedItem.CoreCatalog_id
-      localStorage.setItem("update-id", this.id);
-      console.log("Selected item Id: ", selectedItem.CoreCatalog_id);
+
+      // this.id = selectedItem.CoreCatalog_id
+      // localStorage.setItem("update-id", this.id);
+      // console.log("Selected item Id: ", selectedItem.CoreCatalog_id);
+      // this.http.get('http://127.0.0.1:8899/apiv1/get_core_catalog/' + this.id)
+      //   .subscribe(response => {
+      //     this.updatevalue = response;
+      //     this.formGroup.patchValue({
+
+      //       WellboreCore_id:this.stripFormValue(this.updatevalue.WellboreCore_id),
+      //       CoreType:this.stripFormValue(this.updatevalue.CoreType),
+      //       StoreIdentifier:this.stripFormValue(this.updatevalue.StoreIdentifier),
+      //       CatalogCoreFromDepth:this.stripFormValue(this.updatevalue.CatalogCoreFromDepth),
+      //       CatalogCoreToDepth:this.stripFormValue( this.updatevalue.CatalogCoreToDepth),
+      //       CoreCatalogSecurityFlag_id:this.stripFormValue(this.updatevalue.CoreCatalogSecurityFlag_id),
+      //       WasAnalysed_id:this.stripFormValue(this.updatevalue.WasAnalysed_id),
+      //       TopStratLitho_id:this.stripFormValue(this.updatevalue.TopStratLitho_id),
+      //       BottomStratLitho_id:this.stripFormValue(this.updatevalue.BottomStratLitho_id),
+      //       CatalogueCorePictureName:this.stripFormValue( this.updatevalue.CatalogueCorePictureName),
+      //       CataloguePictureSoftcopyPath:this.stripFormValue(this.updatevalue.CataloguePictureSoftcopyPath),
+      //       CataloguePictureHyperlink:this.stripFormValue(this.updatevalue.CataloguePictureHyperlink),
+      //       CatPictureUploadDate:this.stripFormValue(this.updatevalue.CatPictureUploadDate),
+      //       CatalogueReportSoftcopyPath:this.stripFormValue(this.updatevalue.CatalogueReportSoftcopyPath),
+      //       CatalogueReportHyperlink:this.stripFormValue(this.updatevalue.CatalogueReportHyperlink),
+      //       CatReportUploadDate:this.stripFormValue(this.updatevalue.CatReportUploadDate),
+      //       CatalogReportFormat_id:this.stripFormValue(this.updatevalue.CatalogReportFormat_id),
+      //       CatalogReportFileSize:this.stripFormValue(this.updatevalue.CatalogReportFileSize),
+      //       CatalogReportSecurityGrade_id:this.stripFormValue(this.updatevalue.CatalogReportSecurityGrade_id),
+      //       CoreCatalogName:this.stripFormValue(this.updatevalue.CoreCatalogName),
+      //       Comments:this.stripFormValue(this.updatevalue.Comments)
+         
+      //     });
+      //     console.log(this.updatevalue)
+      //   });
+
+    }
+
+    captureCoreInstance(){
+      // this.id = selectedItem.CoreCatalog_id
+      // localStorage.setItem("update-id", this.id);
+      // console.log("Selected item Id: ", selectedItem.CoreCatalog_id);
       this.http.get('http://127.0.0.1:8899/apiv1/get_core_catalog/' + this.id)
         .subscribe(response => {
           this.updatevalue = response;
@@ -318,6 +389,7 @@ export class CoreCatalogsComponent implements OnInit {
           });
           console.log(this.updatevalue)
         });
+
 
     }
 
