@@ -49,7 +49,10 @@
               "src/assets/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css",
               "src/assets/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-              "node_modules/datatables.net-buttons-dt/css/buttons.datatables.css"
+              "node_modules/datatables.net-buttons-dt/css/buttons.datatables.css",
+              "src/assets/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css",
+              "src/assets/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css",
+              "src/assets/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",
 
             ],
             "scripts": [
@@ -69,7 +72,12 @@
               "src/assets/assets/layouts/global/scripts/quick-nav.min.js",
               "src/assets/assets/global/scripts/app.min.js",
               "src/assets/assets/layouts/layout/scripts/layout.min.js",
-              "src/assets/assets/layouts/global/scripts/quick-sidebar.min.js"
+              "src/assets/assets/layouts/global/scripts/quick-sidebar.min.js",
+              "src/assets/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js",
+              "src/assets/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
+              "src/assets/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
+              "src/assets/assets/pages/scripts/components-date-time-pickers.min.js",
+
 
             ]
           },

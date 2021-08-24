@@ -13,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AddCompanyComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  today!: Date;
+  year!: Date;
 
   constructor(
     private authservice: ApiPipeService,
@@ -23,6 +25,8 @@ export class AddCompanyComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     // this.authservice.reload();
+    this.today = new Date(Date.now())
+
   }
 
   initForm(){
@@ -91,7 +95,7 @@ export class AddCompanyComponent implements OnInit {
   addCompanyDetails(){
     console.log("tested")
     if(this.formGroup.valid){
-      // Object.keys(this.formGroup.value).forEach((key) => (this.formGroup.value[key] == null) && delete this.formGroup.value[key]);
+      // Object.keys(this.formGroup.value).forEach((key) => (this.formGroup.value[key] == null) && (this.formGroup.value[key]=""));
       console.log(this.formGroup.value)
       this.authservice.addCompany(this.formGroup.value).subscribe(result =>{
         console.log(result.message)

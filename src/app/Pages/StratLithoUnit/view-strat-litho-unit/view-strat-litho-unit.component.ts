@@ -38,6 +38,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
   userEmail: any;
   loggedin: any;
   data: any;
+  formdata: any;
 
 
 
@@ -193,7 +194,10 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     this.http.get('http://127.0.0.1:8899/apiv1/get_strat_litho_unit/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue({
+        this.formdata = response;
+        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
+
+        this.formGroup.setValue({
           PAUID:this.updatevalue.PAUID,
           StratLithoName:this.updatevalue.StratLithoName,
           ReserviorUnit:this.updatevalue.ReserviorUnit,

@@ -34,6 +34,7 @@
                             </div>
                         </div> -->
                     <!-- </div> -->
+
                     <div class="portlet-body form">
                       <!-- <form role="form"> -->
                         <form [formGroup]="formGroup" (ngSubmit)="addCompanyDetails()" ngNativeValidate>
@@ -149,7 +150,31 @@
                                 </div>
                                 <div class="form-group">
                                     <label>NSD Qualification Date</label>
-                                    <input type="datetime-local" class="form-control" formControlName="NSDQualificationDate">
+                                    <input  type="datetime-local" max="{{today | date:'YYYY/MM/dd HH:mm'}}"
+                                    class="form-control" formControlName="NSDQualificationDate">
+                                    <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy"
+                                    data-date-end-date="0d">
+                                        <input type="text" class="form-control" readonly>
+                                        <span class="input-group-btn">
+                                            <button class="btn default" type="button">
+                                                <i class="fa fa-calendar"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label class="control-label col-md-6">Default Datetimepicker</label> -->
+                                    <div class="">
+                                        <div class="input-group date form_datetime form_datetime bs-datetime">
+                                            <input type="text" size="16" class="form-control">
+                                            <span class="input-group-addon">
+                                                <button class="btn default date-set" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>NSD Qualification Year</label>
@@ -311,3 +336,23 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
+
+<script>
+  var today = new Date()
+  var dd = today.getDate();
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullyear();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  if(dd<10){
+    dd='0'+dd
+  }
+  if(mm<10){
+    mm='0'+mm
+  }
+  today = yyyy+'-'+mm+'-'+dd+" "+h+":"+m+":"+s;
+  document.getElementId("date").max = today;
+  console.log(today)
+  console.log(the date ....)
+</script>
