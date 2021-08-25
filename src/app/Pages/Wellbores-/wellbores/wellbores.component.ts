@@ -34,6 +34,8 @@ export class WellboresComponent implements OnInit {
   role: any;
   userEmail: any;
   loggedin: any;
+  details: boolean = false;
+  wells:any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -139,13 +141,145 @@ export class WellboresComponent implements OnInit {
 
   }
 
+  More(item: any) {
+    this.details = true;
+    this.id = item.Wellbore_id
+    localStorage.setItem("update-id", this.id);
+    console.log("Selected item Id: ", item.Wellbore_id);
+    this.captureWellsInstance();
+    this.wells = {
+
+      PAUID:item.PAUID,
+      WellboreOfficialName:item.WellboreOfficialName,
+      WellboreLocalName:item.WellboreLocalName,
+      WellboreAliasName:item.WellboreAliasName,
+      WellboreSpudDate:item.WellboreSpudDate,
+      SpudYear:item.SpudYear,
+      WellboreType_id:item.WellboreType_id,
+      InitialWellborePurpose_id:item.InitialWellborePurpose_id,
+      WellborePurpose_id:item.WellborePurpose_id,
+      PurposeChangeDate:item.PurposeChangeDate,
+      Well_id:item.Wellbore_id,
+      Prospect_id:item.Prospect_id,
+      Discovery_id:item.Discovery_id,
+      WellboreContent_id:item.WellboreContent_id,
+      WellboreStatus_id:item.WellboreStatus_id,
+      WellboreResponsibleLicence_id:item.WellboreResponsibleLicence_id,
+      LicenseOperatorCompany_id:item.LicenseOperatorCompany_id,
+      DrillingContractorCompany_id:item.DrillingContractorCompany_id,
+      WellBoreRigName:item.WellBoreRigName,
+      Basin_id:item.Basin_id,
+      FormerExplAreaName:item.FormerExplAreaName,
+      SeismicLine:item.SeismicLine,
+      RotaryTableElavation:item.RotaryTableElavation,
+      GroundLevelElavation:item.GroundLevelElavation,
+      TD_MD:item.TD_MD,
+      TD_TVD:item.TD_TVD,
+      TD_Date:item.TD_Date,
+      CoreContractor_id:item.CoreContractor_id,
+      RCI_Taken_id:item.RCI_Taken_id,
+      MDT_Done_id:item.MDT_Done_id,
+      FET_Done_id:item.FET_Done_id,
+      WFTContractor:item.WFTContractor,
+      DST_Done_id:item.DST_Done_id,
+      ManifoldFlowTested_id:item.ManifoldFlowTested_id,
+      DST_Contractor_id:item.DST_Contractor_id,
+      HasPetrophysicalLogs_id:item.HasPetrophysicalLogs_id,
+      PetrophysicalContractor_id:item.PetrophysicalContractor_id,
+      TopBasementMD:item.TopBasementMD,
+      TopBasementTVD:item.TopBasementTVD,
+      WellboreTestStatus:item.WellboreTestStatus,
+      PlannedWellboreCost:item.PlannedWellboreCost,
+      ActualWellboreCost:item.ActualWellboreCost,
+      WellboreTestCost:item.WellboreTestCost,
+      CompletionDate:item.CompletionDate,
+      What3WordWellboreLocation:item.What3WordWellboreLocation,
+      DevelopmentAreaName:item.DevelopmentAreaName,
+      Comments:item.Comments,
+      LocationPictureName:item.LocationPictureName,
+      LocationPicture:item.LocationPicture,
+      LocationPictureSoftcopyPath:item.LocationPictureSoftcopyPath,
+      LocationPictureHyperlink:item.LocationPictureHyperlink,
+      WellboreMapSoftcopyPath:item.WellboreMapSoftcopyPath,
+      WellboreMapHyperlink:item.WellboreMapHyperlink,
+      MapPortalWellboreMapLink:item.MapPortalWellboreMapLink,
+      WellboreFactsiteUrl:item.WellboreFactsiteUrl
+    }
+  }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
+    this.details= false;
     this.editform = true;
-    this.id = selectedItem.Wellbore_id
-    localStorage.setItem("update-id", this.id);
-    console.log("Selected item Id: ", selectedItem.Wellbore_id);
+   
+
+    // this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore/' + this.id)
+    //   .subscribe(response => {
+    //     this.updatevalue = response;
+    //     this.formGroup.patchValue({   
+    //       PAUID:this.authservice.stripFormValue(this.updatevalue.PAUID),
+    //       WellboreOfficialName:this.authservice.stripFormValue(this.updatevalue.WellboreOfficialName),
+    //       WellboreLocalName:this.authservice.stripFormValue(this.updatevalue.WellboreLocalName),
+    //       WellboreAliasName:this.authservice.stripFormValue(this.updatevalue.WellboreAliasName),
+    //       WellboreSpudDate:this.authservice.stripFormValue(this.updatevalue.WellboreSpudDate),
+    //       WellboreType_id:this.authservice.stripFormValue(this.updatevalue.WellboreType_id),
+    //       InitialWellborePurpose_id:this.authservice.stripFormValue(this.updatevalue.InitialWellborePurpose_id),
+    //       WellborePurpose_id:this.authservice.stripFormValue(this.updatevalue.WellborePurpose_id),
+    //       PurposeChangeDate:this.authservice.stripFormValue(this.updatevalue.PurposeChangeDate),
+    //       Well_id:this.authservice.stripFormValue(this.updatevalue.Well_id),
+    //       Prospect_id:this.authservice.stripFormValue(this.updatevalue.Prospect_id),
+    //       Discovery_id:this.authservice.stripFormValue(this.updatevalue.Discovery_id),
+    //       WellboreContent_id:this.authservice.stripFormValue(this.updatevalue.WellboreContent_id),
+    //       WellboreStatus_id:this.authservice.stripFormValue(this.updatevalue.WellboreStatus_id),
+    //       WellboreResponsibleLicence_id:this.authservice.stripFormValue(this.updatevalue.WellboreResponsibleLicence_id),
+    //       LicenseOperatorCompany_id:this.authservice.stripFormValue(this.updatevalue.LicenseOperatorCompany_id),
+    //       DrillingContractorCompany_id:this.authservice.stripFormValue(this.updatevalue.DrillingContractorCompany_id),
+    //       WellBoreRigName:this.authservice.stripFormValue(this.updatevalue.WellBoreRigName),
+    //       Basin_id:this.authservice.stripFormValue(this.updatevalue.Basin_id),
+    //       FormerExplAreaName:this.authservice.stripFormValue(this.updatevalue.FormerExplAreaName),
+    //       SeismicLine:this.authservice.stripFormValue(this.updatevalue.SeismicLine),
+    //       RotaryTableElavation:this.authservice.stripFormValue(this.updatevalue.RotaryTableElavation),
+    //       GroundLevelElavation:this.authservice.stripFormValue(this.updatevalue.GroundLevelElavation),
+    //       TD_MD:this.authservice.stripFormValue(this.updatevalue.TD_MD),
+    //       TD_TVD:this.authservice.stripFormValue(this.updatevalue.TD_TVD),
+    //       TD_Date:this.authservice.stripFormValue(this.updatevalue.TD_Date),
+    //       CoreContractor_id:this.authservice.stripFormValue(this.updatevalue.CoreContractor_id),
+    //       RCI_Taken_id:this.authservice.stripFormValue(this.updatevalue.RCI_Taken_id),
+    //       MDT_Done_id:this.authservice.stripFormValue(this.updatevalue.MDT_Done_id),
+    //       FET_Done_id:this.authservice.stripFormValue(this.updatevalue.FET_Done_id),
+    //       WFTContractor:this.authservice.stripFormValue(this.updatevalue.WFTContractor),
+    //       DST_Done_id:this.authservice.stripFormValue(this.updatevalue.DST_Done_id),
+    //       ManifoldFlowTested_id:this.authservice.stripFormValue(this.updatevalue.ManifoldFlowTested_id),
+    //       DST_Contractor_id:this.authservice.stripFormValue(this.updatevalue.DST_Contractor_id),
+    //       HasPetrophysicalLogs_id:this.authservice.stripFormValue(this.updatevalue.HasPetrophysicalLogs_id),
+    //       PetrophysicalContractor_id:this.authservice.stripFormValue(this.updatevalue.PetrophysicalContractor_id),
+    //       TopBasementMD:this.authservice.stripFormValue(this.updatevalue.TopBasementMD),
+    //       TopBasementTVD:this.authservice.stripFormValue(this.updatevalue.TopBasementTVD),
+    //       WellboreTestStatus:this.authservice.stripFormValue(this.updatevalue.WellboreTestStatus),
+    //       PlannedWellboreCost:this.authservice.stripFormValue(this.updatevalue.PlannedWellboreCost),
+    //       ActualWellboreCost:this.authservice.stripFormValue(this.updatevalue.ActualWellboreCost),
+    //       WellboreTestCost:this.authservice.stripFormValue(this.updatevalue.WellboreTestCost),
+    //       CompletionDate:this.authservice.stripFormValue(this.updatevalue.CompletionDate),
+    //       What3WordWellboreLocation:this.authservice.stripFormValue(this.updatevalue.What3WordWellboreLocation),
+    //       DevelopmentAreaName:this.authservice.stripFormValue(this.updatevalue.DevelopmentAreaName),
+    //       Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
+    //       LocationPictureName:this.authservice.stripFormValue(this.updatevalue.LocationPictureName),
+    //       LocationPicture:this.authservice.stripFormValue(this.updatevalue.LocationPicture),
+    //       LocationPictureSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.LocationPictureSoftcopyPath),
+    //       LocationPictureHyperlink:this.authservice.stripFormValue(this.updatevalue.LocationPictureHyperlink),
+    //       WellboreMapSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.WellboreMapSoftcopyPath),
+    //       WellboreMapHyperlink:this.authservice.stripFormValue(this.updatevalue.WellboreMapHyperlink),
+    //       MapPortalWellboreMapLink:this.authservice.stripFormValue(this.updatevalue.MapPortalWellboreMapLink),
+    //       WellboreFactsiteUrl:this.authservice.stripFormValue(this.updatevalue.WellboreFactsiteUrl)
+    //     });
+    //     console.log(this.updatevalue)
+    //   });
+
+
+  }
+
+  captureWellsInstance() {
     this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
@@ -208,8 +342,7 @@ export class WellboresComponent implements OnInit {
         console.log(this.updatevalue)
       });
 
-
-  }
+  }  
 
   navigateBack() {
     // this.router.navigate(['/web-security-levels']);

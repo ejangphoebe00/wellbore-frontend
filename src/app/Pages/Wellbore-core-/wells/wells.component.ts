@@ -24,6 +24,7 @@ export class WellsComponent implements OnInit {
   status: boolean = true;
   editform: boolean = false;
   updatevalue: any;
+  wells:any;
 
   users: any = [];
   role:any;
@@ -149,6 +150,36 @@ export class WellsComponent implements OnInit {
         WellboreCoreName:new FormControl(),
         Comments:new FormControl()
       });
+    }
+
+    onView(item: any) {
+      this.details = true;
+      this.id = item.CoreCatalog_id
+      localStorage.setItem("update-id", this.id);
+      this.captureWellsInstance();
+      this.wells = {
+        WellboreCore_id:item.WellboreCore_id,
+        CoreType:item.CoreType,
+        StoreIdentifier:item.StoreIdentifier,
+        CatalogCoreFromDepth:item.CatalogCoreFromDepth,
+        CatalogCoreToDepth:item.CatalogCoreToDepth,
+        CoreCatalogSecurityFlag_id:item.CoreCatalogSecurityFlag_id,
+        WasAnalysed_id:item.WasAnalysed_id,
+        TopStratLitho_id:item.TopStratLitho_id,
+        BottomStratLitho_id:item.BottomStratLitho_id,
+        CatalogueCorePictureName:item.CatalogueCorePictureName,
+        CataloguePictureSoftcopyPath:item.CataloguePictureSoftcopyPath,
+        CataloguePictureHyperlink:item.CataloguePictureHyperlink,
+        CatPictureUploadDate:item.CatPictureUploadDate,
+        CatalogueReportSoftcopyPath:item.CatalogueReportSoftcopyPath,
+        CatalogueReportHyperlink:item.CatalogueReportHyperlink,
+        CatReportUploadDate:item.CatReportUploadDate,
+        CatalogReportFormat_id:item.CatalogReportFormat_id,
+        CatalogReportFileSize:item.CatalogReportFileSize,
+        CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
+        CoreCatalogName:item.CoreCatalogName,
+        Comments:item.Comments, 
+      }
     }
 
     addWellboreCoreProcess(){
