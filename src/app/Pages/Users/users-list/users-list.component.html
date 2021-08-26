@@ -77,12 +77,13 @@
                                             <td>{{post.LUID}}</td>
                                             <td>{{post.OrganisationName}}</td>
                                             <td>{{post.UserEmailAddress}}</td>
-                                            <td><i (click)="onSelect(post)"
-                                                    class="fa fa-trash-o"></i>
-                                                <span></span> <i
-                                                    (mousedown)="onEdit(post)"
-                                                    class="fa
-                                                    fa-angle-double-right"></i></td>
+                                            <td>
+                                               <button type="button" (click)="onSelect(post)" class="btn blue btn-sm">Deactivate</button>
+                                                <span></span> 
+                                                <a class="btn purple btn-sm" (click)="More(post)"
+                                                data-toggle="modal" href="#large"> More </a>
+                                              
+                                                </td>
                                             <!-- <td><button type="button" class="btn blue btn-outline">
                                                   <i class="fa fa-angle-double-right"></i></button>
                                                 <button type="button" class="btn red btn-outline">
@@ -704,6 +705,133 @@
                                 </div>
                             </form>
                         </div>
+
+                        <div *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                            <div class="caption font-red-sunglo">
+                                                    <i class="icon-user
+                                                    font-red-sunglo">&nbsp;</i>
+                                                    <span class="caption-subject
+                                                        bold uppercase">Users: </span>&nbsp;
+                                                        <span class="caption-subject
+                                                        bold uppercase">{{  listuser.FirstName}}</span>
+                                                </div>
+    
+                                            <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
+                                            <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
+                                        </div>
+                                        <div class="modal-body">
+                                          <table datatable
+                                          [dtOptions]="dtOptions"
+                                          [dtTrigger]="dtTrigger"
+                                          class="table table-striped
+                                          table-bordered table-hover"
+                                          id="sample_1" >
+                                              <tbody>
+                                                
+    
+                                                <tr>
+                                                    <th style="width:25%"> First Name</th>
+                                                    <td style="width:25%">{{listuser.FirstName}} </td>
+                                                    <th style="width:25%"> Middle Name </th>
+                                                    <td style="width:25%"> {{listuser.MiddleName}}</td>
+            
+                                                </tr>
+    
+                                                <tr>
+                                                        <th style="width:25%"> Surname</th>
+                                                        <td style="width:25%">{{listuser.Surname}} </td>
+                                                        <th style="width:25%"> LUID </th>
+                                                        <td style="width:25%"> {{listuser.LUID}}</td>
+                
+                                                 </tr>
+    
+                                                 <tr>
+                                                        <th style="width:25%">  Crane User Name</th>
+                                                        <td style="width:25%">{{listuser.CraneUserName}} </td>
+                                                        <th style="width:25%"> Login ID</th>
+                                                        <td style="width:25%"> {{listuser.LoginID}}</td>
+                
+                                                 </tr>
+    
+                                                 <tr>
+                                                        <th style="width:25%">Login ID Alias</th>
+                                                        <td style="width:25%">{{listuser.LoginIDAlias}} </td>
+                                                        <th style="width:25%"> User Category </th>
+                                                        <td style="width:25%"> {{listuser.UserCategory}}</td>
+                
+                                                 </tr>
+                                               <tr>
+                                                        <th style="width:25%">  User Company_id </th>
+                                                        <td style="width:25%">{{listuser.UserCompany_id}} </td>
+                                                        <th style="width:25%"> User Prems User Id </th>
+                                                        <td style="width:25%"> {{listuser.UserPremsUser_id}}</td>
+                
+                                                 </tr>
+    
+                                                <tr>
+                                                         <th style="width:25%"> User Staff Id</th>
+                                                         <td style="width:25%">{{listuser.UserStaff_id}} </td>
+                                                         <th style="width:25%"> Organisation Name </th>
+                                                         <td style="width:25%"> {{listuser.OrganisationName}}</td>
+                 
+                                                </tr>
+                                                <tr>
+                                                  <th style="width:25%">  User Email Address</th>
+                                                  <td style="width:25%">{{listuser.UserEmailAddress}} </td>
+                                                  <th style="width:25%"> User Security Level Id</th>
+                                                  <td style="width:25%"> {{listuser.UserSecurityLevel_id}}</td>
+          
+                                                  </tr>
+                                                  <tr>
+                                                        <th style="width:25%">  User WebSecurity Level Id</th>
+                                                        <td style="width:25%">{{listuser.UserWebSecurityLevel_id}} </td>
+                                                        <th style="width:25%"> User Nogtr WebSecurity Level Id</th>
+                                                        <td style="width:25%"> {{listuser.UserNogtrWebSecurityLevel_id}}</td>
+                
+                                                </tr>
+                                                <tr>
+                                                        <th style="width:25%"> User Prems WebSecurity Level Id</th>
+                                                        <td style="width:25%">{{listuser.UserPremsWebSecurityLevel_id}} </td>
+                                                        <th style="width:25%"> User Intranet Security Level Id</th>
+                                                        <td style="width:25%"> {{listuser.UserIntranetSecurityLevel_id}}</td>
+                
+                                                    </tr>
+                                                <tr>
+                                                        <th style="width:25%"> User Nsd WebSecurity Level Id</th>
+                                                        <td style="width:25%">{{listuser.UserNsdWebSecurityLevel_id}} </td>
+                                                        <th style="width:25%"> Comments</th>
+                                                        <td style="width:25%"> {{listuser.Comments}}</td>
+                
+                                                    </tr>
+                                                    <tr>
+                                                            <th style="width:25%"> Organisation User Name</th>
+                                                            <td style="width:25%">{{listuser.OrganisationUserName}} </td>
+                                                            <th style="width:25%"> Default Password</th>
+                                                            <td style="width:25%"> NA</td>
+                    
+                                                        </tr>    
+                                           
+                                                
+                                               </tbody>
+                                           </table>
+                                           <div class="clearfix"></div>
+                                           <button (click)="onEdit(listuser)" data-dismiss="modal"   class="btn blue">Edit</button>
+    
+                                       </div>
+                                       <!-- <div class="modal-footer">
+                                           <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                           <button type="button" class="btn green">Save changes</button>
+                                       </div> -->
+                                       <!-- /.modal-content -->
+                                   </div>
+                  
+                                   <!-- /.modal-dialog -->
+                               </div>
+                            </div>   
 
 
                         <!-- END EXAMPLE TABLE PORTLET-->
