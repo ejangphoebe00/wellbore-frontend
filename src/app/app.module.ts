@@ -43,6 +43,7 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
 import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
 import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
+import { DormantComponent } from './Pages/Users/dormant/dormant.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
     UpdatePasswordComponent,
     KfdaComponent,
     TdaComponent,
+    DormantComponent,
   ],
   imports: [
     BrowserModule,
