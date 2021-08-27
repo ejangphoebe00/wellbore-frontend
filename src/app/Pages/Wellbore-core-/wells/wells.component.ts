@@ -24,6 +24,7 @@ export class WellsComponent implements OnInit {
   status: boolean = true;
   editform: boolean = false;
   updatevalue: any;
+  wells:any;
 
   users: any = [];
   role:any;
@@ -37,6 +38,8 @@ export class WellsComponent implements OnInit {
     CoreBottomStratLitho_id: any;
     ReportFormat_id: any;
     CoreReportSecurityGrade_id: any;
+    details: boolean = false;
+    wellboreCores:any;
 
     constructor(
       private authservice: ApiPipeService,
@@ -147,6 +150,36 @@ export class WellsComponent implements OnInit {
         WellboreCoreName:new FormControl(),
         Comments:new FormControl()
       });
+    }
+
+    onView(item: any) {
+      this.details = true;
+      this.id = item.CoreCatalog_id
+      localStorage.setItem("update-id", this.id);
+      this.captureWellsInstance();
+      this.wells = {
+        WellboreCore_id:item.WellboreCore_id,
+        CoreType:item.CoreType,
+        StoreIdentifier:item.StoreIdentifier,
+        CatalogCoreFromDepth:item.CatalogCoreFromDepth,
+        CatalogCoreToDepth:item.CatalogCoreToDepth,
+        CoreCatalogSecurityFlag_id:item.CoreCatalogSecurityFlag_id,
+        WasAnalysed_id:item.WasAnalysed_id,
+        TopStratLitho_id:item.TopStratLitho_id,
+        BottomStratLitho_id:item.BottomStratLitho_id,
+        CatalogueCorePictureName:item.CatalogueCorePictureName,
+        CataloguePictureSoftcopyPath:item.CataloguePictureSoftcopyPath,
+        CataloguePictureHyperlink:item.CataloguePictureHyperlink,
+        CatPictureUploadDate:item.CatPictureUploadDate,
+        CatalogueReportSoftcopyPath:item.CatalogueReportSoftcopyPath,
+        CatalogueReportHyperlink:item.CatalogueReportHyperlink,
+        CatReportUploadDate:item.CatReportUploadDate,
+        CatalogReportFormat_id:item.CatalogReportFormat_id,
+        CatalogReportFileSize:item.CatalogReportFileSize,
+        CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
+        CoreCatalogName:item.CoreCatalogName,
+        Comments:item.Comments, 
+      }
     }
 
     addWellboreCoreProcess(){
@@ -315,58 +348,96 @@ export class WellsComponent implements OnInit {
     onSelectEdit(selectedItem: any) {
       console.log("hide the elements");
       this.status = false;
+      this.details= false;
       this.editform = true;
-      this.id = selectedItem.WellboreCore_id
-      localStorage.setItem("update-id", this.id);
-      console.log("Selected item Id: ", selectedItem.WellboreCore_id);
-      this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
-        .subscribe(response => {
-          this.updatevalue = response;
-          console.log("grab update value")
-          console.log(this.updatevalue)
-          this.formGroup.patchValue({
-         
-        Wellbore_id:this.authservice.stripFormValue(this.updatevalue.Wellbore_id),
-        CoreNumber:this.authservice.stripFormValue(this.updatevalue.CoreNumber),
-        CoringDate:this.authservice.stripFormValue(this.updatevalue.CoringDate),
-        WBCoringContractor_id:this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
-        CoreTopMDRT:this.authservice.stripFormValue(this.updatevalue.CoreTopMDRT),
-        CoreBtmMDRT:this.authservice.stripFormValue(this.updatevalue.CoreBtmMDRT),
-        CoreTopTVD:this.authservice.stripFormValue(this.updatevalue.CoreTopTVD),
-        CoreBtmTVD:this.authservice.stripFormValue(this.updatevalue.CoreBtmTVD),
-        CutLength:this.authservice.stripFormValue(this.updatevalue.CutLength),
-        CutLengthTVD:this.authservice.stripFormValue(this.updatevalue.CutLengthTVD),
-        RecoveredLength:this.authservice.stripFormValue(this.updatevalue.RecoveredLength),
-        CoreRecovery:this.authservice.stripFormValue(this.updatevalue.CoreRecovery),
-        CoreTopStratLitho_id:this.authservice.stripFormValue(this.updatevalue.CoreTopStratLitho_id),
-        CoreBottomStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLitho_id),
-        CorePictureSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CorePictureSoftcopyPath),
-        CorePictureHyperlink:this.authservice.stripFormValue(this.updatevalue.CorePictureHyperlink),
-        PictureUploadDate:this.authservice.stripFormValue(this.updatevalue.PictureUploadDate),
-        CoreReportSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CoreReportSoftcopyPath),
-        CoreReportHyperlink:this.authservice.stripFormValue(this.updatevalue.CoreReportHyperlink),
-        ReportUploadDate:this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
-        ReportFormat_id:this.authservice.stripFormValue(this.updatevalue.ReportFormat_id),
-        ReportFileSize:this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
-        CoreReportSecurityGrade_id:this.authservice.stripFormValue(this.updatevalue.CoreReportSecurityGrade_id),
-        ReportOpenDueDate:this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
-        ReportDocumentTitle:this.authservice.stripFormValue(this.updatevalue.ReportDocumentTitle),
-        ReportReceivedDate:this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),
-        ReportDocumentDate:this.authservice.stripFormValue(this.updatevalue.ReportDocumentDate),
-        ReportDocumentName:this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
-        WellboreCoreName:this.authservice.stripFormValue(this.updatevalue.WellboreCoreName),
-        Comments:this.authservice.stripFormValue(this.updatevalue.Comments)
-          });
-          console.log(this.updatevalue)
-        });
-  
-  
     }
+
+
+    More(item: any) {
+      this.details = true;
+      this.id = item.WellboreCore_id
+      localStorage.setItem("update-id", this.id);
+      console.log("Selected item Id: ", item.WellboreCore_id);
+      this.captureWellsInstance();
+      this.wellboreCores = {
+        Wellbore_id:item.Wellbore_id,
+        CoreNumber:item.CoreNumber,
+        CoringDate:item.CoringDate,
+        WBCoringContractor_id:item.WBCoringContractor_id,
+        CoreTopMDRT:item.CoreTopMDRT,
+        CoreBtmMDRT:item.CoreBtmMDRT,
+        CoreTopTVD:item.CoreTopTVD,
+        CoreBtmTVD:item.CoreBtmTVD,
+        CutLength:item.CutLength,
+        CutLengthTVD:item.CutLengthTVD,
+        RecoveredLength:item.RecoveredLength,
+        CoreRecovery:item.CoreRecovery,
+        CoreTopStratLitho_id:item.CoreTopStratLitho_id,
+        CoreBottomStratLitho_id:item.CoreBottomStratLitho_id,
+        CorePictureSoftcopyPath:item.CorePictureSoftcopyPath,
+        CorePictureHyperlink:item.CorePictureHyperlink,
+        PictureUploadDate:item.PictureUploadDate,
+        CoreReportSoftcopyPath:item.CoreReportSoftcopyPath,
+        CoreReportHyperlink:item.CoreReportHyperlink,
+        ReportUploadDate:item.ReportUploadDate,
+        ReportFormat_id:item.ReportFormat_id,
+        ReportFileSize:item.ReportFileSize,
+        CoreReportSecurityGrade_id:item.CoreReportSecurityGrade_id,
+        ReportOpenDueDate:item.ReportOpenDueDate,
+        ReportDocumentTitle:item.ReportDocumentTitle,
+        ReportReceivedDate:item.ReportReceived,
+        ReportDocumentDate:item.ReportDocumentDate,
+        ReportDocumentName:item.ReportDocumentName,
+        WellboreCoreName:item.WellboreCoreName,
+        Comments:item.Comments
+       
+      }
+    }
+  captureWellsInstance() {
+    this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
+      .subscribe(response => {
+        this.updatevalue = response;
+        console.log("grab update value")
+        console.log(this.updatevalue)
+        this.formGroup.patchValue({
+       
+      Wellbore_id:this.authservice.stripFormValue(this.updatevalue.Wellbore_id),
+      CoreNumber:this.authservice.stripFormValue(this.updatevalue.CoreNumber),
+      CoringDate:this.authservice.stripFormValue(this.updatevalue.CoringDate),
+      WBCoringContractor_id:this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
+      CoreTopMDRT:this.authservice.stripFormValue(this.updatevalue.CoreTopMDRT),
+      CoreBtmMDRT:this.authservice.stripFormValue(this.updatevalue.CoreBtmMDRT),
+      CoreTopTVD:this.authservice.stripFormValue(this.updatevalue.CoreTopTVD),
+      CoreBtmTVD:this.authservice.stripFormValue(this.updatevalue.CoreBtmTVD),
+      CutLength:this.authservice.stripFormValue(this.updatevalue.CutLength),
+      CutLengthTVD:this.authservice.stripFormValue(this.updatevalue.CutLengthTVD),
+      RecoveredLength:this.authservice.stripFormValue(this.updatevalue.RecoveredLength),
+      CoreRecovery:this.authservice.stripFormValue(this.updatevalue.CoreRecovery),
+      CoreTopStratLitho_id:this.authservice.stripFormValue(this.updatevalue.CoreTopStratLitho_id),
+      CoreBottomStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLitho_id),
+      CorePictureSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CorePictureSoftcopyPath),
+      CorePictureHyperlink:this.authservice.stripFormValue(this.updatevalue.CorePictureHyperlink),
+      PictureUploadDate:this.authservice.stripFormValue(this.updatevalue.PictureUploadDate),
+      CoreReportSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CoreReportSoftcopyPath),
+      CoreReportHyperlink:this.authservice.stripFormValue(this.updatevalue.CoreReportHyperlink),
+      ReportUploadDate:this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
+      ReportFormat_id:this.authservice.stripFormValue(this.updatevalue.ReportFormat_id),
+      ReportFileSize:this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
+      CoreReportSecurityGrade_id:this.authservice.stripFormValue(this.updatevalue.CoreReportSecurityGrade_id),
+      ReportOpenDueDate:this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
+      ReportDocumentTitle:this.authservice.stripFormValue(this.updatevalue.ReportDocumentTitle),
+      ReportReceivedDate:this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),
+      ReportDocumentDate:this.authservice.stripFormValue(this.updatevalue.ReportDocumentDate),
+      ReportDocumentName:this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
+      WellboreCoreName:this.authservice.stripFormValue(this.updatevalue.WellboreCoreName),
+      Comments:this.authservice.stripFormValue(this.updatevalue.Comments)
+        });
+        console.log(this.updatevalue)
+      });
+  }
   
     navigateBack() {
-      // this.router.navigate(['/web-security-levels']);
       this.authservice.reload();
-  
     }
   
     updateWellboreCoreProcess() {

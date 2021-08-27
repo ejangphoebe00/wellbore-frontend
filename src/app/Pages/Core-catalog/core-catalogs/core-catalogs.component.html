@@ -64,12 +64,14 @@
                                                     <td>{{post.CatalogCoreToDepth}}</td>
                                                     <td>{{post.CoreType}}</td>
                                                     <td>{{post.CatalogCoreFromDepth}}</td>
-                                                    <td><button type="button" (click)="onSelectEdit(post)"
+                                                    <td>
+                                                        <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
-                                                        <i class="fa fa-angle-double-right"></i></button>
+                                                        <i class="fa fa-angle-double-right"></i></button> -->
                                                       <button type="button" class="btn red btn-outline"
                                                       (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
-                                                      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+                                                      <a class="btn purple btn-outline bold" (click)="onView(post)"
+                                                      data-toggle="modal" href="#large"> More </a>
                                                     </td>
                                                   </tr>
 
@@ -87,6 +89,131 @@
                             <!-- END FORM-->
                         </div>
                     </div>
+
+
+
+                    <div *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <div class="caption font-red-sunglo">
+                                                <i class="fa fa-gears
+                                                font-red-sunglo"></i>
+                                                <span class="caption-subject
+                                                    bold uppercase">Core Catalogs</span>
+                                            </div>
+
+                                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
+                                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
+                                    </div>
+                                    <div class="modal-body">
+                                      <table class="table table-bordered table-striped">
+                                          <tbody>
+                                            <tr>
+                                                <td style="width:25%"> Wellbore Core Id</td>
+                                                <td style="width:25%">{{catalogs.WellboreCore_id}} </td>
+                                                <td style="width:25%"> CoreType </td>
+                                                <td style="width:25%"> {{catalogs.CoreType}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Store Identifier</td>
+                                                <td style="width:25%">{{catalogs.StoreIdentifier}} </td>
+                                                <td style="width:25%"> Catalog Core From Depth </td>
+                                                <td style="width:25%"> {{catalogs.CatalogCoreFromDepth}}</td>
+        
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width:25%"> Catalog Core To Depth</td>
+                                                <td style="width:25%">{{catalogs.CatalogCoreToDepth}} </td>
+                                                <td style="width:25%"> CoreCatalog Security Flag Id </td>
+                                                <td style="width:25%"> {{catalogs.CoreCatalogSecurityFlag_id}}</td>
+        
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width:25%"> Was Analysed Id</td>
+                                                <td style="width:25%">{{catalogs.WasAnalysed_id}} </td>
+                                                <td style="width:25%"> TopStratLitho Id </td>
+                                                <td style="width:25%"> {{catalogs.TopStratLitho_id}}</td>
+        
+                                            </tr>
+
+                                            <tr>
+                                                    <td style="width:25%">  BottomStratLitho Id</td>
+                                                    <td style="width:25%">{{catalogs.BottomStratLitho_id}} </td>
+                                                    <td style="width:25%"> CatalogueCore Picture Name </td>
+                                                    <td style="width:25%"> {{catalogs.CatalogueCorePictureName}}</td>
+            
+                                             </tr>
+
+                                             <tr>
+                                                    <td style="width:25%">  Catalogue Picture Softcopy Path</td>
+                                                    <td style="width:25%">{{catalogs.CataloguePictureSoftcopyPath}} </td>
+                                                    <td style="width:25%"> Catalogue Picture Hyperlink </td>
+                                                    <td style="width:25%"> {{catalogs.CataloguePictureHyperlink}}</td>
+            
+                                             </tr>
+
+                                             <tr>
+                                                    <td style="width:25%">  Catalogue Picture Upload Date</td>
+                                                    <td style="width:25%">{{catalogs.CatPictureUploadDate}} </td>
+                                                    <td style="width:25%"> Catalogue Report SoftCopy Path </td>
+                                                    <td style="width:25%"> {{catalogs.CatalogueReportSoftcopyPath}}</td>
+            
+                                             </tr>
+                                           <tr>
+                                                    <td style="width:25%">  Catalogue Report Hyperlink</td>
+                                                    <td style="width:25%">{{catalogs.CatalogueReportHyperlink}} </td>
+                                                    <td style="width:25%"> Cat Report Upload Date </td>
+                                                    <td style="width:25%"> {{catalogs.CatReportUploadDate}}</td>
+            
+                                             </tr>
+
+                                            <tr>
+                                                     <td style="width:25%">  Catalog Report Format_id</td>
+                                                     <td style="width:25%">{{catalogs.CatalogReportFormat_id}} </td>
+                                                     <td style="width:25%"> Cat Report Upload Date </td>
+                                                     <td style="width:25%"> {{catalogs.CatalogReportFileSize}}</td>
+             
+                                            </tr>
+                                            <tr>
+                                              <td style="width:25%">  Catalog Report Security Grade Id</td>
+                                              <td style="width:25%">{{catalogs.CatalogReportSecurityGrade_id}} </td>
+                                              <td style="width:25%"> Core Catalog Name</td>
+                                              <td style="width:25%"> {{catalogs.CoreCatalogName}}</td>
+      
+                                              </tr>
+                                              <tr>
+                                                    <td style="width:25%">  Comments</td>
+                                                    <td style="width:25%">{{catalogs.Comments}} </td>
+                                                    <!-- <td style="width:25%"> Core Catalog Name</td>
+                                                    <td style="width:25%"> {{catalogs.CoreCatalogName}}</td> -->
+            
+                                                </tr>
+                                       
+                                            
+                                           </tbody>
+                                       </table>
+                                       <div class="clearfix"></div>
+                                       <button (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
+
+                                   </div>
+                                   <!-- <div class="modal-footer">
+                                       <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                       <button type="button" class="btn green">Save changes</button>
+                                   </div> -->
+                                   <!-- /.modal-content -->
+                               </div>
+              
+                               <!-- /.modal-dialog -->
+                           </div>
+                        </div>
+
+
+                     
 
             <div *ngIf="editform" class="portlet light bordered">
                     <div class="portlet-body form">
@@ -266,35 +393,9 @@
                         </form>
                     </div>
                 </div>  
-                
-                
-
-                <ng-template #content let-modal>
-                        <div class="modal-header">
-                          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="form-group">
-                              <label for="dateOfBirth">Date of birth</label>
-                              <div class="input-group">
-                                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-                                <div class="input-group-append">
-                                  <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-                        </div>
-                      </ng-template> 
-
-
                 </div>
+
+
+                
                 <!-- END CONTENT BODY -->
             </div>

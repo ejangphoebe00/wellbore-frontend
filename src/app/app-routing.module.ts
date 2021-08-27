@@ -30,6 +30,7 @@ import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-c
 import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
 import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
+import { DormantComponent } from './Pages/Users/dormant/dormant.component';
 
 
 
@@ -65,8 +66,8 @@ const routes: Routes = [
       {path: 'update-password', component:  UpdatePasswordComponent},
       {path: 'king-fisher', component:  KfdaComponent},
       {path: 'tillenga', component:  TdaComponent},
-      
-      
+      {path: 'inactive', component:  DormantComponent}
+           
   ]
 },
 

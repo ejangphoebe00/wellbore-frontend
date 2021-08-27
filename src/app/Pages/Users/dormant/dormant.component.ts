@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,11 +8,11 @@ import { NgPopupsService } from 'ng-popups';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css']
+  selector: 'app-dormant',
+  templateUrl: './dormant.component.html',
+  styleUrls: ['./dormant.component.css']
 })
-export class UsersListComponent implements OnInit {
+export class DormantComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   updatevalue: any;

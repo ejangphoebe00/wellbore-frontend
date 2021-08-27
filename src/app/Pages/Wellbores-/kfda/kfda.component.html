@@ -69,11 +69,17 @@
                                                 <td>{{post.WellboreSpudDate}}</td>
                                                 <td>{{post.SpudYear}}</td>
                                                 <td>{{post.Well_id}}</td>
-                                                <td><button type="button" (click)="onSelectEdit(post)"
+                                                <td>
+                                                    <!-- <button type="button" (click)="onSelectEdit(post)"
                                                     class="btn blue btn-outline">
-                                                    <i class="fa fa-angle-double-right"></i></button>
-                                                  <button *ngIf="role" type="button" class="btn red btn-outline"
-                                                  (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button></td>
+                                                    <i class="fa fa-angle-double-right"></i></button> -->
+                                                  <button  type="button" class="btn red btn-outline"
+                                                  (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
+                                                  <a class="btn purple btn-outline
+                                                  bold" (click)="More(post)"
+                                                  data-toggle="modal"
+                                                  href="#large"> More </a>
+                                                </td>
                                                 <!-- <td><button type="button"
                                                   class="btn blue btn-outline">
                                                   <i class="fa fa-angle-double-right"></i></button>
@@ -569,7 +575,331 @@
                             </form>
                         </div>
                     </div>      
-
+                
+                    <div *ngIf="details" class="modal fade bs-modal-lg" id="large"
+                    tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true"></button>
+                                <div class="caption font-red-sunglo">
+                                    <i class="icon-briefcase
+                                        font-red-sunglo"></i>
+                                    <span class="caption-subject
+                                        bold uppercase">Wells</span>
+                                </div>
+        
+                                <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
+                                <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
+                            </div>
+                            <div class="modal-body">
+                                <table datatable
+                                [dtOptions]="dtOptions"
+                                [dtTrigger]="dtTrigger"
+                                class="table table-striped
+                                table-bordered table-hover"
+                                id="sample_1">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:25%"> PAUID</td>
+                                            <td style="width:25%">{{wells.PAUID}} </td>
+                                            <td style="width:25%"> Wellbore Official
+                                                Name </td>
+                                            <td style="width:25%">
+                                                {{wells.WellboreOfficialName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:25%"> Wellbore Local Name</td>
+                                            <td style="width:25%">{{wells.WellboreLocalName}}
+                                            </td>
+                                            <td style="width:25%"> Wellbore Alias Name
+                                            </td>
+                                            <td style="width:25%">
+                                                {{wells.WellboreAliasName}}</td>
+        
+                                        </tr>
+        
+                                        <tr>
+                                            <td style="width:25%"> Wellbore SpudDate</td>
+                                                <td style="width:25%">{{wells.WellboreSpudDate}}
+                                                </td>
+                                                <td style="width:25%"> Spud Year</td>
+                                                <td style="width:25%">
+                                                    {{wells.SpudYear}}</td>
+        
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Was Analysed Id</td>
+                                                <td style="width:25%">{{wells.WasAnalysed_id}}
+                                                </td>
+                                                <td style="width:25%"> TopStratLitho Id
+                                                </td>
+                                                <td style="width:25%">
+                                                    {{wells.TopStratLitho_id}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> WellboreType Id</td>
+                                                <td style="width:25%">{{wells.WellboreType_id}}
+                                                </td>
+                                                <td style="width:25%"> Initial Wellbore
+                                                    Purpose Id </td>
+                                                <td style="width:25%">
+                                                    {{wells.InitialWellborePurpose_id}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Wellbore Purpose
+                                                    Id</td>
+                                                <td style="width:25%">{{wells.WellborePurpose_id}}
+                                                </td>
+                                                <td style="width:25%"> Purpose Change
+                                                    Date </td>
+                                                <td style="width:25%">
+                                                    {{wells.PurposeChangeDate}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Well Id</td>
+                                                <td style="width:25%">{{wells.Well_id}}
+                                                </td>
+                                                <td style="width:25%"> Prospect Id </td>
+                                                <td style="width:25%">
+                                                    {{wells.Prospect_id}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Discovery Id</td>
+                                                <td style="width:25%">{{wells.Discovery_id}}
+                                                </td>
+                                                <td style="width:25%"> Wellbore Content
+                                                    Id </td>
+                                                <td style="width:25%">
+                                                    {{wells.WellboreContent_id}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Wellbore Status
+                                                    Id</td>
+                                                <td style="width:25%">{{wells.WellboreStatus_id}}
+                                                </td>
+                                                <td style="width:25%"> Wellbore
+                                                    Responsible Licence Id </td>
+                                                <td style="width:25%">
+                                                    {{wells.WellboreResponsibleLicence_id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Wellbore
+                                                    Responsible Licence Id</td>
+                                                <td style="width:25%">{{wells.WellboreResponsibleLicence_id}}
+                                                </td>
+                                                <td style="width:25%"> License Operator
+                                                    Company_id</td>
+                                                <td style="width:25%">
+                                                    {{wells.LicenseOperatorCompany_id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Drilling
+                                                    Contractor Company Id</td>
+                                                <td style="width:25%">{{wells.DrillingContractorCompany_id}}
+                                                </td>
+                                                <td style="width:25%"> WellBore Rig Name</td>
+                                                <td style="width:25%">
+                                                    {{wells.WellBoreRigName}}</td>
+        
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Basin Id</td>
+                                                <td style="width:25%">{{wells.Basin_id}}
+                                                </td>
+                                                <td style="width:25%"> Former Expl
+                                                    AreaName Licence Id </td>
+                                                <td style="width:25%">
+                                                    {{wells.FormerExplAreaName}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> SeismicLine</td>
+                                                <td style="width:25%">{{wells.SeismicLine}}
+                                                </td>
+                                                <td style="width:25%"> Rotary Table
+                                                    Elavation</td>
+                                                <td style="width:25%">
+                                                    {{wells.RotaryTableElavation}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Ground Level
+                                                    Elavation</td>
+                                                <td style="width:25%">{{wells.GroundLevelElavation}}
+                                                </td>
+                                                <td style="width:25%"> TD_MD</td>
+                                                <td style="width:25%"> {{wells.TD_MD}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> TD_TVD</td>
+                                                <td style="width:25%">{{wells.TD_TVD}}
+                                                </td>
+                                                <td style="width:25%"> TD_Date</td>
+                                                <td style="width:25%"> {{wells.TD_Date}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Core Contractor
+                                                    Id</td>
+                                                <td style="width:25%">{{wells.CoreContractor_id}}
+                                                </td>
+                                                <td style="width:25%"> RCI Taken Id
+                                                </td>
+                                                <td style="width:25%">
+                                                    {{wells.RCI_Taken_id}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> MDT_Done_id</td>
+                                                <td style="width:25%">{{wells.MDT_Done_id}}
+                                                </td>
+                                                <td style="width:25%"> FET Done Id</td>
+                                                <td style="width:25%">
+                                                    {{wells.FET_Done_id}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> WFT Contractor</td>
+                                                <td style="width:25%">{{wells.WFTContractor}}
+                                                </td>
+                                                <td style="width:25%"> DST_Done_id</td>
+                                                <td style="width:25%">
+                                                    {{wells.DST_Done_id}}</td>
+        
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Manifold Flow
+                                                    Tested_id</td>
+                                                <td style="width:25%">{{wells.ManifoldFlowTested_id}}
+                                                </td>
+                                                <td style="width:25%"> DST_Contractor Id</td>
+                                                <td style="width:25%">
+                                                    {{wells.DST_Contractor_id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Has Petrophysical
+                                                    Logs Id</td>
+                                                <td style="width:25%">{{wells.HasPetrophysicalLogs_id}}
+                                                </td>
+                                                <td style="width:25%"> Petrophysical
+                                                    Contractor_id</td>
+                                                <td style="width:25%">
+                                                    {{wells.PetrophysicalContractor_id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Top Basement MD</td>
+                                                <td style="width:25%">{{wells.TopBasementMD}}
+                                                </td>
+                                                <td style="width:25%">Top Basement TVD</td>
+                                                <td style="width:25%">
+                                                    {{wells.TopBasementTVD}}</td>
+        
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Wellbore Test
+                                                    Status</td>
+                                                <td style="width:25%">{{wells.WellboreTestStatus}}
+                                                </td>
+                                                <td style="width:25%"> Planned Wellbore
+                                                    Cost </td>
+                                                <td style="width:25%">
+                                                    {{wells.PlannedWellboreCost}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Actual Wellbore
+                                                    Cost</td>
+                                                <td style="width:25%">{{wells.ActualWellboreCost}}
+                                                </td>
+                                                <td style="width:25%"> Wellbore Test
+                                                    Cost</td>
+                                                <td style="width:25%">
+                                                    {{wells.WellboreTestCost}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Completion Date</td>
+                                                <td style="width:25%">{{wells.CompletionDate}}
+                                                </td>
+                                                <td style="width:25%">
+                                                    What3WordWellboreLocation</td>
+                                                <td style="width:25%">
+                                                    {{wells.What3WordWellboreLocation}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%">Development Area
+                                                    Name</td>
+                                                <td style="width:25%">{{wells.DevelopmentAreaName}}
+                                                </td>
+                                                <td style="width:25%"> Comments</td>
+                                                <td style="width:25%">
+                                                    {{wells.Comments}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Location Picture
+                                                    Name</td>
+                                                <td style="width:25%">{{wells.LocationPictureName}}
+                                                </td>
+                                                <td style="width:25%"> Location Picture</td>
+                                                <td style="width:25%">
+                                                    {{wells.LocationPicture}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> Location Picture
+                                                    SoftcopyPath</td>
+                                                <td style="width:25%">{{wells.LocationPictureSoftcopyPath}}
+                                                </td>
+                                                <td style="width:25%">Location Picture
+                                                    Hyperlink</td>
+                                                <td style="width:25%">
+                                                    {{wells.LocationPictureHyperlink}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td style="width:25%"> Wellbore Map
+                                                    SoftcopyPath</td>
+                                                <td style="width:25%">{{wells.WellboreMapSoftcopyPath}}
+                                                </td>
+                                                <td style="width:25%"> Wellbore MapHyper
+                                                    link </td>
+                                                <td style="width:25%">
+                                                    {{wells.WellboreMapHyperlink}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> MapPortal
+                                                    Wellbore MapLink</td>
+                                                <td style="width:25%">{{wells.MapPortalWellboreMapLink}} </td>
+                                                <td style="width:25%"> Wellbore
+                                                    FactsiteUrl</td>
+                                                <td style="width:25%">
+                                                    {{wells.WellboreFactsiteUrl}}</td>
+                                            </tr>
+        
+                                        </tbody>
+                                    </table>
+                                    <div class="clearfix"></div>
+                                    <button (click)="onSelectEdit(wells)" data-dismiss="modal" class="btn blue">Edit</button>
+                                </div>
+                                <!-- <div class="modal-footer">
+                                               <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                               <button type="button" class="btn green">Save changes</button>
+                                           </div> -->
+                                <!-- /.modal-content -->
+                            </div>
+        
+                            <!-- /.modal-dialog -->
+                        </div>
+                    </div>
+                     
             </div>
             <!-- END CONTENT BODY -->
         </div>

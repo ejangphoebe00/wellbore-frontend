@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
@@ -6,7 +6,11 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgPopupsService } from 'ng-popups';
+import {MatDialog} from '@angular/material/dialog'
+
+
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ModalManager } from 'ngb-modal'
 
 @Component({
   selector: 'app-core-catalogs',
@@ -14,7 +18,6 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./core-catalogs.component.css']
 })
 export class CoreCatalogsComponent implements OnInit {
-  closeResult = '';
   formGroup!: FormGroup;
   title!: string;
   role:any;
@@ -24,20 +27,20 @@ export class CoreCatalogsComponent implements OnInit {
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  details:boolean= false;
   updatevalue: any;
+  catalogs:any;
 
   wellboreCoreIds: any;
   CoreTypeIds: any;
   TopStratLitho_id: any;
-  // BottomStratLitho_id: any;
-  // CatalogReportFormat_id: any;
   CatalogSecurityFlag_ids: any;
-  // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
   users: any = [];
+  dialog: any;
 
 
     constructor(
@@ -46,7 +49,7 @@ export class CoreCatalogsComponent implements OnInit {
       private toastr: ToastrService,
       private http: HttpClient,
       private ngPopups: NgPopupsService,
-      private modalService: NgbModal
+      
     ) { }
 
     ngOnInit(): void {
@@ -279,14 +282,45 @@ export class CoreCatalogsComponent implements OnInit {
       });
   
     }
+
+    onView(item: any) {
+      this.details = true;
+      this.id = item.CoreCatalog_id
+      localStorage.setItem("update-id", this.id);
+      this.captureCoreInstance();
+      this.catalogs = {
+        WellboreCore_id:item.WellboreCore_id,
+        CoreType:item.CoreType,
+        StoreIdentifier:item.StoreIdentifier,
+        CatalogCoreFromDepth:item.CatalogCoreFromDepth,
+        CatalogCoreToDepth:item.CatalogCoreToDepth,
+        CoreCatalogSecurityFlag_id:item.CoreCatalogSecurityFlag_id,
+        WasAnalysed_id:item.WasAnalysed_id,
+        TopStratLitho_id:item.TopStratLitho_id,
+        BottomStratLitho_id:item.BottomStratLitho_id,
+        CatalogueCorePictureName:item.CatalogueCorePictureName,
+        CataloguePictureSoftcopyPath:item.CataloguePictureSoftcopyPath,
+        CataloguePictureHyperlink:item.CataloguePictureHyperlink,
+        CatPictureUploadDate:item.CatPictureUploadDate,
+        CatalogueReportSoftcopyPath:item.CatalogueReportSoftcopyPath,
+        CatalogueReportHyperlink:item.CatalogueReportHyperlink,
+        CatReportUploadDate:item.CatReportUploadDate,
+        CatalogReportFormat_id:item.CatalogReportFormat_id,
+        CatalogReportFileSize:item.CatalogReportFileSize,
+        CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
+        CoreCatalogName:item.CoreCatalogName,
+        Comments:item.Comments, 
+      }
+    }
   
     onSelectEdit(selectedItem: any) {
       console.log("hide the elements");
       this.status = false;
+      this.details= false;
       this.editform = true;
-      this.id = selectedItem.CoreCatalog_id
-      localStorage.setItem("update-id", this.id);
-      console.log("Selected item Id: ", selectedItem.CoreCatalog_id);
+    }
+
+    captureCoreInstance(){
       this.http.get('http://127.0.0.1:8899/apiv1/get_core_catalog/' + this.id)
         .subscribe(response => {
           this.updatevalue = response;
@@ -318,6 +352,7 @@ export class CoreCatalogsComponent implements OnInit {
           console.log(this.updatevalue)
         });
 
+
     }
 
     stripFormValue(formValue: any){
@@ -329,29 +364,10 @@ export class CoreCatalogsComponent implements OnInit {
       }
 
     }  
-
-    open(content: any) {
-      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
-    }
-  
-    private getDismissReason(reason: any): string {
-      if (reason === ModalDismissReasons.ESC) {
-        return 'by pressing ESC';
-      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-        return 'by clicking on a backdrop';
-      } else {
-        return `with: ${reason}`;
-      }
-    }
-  
+    
 
   navigateBack() {
-    // this.router.navigate(['/web-security-levels']);
     this.authservice.reload();
-
   }
+
 }

@@ -66,12 +66,18 @@
                                                     <td>{{post.CoreNumber}}</td>
                                                     <td>{{post.CoringDate}}</td>
                                                     <td>{{post.CoreTopMDRT}}</td>
-                                                    <td><button type="button" (click)="onSelectEdit(post)"
+                                                    <td>
+                                                        <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
-                                                        <i class="fa fa-angle-double-right"></i></button>
+                                                        <i class="fa fa-angle-double-right"></i></button> -->
                                                       <button  type="button" class="btn red btn-outline"
-                                                      (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button></td>
-                                                  </tr>
+                                                      (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
+                                                      <a class="btn purple btn-outline bold" (click)="More(post)"
+                                                      data-toggle="modal" href="#large"> More </a>
+                                                    
+                                                    </td>
+                                                      
+                                                    </tr>
 
 
                                                 </tbody>
@@ -87,6 +93,151 @@
                             <!-- END FORM-->
                         </div>
                     </div>
+
+                    <div *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <div class="caption font-red-sunglo">
+                                                <i class=" fa fa-share-square-o
+                                                font-red-sunglo"></i>
+                                                <span class="caption-subject
+                                                    bold uppercase">Wellbore Cores</span>
+                                            </div>
+
+                                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
+                                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
+                                    </div>
+                                    <div class="modal-body">
+                                      <table class="table table-bordered table-striped">
+                                          <tbody>
+                                            <tr>
+                                                <td style="width:25%"> Wellbore Id</td>
+                                                <td style="width:25%">{{wellboreCores.Wellbore_id}} </td>
+                                                <td style="width:25%"> CoreNumber </td>
+                                                <td style="width:25%"> {{wellboreCores.CoreNumber}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%"> CoringDate</td>
+                                                <td style="width:25%">{{wellboreCores.CoringDate}} </td>
+                                                <td style="width:25%"> WBCoringContractor Id </td>
+                                                <td style="width:25%"> {{wellboreCores.WBCoringContractor_id}}</td>
+        
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width:25%"> Core Top MDRT</td>
+                                                <td style="width:25%">{{wellboreCores.CoreTopMDRT}} </td>
+                                                <td style="width:25%"> CoreBtmMDRT</td>
+                                                <td style="width:25%"> {{wellboreCores.CoreBtmMDRT}}</td>
+        
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width:25%"> Core TopTVD</td>
+                                                <td style="width:25%">{{wellboreCores.CoreTopTVD}} </td>
+                                                <td style="width:25%"> Core BtmTVD </td>
+                                                <td style="width:25%"> {{wellboreCores.CoreBtmTVD}}</td>
+        
+                                            </tr>
+
+                                            <tr>
+                                                    <td style="width:25%"> BottomStratLitho Id</td>
+                                                    <td style="width:25%">{{wellboreCores.CutLength}} </td>
+                                                    <td style="width:25%"> CutLengthTVD </td>
+                                                    <td style="width:25%"> {{wellboreCores.CutLengthTVD}}</td>
+            
+                                             </tr>
+
+                                             <tr>
+                                                    <td style="width:25%">  Recovered Length</td>
+                                                    <td style="width:25%">{{wellboreCores.RecoveredLength}} </td>
+                                                    <td style="width:25%"> Core Recovery</td>
+                                                    <td style="width:25%"> {{wellboreCores.CoreRecovery}}</td>
+            
+                                             </tr>
+
+                                             <tr>
+                                                    <td style="width:25%">  CoreTop StratLitho Id</td>
+                                                    <td style="width:25%">{{wellboreCores.CoreTopStratLitho_id}} </td>
+                                                    <td style="width:25%"> CoreBottomStratLitho Id </td>
+                                                    <td style="width:25%"> {{wellboreCores.CoreBottomStratLitho_id}}</td>
+            
+                                             </tr>
+                                           <tr>
+                                                    <td style="width:25%">  Core Picture Soft Copy Path</td>
+                                                    <td style="width:25%">{{wellboreCores.CorePictureSoftcopyPath}} </td>
+                                                    <td style="width:25%"> Core Picture Hyperlink </td>
+                                                    <td style="width:25%"> {{wellboreCores.CoreReportHyperlink}}</td>
+            
+                                             </tr>
+
+                                            <tr>
+                                                     <td style="width:25%"> ReportUploadDate</td>
+                                                     <td style="width:25%">{{wellboreCores.ReportUploadDate}} </td>
+                                                     <td style="width:25%"> ReportFormat Id </td>
+                                                     <td style="width:25%"> {{wellboreCores.ReportFormat_id}}</td>
+             
+                                            </tr>
+                                            <tr>
+                                              <td style="width:25%">  Cat Report File Size</td>
+                                              <td style="width:25%">{{wellboreCores.ReportFileSize}} </td>
+                                              <td style="width:25%"> Core Report Security Grade Id</td>
+                                              <td style="width:25%"> {{wellboreCores.CoreReportSecurityGrade_id}}</td>
+      
+                                              </tr>
+                                              <tr>
+                                                    <td style="width:25%">  Report Open Due Date</td>
+                                                    <td style="width:25%">{{wellboreCores.ReportOpenDueDate}} </td>
+                                                    <td style="width:25%"> Report Document Title</td>
+                                                    <td style="width:25%"> {{wellboreCores.ReportDocumentTitle}}</td>
+            
+                                            </tr>
+                                            <tr>
+                                                    <td style="width:25%"> Report Received Date</td>
+                                                    <td style="width:25%">{{wellboreCores.ReportReceivedDate}} </td>
+                                                    <td style="width:25%"> Report Document Date</td>
+                                                    <td style="width:25%"> {{wellboreCores.ReportDocumentDate}}</td>
+            
+                                                </tr>
+                                            <tr>
+                                                    <td style="width:25%"> Report Document Name</td>
+                                                    <td style="width:25%">{{wellboreCores.ReportDocumentName}} </td>
+                                                    <td style="width:25%"> Wellbore Core Name</td>
+                                                    <td style="width:25%"> {{wellboreCores.WellboreCoreName}}</td>
+            
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:25%"> Comments</td>
+                                                        <td style="width:25%">{{wellboreCores.Comments}} </td>
+                                                        <!-- <td style="width:25%"> Wellbore Core Name</td>
+                                                        <td style="width:25%"> {{catalogs.WellboreCoreName}}</td> -->
+                
+                                                    </tr>    
+                                       
+                                            
+                                           </tbody>
+                                       </table>
+                                       <div class="clearfix"></div>
+                                       <button (click)="onSelectEdit(wellboreCores)" data-dismiss="modal"   class="btn blue">Edit</button>
+
+                                   </div>
+                                   <!-- <div class="modal-footer">
+                                       <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                       <button type="button" class="btn green">Save changes</button>
+                                   </div> -->
+                                   <!-- /.modal-content -->
+                               </div>
+              
+                               <!-- /.modal-dialog -->
+                           </div>
+                        </div>   
+
+                    
+
+
 
 
                     <div  *ngIf="editform" class="portlet light bordered">
@@ -362,7 +513,7 @@
                                         <div class="form-group">
                                             <label>Wellbore Core Name</label>
                                             <input
-                                                formControlName="ReportFileSize"
+                                                formControlName="WellboreCoreName"
                                                 type="text" class="form-control"
                                                 placeholder="">
                                         </div>
