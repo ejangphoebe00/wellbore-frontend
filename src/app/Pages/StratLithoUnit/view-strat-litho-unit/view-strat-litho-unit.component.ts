@@ -117,7 +117,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
   getStratLithoUnits() {
     this.http.get('http://127.0.0.1:8899/apiv1/get_strat_litho_units')
       .subscribe(posts => {
-        this.posts = posts;
+        this.posts = posts.filter(s =>s.);
         console.log(this.posts)
       });
   }

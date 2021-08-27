@@ -76,7 +76,7 @@
                                         <td> {{company.NSD_Number}}</td>
                                         <td> {{company.RegistrationNumber}}</td>
                                         <td> {{company.TINNumber}}</td>
-                                        <td> {{company.CompanyTelephone || ""}}</td>
+                                        <td> {{company.CompanyTelephone}}</td>
                                         <td><a class="btn purple btn-outline sbold"
                                           (click)="onView(company)" data-toggle="modal" href="#large">More</a>
                                         <button *ngIf="role" type="button"  (click)="onSelect(company)"
@@ -121,56 +121,56 @@
                                 <td  style="width:25%"> {{ data.PAUID }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyLongName</td>
+                                <td  style="width:25%">Company Long Name</td>
                                 <td  style="width:25%"> {{ data.CompanyLongName }} </td>
 
-                                <td  style="width:25%">CompanyShortName</td>
+                                <td  style="width:25%">Company Short Name</td>
                                 <td  style="width:25%"> {{ data.CompanyShortName }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%"> NSD_Number </td>
+                                <td  style="width:25%"> NSD Number </td>
                                 <td  style="width:25%"> {{ data.NSD_Number }} </td>
 
-                                <td  style="width:25%"> CompanyCategory_id </td>
+                                <td  style="width:25%"> Company Category Id </td>
                                 <td  style="width:25%"> {{ data.CompanyCategory_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CountryOfOrigin_id</td>
+                                <td  style="width:25%">Country Of Origin Id</td>
                                 <td  style="width:25%"> {{ data.CountryOfOrigin_id }} </td>
 
-                                <td  style="width:25%">CountryOfRegistration_id</td>
+                                <td  style="width:25%">Country Of Registration Id</td>
                                 <td  style="width:25%"> {{ data.CountryOfRegistration_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">RegistrationNumber</td>
+                                <td  style="width:25%">Registration Number</td>
                                 <td  style="width:25%"> {{ data.RegistrationNumber }} </td>
 
-                                <td  style="width:25%">TINNumber</td>
+                                <td  style="width:25%">TIN Number</td>
                                 <td  style="width:25%"> {{ data.TINNumber }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyTelephone</td>
+                                <td  style="width:25%">Company Telephone</td>
                                 <td  style="width:25%"> {{ data.CompanyTelephone }} </td>
 
-                                <td  style="width:25%">CompanyEmail</td>
+                                <td  style="width:25%">Company Email</td>
                                 <td  style="width:25%"> {{ data.CompanyEmail }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyWebsite</td>
+                                <td  style="width:25%">Company Website</td>
                                 <td  style="width:25%"> {{ data.CompanyWebsite }} </td>
 
-                                <td  style="width:25%">CompanyEntityType_id</td>
+                                <td  style="width:25%">Company Entity Type Id</td>
                                 <td  style="width:25%"> {{ data.CompanyEntityType_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyEntitySubType_id</td>
+                                <td  style="width:25%">Company Entity SubType Id</td>
                                 <td  style="width:25%"> {{ data.CompanyEntitySubType_id }} </td>
 
-                                <td  style="width:25%">CompanyMajorActivity_id</td>
+                                <td  style="width:25%">Company Major Activity Id</td>
                                 <td  style="width:25%"> {{ data.CompanyMajorActivity_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyActivityDivision_id</td>
+                                <td  style="width:25%">Company Activity Division Id</td>
                                 <td  style="width:25%"> {{ data.CompanyActivityDivision_id }} </td>
 
                                 <td  style="width:25%">CompanyActivityDivisionClass_id</td>
@@ -326,39 +326,41 @@
                       <div class="col-md-3">
                         <div class="form-group">
                             <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" formControlName="PAUID" class="form-control" placeholder="{{formdata.PAUID}}">
+                            <input type="text" formControlName="PAUID" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Long Name<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" formControlName="CompanyLongName" required class="form-control" placeholder="{{formdata.CompanyLongName}}">
+                            <input type="text" formControlName="CompanyLongName" required
+                            class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>Company Short Name</label>
-                            <input type="text" formControlName="CompanyShortName" class="form-control" placeholder="{{formdata.CompanyShortName}}">
+                            <input type="text" formControlName="CompanyShortName"
+                            class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>NSD Number<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" formControlName="NSD_Number" required class="form-control" placeholder="{{formdata.NSD_Number}}">
+                            <input type="text" formControlName="NSD_Number" required class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Category ID</label>
-                            <input type="number" formControlName="CompanyCategory_id" class="form-control" placeholder="{{formdata.CompanyCategory_id}}">
+                            <input type="number" formControlName="CompanyCategory_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Of Origin ID</label>
-                            <input type="number" formControlName="CountryOfOrigin_id" class="form-control" placeholder="{{formdata.CountryOfOrigin_id}}">
+                            <input type="number" formControlName="CountryOfOrigin_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Country Of Registration ID</label>
-                            <input type="number" formControlName="CountryOfRegistration_id" class="form-control" placeholder="{{formdata.CountryOfRegistration_id}}">
+                            <input type="number" formControlName="CountryOfRegistration_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Registration Number<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" formControlName="RegistrationNumber" required class="form-control" placeholder="{{formdata.RegistrationNumber}}">
+                            <input type="text" formControlName="RegistrationNumber" required class="form-control">
                         </div>
                         <div class="form-group">
                             <label>TIN Number<span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" formControlName="TINNumber" required class="form-control" placeholder="{{formdata.TINNumber}}">
+                            <input type="text" formControlName="TINNumber" required class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Telephone</label>
@@ -366,7 +368,7 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="CompanyTelephone" placeholder="{{formdata.CompanyTelephone}}"> </div>
+                                <input type="text" class="form-control" formControlName="CompanyTelephone"> </div>
                         </div>
                         <div class="form-group">
                             <label>Company Email</label>
@@ -374,7 +376,7 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="CompanyEmail" placeholder="{{formdata.CompanyEmail}}"> </div>
+                                <input type="text" class="form-control" formControlName="CompanyEmail"> </div>
                         </div>
                         <div class="form-group">
                             <label>Company Website</label>
@@ -383,45 +385,45 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-link"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="CompanyWebsite" placeholder="{{formdata.CompanyWebsite}}"> </div>
+                                <input type="text" class="form-control" formControlName="CompanyWebsite"> </div>
                         </div>
                         <div class="form-group">
                             <label>Company Entity Type ID</label>
-                            <input type="number" class="form-control" formControlName="CompanyEntityType_id" placeholder="{{formdata.CompanyEntityType_id}}">
+                            <input type="number" class="form-control" formControlName="CompanyEntityType_id">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                             <label>Company Entity Sub Type ID</label>
-                            <input type="number" formControlName="CompanyEntitySubType_id" class="form-control" placeholder="{{formdata.CompanyEntitySubType_id}}">
+                            <input type="number" formControlName="CompanyEntitySubType_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Major Activity ID</label>
-                            <input type="number" formControlName="CompanyMajorActivity_id" class="form-control" placeholder="{{formdata.CompanyMajorActivity_id}}">
+                            <input type="number" formControlName="CompanyMajorActivity_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Activity Division ID</label>
-                            <input type="number" formControlName="CompanyActivityDivision_id" class="form-control" placeholder="{{formdata.CompanyActivityDivision_id}}">
+                            <input type="number" formControlName="CompanyActivityDivision_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Activity Division Class ID</label>
-                            <input type="number" formControlName="CompanyActivityDivisionClass_id" class="form-control" placeholder="{{formdata.CompanyActivityDivisionClass_id}}">
+                            <input type="number" formControlName="CompanyActivityDivisionClass_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>  Company Activity Division Class Category ID</label>
-                            <input type="number" formControlName="CompanyActivityDivisionClassCategory_id" class="form-control" placeholder="{{formdata.CompanyActivityDivisionClassCategory_id}}">
+                            <input type="number" formControlName="CompanyActivityDivisionClassCategory_id" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>Business Nature Description</label>
-                            <input type="text" formControlName="BusinessNatureDescription" class="form-control" placeholder="{{formdata.BusinessNatureDescription}}">
+                            <input type="text" formControlName="BusinessNatureDescription" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Postal Address</label>
-                            <input type="text" formControlName="CompanyPostalAddress" class="form-control" placeholder="{{formdata.CompanyPostalAddress}}">
+                            <input type="text" formControlName="CompanyPostalAddress" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Physical Address</label>
-                            <input type="text" formControlName="CompanyPhysicalAddress" class="form-control" placeholder="{{formdata.CompanyPhysicalAddress}}">
+                            <input type="text" formControlName="CompanyPhysicalAddress" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Other Emails</label>
@@ -430,11 +432,11 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="CompanyOtherEmails" placeholder="{{formdata.CompanyOtherEmails}}"> </div>
+                                <input type="text" class="form-control" formControlName="CompanyOtherEmails"> </div>
                         </div>
                         <div class="form-group">
                             <label>NSD Qualification Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="NSDQualificationDate" placeholder="{{formdata.NSDQualificationDate">
+                            <input type="datetime-local" class="form-control" formControlName="NSDQualificationDate">
                         </div>
                         <div class="form-group">
                             <label>NSD Qualification Year</label>
@@ -442,11 +444,11 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="NSDQualificationYear" placeholder="{{formdata.NSDQualificationYear}}"> </div>
+                                <input type="text" class="form-control" formControlName="NSDQualificationYear"> </div>
                         </div>
                         <div class="form-group">
                             <label>Primary Contact Entity</label>
-                            <input type="text" formControlName="PrimaryContactEntity" class="form-control" placeholder="{{formdata.PrimaryContactEntity}}">
+                            <input type="text" formControlName="PrimaryContactEntity" class="form-control">
                         </div>
                       </div>
 
@@ -458,7 +460,7 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="ContactEntityEmail" placeholder="{{formdata.ContactEntityEmail}}"> </div>
+                                <input type="text" class="form-control" formControlName="ContactEntityEmail"> </div>
                         </div>
                         <div class="form-group">
                             <label>Contact Entity Telephone</label>
@@ -466,7 +468,7 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="ContactEntityTelephone" placeholder="{{formdata.ContactEntityTelephone}}"> </div>
+                                <input type="text" class="form-control" formControlName="ContactEntityTelephone"> </div>
                         </div>
                         <div class="form-group">
                             <label>Contact Entity Mobile</label>
@@ -474,58 +476,58 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="ContactEntityMobile" placeholder="{{formdata.ContactEntityMobile}}"> </div>
+                                <input type="text" class="form-control" formControlName="ContactEntityMobile"> </div>
                         </div>
                         <div class="form-group">
                             <label>Contact Designation</label>
-                            <input type="text" formControlName="ContactDesignation" class="form-control" placeholder="{{formdata.ContactDesignation}}">
+                            <input type="text" formControlName="ContactDesignation" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Operator Sort Order</label>
-                            <input type="text" formControlName="OperatorSortOrder" class="form-control" placeholder="{{formdata.OperatorSortOrder}}">
+                            <input type="text" formControlName="OperatorSortOrder" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Contractor Sort Order</label>
-                            <input type="text" formControlName="ContractorSortOrder" class="form-control" placeholder="{{formdata.ContractorSortOrder}}">
+                            <input type="text" formControlName="ContractorSortOrder" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>PAU Registration Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="PAURegistrationDate" placeholder="{{formdata.PAURegistrationDate}}">
+                            <input type="datetime-local" class="form-control" formControlName="PAURegistrationDate">
                         </div>
                         <div class="form-group">
                             <label>Crane NOGTRID</label>
-                            <input type="text" formControlName="CraneNOGTRID" class="form-control" placeholder="{{formdata.CraneNOGTRID}}">
+                            <input type="text" formControlName="CraneNOGTRID" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Temp NOGTRIPwd</label>
-                            <input type="text" formControlName="TempNOGTRIPwd" class="form-control" placeholder="{{formdata.TempNOGTRIPwd}}">
+                            <input type="text" formControlName="TempNOGTRIPwd" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Registration Status ID</label>
-                            <input type="text" formControlName="RegistrationStatus_id" class="form-control" placeholder="{{formdata.RegistrationStatus_id}}">
+                            <input type="text" formControlName="RegistrationStatus_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Classify As Ugandan ID</label>
-                            <input type="text" formControlName="ClassifyAsUgandan_id" class="form-control" placeholder="{{formdata.ClassifyAsUgandan_id}}">
+                            <input type="text" formControlName="ClassifyAsUgandan_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Primary Company Kind ID</label>
-                            <input type="text" formControlName="PrimaryCompanyKind_id" class="form-control" placeholder="{{formdata.PrimaryCompanyKind_id}}">
+                            <input type="text" formControlName="PrimaryCompanyKind_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Secondary Company Kind ID</label>
-                            <input type="text" formControlName="SecondaryCompanyKind_id" class="form-control" placeholder="{{formdata.SecondaryCompanyKind_id}}">
+                            <input type="text" formControlName="SecondaryCompanyKind_id" class="form-control">
                         </div>
                       </div>
 
                       <div class="col-md-3">
                         <div class="form-group">
                             <label>Other Company Kind ID</label>
-                            <input type="text" formControlName="OtherCompanyKind_id" class="form-control" placeholder="{{formdata.OtherCompanyKind_id}}">
+                            <input type="text" formControlName="OtherCompanyKind_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Group ID</label>
-                            <input type="text" formControlName="CompanyGroup_id" class="form-control" placeholder="{{formdata.CompanyGroup_id}}">
+                            <input type="text" formControlName="CompanyGroup_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Mobile</label>

@@ -231,13 +231,13 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formdata = response
-        console.log(response)
-        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
+        Object.entries(this.updatevalue).forEach(([key, value]) => { if (value == "None") {
+          value = null} Object.assign(this.formdata, {key:value}) });
 
-        console.log("New values")
+        console.log(response)
         console.log(this.formdata)
-        this.formGroup.setValue(
+
+        this.formGroup.patchValue(
           {
            Company_id: this.updatevalue.Company_id,
            PAUID: this.updatevalue.PAUID,
@@ -295,6 +295,11 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            PreviousLegalName: this.updatevalue.PreviousLegalName,
         });
         console.log(this.updatevalue)
+
+        // console.log("filtering 'None' values")
+        // Object.entries(this.formdata).forEach(([key, value]) => { if (value == "None") {
+        //   value = null}})
+        // console.log(this.formdata)
       });
 
 
