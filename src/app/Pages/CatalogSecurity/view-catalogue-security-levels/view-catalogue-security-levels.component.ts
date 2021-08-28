@@ -185,9 +185,9 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
         this.updatevalue = response;
 
         this.formGroup.patchValue({
-          CatalogSecurityFlagName:this.updatevalue.CatalogSecurityFlagName,
-          SortOrder:this.updatevalue.SortOrder,
-          Comments:this.updatevalue.Comments,
+          CatalogSecurityFlagName:this.authservice.stripFormValue(this.updatevalue.CatalogSecurityFlagName),
+          SortOrder:this.authservice.stripFormValue(this.updatevalue.SortOrder),
+          Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
         });
         console.log(this.updatevalue)
       });

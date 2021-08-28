@@ -190,9 +190,9 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
         // Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
 
         this.formGroup.patchValue({
-          CoreTypeName:this.updatevalue.CoreTypeName,
-          SortOrder:this.updatevalue.SortOrder,
-          Comments:this.updatevalue.Comments,
+          CoreTypeName:this.authservice.stripFormValue(this.updatevalue.CoreTypeName),
+          SortOrder:this.authservice.stripFormValue(this.updatevalue.SortOrder),
+          Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
         });
         console.log(this.updatevalue)
       });
