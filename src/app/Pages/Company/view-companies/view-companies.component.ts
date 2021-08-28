@@ -38,6 +38,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   loggedin: any;
   data:any;
   formdata:any;
+  result:any;
 
 
 
@@ -220,6 +221,17 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     }
   }
 
+  // formFilter(formValue:any){
+  //   if(formValue == "None"){
+  //     var oldValue = formValue
+  //     var other = ""
+  //     var newString = formValue.replace(formValue, other)
+  //     return newString
+  //
+  //     // formValue += "";
+  //   }
+  // }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
@@ -230,13 +242,17 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     console.log("Selected item Id: ", selectedItem.Company_id);
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
-        this.updatevalue = response;
-        Object.entries(this.updatevalue).forEach(([key, value]) => { if (value == "None") {
-          value = null} Object.assign(this.formdata, {key:value}) });
+        this.updatevalue = response
+        // Object.entries(this.updatevalue).forEach(([key, value]) => {
+        //   if (value == "None") {
+        //     value = null
+        //   }
+        //   Object.assign(this.formdata, {key:value})
+        // });
 
-        console.log(response)
-        console.log(this.formdata)
-
+        // console.log(response)
+        // console.log(this.formdata)
+      
         this.formGroup.patchValue(
           {
            Company_id: this.updatevalue.Company_id,

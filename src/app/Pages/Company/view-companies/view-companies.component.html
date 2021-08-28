@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet light portlet-fit bordered">
+                    <div class="portlet light bordered">
                         <div class="portlet-title">
                             <div class="caption font-red-sunglo">
                                 <i class="fa fa-institution font-red-sunglo"></i>
@@ -39,18 +39,7 @@
 
                         </div>
                         <div class="portlet-body">
-                            <div class="table-toolbar">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <!-- <div class="btn-group">
-                                            <button id="sample_editable_1_new" class="btn green"> Add New
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div> -->
-                                    </div>
 
-                                </div>
-                            </div>
                             <table datatable [dtOptions]="dtOptions"
                                              [dtTrigger]="dtTrigger"
                                              class="table table-striped
@@ -114,192 +103,192 @@
                             <tbody>
 
                               <tr>
-                                <td  style="width:25%">ID</td>
+                                <th  style="width:25%">ID</th>
                                 <td  style="width:25%"> {{ data.Company_id }} </td>
 
-                                <td  style="width:25%">PAUID</td>
+                                <th  style="width:25%">PAUID</th>
                                 <td  style="width:25%"> {{ data.PAUID }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Company Long Name</td>
+                                <th  style="width:25%">Company Long Name</th>
                                 <td  style="width:25%"> {{ data.CompanyLongName }} </td>
 
-                                <td  style="width:25%">Company Short Name</td>
+                                <th  style="width:25%">Company Short Name</th>
                                 <td  style="width:25%"> {{ data.CompanyShortName }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%"> NSD Number </td>
+                                <th  style="width:25%"> NSD Number </th>
                                 <td  style="width:25%"> {{ data.NSD_Number }} </td>
 
-                                <td  style="width:25%"> Company Category Id </td>
+                                <th  style="width:25%"> Company Category Id </th>
                                 <td  style="width:25%"> {{ data.CompanyCategory_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Country Of Origin Id</td>
+                                <th  style="width:25%">Country Of Origin Id</th>
                                 <td  style="width:25%"> {{ data.CountryOfOrigin_id }} </td>
 
-                                <td  style="width:25%">Country Of Registration Id</td>
+                                <th  style="width:25%">Country Of Registration Id</th>
                                 <td  style="width:25%"> {{ data.CountryOfRegistration_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Registration Number</td>
+                                <th  style="width:25%">Registration Number</th>
                                 <td  style="width:25%"> {{ data.RegistrationNumber }} </td>
 
-                                <td  style="width:25%">TIN Number</td>
+                                <th  style="width:25%">TIN Number</th>
                                 <td  style="width:25%"> {{ data.TINNumber }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Company Telephone</td>
+                                <th  style="width:25%">Company Telephone</th>
                                 <td  style="width:25%"> {{ data.CompanyTelephone }} </td>
 
-                                <td  style="width:25%">Company Email</td>
+                                <th  style="width:25%">Company Email</th>
                                 <td  style="width:25%"> {{ data.CompanyEmail }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Company Website</td>
+                                <th  style="width:25%">Company Website</th>
                                 <td  style="width:25%"> {{ data.CompanyWebsite }} </td>
 
-                                <td  style="width:25%">Company Entity Type Id</td>
+                                <th  style="width:25%">Company Entity Type Id</th>
                                 <td  style="width:25%"> {{ data.CompanyEntityType_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Company Entity SubType Id</td>
+                                <th  style="width:25%">Company Entity SubType Id</th>
                                 <td  style="width:25%"> {{ data.CompanyEntitySubType_id }} </td>
 
-                                <td  style="width:25%">Company Major Activity Id</td>
+                                <th  style="width:25%">Company Major Activity Id</th>
                                 <td  style="width:25%"> {{ data.CompanyMajorActivity_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">Company Activity Division Id</td>
+                                <th  style="width:25%">Company Activity Division Id</th>
                                 <td  style="width:25%"> {{ data.CompanyActivityDivision_id }} </td>
 
-                                <td  style="width:25%">CompanyActivityDivisionClass_id</td>
+                                <th  style="width:25%">Company Activity Division Class Id</th>
                                 <td  style="width:25%"> {{ data.CompanyActivityDivisionClass_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyActivityDivisionClassCategory_id</td>
+                                <th  style="width:25%">Company Activity Division Class Category Id</th>
                                 <td  style="width:25%"> {{ data.CompanyActivityDivisionClassCategory_id }} </td>
 
-                                <td  style="width:25%">BusinessNatureDescription</td>
+                                <th  style="width:25%">Business Nature Description</th>
                                 <td  style="width:25%"> {{ data.BusinessNatureDescription }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyPostalAddress</td>
+                                <th  style="width:25%">Company Postal Address</th>
                                 <td  style="width:25%"> {{ data.CompanyPostalAddress }} </td>
 
-                                <td  style="width:25%">CompanyPhysicalAddress</td>
+                                <th  style="width:25%">Company Physical Address</th>
                                 <td  style="width:25%"> {{ data.CompanyPhysicalAddress }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyOtherEmails</td>
+                                <th  style="width:25%">Company Other Emails</th>
                                 <td  style="width:25%"> {{ data.CompanyOtherEmails }} </td>
 
-                                <td  style="width:25%">NSDQualificationDate</td>
+                                <th  style="width:25%">NSD Qualification Date</th>
                                 <td  style="width:25%"> {{ data.NSDQualificationDate }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">NSDQualificationYear</td>
+                                <th  style="width:25%">NSD Qualification Year</th>
                                 <td  style="width:25%"> {{ data.NSDQualificationYear }} </td>
 
-                                <td  style="width:25%">PrimaryContactEntity</td>
+                                <th  style="width:25%">Primary Contact Entity</th>
                                 <td  style="width:25%"> {{ data.PrimaryContactEntity }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">ContactEntityEmail</td>
+                                <th  style="width:25%">Contact Entity Email</th>
                                 <td  style="width:25%"> {{ data.ContactEntityEmail }} </td>
 
-                                <td  style="width:25%">ContactEntityTelephone</td>
+                                <th  style="width:25%">Contact Entity Telephone</th>
                                 <td  style="width:25%"> {{ data.ContactEntityTelephone }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">ContactEntityMobile</td>
+                                <th  style="width:25%">Contact Entity Mobile</th>
                                 <td  style="width:25%"> {{ data.ContactEntityMobile }} </td>
 
-                                <td  style="width:25%">ContactDesignation</td>
+                                <th  style="width:25%">Contact Designation</th>
                                 <td  style="width:25%"> {{ data.ContactDesignation }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">OperatorSortOrder</td>
+                                <th  style="width:25%">Operator SortOrder</th>
                                 <td  style="width:25%"> {{ data.OperatorSortOrder }} </td>
 
-                                <td  style="width:25%">ContractorSortOrder</td>
+                                <th  style="width:25%">Contractor SortOrder</th>
                                 <td  style="width:25%"> {{ data.ContractorSortOrder }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">PAURegistrationDate</td>
+                                <th  style="width:25%">PAU Registration Date</th>
                                 <td  style="width:25%"> {{ data.PAURegistrationDate }} </td>
 
-                                <td  style="width:25%">CraneNOGTRID</td>
+                                <th  style="width:25%">Crane NOGTRID</th>
                                 <td  style="width:25%"> {{ data.CraneNOGTRID }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">TempNOGTRIPwd</td>
+                                <th  style="width:25%">Temp NOGTRIPwd</th>
                                 <td  style="width:25%"> {{ data.TempNOGTRIPwd }} </td>
 
-                                <td  style="width:25%">RegistrationStatus_id</td>
+                                <th  style="width:25%">Registration Status Id</th>
                                 <td  style="width:25%"> {{ data.RegistrationStatus_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">ClassifyAsUgandan_id</td>
+                                <th  style="width:25%">Classify As Ugandan Id</th>
                                 <td  style="width:25%"> {{ data.ClassifyAsUgandan_id }} </td>
 
-                                <td  style="width:25%">Comments</td>
+                                <th  style="width:25%">Comments</th>
                                 <td  style="width:25%"> {{ data.Comments }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">PrimaryCompanyKind_id</td>
+                                <th  style="width:25%">Primary Company Kind Id</th>
                                 <td  style="width:25%"> {{ data.PrimaryCompanyKind_id }} </td>
 
-                                <td  style="width:25%">SecondaryCompanyKind_id</td>
+                                <th  style="width:25%">Secondary Company Kind Id</th>
                                 <td  style="width:25%"> {{ data.SecondaryCompanyKind_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">OtherCompanyKind_id</td>
+                                <th  style="width:25%">Other CompanyKind Id</th>
                                 <td  style="width:25%"> {{ data.OtherCompanyKind_id }} </td>
 
-                                <td  style="width:25%">CompanyGroup_id</td>
+                                <th  style="width:25%">Company Group Id</th>
                                 <td  style="width:25%"> {{ data.CompanyGroup_id }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">CompanyMobile</td>
+                                <th  style="width:25%">Company Mobile</th>
                                 <td  style="width:25%"> {{ data.CompanyMobile }} </td>
 
-                                <td  style="width:25%">CompanyFax</td>
+                                <th  style="width:25%">Company Fax</th>
                                 <td  style="width:25%"> {{ data.CompanyFax }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">ContactEntityFax</td>
+                                <th  style="width:25%">Contact Entity Fax</th>
                                 <td  style="width:25%"> {{ data.ContactEntityFax }} </td>
 
-                                <td  style="width:25%">NSD_FromDate</td>
+                                <th  style="width:25%">NSD From Date</th>
                                 <td  style="width:25%"> {{ data.NSD_FromDate }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">NSD_ToDate</td>
+                                <th  style="width:25%">NSD To Date</th>
                                 <td  style="width:25%"> {{ data.NSD_ToDate }} </td>
 
-                                <td  style="width:25%">ImportedFromNSD</td>
+                                <th  style="width:25%">Imported From NSD</th>
                                 <td  style="width:25%"> {{ data.ImportedFromNSD }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">ImportedDate</td>
+                                <th  style="width:25%">Imported Date</th>
                                 <td  style="width:25%"> {{ data.ImportedDate }} </td>
 
-                                <td  style="width:25%">ExportedDate</td>
+                                <th  style="width:25%">Exported Date</th>
                                 <td  style="width:25%"> {{ data.ExportedDate }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">ExportedToNogtr</td>
+                                <th  style="width:25%">Exported To Nogtr</th>
                                 <td  style="width:25%"> {{ data.ExportedToNogtr }} </td>
 
-                                <td  style="width:25%">CreatedBy</td>
+                                <th  style="width:25%">Created By</th>
                                 <td  style="width:25%"> {{ data.CreatedBy }} </td>
                               </tr>
                               <tr>
-                                <td  style="width:25%">DateCreated</td>
+                                <th  style="width:25%">Date Created</th>
                                 <td  style="width:25%"> {{ data.DateCreated }} </td>
 
-                                <td  style="width:25%">PreviousLegalName</td>
+                                <th  style="width:25%">Previous Legal Name</th>
                                 <td  style="width:25%"> {{ data.PreviousLegalName }} </td>
                               </tr>
                              </tbody>
@@ -587,7 +576,7 @@
                   <div class="form-actions">
                     <div class="row">
                         <div class="col-md-offset-3 col-md-4">
-                                <input *ngIf="role" type="submit" value="update" class="btn
+                                <input type="submit" value="update" class="btn
                                 btn-success">
                             <button (click)="navigateBack()" type="button" class="btn
                                 default">Back</button>

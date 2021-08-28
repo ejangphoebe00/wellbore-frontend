@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgPopupsService } from 'ng-popups';
-import {MatDialog} from '@angular/material/dialog'
+// import {MatDialog} from '@angular/material/dialog'
 
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { ModalManager } from 'ngb-modal'
+// import { ModalManager } from 'ngb-modal'
 
 @Component({
   selector: 'app-core-catalogs',
@@ -49,7 +49,7 @@ export class CoreCatalogsComponent implements OnInit {
       private toastr: ToastrService,
       private http: HttpClient,
       private ngPopups: NgPopupsService,
-      
+
     ) { }
 
     ngOnInit(): void {
@@ -136,24 +136,24 @@ export class CoreCatalogsComponent implements OnInit {
         CatalogReportSecurityGrade_id:new FormControl(),
         CoreCatalogName:new FormControl(),
         Comments:new FormControl()
-       
+
       });
     }
-  
-  
-  
+
+
+
     logout(){
       this.authservice.logoutuser()
-  
+
     }
-  
-  
+
+
     updateCoreCatProcess(){
       console.log("tested")
       if(this.formGroup.valid){
         console.log(this.formGroup.value)
         this.authservice.updateCoreCatalog(this.formGroup.value).subscribe(result =>{
-         
+
           if(result.message == "Core Catalog updated successfuly."){
             this.toastr.success("Core Catalog updated successfuly.","",{
               timeOut: 2000,
@@ -162,12 +162,12 @@ export class CoreCatalogsComponent implements OnInit {
               progressAnimation:'increasing'
             })
             this.formGroup.reset();
-            
-          } else{          
+
+          } else{
            // this.authservice.CompanyFaliure()
           }
         }, error => {
-          
+
           console.log('oops', error.message)
           if(error){
             this.toastr.error(error.error.message,"",{
@@ -179,7 +179,7 @@ export class CoreCatalogsComponent implements OnInit {
             // this.authservice.CompanyFaliure()
           }
         }
-        
+
         )
       }
     }
@@ -190,38 +190,38 @@ export class CoreCatalogsComponent implements OnInit {
         console.log(this.CoreTypeIds);
       })
     }
-  
+
     changeCoreTypes(e:any) {
       console.log(e.value)
       this.CoreTypeIds.setValue(e.target.value, {
         onlySelf: true
       })
     }
-  
+
     getWelboreCoreId(){
       this.authservice.getwellboreCores().subscribe(res =>{
         this.wellboreCoreIds = res;
         console.log(this.wellboreCoreIds);
       })
     }
-  
-  
+
+
     changeWellboreCoreId(m:any) {
       console.log(m.value)
       this.wellboreCoreIds.setValue(m.target.value, {
         onlySelf: true
       })
     }
-  
+
     getCoreReportSecurityGrade_id(){
       this.authservice.getAllCatalogSecurityFlags().subscribe(res =>{
         this.CatalogSecurityFlag_ids = res;
         console.log(this.CatalogSecurityFlag_ids);
       })
     }
-  
-  
-  
+
+
+
     changeCoreReportSecurityGrade_id(e:any) {
       console.log(e.value)
       this.CatalogSecurityFlag_ids.setValue(e.target.value, {
@@ -235,17 +235,17 @@ export class CoreCatalogsComponent implements OnInit {
         console.log(this.TopStratLitho_id);
       })
      }
-  
+
      changeTopStratLitho_id(e:any) {
       console.log(e.value)
       this.TopStratLitho_id.setValue(e.target.value, {
         onlySelf: true
       })
-    } 
+    }
 
     onSelect(selectedItem: any) {
       this.id = selectedItem.CoreCatalog_id;
-  
+
       this.ngPopups.confirm("Are you sure you want to delete ?",{
         // theme: 'material',
         color:'OrangeRed',
@@ -270,7 +270,7 @@ export class CoreCatalogsComponent implements OnInit {
               setTimeout(() => {
                 this.authservice.reload();
               }, 1000);
-  
+
             } else {
               this.authservice.securityStatusUpdate()
             }
@@ -280,7 +280,7 @@ export class CoreCatalogsComponent implements OnInit {
           console.log("You clicked cancel.")
         }
       });
-  
+
     }
 
     onView(item: any) {
@@ -309,10 +309,10 @@ export class CoreCatalogsComponent implements OnInit {
         CatalogReportFileSize:item.CatalogReportFileSize,
         CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
         CoreCatalogName:item.CoreCatalogName,
-        Comments:item.Comments, 
+        Comments:item.Comments,
       }
     }
-  
+
     onSelectEdit(selectedItem: any) {
       console.log("hide the elements");
       this.status = false;
@@ -347,7 +347,7 @@ export class CoreCatalogsComponent implements OnInit {
             CatalogReportSecurityGrade_id:this.stripFormValue(this.updatevalue.CatalogReportSecurityGrade_id),
             CoreCatalogName:this.stripFormValue(this.updatevalue.CoreCatalogName),
             Comments:this.stripFormValue(this.updatevalue.Comments)
-         
+
           });
           console.log(this.updatevalue)
         });
@@ -363,8 +363,8 @@ export class CoreCatalogsComponent implements OnInit {
         return formValue
       }
 
-    }  
-    
+    }
+
 
   navigateBack() {
     this.authservice.reload();

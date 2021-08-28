@@ -44,6 +44,7 @@ import { UpdatePasswordComponent } from './Auth/update-password/update-password.
 import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
 import { DormantComponent } from './Pages/Users/dormant/dormant.component';
+import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho/view-strat-litho.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { DormantComponent } from './Pages/Users/dormant/dormant.component';
     KfdaComponent,
     TdaComponent,
     DormantComponent,
+    ViewStratLithoComponent,
   ],
   imports: [
     BrowserModule,
