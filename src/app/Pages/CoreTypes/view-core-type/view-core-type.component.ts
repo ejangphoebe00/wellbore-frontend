@@ -39,7 +39,7 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
   loggedin: any;
   data: any;
   formdata: any;
-  value:any;
+  // value:any;
 
 
 
@@ -187,12 +187,12 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
     this.http.get('http://127.0.0.1:8899/apiv1/get_core_type/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
+        // Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
 
         this.formGroup.patchValue({
-          CoreTypeName:this.updatevalue.CoreTypeName,
-          SortOrder:this.updatevalue.SortOrder,
-          Comments:this.updatevalue.Comments,
+          CoreTypeName:this.authservice.stripFormValue(this.updatevalue.CoreTypeName),
+          SortOrder:this.authservice.stripFormValue(this.updatevalue.SortOrder),
+          Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
         });
         console.log(this.updatevalue)
       });

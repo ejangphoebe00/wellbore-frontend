@@ -37,13 +37,14 @@ import { ViewCompaniesComponent } from './Pages/Company/view-companies/view-comp
 import { CatalogSecurityComponent } from './Pages/CatalogSecurity/catalog-security/catalog-security.component';
 import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
 import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
-import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
+// import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/Wellbore-core-/wells/wells.component';
 import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-catalogs.component';
 import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
 import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
 import { DormantComponent } from './Pages/Users/dormant/dormant.component';
+import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho/view-strat-litho.component';
 
 @NgModule({
   declarations: [
@@ -71,13 +72,14 @@ import { DormantComponent } from './Pages/Users/dormant/dormant.component';
     CatalogSecurityComponent,
     ViewCatalogueSecurityLevelsComponent,
     StratLithoUnitComponent,
-    ViewStratLithoUnitComponent,
+    // ViewStratLithoUnitComponent,
     WellsComponent,
     CoreCatalogsComponent,
     UpdatePasswordComponent,
     KfdaComponent,
     TdaComponent,
     DormantComponent,
+    ViewStratLithoComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,13 +24,14 @@ import { ViewCompaniesComponent } from './Pages/Company/view-companies/view-comp
 import { CatalogSecurityComponent } from './Pages/CatalogSecurity/catalog-security/catalog-security.component';
 import { ViewCatalogueSecurityLevelsComponent } from './Pages/CatalogSecurity/view-catalogue-security-levels/view-catalogue-security-levels.component';
 import { StratLithoUnitComponent } from './Pages/StratLithoUnit/strat-litho-unit/strat-litho-unit.component';
-import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
+// import { ViewStratLithoUnitComponent } from './Pages/StratLithoUnit/view-strat-litho-unit/view-strat-litho-unit.component';
 import { WellsComponent } from './Pages/Wellbore-core-/wells/wells.component';
 import { CoreCatalogsComponent } from './Pages/Core-catalog/core-catalogs/core-catalogs.component';
 import { UpdatePasswordComponent } from './Auth/update-password/update-password.component';
 import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
 import { DormantComponent } from './Pages/Users/dormant/dormant.component';
+import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho/view-strat-litho.component';
 
 
 
@@ -60,14 +61,14 @@ const routes: Routes = [
       {path: 'catalog-security', component: CatalogSecurityComponent},
       {path: 'view-catalog-security', component: ViewCatalogueSecurityLevelsComponent},
       {path: 'strat-litho-unit', component: StratLithoUnitComponent},
-      {path: 'view-strat-litho-unit', component: ViewStratLithoUnitComponent},
+      {path: 'view-strat-litho', component: ViewStratLithoComponent},
       {path: 'wells', component: WellsComponent},
       {path: 'core-catalogs', component:  CoreCatalogsComponent},
       {path: 'update-password', component:  UpdatePasswordComponent},
       {path: 'king-fisher', component:  KfdaComponent},
       {path: 'tillenga', component:  TdaComponent},
       {path: 'inactive', component:  DormantComponent}
-           
+
   ]
 },
 

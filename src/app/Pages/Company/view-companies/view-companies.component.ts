@@ -38,6 +38,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   loggedin: any;
   data:any;
   formdata:any;
+  result:any;
 
 
 
@@ -220,6 +221,17 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     }
   }
 
+  // formFilter(formValue:any){
+  //   if(formValue == "None"){
+  //     var oldValue = formValue
+  //     var other = ""
+  //     var newString = formValue.replace(formValue, other)
+  //     return newString
+  //
+  //     // formValue += "";
+  //   }
+  // }
+
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
@@ -230,71 +242,80 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     console.log("Selected item Id: ", selectedItem.Company_id);
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
-        this.updatevalue = response;
-        this.formdata = response
-        console.log(response)
-        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
+        this.updatevalue = response
+        // Object.entries(this.updatevalue).forEach(([key, value]) => {
+        //   if (value == "None") {
+        //     value = null
+        //   }
+        //   Object.assign(this.formdata, {key:value})
+        // });
 
-        console.log("New values")
-        console.log(this.formdata)
-        this.formGroup.setValue(
+        // console.log(response)
+        // console.log(this.formdata)
+
+        this.formGroup.patchValue(
           {
-           Company_id: this.updatevalue.Company_id,
-           PAUID: this.updatevalue.PAUID,
-           CompanyLongName: this.updatevalue.CompanyLongName,
-           CompanyShortName: this.updatevalue.CompanyShortName,
-           NSD_Number: this.updatevalue.NSD_Number,
-           CompanyCategory_id: this.updatevalue.CompanyCategory_id,
-           CountryOfOrigin_id: this.updatevalue.CountryOfOrigin_id,
-           CountryOfRegistration_id: this.updatevalue.CountryOfRegistration_id,
-           RegistrationNumber: this.updatevalue.RegistrationNumber,
-           TINNumber: this.updatevalue.TINNumber,
-           CompanyTelephone: this.updatevalue.CompanyTelephone,
-           CompanyEmail: this.updatevalue.CompanyEmail,
-           CompanyWebsite: this.updatevalue.CompanyWebsite,
-           CompanyEntityType_id: this.updatevalue.CompanyEntityType_id,
-           CompanyEntitySubType_id: this.updatevalue.CompanyEntitySubType_id,
-           CompanyMajorActivity_id: this.updatevalue.CompanyMajorActivity_id,
-           CompanyActivityDivision_id: this.updatevalue.CompanyActivityDivision_id,
-           CompanyActivityDivisionClass_id: this.updatevalue.CompanyActivityDivisionClass_id,
-           CompanyActivityDivisionClassCategory_id: this.updatevalue.CompanyActivityDivisionClassCategory_id,
-           BusinessNatureDescription: this.updatevalue.BusinessNatureDescription,
-           CompanyPostalAddress: this.updatevalue.CompanyPostalAddress,
-           CompanyPhysicalAddress: this.updatevalue.CompanyPhysicalAddress,
-           CompanyOtherEmails: this.updatevalue.CompanyOtherEmails,
-           NSDQualificationDate: this.updatevalue.NSDQualificationDate,
-           NSDQualificationYear: this.updatevalue.NSDQualificationYear,
-           PrimaryContactEntity: this.updatevalue.PrimaryContactEntity,
-           ContactEntityEmail: this.updatevalue.ContactEntityEmail,
-           ContactEntityTelephone: this.updatevalue.ContactEntityTelephone,
-           ContactEntityMobile: this.updatevalue.ContactEntityMobile,
-           ContactDesignation: this.updatevalue.ContactDesignation,
-           OperatorSortOrder: this.updatevalue.OperatorSortOrder,
-           ContractorSortOrder: this.updatevalue.ContractorSortOrder,
-           PAURegistrationDate: this.updatevalue.PAURegistrationDate,
-           CraneNOGTRID: this.updatevalue.CraneNOGTRID,
-           TempNOGTRIPwd: this.updatevalue.TempNOGTRIPwd,
-           RegistrationStatus_id: this.updatevalue.RegistrationStatus_id,
-           ClassifyAsUgandan_id: this.updatevalue.ClassifyAsUgandan_id,
-           Comments: this.updatevalue.Comments,
-           PrimaryCompanyKind_id: this.updatevalue.PrimaryCompanyKind_id,
-           SecondaryCompanyKind_id: this.updatevalue.SecondaryCompanyKind_id,
-           OtherCompanyKind_id: this.updatevalue.OtherCompanyKind_id,
-           CompanyGroup_id: this.updatevalue.CompanyGroup_id,
-           CompanyMobile: this.updatevalue.CompanyMobile,
-           CompanyFax: this.updatevalue.CompanyFax,
-           ContactEntityFax: this.updatevalue.ContactEntityFax,
-           NSD_FromDate: this.updatevalue.NSD_FromDate,
-           NSD_ToDate: this.updatevalue.NSD_ToDate,
-           ImportedFromNSD: this.updatevalue.ImportedFromNSD,
-           ImportedDate: this.updatevalue.ImportedDate,
-           ExportedDate: this.updatevalue.ExportedDate,
-           ExportedToNogtr: this.updatevalue.ExportedToNogtr,
-           CreatedBy: this.updatevalue.CreatedBy,
-           DateCreated: this.updatevalue.DateCreated,
-           PreviousLegalName: this.updatevalue.PreviousLegalName,
+           Company_id: this.authservice.stripFormValue(this.updatevalue.Company_id),
+           PAUID: this.authservice.stripFormValue(this.updatevalue.PAUID),
+           CompanyLongName: this.authservice.stripFormValue(this.updatevalue.CompanyLongName),
+           CompanyShortName: this.authservice.stripFormValue(this.updatevalue.CompanyShortName),
+           NSD_Number: this.authservice.stripFormValue(this.updatevalue.NSD_Number),
+           CompanyCategory_id: this.authservice.stripFormValue(this.updatevalue.CompanyCategory_id),
+           CountryOfOrigin_id: this.authservice.stripFormValue(this.updatevalue.CountryOfOrigin_id),
+           CountryOfRegistration_id: this.authservice.stripFormValue(this.updatevalue.CountryOfRegistration_id),
+           RegistrationNumber: this.authservice.stripFormValue(this.updatevalue.RegistrationNumber),
+           TINNumber: this.authservice.stripFormValue(this.updatevalue.TINNumber),
+           CompanyTelephone: this.authservice.stripFormValue(this.updatevalue.CompanyTelephone),
+           CompanyEmail: this.authservice.stripFormValue(this.updatevalue.CompanyEmail),
+           CompanyWebsite: this.authservice.stripFormValue(this.updatevalue.CompanyWebsite),
+           CompanyEntityType_id: this.authservice.stripFormValue(this.updatevalue.CompanyEntityType_id),
+           CompanyEntitySubType_id: this.authservice.stripFormValue(this.updatevalue.CompanyEntitySubType_id),
+           CompanyMajorActivity_id: this.authservice.stripFormValue(this.updatevalue.CompanyMajorActivity_id),
+           CompanyActivityDivision_id: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivision_id),
+           CompanyActivityDivisionClass_id: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionClass_id),
+           CompanyActivityDivisionClassCategory_id: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionClassCategory_id),
+           BusinessNatureDescription: this.authservice.stripFormValue(this.updatevalue.BusinessNatureDescription),
+           CompanyPostalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPostalAddress),
+           CompanyPhysicalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPhysicalAddress),
+           CompanyOtherEmails: this.authservice.stripFormValue(this.updatevalue.CompanyOtherEmails),
+           NSDQualificationDate: this.authservice.stripFormValue(this.updatevalue.NSDQualificationDate),
+           NSDQualificationYear: this.authservice.stripFormValue(this.updatevalue.NSDQualificationYear),
+           PrimaryContactEntity: this.authservice.stripFormValue(this.updatevalue.PrimaryContactEntity),
+           ContactEntityEmail: this.authservice.stripFormValue(this.updatevalue.ContactEntityEmail),
+           ContactEntityTelephone: this.authservice.stripFormValue(this.updatevalue.ContactEntityTelephone),
+           ContactEntityMobile: this.authservice.stripFormValue(this.updatevalue.ContactEntityMobile),
+           ContactDesignation: this.authservice.stripFormValue(this.updatevalue.ContactDesignation),
+           OperatorSortOrder: this.authservice.stripFormValue(this.updatevalue.OperatorSortOrder),
+           ContractorSortOrder: this.authservice.stripFormValue(this.updatevalue.ContractorSortOrder),
+           PAURegistrationDate: this.authservice.stripFormValue(this.updatevalue.PAURegistrationDate),
+           CraneNOGTRID: this.authservice.stripFormValue(this.updatevalue.CraneNOGTRID),
+           TempNOGTRIPwd: this.authservice.stripFormValue(this.updatevalue.TempNOGTRIPwd),
+           RegistrationStatus_id: this.authservice.stripFormValue(this.updatevalue.RegistrationStatus_id),
+           ClassifyAsUgandan_id: this.authservice.stripFormValue(this.updatevalue.ClassifyAsUgandan_id),
+           Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
+           PrimaryCompanyKind_id: this.authservice.stripFormValue(this.updatevalue.PrimaryCompanyKind_id),
+           SecondaryCompanyKind_id: this.authservice.stripFormValue(this.updatevalue.SecondaryCompanyKind_id),
+           OtherCompanyKind_id: this.authservice.stripFormValue(this.updatevalue.OtherCompanyKind_id),
+           CompanyGroup_id: this.authservice.stripFormValue(this.updatevalue.CompanyGroup_id),
+           CompanyMobile: this.authservice.stripFormValue(this.updatevalue.CompanyMobile),
+           CompanyFax: this.authservice.stripFormValue(this.updatevalue.CompanyFax),
+           ContactEntityFax: this.authservice.stripFormValue(this.updatevalue.ContactEntityFax),
+           NSD_FromDate: this.authservice.stripFormValue(this.updatevalue.NSD_FromDate),
+           NSD_ToDate: this.authservice.stripFormValue(this.updatevalue.NSD_ToDate),
+           ImportedFromNSD: this.authservice.stripFormValue(this.updatevalue.ImportedFromNSD),
+           ImportedDate: this.authservice.stripFormValue(this.updatevalue.ImportedDate),
+           ExportedDate: this.authservice.stripFormValue(this.updatevalue.ExportedDate),
+           ExportedToNogtr: this.authservice.stripFormValue(this.updatevalue.ExportedToNogtr),
+           CreatedBy: this.authservice.stripFormValue(this.updatevalue.CreatedBy),
+           DateCreated: this.authservice.stripFormValue(this.updatevalue.DateCreated),
+           PreviousLegalName: this.authservice.stripFormValue(this.updatevalue.PreviousLegalName),
         });
         console.log(this.updatevalue)
+
+        // console.log("filtering 'None' values")
+        // Object.entries(this.formdata).forEach(([key, value]) => { if (value == "None") {
+        //   value = null}})
+        // console.log(this.formdata)
       });
 
 

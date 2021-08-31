@@ -8,16 +8,18 @@ import { Subject } from 'rxjs';
 import { NgPopupsService } from 'ng-popups';
 
 
-
+// import { CoreType } from 'src/app/models/core-type.model';
 import { StratLithoUnit} from 'src/app/models/strat-litho-unit.model';
 
+
 @Component({
-  selector: 'app-view-strat-litho-unit',
-  templateUrl: './view-strat-litho-unit.component.html',
-  styleUrls: ['./view-strat-litho-unit.component.css']
+  selector: 'app-view-core-type',
+  templateUrl: './view-strat-litho.component.html',
+  styleUrls: ['./view-strat-litho.component.css']
 })
 
-export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
+export class ViewStratLithoComponent implements OnInit, OnDestroy {
+
   formGroup!: FormGroup;
   title!: string;
   role:any;
@@ -39,6 +41,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
   loggedin: any;
   data: any;
   formdata: any;
+  // value:any;
 
 
 
@@ -65,7 +68,6 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     this.users();
     this.initForm();
     this.dtOptions = {
-      responsive: 'true',
       dom:'Bfrtip',
       // dom:'Btp',
       buttons: [
@@ -194,10 +196,8 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
     this.http.get('http://127.0.0.1:8899/apiv1/get_strat_litho_unit/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formdata = response;
-        Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
 
-        this.formGroup.setValue({
+        this.formGroup.patchValue({
           PAUID:this.updatevalue.PAUID,
           StratLithoName:this.updatevalue.StratLithoName,
           ReserviorUnit:this.updatevalue.ReserviorUnit,
@@ -230,7 +230,7 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
       this.authservice.updateStratLitho(this.formGroup.value).subscribe(result => {
         console.log(result)
 
-        if (result.message == "Strat litho unit updated successfuly.") {
+        if (result.message == "Strat Litho Unit updated successfuly.") {
           this.toastr.success("Strat litho unit updated successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
@@ -281,6 +281,5 @@ export class ViewStratLithoUnitComponent implements OnInit, OnDestroy {
 
     });
   }
-
 
 }
