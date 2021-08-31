@@ -114,7 +114,7 @@ export class DormantComponent implements OnInit {
   onSelect(selectedItem: any) {
     this.id = selectedItem.CraneUser_id
 
-    this.ngPopups.confirm('Are you sure you want to deactivate this account?', { color: 'red' })
+    this.ngPopups.confirm('Are you sure you want to activate this account?', { color: 'blue' })
       .subscribe(res => {
         if (res) {
           console.log(this.id);
