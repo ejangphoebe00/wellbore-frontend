@@ -198,19 +198,19 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
         this.updatevalue = response;
 
         this.formGroup.patchValue({
-          PAUID:this.updatevalue.PAUID,
-          StratLithoName:this.updatevalue.StratLithoName,
-          ReserviorUnit:this.updatevalue.ReserviorUnit,
-          LithoStratAlias:this.updatevalue.LithoStratAlias,
-          IsReservoirUnit_id:this.updatevalue.IsReservoirUnit_id,
-          LithoStratAge_id:this.updatevalue.LithoStratAge_id,
-          LithoStratDescriptionSoftcopyPath:this.updatevalue.LithoStratDescriptionSoftcopyPath,
-          LithoStratDescriptionHyperlink:this.updatevalue.LithoStratDescriptionHyperlink,
-          LithoStratMapSoftCopyPath:this.updatevalue.LithoStratMapSoftCopyPath,
-          LithoStratMapHyperlink:this.updatevalue.LithoStratMapHyperlink,
-          MapPortalLithoStratMapLink:this.updatevalue.MapPortalLithoStratMapLink,
-          LithoStratFactsiteUrl:this.updatevalue.LithoStratFactsiteUrl,
-          Comments:this.updatevalue.Comments,
+          PAUID:this.authservice.stripFormValue(this.authservice.stripFormValue(this.updatevalue.PAUID)),
+          StratLithoName:this.authservice.stripFormValue(this.updatevalue.StratLithoName),
+          ReserviorUnit:this.authservice.stripFormValue(this.updatevalue.ReserviorUnit),
+          LithoStratAlias:this.authservice.stripFormValue(this.updatevalue.LithoStratAlias),
+          IsReservoirUnit_id:this.authservice.stripFormValue(this.updatevalue.IsReservoirUnit_id),
+          LithoStratAge_id:this.authservice.stripFormValue(this.updatevalue.LithoStratAge_id),
+          LithoStratDescriptionSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.LithoStratDescriptionSoftcopyPath),
+          LithoStratDescriptionHyperlink:this.authservice.stripFormValue(this.updatevalue.LithoStratDescriptionHyperlink),
+          LithoStratMapSoftCopyPath:this.authservice.stripFormValue(this.updatevalue.LithoStratMapSoftCopyPath),
+          LithoStratMapHyperlink:this.authservice.stripFormValue(this.updatevalue.LithoStratMapHyperlink),
+          MapPortalLithoStratMapLink:this.authservice.stripFormValue(this.updatevalue.MapPortalLithoStratMapLink),
+          LithoStratFactsiteUrl:this.authservice.stripFormValue(this.updatevalue.LithoStratFactsiteUrl),
+          Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
         });
         console.log(this.updatevalue)
       });
