@@ -101,9 +101,9 @@ export class DormantComponent implements OnInit {
 
   userList(): void {
     this.authservice
-      .getAllUsers()
+      .getInactiveUsers()
       .subscribe((response: any) => {
-        console.log("users List")
+        console.log("Inactive users List")
         console.log(response.length)
         this.users = response;
 
@@ -118,12 +118,12 @@ export class DormantComponent implements OnInit {
       .subscribe(res => {
         if (res) {
           console.log(this.id);
-          this.http.put('http://127.0.0.1:8899/user/deactivate_account/' + this.id, null)
+          this.http.put('http://127.0.0.1:8899/user/reactivate_account/' + this.id, null)
             .subscribe(response => {
               this.deleteresp = response;
               console.log(this.deleteresp.message)
-              if (this.deleteresp.message == "Account successfully Deactivated") {
-                this.toastr.success("Account successfully Deactivated", "", {
+              if (this.deleteresp.message == "Account successfully Reactivated") {
+                this.toastr.success("Account Successfully Reactivated", "", {
                   timeOut: 2000,
                   positionClass: 'toast-top-center',
                   progressBar: true,
