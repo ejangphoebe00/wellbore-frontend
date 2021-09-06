@@ -274,8 +274,13 @@ export class ApiPipeService {
   }
 
   getAllUsers(): Observable<any> {
-    console.log("get Logs")
+    console.log("get users")
     return this.http.get('http://127.0.0.1:8899/user/get_users')
+  }
+
+  getInactiveUsers(): Observable<any> {
+    console.log("get Inactiveusers")
+    return this.http.get('http://127.0.0.1:8899/user/deactivated_accounts')
   }
 
   // getAllCompanies(): Observable<any> {
