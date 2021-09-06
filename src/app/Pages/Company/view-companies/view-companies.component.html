@@ -429,11 +429,8 @@
                         </div>
                         <div class="form-group">
                             <label>NSD Qualification Year</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                                <input type="text" class="form-control" formControlName="NSDQualificationYear"> </div>
+                            <input type="date" class="form-control" formControlName="NSDQualificationYear">
+
                         </div>
                         <div class="form-group">
                             <label>Primary Contact Entity</label>
@@ -481,7 +478,7 @@
                         </div>
                         <div class="form-group">
                             <label>PAU Registration Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="PAURegistrationDate">
+                            <input type="datetime" class="form-control" formControlName="PAURegistrationDate">
                         </div>
                         <div class="form-group">
                             <label>Crane NOGTRID</label>
@@ -524,51 +521,51 @@
                                 <span class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                 </span>
-                                <input type="text" class="form-control" formControlName="CompanyMobile" placeholder="{{formdata.CompanyMobile}}"> </div>
+                                <input type="text" class="form-control" formControlName="CompanyMobile"> </div>
                         </div>
                         <div class="form-group">
                             <label>Company Fax</label>
-                            <input type="text" formControlName="CompanyFax" class="form-control" placeholder="{{formdata.CompanyFax}}">
+                            <input type="text" formControlName="CompanyFax" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Contact Entity Fax</label>
-                            <input type="text" formControlName="ContactEntityFax" class="form-control" placeholder="{{formdata.ContactEntityFax}}">
+                            <input type="text" formControlName="ContactEntityFax" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>NSD From Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="NSD_FromDate" placeholder="{{formdata.NSD_FromDate}}">
+                            <input type="datetime" class="form-control" formControlName="NSD_FromDate">
                         </div>
                         <div class="form-group">
                             <label>NSD To Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="NSD_ToDate" placeholder="{{formdata.NSD_ToDate}}">
+                            <input type="datetime" class="form-control" formControlName="NSD_ToDate">
                         </div>
                         <div class="form-group">
                             <label>Imported From NSD</label>
-                            <input type="text" formControlName="ImportedFromNSD" class="form-control" placeholder="{{formdata.ImportedFromNSD}}">
+                            <input type="text" formControlName="ImportedFromNSD" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Imported Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="ImportedDate" placeholder="{{formdata.ImportedDate}}">
+                            <input type="datetime" class="form-control" formControlName="ImportedDate">
                         </div>
                         <div class="form-group">
                             <label>Exported Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="ExportedDate" placeholder="{{formdata.ExportedDate}}">
+                            <input type="datetime" class="form-control" formControlName="ExportedDate">
                         </div>
                         <div class="form-group">
                             <label>Exported To Nogtr</label>
-                            <input type="text" formControlName="ExportedToNogtr" class="form-control" placeholder="{{formdata.ExportedToNogtr}}">
+                            <input type="text" formControlName="ExportedToNogtr" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Record Change Stamp</label>
-                            <input type="text" formControlName="RecordChangeStamp" class="form-control" placeholder="{{formdata.RecordChangeStamp}}">
+                            <input type="text" formControlName="RecordChangeStamp" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Previous Legal Name</label>
-                            <input type="text" formControlName="PreviousLegalName" class="form-control" placeholder="{{formdata.PreviousLegalName}}">
+                            <input type="text" formControlName="PreviousLegalName" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Comments</label>
-                            <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder="{{formdata.Comments}}"></textarea>
+                            <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control"></textarea>
                         </div>
                       </div>
                   </div>

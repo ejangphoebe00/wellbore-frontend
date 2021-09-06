@@ -65,13 +65,16 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.dtOptions = {
       dom:'Bfrtip',
       // dom:'Btp',
+      // select: true,
       buttons: [
         // 'columnsToggle',
         // 'colvis',
+
         {
           extend:'copy',
           tag: 'button',
-          className: "btn blue btn-outline"
+          className: "btn blue btn-outline",
+        
         },
         {
           extend:'print',
@@ -88,13 +91,15 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
           tag: 'button',
           className: "btn red btn-outline"
         },
-      ]
+      ],
+
     }
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
+
 
   users(): void {
     this.authservice
