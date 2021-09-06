@@ -47,7 +47,7 @@ loggedin:any;
   loadScripts() {
     
     const dynamicScripts = [
-      './src/assets/assets/global/plugins/jquery.min.js'
+      '../assets/assets/global/plugins/bootstrap/js/bootstrap.min.js'
     ];
     for (let i = 0; i < dynamicScripts.length; i++) {
       const node = document.createElement('script');

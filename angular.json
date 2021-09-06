@@ -78,6 +78,7 @@
               "src/assets/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
               "src/assets/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
               "src/assets/assets/pages/scripts/components-date-time-pickers.min.js"
+              
 
             ]
           },
