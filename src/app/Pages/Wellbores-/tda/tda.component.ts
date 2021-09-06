@@ -389,7 +389,7 @@ export class TdaComponent implements OnInit {
       this.authservice.updateWellbore(this.formGroup.value).subscribe(result =>{
        
         if(result.message == "Welbore updated successfuly."){
-          this.toastr.success("Welbore updated successfuly.","",{
+          this.toastr.success("Well updated successfuly.","",{
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
