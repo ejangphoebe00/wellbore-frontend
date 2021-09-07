@@ -309,7 +309,7 @@
           <div *ngIf="editform" class="portlet-body form">
 
               <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateCompanyProcess()" ngNativeValidate>
-                    <div class="form-body row">
+                  <div class="form-body row">
                       <div class="col-md-3">
                         <div class="form-group">
                             <label>PAUID<span class="red asterisk-validate ml-2">*</span></label>
@@ -378,12 +378,14 @@
                             <label>Company Entity Type ID</label>
                             <input type="number" class="form-control" formControlName="CompanyEntityType_id">
                         </div>
-                      </div>
-                      <div class="col-md-3">
                         <div class="form-group">
                             <label>Company Entity Sub Type ID</label>
                             <input type="number" formControlName="CompanyEntitySubType_id" class="form-control">
                         </div>
+                      </div>
+
+                      <div class="col-md-3">
+
                         <div class="form-group">
                             <label>Company Major Activity ID</label>
                             <input type="number" formControlName="CompanyMajorActivity_id" class="form-control">
@@ -402,7 +404,8 @@
                         </div>
                         <div class="form-group">
                             <label>Business Nature Description</label>
-                            <input type="text" formControlName="BusinessNatureDescription" class="form-control">
+                            <textarea name="name" rows="4" cols="40"
+                            formControlName="BusinessNatureDescription" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Company Postal Address</label>
@@ -427,16 +430,16 @@
                         </div>
                         <div class="form-group">
                             <label>NSD Qualification Year</label>
-                            <input type="date" class="form-control" formControlName="NSDQualificationYear">
+                            <!-- <input type="date" class="form-control" formControlName="NSDQualificationYear"> -->
+                            <select formControlName="NSDQualificationYear" class="form-control">
+                              <option *ngFor="let year of allYears">{{year}}</option>
+                            </select>
 
                         </div>
                         <div class="form-group">
                             <label>Primary Contact Entity</label>
                             <input type="text" formControlName="PrimaryContactEntity" class="form-control">
                         </div>
-                      </div>
-
-                      <div class="col-md-3">
                         <div class="form-group">
                             <label>Contact Entity Email</label>
 
@@ -454,6 +457,10 @@
                                 </span>
                                 <input type="text" class="form-control" formControlName="ContactEntityTelephone"> </div>
                         </div>
+                      </div>
+
+                      <div class="col-md-3">
+
                         <div class="form-group">
                             <label>Contact Entity Mobile</label>
                             <div class="input-group">
@@ -468,15 +475,15 @@
                         </div>
                         <div class="form-group">
                             <label>Operator Sort Order</label>
-                            <input type="text" formControlName="OperatorSortOrder" class="form-control">
+                            <input type="number" formControlName="OperatorSortOrder" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Contractor Sort Order</label>
-                            <input type="text" formControlName="ContractorSortOrder" class="form-control">
+                            <input type="number" formControlName="ContractorSortOrder" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>PAU Registration Date</label>
-                            <input type="datetime" class="form-control" formControlName="PAURegistrationDate">
+                            <input type="datetime-local" class="form-control" formControlName="PAURegistrationDate">
                         </div>
                         <div class="form-group">
                             <label>Crane NOGTRID</label>
@@ -484,35 +491,36 @@
                         </div>
                         <div class="form-group">
                             <label>Temp NOGTRIPwd</label>
-                            <input type="text" formControlName="TempNOGTRIPwd" class="form-control">
+                            <textarea rows="4" cols="40" formControlName="TempNOGTRIPwd" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Registration Status ID</label>
-                            <input type="text" formControlName="RegistrationStatus_id" class="form-control">
+                            <input type="number" formControlName="RegistrationStatus_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Classify As Ugandan ID</label>
-                            <input type="text" formControlName="ClassifyAsUgandan_id" class="form-control">
+                            <input type="number" formControlName="ClassifyAsUgandan_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Primary Company Kind ID</label>
-                            <input type="text" formControlName="PrimaryCompanyKind_id" class="form-control">
+                            <input type="number" formControlName="PrimaryCompanyKind_id" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Secondary Company Kind ID</label>
-                            <input type="text" formControlName="SecondaryCompanyKind_id" class="form-control">
+                            <input type="number" formControlName="SecondaryCompanyKind_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Other Company Kind ID</label>
+                            <input type="number" formControlName="OtherCompanyKind_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Company Group ID</label>
+                            <input type="number" formControlName="CompanyGroup_id" class="form-control">
                         </div>
                       </div>
 
                       <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Other Company Kind ID</label>
-                            <input type="text" formControlName="OtherCompanyKind_id" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Company Group ID</label>
-                            <input type="text" formControlName="CompanyGroup_id" class="form-control">
-                        </div>
+
                         <div class="form-group">
                             <label>Company Mobile</label>
                             <div class="input-group">
@@ -531,27 +539,34 @@
                         </div>
                         <div class="form-group">
                             <label>NSD From Date</label>
-                            <input type="datetime" class="form-control" formControlName="NSD_FromDate">
+                            <input type="date" class="form-control" formControlName="NSD_FromDate">
                         </div>
                         <div class="form-group">
                             <label>NSD To Date</label>
-                            <input type="datetime" class="form-control" formControlName="NSD_ToDate">
+                            <input type="date" class="form-control" formControlName="NSD_ToDate">
                         </div>
                         <div class="form-group">
                             <label>Imported From NSD</label>
-                            <input type="text" formControlName="ImportedFromNSD" class="form-control">
+                            <select class="form-control" formControlName="ImportedFromNSD">
+                              <option>0</option>
+                              <option>1</option>
+                            </select>
+
                         </div>
                         <div class="form-group">
                             <label>Imported Date</label>
-                            <input type="datetime" class="form-control" formControlName="ImportedDate">
+                            <input type="date" class="form-control" formControlName="ImportedDate">
                         </div>
                         <div class="form-group">
                             <label>Exported Date</label>
-                            <input type="datetime" class="form-control" formControlName="ExportedDate">
+                            <input type="date" class="form-control" formControlName="ExportedDate">
                         </div>
                         <div class="form-group">
                             <label>Exported To Nogtr</label>
-                            <input type="text" formControlName="ExportedToNogtr" class="form-control">
+                            <select class="form-control" formControlName="ExportedToNogtr">
+                              <option>0</option>
+                              <option>1</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Record Change Stamp</label>
@@ -563,7 +578,7 @@
                         </div>
                         <div class="form-group">
                             <label>Comments</label>
-                            <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control"></textarea>
+                            <textarea name="name" rows="8" cols="80" formControlName="Comments" class="form-control"></textarea>
                         </div>
                       </div>
                   </div>

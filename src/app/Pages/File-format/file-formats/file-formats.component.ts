@@ -55,11 +55,11 @@ role:any;
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend:'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend:'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend:'print',
           tag: 'button',
@@ -143,7 +143,7 @@ role:any;
       FileFormatName:new FormControl(),
       SortOrder:new FormControl(),
       Comments:new FormControl()
-  
+
     });
   }
 
@@ -180,7 +180,7 @@ role:any;
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
       this.authservice.updateFileGrades(this.formGroup.value).subscribe(result =>{
-       
+
         if(result.message == "File Format updated successfuly."){
           this.toastr.success("File Format updated successfuly.","",{
             timeOut: 2000,
@@ -189,12 +189,12 @@ role:any;
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
-          
-        } else{          
+
+        } else{
          // this.authservice.CompanyFaliure()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
         if(error){
           this.toastr.error(error.error.message,"",{
@@ -206,7 +206,7 @@ role:any;
           // this.authservice.CompanyFaliure()
         }
       }
-      
+
       )
     }
   }

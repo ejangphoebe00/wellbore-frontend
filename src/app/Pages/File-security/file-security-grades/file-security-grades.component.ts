@@ -39,7 +39,7 @@ role:any;
     private ngPopups: NgPopupsService
   ) { }
 
-  
+
   ngOnInit(): void {
     // this.authservice.reload();
     this.allGrades();
@@ -57,11 +57,11 @@ role:any;
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend:'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend:'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend:'print',
           tag: 'button',
@@ -101,7 +101,7 @@ role:any;
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
       this.authservice.updateSecurityGrade(this.formGroup.value).subscribe(result =>{
-        
+
         if(result.message == "File Security Grade updated successfuly."){
           this.toastr.success("File Security Grade updated successfuly.","",{
             timeOut: 2000,
@@ -110,12 +110,12 @@ role:any;
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
-          
-        } else{          
+
+        } else{
         //  this.authservice.CompanyFaliure()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
         if(error){
           this.toastr.error(error.error.message,"",{
@@ -127,10 +127,10 @@ role:any;
           // this.authservice.CompanyFaliure()
         }
       }
-      
+
       )
     }
-  }    
+  }
 
   logout(){
     this.authservice.logoutuser()
@@ -182,7 +182,7 @@ role:any;
       FileSecurityGradeName:new FormControl(),
       SortOrder:new FormControl(),
       Comments:new FormControl()
-  
+
     });
   }
 

@@ -30,7 +30,7 @@ export class WellsComponent implements OnInit {
   role:any;
     userEmail:any;
     loggedin:any;
-  
+
 
     wellboreIds: any;
     WBCoringContractor_id: any;
@@ -66,11 +66,11 @@ export class WellsComponent implements OnInit {
         buttons: [
           // 'columnsToggle',
           // 'colvis',
-          {
-            extend:'copy',
-            tag: 'button',
-            className: "btn blue btn-outline"
-          },
+          // {
+          //   extend:'copy',
+          //   tag: 'button',
+          //   className: "btn blue btn-outline"
+          // },
           {
             extend:'print',
             tag: 'button',
@@ -178,7 +178,7 @@ export class WellsComponent implements OnInit {
         CatalogReportFileSize:item.CatalogReportFileSize,
         CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
         CoreCatalogName:item.CoreCatalogName,
-        Comments:item.Comments, 
+        Comments:item.Comments,
       }
     }
 
@@ -187,7 +187,7 @@ export class WellsComponent implements OnInit {
       if(this.formGroup.valid){
         console.log(this.formGroup.value)
         this.authservice.adddWellboreCore(this.formGroup.value).subscribe(result =>{
-         
+
           if(result.message == "Welbore Core added successfuly."){
             this.toastr.success("Welbore Core added successfuly.","",{
               timeOut: 2000,
@@ -196,12 +196,12 @@ export class WellsComponent implements OnInit {
               progressAnimation:'increasing'
             })
             this.formGroup.reset();
-            
-          } else{          
+
+          } else{
            // this.authservice.CompanyFaliure()
           }
         }, error => {
-          
+
           console.log('oops', error.message)
           if(error){
             this.toastr.error(error.error.message,"",{
@@ -213,91 +213,91 @@ export class WellsComponent implements OnInit {
             // this.authservice.CompanyFaliure()
           }
         }
-        
+
         )
       }
     }
-  
+
     get f(){return this.formGroup.controls}
-  
+
     getCoreReportSecurityGrade_id(){
       this.authservice.getCoreReportSecurity().subscribe(res =>{
         this.CoreReportSecurityGrade_id = res;
         console.log(this.CoreReportSecurityGrade_id);
       })
     }
-  
+
     getReportFormat_id(){
       this.authservice.getFormat().subscribe(res =>{
         this.ReportFormat_id = res;
         console.log(this.ReportFormat_id);
       })
     }
-  
+
     getCoreBottomStratLitho_id(){
       this.authservice.getStrat().subscribe(res =>{
         this.CoreBottomStratLitho_id = res;
         console.log(this.CoreBottomStratLitho_id);
       })
     }
-  
-  
+
+
     getCoreTopStratLitho_id(){
       this.authservice.getAllStratLithoUnits().subscribe(res =>{
         this.CoreTopStratLitho_id = res;
         console.log(this.CoreTopStratLitho_id);
       })
     }
-  
+
     getWBCoringContractorId(){
       this.authservice.getCompanies().subscribe(res =>{
         this.WBCoringContractor_id = res;
         console.log(this.WBCoringContractor_id);
       })
     }
-  
+
     getWelboreId(){
       this.authservice.getWelboreIds().subscribe(res =>{
         this.wellboreIds = res;
         console.log(this.wellboreIds);
       })
     }
-  
+
     changeCoreReportSecurityGrade_id(e:any) {
       console.log(e.value)
       this.CoreReportSecurityGrade_id.setValue(e.target.value, {
         onlySelf: true
       })
     }
-  
+
     changeReportFormat_id(e:any) {
       console.log(e.value)
       this.ReportFormat_id.setValue(e.target.value, {
         onlySelf: true
       })
     }
-  
+
     changeCoreBottomStratLitho(e:any) {
       console.log(e.value)
       this.CoreBottomStratLitho_id.setValue(e.target.value, {
         onlySelf: true
       })
     }
-  
+
     changeCoreTopStratLitho(e:any) {
       console.log(e.value)
       this.CoreTopStratLitho_id.setValue(e.target.value, {
         onlySelf: true
       })
     }
-  
+
     changeContractingId(e:any) {
       console.log(e.value)
       this.WBCoringContractor_id.setValue(e.target.value, {
         onlySelf: true
       })
     }
-  
+
     changeWellboreId(e:any) {
       console.log(e.value)
       this.wellboreIds.setValue(e.target.value, {
@@ -307,7 +307,7 @@ export class WellsComponent implements OnInit {
 
     onSelect(selectedItem: any) {
       this.id = selectedItem.WellboreCore_id
-  
+
       this.ngPopups.confirm("Are you sure you want to delete ?",{
         // theme: 'material',
         color:'OrangeRed',
@@ -332,7 +332,7 @@ export class WellsComponent implements OnInit {
               setTimeout(() => {
                 this.authservice.reload();
               }, 1000);
-  
+
             } else {
               this.authservice.securityStatusUpdate()
             }
@@ -342,9 +342,9 @@ export class WellsComponent implements OnInit {
           console.log("You clicked cancel.")
         }
       });
-  
+
     }
-  
+
     onSelectEdit(selectedItem: any) {
       console.log("hide the elements");
       this.status = false;
@@ -390,7 +390,7 @@ export class WellsComponent implements OnInit {
         ReportDocumentName:item.ReportDocumentName,
         WellboreCoreName:item.WellboreCoreName,
         Comments:item.Comments
-       
+
       }
     }
   captureWellsInstance() {
@@ -400,7 +400,7 @@ export class WellsComponent implements OnInit {
         console.log("grab update value")
         console.log(this.updatevalue)
         this.formGroup.patchValue({
-       
+
       Wellbore_id:this.authservice.stripFormValue(this.updatevalue.Wellbore_id),
       CoreNumber:this.authservice.stripFormValue(this.updatevalue.CoreNumber),
       CoringDate:this.authservice.stripFormValue(this.updatevalue.CoringDate),
@@ -435,18 +435,18 @@ export class WellsComponent implements OnInit {
         console.log(this.updatevalue)
       });
   }
-  
+
     navigateBack() {
       this.authservice.reload();
     }
-  
+
     updateWellboreCoreProcess() {
       console.log("tested")
       if (this.formGroup.valid) {
         console.log(this.formGroup.value)
         this.authservice.updateWellboreCore(this.formGroup.value).subscribe(result => {
           console.log(result)
-  
+
           if (result.message == "Welbore Core updated successfuly.") {
             this.toastr.success("Welbore Core updated successfuly.", "", {
               timeOut: 2000,
@@ -458,13 +458,13 @@ export class WellsComponent implements OnInit {
             setTimeout(() => {
               this.authservice.reload();
             }, 1000);
-  
-  
+
+
           } else {
             this.authservice.securityStatusUpdate()
           }
         }, error => {
-  
+
           console.log('oops', error.message)
           if (error) {
             this.toastr.error(error.error.message, "", {
@@ -475,10 +475,10 @@ export class WellsComponent implements OnInit {
             })
           }
         }
-  
+
         )
       }
     }
-  
+
 
   }

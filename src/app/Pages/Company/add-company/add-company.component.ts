@@ -15,6 +15,8 @@ export class AddCompanyComponent implements OnInit {
   title!: string;
   today!: Date;
   year!: Date;
+  currentYear:any;
+  allYears:any = [];
 
   constructor(
     private authservice: ApiPipeService,
@@ -25,9 +27,16 @@ export class AddCompanyComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     // this.authservice.reload();
-    this.today = new Date(Date.now())
+    this.currentYear = new Date().getFullYear();
+    while (this.currentYear >= 2000) {
+
+      this.allYears.push(this.currentYear);
+      this.currentYear -= 1;
+    }
+    // console.log(this.allYears)
 
   }
+
 
   initForm(){
     this.formGroup = new FormGroup({
@@ -95,7 +104,6 @@ export class AddCompanyComponent implements OnInit {
   addCompanyDetails(){
     console.log("tested")
     if(this.formGroup.valid){
-      // Object.keys(this.formGroup.value).forEach((key) => (this.formGroup.value[key] == null) && (this.formGroup.value[key]=""));
       console.log(this.formGroup.value)
       this.authservice.addCompany(this.formGroup.value).subscribe(result =>{
         console.log(result.message)

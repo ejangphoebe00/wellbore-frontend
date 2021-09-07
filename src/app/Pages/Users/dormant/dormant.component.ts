@@ -62,11 +62,11 @@ export class DormantComponent implements OnInit {
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend: 'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend: 'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend: 'print',
           tag: 'button',
@@ -319,7 +319,7 @@ export class DormantComponent implements OnInit {
             progressAnimation: 'increasing'
           })
           this.formGroup.reset();
-          // setTimeout(() => {                           
+          // setTimeout(() => {
           //   this.router.navigate(['/web-security-levels']);
           // }, 1000);
 

@@ -41,7 +41,7 @@ export class UserLogsComponent implements OnInit {
     }else{
     this.role= false;
     }
-   
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
@@ -52,11 +52,11 @@ export class UserLogsComponent implements OnInit {
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend:'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend:'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend:'print',
           tag: 'button',
