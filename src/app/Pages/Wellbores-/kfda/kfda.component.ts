@@ -62,11 +62,11 @@ export class KfdaComponent implements OnInit {
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend: 'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend: 'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend: 'print',
           tag: 'button',
@@ -154,7 +154,7 @@ export class KfdaComponent implements OnInit {
     //     this.updatevalue = response;
     //     this.formGroup.patchValue({
 
-          
+
     //       PAUID:this.authservice.stripFormValue(this.updatevalue.PAUID),
     //       WellboreOfficialName:this.authservice.stripFormValue(this.updatevalue.WellboreOfficialName),
     //       WellboreLocalName:this.authservice.stripFormValue(this.updatevalue.WellboreLocalName),
@@ -286,7 +286,7 @@ export class KfdaComponent implements OnInit {
     this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue({   
+        this.formGroup.patchValue({
           PAUID:this.authservice.stripFormValue(this.updatevalue.PAUID),
           WellboreOfficialName:this.authservice.stripFormValue(this.updatevalue.WellboreOfficialName),
           WellboreLocalName:this.authservice.stripFormValue(this.updatevalue.WellboreLocalName),
@@ -347,7 +347,7 @@ export class KfdaComponent implements OnInit {
 
   }
 
-  
+
 
   navigateBack() {
     // this.router.navigate(['/web-security-levels']);
@@ -389,7 +389,7 @@ export class KfdaComponent implements OnInit {
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
       this.authservice.updateWellbore(this.formGroup.value).subscribe(result =>{
-       
+
         if(result.message == "Welbore updated successfuly."){
           this.toastr.success("Well Updated Successfuly.","",{
             timeOut: 2000,
@@ -398,12 +398,12 @@ export class KfdaComponent implements OnInit {
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
-          
-        } else{          
+
+        } else{
           this.authservice.wellboreFaliure()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
         if(error){
           this.toastr.error(error.error.message,"",{
@@ -415,7 +415,7 @@ export class KfdaComponent implements OnInit {
           // this.authservice.CompanyFaliure()
         }
       }
-      
+
       )
     }
   }

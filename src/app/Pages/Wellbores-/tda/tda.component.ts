@@ -61,11 +61,11 @@ export class TdaComponent implements OnInit {
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend: 'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend: 'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend: 'print',
           tag: 'button',
@@ -210,7 +210,7 @@ export class TdaComponent implements OnInit {
     this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        this.formGroup.patchValue({   
+        this.formGroup.patchValue({
           PAUID:this.authservice.stripFormValue(this.updatevalue.PAUID),
           WellboreOfficialName:this.authservice.stripFormValue(this.updatevalue.WellboreOfficialName),
           WellboreLocalName:this.authservice.stripFormValue(this.updatevalue.WellboreLocalName),
@@ -269,7 +269,7 @@ export class TdaComponent implements OnInit {
         console.log(this.updatevalue)
       });
 
-  }  
+  }
 
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
@@ -387,7 +387,7 @@ export class TdaComponent implements OnInit {
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
       this.authservice.updateWellbore(this.formGroup.value).subscribe(result =>{
-       
+
         if(result.message == "Welbore updated successfuly."){
           this.toastr.success("Well updated successfuly.","",{
             timeOut: 2000,
@@ -396,12 +396,12 @@ export class TdaComponent implements OnInit {
             progressAnimation:'increasing'
           })
           this.formGroup.reset();
-          
-        } else{          
+
+        } else{
           this.authservice.wellboreFaliure()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
         if(error){
           this.toastr.error(error.error.message,"",{
@@ -413,7 +413,7 @@ export class TdaComponent implements OnInit {
           // this.authservice.CompanyFaliure()
         }
       }
-      
+
       )
     }
   }

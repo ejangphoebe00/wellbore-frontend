@@ -39,6 +39,10 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   data:any;
   formdata:any;
   result:any;
+  currentYear:any;
+  allYears:any = [];
+  newval1:any;
+  newval2:any;
 
 
 
@@ -70,12 +74,12 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
         // 'columnsToggle',
         // 'colvis',
 
-        {
-          extend:'copy',
-          tag: 'button',
-          className: "btn blue btn-outline",
-        
-        },
+        // {
+        //   extend:'copyHtml5',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline",
+        //
+        // },
         {
           extend:'print',
           tag: 'button',
@@ -245,18 +249,25 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.id = selectedItem.Company_id
     localStorage.setItem("update-id", this.id);
     console.log("Selected item Id: ", selectedItem.Company_id);
+
+    this.currentYear = new Date().getFullYear();
+    while (this.currentYear >= 2000) {
+
+      this.allYears.push(this.currentYear);
+      this.currentYear -= 1;
+    }
+
+    console.log(this.allYears)
+
+
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
         this.updatevalue = response
-        // Object.entries(this.updatevalue).forEach(([key, value]) => {
-        //   if (value == "None") {
-        //     value = null
-        //   }
-        //   Object.assign(this.formdata, {key:value})
-        // });
 
-        // console.log(response)
-        // console.log(this.formdata)
+        // NSDQualificationDate value converted to datetime-local
+        this.newval1 = this.updatevalue.NSDQualificationDate.split(" ")
+        this.newval2 = this.updatevalue.PAURegistrationDate.split(" ")
+        // console.log(this.newval[0] + "T" + this.newval[1])
 
         this.formGroup.patchValue(
           {
@@ -283,7 +294,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            CompanyPostalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPostalAddress),
            CompanyPhysicalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPhysicalAddress),
            CompanyOtherEmails: this.authservice.stripFormValue(this.updatevalue.CompanyOtherEmails),
-           NSDQualificationDate: this.authservice.stripFormValue(this.updatevalue.NSDQualificationDate),
+           NSDQualificationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
            NSDQualificationYear: this.authservice.stripFormValue(this.updatevalue.NSDQualificationYear),
            PrimaryContactEntity: this.authservice.stripFormValue(this.updatevalue.PrimaryContactEntity),
            ContactEntityEmail: this.authservice.stripFormValue(this.updatevalue.ContactEntityEmail),
@@ -292,7 +303,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            ContactDesignation: this.authservice.stripFormValue(this.updatevalue.ContactDesignation),
            OperatorSortOrder: this.authservice.stripFormValue(this.updatevalue.OperatorSortOrder),
            ContractorSortOrder: this.authservice.stripFormValue(this.updatevalue.ContractorSortOrder),
-           PAURegistrationDate: this.authservice.stripFormValue(this.updatevalue.PAURegistrationDate),
+           PAURegistrationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
            CraneNOGTRID: this.authservice.stripFormValue(this.updatevalue.CraneNOGTRID),
            TempNOGTRIPwd: this.authservice.stripFormValue(this.updatevalue.TempNOGTRIPwd),
            RegistrationStatus_id: this.authservice.stripFormValue(this.updatevalue.RegistrationStatus_id),

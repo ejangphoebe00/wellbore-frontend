@@ -67,11 +67,11 @@ export class WebSecurityLevelsComponent implements OnInit, OnDestroy {
       buttons: [
         // 'columnsToggle',
         // 'colvis',
-        {
-          extend:'copy',
-          tag: 'button',
-          className: "btn blue btn-outline"
-        },
+        // {
+        //   extend:'copy',
+        //   tag: 'button',
+        //   className: "btn blue btn-outline"
+        // },
         {
           extend:'print',
           tag: 'button',
