@@ -52,6 +52,26 @@
     color: white;
     content: "\f085";
 }
+
+.fa-object-group:before {
+    content: "\f247";
+    color: white;
+    /* background-color: white; */
+}
+
+.fa-flask:before {
+    color: white;
+    content: "\f0c3";
+}
+
+.fa-paste:before, .fa-clipboard:before {
+    color: white;
+    content: "\f0ea";
+}
+.fa-unlink:before, .fa-chain-broken:before {
+    content: "\f127";
+    color: white;
+}
 .portlet.light.bordered {
     border: 5px solid #f8b806!important;
   }
