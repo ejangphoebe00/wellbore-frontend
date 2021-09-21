@@ -45,6 +45,7 @@ import { KfdaComponent } from './Pages/Wellbores-/kfda/kfda.component';
 import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
 import { DormantComponent } from './Pages/Users/dormant/dormant.component';
 import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho/view-strat-litho.component';
+import { AddCoresComponent } from './Pages/Cores/add-cores/add-cores.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho
     TdaComponent,
     DormantComponent,
     ViewStratLithoComponent,
+    AddCoresComponent,
   ],
   imports: [
     BrowserModule,

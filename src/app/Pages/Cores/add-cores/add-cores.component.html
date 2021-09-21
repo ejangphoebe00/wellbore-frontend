@@ -1,0 +1,75 @@
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+
+        <!-- END PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 ">
+                <!-- BEGIN SAMPLE FORM PORTLET-->
+                <div class="portlet light bordered">
+
+                    <div class="portlet-body form">
+                        <form [formGroup]="formGroup" (ngSubmit)="addStratLitho()" ngNativeValidate>
+                            <div class="form-body row">
+                              <div class="col-md-6">
+
+                                  <div class="form-group">
+                                      <label>Coring_contractor</label>
+                                      <input type="text" formControlName="Coring_contractor" class="form-control" required>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Wellbore_id</label>
+                                      <input type="text" required formControlName="Wellbore_id" class="form-control" required>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Core_number</label>
+                                      <input type="number" required formControlName="Core_number" class="form-control">
+                                  </div>
+                                 
+                                  <div class="form-group">
+                                      <label>Coring_date</label>
+                                      <input type="date" formControlName="Coring_date" class="form-control">
+
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Top_MD</label>
+                                      <input type="text" required formControlName="LithoStratAge_id" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Bottom_MD</label>
+                                      <input type="text" formControlName="Bottom_MD" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                        <label>Cut_length</label>
+                                        <input type="text" formControlName="Cut_length" class="form-control">
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+
+                                  <div class="form-group">
+                                      <label>Percentage_recovery</label>
+                                      <input type="text" formControlName="Percentage_recovery" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                      <label> Top_formation</label>
+                                      <input type="text" formControlName=" Top_formation" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Bottom_formation</label>
+                                      <input type="text" formControlName="LithoStratMapHyperlink" class="form-control">
+                                  </div>                                
+                              </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- END SAMPLE FORM PORTLET-->
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- END CONTENT BODY -->
+</div>

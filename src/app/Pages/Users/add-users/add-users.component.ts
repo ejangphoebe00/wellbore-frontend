@@ -15,7 +15,7 @@ export class AddUsersComponent implements OnInit {
   role:any;
   userEmail: any;
   loggedin: any;
-  Roles:any = ['Staff','Admin'];
+  Roles:any = ['Staff','Application Admin', 'Data Admin'];
   securityIds: any;
   submitted:boolean = false
 
