@@ -39,7 +39,7 @@ export class WellboreCoreComponent implements OnInit {
     this.initForm();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if(this.authservice.getRole()=="Admin"){
+    if(this.authservice.getRole()=="Application Admin"){
       this.role=true;
     }else{
     this.role= false;

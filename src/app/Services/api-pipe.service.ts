@@ -469,6 +469,11 @@ export class ApiPipeService {
     return this.httpClient.get('http://127.0.0.1:8899/apiv1/get_core_types')
   }
 
+  addNewCores(data:any): Observable<any>{
+    console.log("add strat")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_core',data)
+  }
+
   // deleteCoreTypes(CoreType_id:any): Observable<any>{
   //   console.log("deleted core types")
   //   return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_core_type/${CoreType_id}')

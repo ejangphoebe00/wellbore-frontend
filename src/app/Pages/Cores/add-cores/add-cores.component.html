@@ -9,57 +9,84 @@
                 <div class="portlet light bordered">
 
                     <div class="portlet-body form">
-                        <form [formGroup]="formGroup" (ngSubmit)="addStratLitho()" ngNativeValidate>
+                        <form [formGroup]="formGroup" (ngSubmit)="addCore()" ngNativeValidate>
                             <div class="form-body row">
                               <div class="col-md-6">
-
                                   <div class="form-group">
-                                      <label>Coring_contractor</label>
-                                      <input type="text" formControlName="Coring_contractor" class="form-control" required>
+                                       <label>Coring_contractor</label>
+                                        <select
+                                        formControlName="Coring_contractor"
+                                        name="Coring_contractor"
+                                        class="form-control">
+                                        <option *ngFor="let city of
+                                            WBCoringContractor_id"
+                                            [ngValue]="city.Company_id"
+                                            (change)="changeContractingId($event)">{{city.Company_id}}-->{{city.CompanyShortName}}
+                                        </option>
+                                    </select>                                    
                                   </div>
                                   <div class="form-group">
                                       <label>Wellbore_id</label>
-                                      <input type="text" required formControlName="Wellbore_id" class="form-control" required>
+                                      <select class="form-control"
+                                         required formControlName="Wellbore_id"
+                                        name="Wellbore_id">
+                                        <option *ngFor="let city of wellboreIds"
+                                            [ngValue]="city.Wellbore_id"
+                                            (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
+                                        </option>
+                                    </select>
                                   </div>
                                   <div class="form-group">
                                       <label>Core_number</label>
+                                      <span class="error">*</span>
                                       <input type="number" required formControlName="Core_number" class="form-control">
                                   </div>
                                  
                                   <div class="form-group">
                                       <label>Coring_date</label>
-                                      <input type="date" formControlName="Coring_date" class="form-control">
+                                      <input type="date"  [min]="today" formControlName="Coring_date" class="form-control">
 
                                   </div>
                                   <div class="form-group">
                                       <label>Top_MD</label>
-                                      <input type="text" required formControlName="LithoStratAge_id" class="form-control">
+                                      <input type="text" required formControlName="Top_MD" class="form-control">
                                   </div>
                                   <div class="form-group">
                                       <label>Bottom_MD</label>
                                       <input type="text" formControlName="Bottom_MD" class="form-control">
                                   </div>
-                                  <div class="form-group">
-                                        <label>Cut_length</label>
-                                        <input type="text" formControlName="Cut_length" class="form-control">
-                                  </div>
+                                
                               </div>
                               <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Cut_length</label>
+                                        <input type="text" formControlName="Cut_length" class="form-control">
+                                    </div>
 
                                   <div class="form-group">
                                       <label>Percentage_recovery</label>
-                                      <input type="text" formControlName="Percentage_recovery" class="form-control">
+                                      <input type="number" formControlName="Percentage_recovery" class="form-control">
                                   </div>
                                   <div class="form-group">
                                       <label> Top_formation</label>
-                                      <input type="text" formControlName=" Top_formation" class="form-control">
+                                      <input type="text" formControlName="Top_formation" class="form-control">
                                   </div>
                                   <div class="form-group">
                                       <label>Bottom_formation</label>
-                                      <input type="text" formControlName="LithoStratMapHyperlink" class="form-control">
+                                      <input type="text" formControlName="Bottom_formation" class="form-control">
                                   </div>                                
                               </div>
 
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-4">
+                                            <input type="submit" value="Save" class="btn
+                                            btn-success">            
+                                        <button type="button" class="btn
+                                            default">Cancel</button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
