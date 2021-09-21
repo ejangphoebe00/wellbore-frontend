@@ -84,7 +84,6 @@ export class AddCoresComponent implements OnInit {
           this.formGroup.reset();
         }
       }, error => {
-
         console.log('oops', error.message)
         if(error){
           this.toastr.error(error.error.message,"",{

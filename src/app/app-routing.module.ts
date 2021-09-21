@@ -33,6 +33,7 @@ import { TdaComponent } from './Pages/Wellbores-/tda/tda.component';
 import { DormantComponent } from './Pages/Users/dormant/dormant.component';
 import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho/view-strat-litho.component';
 import { AddCoresComponent } from './Pages/Cores/add-cores/add-cores.component';
+import { CoresListComponent } from './Pages/Cores/cores-list/cores-list.component';
 
 
 
@@ -69,7 +70,8 @@ const routes: Routes = [
       {path: 'king-fisher', component:  KfdaComponent},
       {path: 'tillenga', component:  TdaComponent},
       {path: 'inactive', component:  DormantComponent},
-      {path: 'add-cores', component: AddCoresComponent}
+      {path: 'add-cores', component: AddCoresComponent},
+      {path: 'cores', component: CoresListComponent}
 
   ]
 },
