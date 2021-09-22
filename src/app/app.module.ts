@@ -50,6 +50,7 @@ import { CoresListComponent } from './Pages/Cores/cores-list/cores-list.componen
 import { AddFluidsComponent } from './Pages/Fluids/add-fluids/add-fluids.component';
 import { FluidsListComponent } from './Pages/Fluids/fluids-list/fluids-list.component';
 import { AddCuttingsComponent } from './Pages/Cuttings/add-cuttings/add-cuttings.component';
+import { CuttingsListComponent } from './Pages/Cuttings/cuttings-list/cuttings-list.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { AddCuttingsComponent } from './Pages/Cuttings/add-cuttings/add-cuttings
     AddFluidsComponent,
     FluidsListComponent,
     AddCuttingsComponent,
+    CuttingsListComponent,
   ],
   imports: [
     BrowserModule,
