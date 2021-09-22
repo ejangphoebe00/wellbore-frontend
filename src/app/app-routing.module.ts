@@ -39,6 +39,7 @@ import { FluidsListComponent } from './Pages/Fluids/fluids-list/fluids-list.comp
 import { AddCuttingsComponent } from './Pages/Cuttings/add-cuttings/add-cuttings.component';
 import { CuttingsListComponent } from './Pages/Cuttings/cuttings-list/cuttings-list.component';
 import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-sample.component';
+import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.component';
 
 
 
@@ -81,7 +82,8 @@ const routes: Routes = [
       {path: 'fluids',component:FluidsListComponent},
       {path: 'add-cuttings', component:AddCuttingsComponent},
       {path: 'cuttings', component: CuttingsListComponent},
-      {path: 'add-rock-sample', component:AddRockSampleComponent}
+      {path: 'add-rock-sample', component:AddRockSampleComponent},
+      {path: 'rocks', component:RocksListComponent}
 
   ]
 },

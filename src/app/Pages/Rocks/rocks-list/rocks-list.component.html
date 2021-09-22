@@ -32,10 +32,10 @@
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption font-red-sunglo">
-                                        <i class="fa fa-object-group
+                                        <i class="fa fa-chain-broken
                                         font-red-sunglo"></i>
                                         <span class="caption-subject
-                                            bold uppercase">Cores</span>
+                                            bold uppercase">Rocks</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -49,21 +49,19 @@
                                             id="sample_1">
                                                 <thead>
                                                   <tr >
-                                                    <th>Coring_contractor</th>
-                                                    <th>Wellbore_id</th>
-                                                    <th>Core_number</th>
-                                                    <th>Coring_date</th>
-                                                    <th>Top_MD</th>
+                                                    <th>Sample_id</th>
+                                                    <th>Date_collected</th>
+                                                    <th>Date_received</th>
+                                                    <th>Sample_basin</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
                                                   <tr *ngFor="let post of users">
-                                                    <td>{{post.Coring_contractor}}</td>
-                                                    <td>{{post.Wellbore_id}}</td>
-                                                    <td>{{post.Core_number}}</td>
-                                                    <td>{{post.Coring_date}}</td>
-                                                    <td>{{post.Top_MD}}</td>
+                                                    <td>{{post.Sample_id}}</td>
+                                                    <td>{{post.Date_collected}}</td>
+                                                    <td>{{post.Date_received}}</td>
+                                                    <td>{{post.Sample_basin}}</td>
                                                     <td>
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
@@ -98,10 +96,10 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                                         <div class="caption font-red-sunglo">
-                                                <i class="fa fa-object-group
+                                                <i class="fa fa-chain-broken
                                         font-red-sunglo"></i>
                                                 <span class="caption-subject
-                                                    bold uppercase">Cores</span>
+                                                    bold uppercase">Rocks</span>
                                             </div>
 
                                         <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
@@ -111,36 +109,30 @@
                                       <table class="table table-bordered table-striped">
                                           <tbody>
                                             <tr>
-                                                <th style="width:25%"> Coring Contractor</th>
-                                                <td style="width:25%">{{catalogs.Coring_contractor}} </td>
-                                                <th style="width:25%"> Wellbore Id </th>
-                                                <td style="width:25%"> {{catalogs.Wellbore_id}}</td>
+                                                <th style="width:25%"> Sample</th>
+                                                <td style="width:25%">{{catalogs.Sample_id}} </td>
+                                                <th style="width:25%"> Date Collected </th>
+                                                <td style="width:25%"> {{catalogs.Date_collected}}</td>
         
                                             </tr>
                                             <tr>
-                                                <th style="width:25%"> Core Number</th>
-                                                <td style="width:25%">{{catalogs.Core_number}} </td>
-                                                <th style="width:25%"> Coring Date </th>
-                                                <td style="width:25%"> {{catalogs.Coring_date}}</td>
+                                                <th style="width:25%"> Date_received</th>
+                                                <td style="width:25%">{{catalogs.Date_received}} </td>
+                                                <th style="width:25%"> Sample Basin </th>
+                                                <td style="width:25%"> {{catalogs.Sample_basin}}</td>
         
                                             </tr>
-                                            <tr>
-                                                    <th style="width:25%"> Top_MD</th>
-                                                    <td style="width:25%">{{catalogs.Top_MD}} </td>
-                                                    <th style="width:25%"> Bottom_MD </th>
-                                                    <td style="width:25%"> {{catalogs.Bottom_MD}}</td>
+                                           
+                                                <tr>
+                                                    <th style="width:25%"> Rock Name</th>
+                                                    <td style="width:25%">{{catalogs.Rock_name}} </td>
+                                                    <th style="width:25%"> Coordinate Location </th>
+                                                    <td style="width:25%"> {{catalogs.Coordinate_location}}</td>
             
                                                 </tr>
                                                 <tr>
-                                                    <th style="width:25%"> Cut_length</th>
-                                                    <td style="width:25%">{{catalogs.Cut_length}} </td>
-                                                    <th style="width:25%"> Percentage_recovery </th>
-                                                    <td style="width:25%"> {{catalogs.Percentage_recovery}}</td>
-            
-                                                </tr>
-                                                <tr>
-                                                        <th style="width:25%"> Bottom Formation</th>
-                                                        <td style="width:25%">{{catalogs.Bottom_formation}} </td>
+                                                        <th style="width:25%"> Petrographic Description </th>
+                                                        <td style="width:25%">{{catalogs.Petrographic_description }} </td>
                                                        
                 
                                                     </tr>
@@ -167,77 +159,51 @@
 
             <div *ngIf="editform" class="portlet light bordered">
                     <div class="portlet-body form">
-                            <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateCoreCatProcess()" ngNativeValidate>
+                            <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateRockProcess()" ngNativeValidate>
         
                                     <div class="form-body row">
                                             <div class="col-md-6">
+                                               
+                                                
                                                 <div class="form-group">
-                                                     <label>Coring_contractor</label>
-                                                      <select
-                                                      formControlName="Coring_contractor"
-                                                      name="Coring_contractor"
-                                                      class="form-control">
-                                                      <option *ngFor="let city of
-                                                          WBCoringContractor_id"
-                                                          [ngValue]="city.Company_id"
-                                                          (change)="changeContractingId($event)">{{city.Company_id}}-->{{city.CompanyShortName}}
-                                                      </option>
-                                                  </select>                                    
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Wellbore</label>
-                                                    <select class="form-control"
-                                                       required formControlName="Wellbore_id"
-                                                      name="Wellbore_id">
-                                                      <option *ngFor="let city of wellboreIds"
-                                                          [ngValue]="city.Wellbore_id"
-                                                          (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
-                                                      </option>
-                                                  </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Core_number</label>
+                                                    <label>Sample</label>
                                                     <span class="error">*</span>
-                                                    <input type="number" required formControlName="Core_number" class="form-control">
+                                                    <input type="number" required formControlName="Sample_id" class="form-control">
                                                 </div>
                                                
                                                 <div class="form-group">
-                                                    <label>Coring_date</label>
-                                                    <input type="date"   formControlName="Coring_date" class="form-control">
+                                                    <label>Date_collected</label>
+                                                    <input type="date" formControlName="Date_collected" class="form-control">
               
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Top_MD</label>
-                                                    <input type="text" required formControlName="Top_MD" class="form-control">
+                                                    <label>Date Received</label>
+                                                    <input type="date" required formControlName="Date_received" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Bottom_MD</label>
-                                                    <input type="text" formControlName="Bottom_MD" class="form-control">
+                                                    <label>Sample_basin</label>
+                                                    <input type="number" Step="any" formControlName="Sample_basin" class="form-control">
                                                 </div>
                                               
                                             </div>
                                             <div class="col-md-6">
                                               <div class="form-group">
-                                                      <label>Cut_length</label>
-                                                      <input type="number" formControlName="Cut_length" class="form-control">
+                                                      <label>Rock_name</label>
+                                                      <input type="text" formControlName="Rock_name" class="form-control">
                                                   </div>
               
                                                 <div class="form-group">
-                                                    <label>Percentage_recovery</label>
-                                                    <input type="number" formControlName="Percentage_recovery" class="form-control">
+                                                    <label>Coordinate_location</label>
+                                                    <input type="text" formControlName="Coordinate_location" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label> Top_formation</label>
-                                                    <input type="text" formControlName="Top_formation" class="form-control">
+                                                    <label>Petrographic_description</label>
+                                                    <input type="text" formControlName="Petrographic_description" class="form-control">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Bottom_formation</label>
-                                                    <input type="text" formControlName="Bottom_formation" class="form-control">
-                                                </div>                                
+                                                                              
                                             </div>
               
                                           </div>
-        
                             <div class="form-actions">
                                 <button  type="submit" class="btn blue">Update</button>
                                 <button (click)="navigateBack()" type="button" class="btn default">Back</button>

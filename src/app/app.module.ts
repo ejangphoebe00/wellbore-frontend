@@ -52,6 +52,7 @@ import { FluidsListComponent } from './Pages/Fluids/fluids-list/fluids-list.comp
 import { AddCuttingsComponent } from './Pages/Cuttings/add-cuttings/add-cuttings.component';
 import { CuttingsListComponent } from './Pages/Cuttings/cuttings-list/cuttings-list.component';
 import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-sample.component';
+import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-s
     AddCuttingsComponent,
     CuttingsListComponent,
     AddRockSampleComponent,
+    RocksListComponent,
   ],
   imports: [
     BrowserModule,
