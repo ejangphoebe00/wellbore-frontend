@@ -518,6 +518,22 @@ export class ApiPipeService {
     return this.http.get('http://127.0.0.1:8899/apiv1/get_cuttings')
   }
 
+  //Rock Samples
+
+  addRocks(data:any): Observable<any>{
+    console.log("add rocks")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_rock_sample',data)
+  }
+
+  updateRocks(data: any): Observable<any> {
+    console.log("update Fluid")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_rock_sample/'+this.getUpdateId(), data)
+  }
+
+  getRocks(): Observable<any> {
+    console.log("Cores List")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_rock_samples')
+  }
 
 
 
