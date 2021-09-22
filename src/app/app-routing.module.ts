@@ -34,6 +34,7 @@ import { DormantComponent } from './Pages/Users/dormant/dormant.component';
 import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho/view-strat-litho.component';
 import { AddCoresComponent } from './Pages/Cores/add-cores/add-cores.component';
 import { CoresListComponent } from './Pages/Cores/cores-list/cores-list.component';
+import { AddFluidsComponent } from './Pages/Fluids/add-fluids/add-fluids.component';
 
 
 
@@ -71,7 +72,8 @@ const routes: Routes = [
       {path: 'tillenga', component:  TdaComponent},
       {path: 'inactive', component:  DormantComponent},
       {path: 'add-cores', component: AddCoresComponent},
-      {path: 'cores', component: CoresListComponent}
+      {path: 'cores', component: CoresListComponent},
+      {path: 'add-fluids', component: AddFluidsComponent}
 
   ]
 },
