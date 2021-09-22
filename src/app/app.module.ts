@@ -48,6 +48,7 @@ import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho
 import { AddCoresComponent } from './Pages/Cores/add-cores/add-cores.component';
 import { CoresListComponent } from './Pages/Cores/cores-list/cores-list.component';
 import { AddFluidsComponent } from './Pages/Fluids/add-fluids/add-fluids.component';
+import { FluidsListComponent } from './Pages/Fluids/fluids-list/fluids-list.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { AddFluidsComponent } from './Pages/Fluids/add-fluids/add-fluids.compone
     AddCoresComponent,
     CoresListComponent,
     AddFluidsComponent,
+    FluidsListComponent,
   ],
   imports: [
     BrowserModule,

@@ -489,6 +489,16 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/apiv1/add_fluid_sample',data)
   }
 
+  updateFluids(data: any): Observable<any> {
+    console.log("update Fluid")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_fluid_sample/'+this.getUpdateId(), data)
+  }
+
+  getFluids(): Observable<any> {
+    console.log("Cores List")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_fluid_samples')
+  }
+
   // deleteCoreTypes(CoreType_id:any): Observable<any>{
   //   console.log("deleted core types")
   //   return this.httpClient.delete('http://127.0.0.1:8899/apiv1/delete_core_type/${CoreType_id}')

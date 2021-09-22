@@ -35,6 +35,7 @@ import { ViewStratLithoComponent } from './Pages/StratLithoUnit/view-strat-litho
 import { AddCoresComponent } from './Pages/Cores/add-cores/add-cores.component';
 import { CoresListComponent } from './Pages/Cores/cores-list/cores-list.component';
 import { AddFluidsComponent } from './Pages/Fluids/add-fluids/add-fluids.component';
+import { FluidsListComponent } from './Pages/Fluids/fluids-list/fluids-list.component';
 
 
 
@@ -73,7 +74,8 @@ const routes: Routes = [
       {path: 'inactive', component:  DormantComponent},
       {path: 'add-cores', component: AddCoresComponent},
       {path: 'cores', component: CoresListComponent},
-      {path: 'add-fluids', component: AddFluidsComponent}
+      {path: 'add-fluids', component: AddFluidsComponent},
+      {path: 'fluids',component:FluidsListComponent}
 
   ]
 },
