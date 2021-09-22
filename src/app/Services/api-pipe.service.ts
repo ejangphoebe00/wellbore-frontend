@@ -484,6 +484,8 @@ export class ApiPipeService {
     return this.http.put('http://127.0.0.1:8899/apiv1/edit_core/'+this.getUpdateId(), data)
   }
 
+  //Fluids
+
   addFluid(data:any): Observable<any>{
     console.log("add new Fluid")
     return this.http.post('http://127.0.0.1:8899/apiv1/add_fluid_sample',data)
@@ -498,6 +500,26 @@ export class ApiPipeService {
     console.log("Cores List")
     return this.http.get('http://127.0.0.1:8899/apiv1/get_fluid_samples')
   }
+
+  //Cuttings
+
+  addCuts(data:any): Observable<any>{
+    console.log("add new Fluid")
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_cutting',data)
+  }
+
+  updateCuts(data: any): Observable<any> {
+    console.log("update Fluid")
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_cutting/'+this.getUpdateId(), data)
+  }
+
+  getCuts(): Observable<any> {
+    console.log("Cores List")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_cuttings')
+  }
+
+
+
 
   // deleteCoreTypes(CoreType_id:any): Observable<any>{
   //   console.log("deleted core types")
