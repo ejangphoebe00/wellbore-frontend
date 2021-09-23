@@ -190,7 +190,7 @@
                                         User Name is required</span></div>
                             </div>
                             <div class="form-group">
-                                    <label>Login ID</label>
+                                    <label>Login </label>
                                     <input formControlName="LoginID"
                                         type="text" class="form-control"
                                         placeholder="">
@@ -199,7 +199,7 @@
                         <div class="col-md-3">
                        
                             <div class="form-group">
-                                <label>Login ID Alias</label>
+                                <label>Login Alias</label>
                                 <input
                                     formControlName="LoginIDAlias"
                                     type="text" class="form-control"
@@ -218,7 +218,7 @@
                                 </div>
 
                         <div class="form-group">
-                            <label>User Company_id</label>
+                            <label>User Company</label>
                             <input
                                 formControlName="UserCompany_id"
                                 type="number" class="form-control"
@@ -226,7 +226,7 @@
                         </div>
 
                         <div class="form-group">
-                                <label>User Prems User_id</label>
+                                <label>User Prems User</label>
                                 <input
                                     formControlName="UserPremsUser_id"
                                     type="number" class="form-control"
@@ -234,14 +234,13 @@
                             </div>
 
                             <div class="form-group">
-                                    <label>User Staff Id</label>
+                                    <label>User Staff </label>
                                     <span class="error">*</span>
                                     <input
                                     required formControlName="UserStaff_id"
                                         type="number" class="form-control"
                                         placeholder="">
-                                        <div> <span class="errorName" *ngIf="f.UserStaff_id.touched && f.UserStaff_id.invalid">
-                                            User staff id is required</span></div>
+                                       
                                 </div>
 
                                 <div class="form-group">
@@ -251,8 +250,7 @@
                                         required formControlName="OrganisationName"
                                             type="text" class="form-control"
                                             placeholder="">
-                                            <div> <span class="errorName" *ngIf="f.OrganisationName.touched && f.OrganisationName.invalid">
-                                                Organisation Name is required</span></div>
+                                            
                                     </div>
                            
                         </div>   
@@ -267,11 +265,10 @@
                                 required formControlName="UserEmailAddress"
                                     type="text" class="form-control"
                                     placeholder="">
-                                    <div> <span class="errorName" *ngIf="f.UserEmailAddress.touched && f.UserEmailAddress.invalid">
-                                        User Email is required</span></div>
+                                    
                             </div>
                             <div class="form-group">
-                                <label>User Security Level Id</label>
+                                <label>User Security Level </label>
                                 <input
                                     formControlName="UserSecurityLevel_id"
                                     type="number" class="form-control"
@@ -279,7 +276,7 @@
                                    
                             </div>
                             <div class="form-group">
-                                <label>User Web Security Level_id</label>
+                                <label>User Web Security Level</label>
                                 <span class="error">*</span>
                                 <select class="custom-select"
                                 required formControlName="UserWebSecurityLevel_id"
@@ -290,15 +287,13 @@
                                     (change)="changeSecurity($event)">{{city.WebSecurityLevel_id}}-->{{city.WebSecurityLevelName}}
                                     </option>
                                 </select>
-                                <div> <span class="errorName"
-                                    *ngIf="f.UserWebSecurityLevel_id.invalid && f.UserWebSecurityLevel_id.touched">Web
-                                    security-id is required</span></div>
+                                
 
                             </div>
 
                              <div class="form-group">
                                     <label>User Nogtr Web Security Level
-                                        Id:</label>
+                                        </label>
                                     <input
                                         formControlName="UserNogtrWebSecurityLevel_id"
                                         type="number" class="form-control"
@@ -307,7 +302,7 @@
 
                             <div class="form-group">
                                 <label>User Prems Web Security Level
-                                    Id</label>
+                                   </label>
                                 <input
                                     formControlName="UserPremsWebSecurityLevel_id"
                                     type="number" class="form-control"
@@ -315,7 +310,7 @@
                             </div>
                             <div class="form-group">
                                 <label>User Intranet Security Level
-                                    Id</label>
+                                    </label>
                                 <input
                                     formControlName="UserIntranetSecurityLevel_id"
                                     type="number" class="form-control"
@@ -328,7 +323,7 @@
                            
                             <div class="form-group">
                                 <label>User Nsd Web Security Level
-                                    Id</label>
+                                    </label>
                                 <input
                                     formControlName="UserNsdWebSecurityLevel_id"
                                     type="number" class="form-control"
