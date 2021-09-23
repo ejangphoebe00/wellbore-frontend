@@ -150,12 +150,12 @@
                 (ngSubmit)="addFileFormatsProcess()">
 
                     <div class="form-body">
-                        <div class="form-group">
+                        <div class="form-group">                        
                             <label class="col-md-3 control-label">File
-                                Format Name</label>
+                                Format Name  <span class="error">*</span></label>                        
                             <div class="col-md-4">
                                 <input type="text"
-                                    formControlName="FileFormatName"
+                                     required formControlName="FileFormatName"
                                     class="form-control"
                                     placeholder="Name"> </div>
                         </div>
