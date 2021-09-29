@@ -117,11 +117,11 @@
                         <div class="portlet-title tabbable-line">
                             <div routerLink="core-catalogs" class="caption">
                                 <i class=" icon-social-twitter font-dark hide"></i>
-                                <span class="caption-subject font-dark bold uppercase">Core Catalog</span>
+                                <span class="caption-subject font-dark bold uppercase">Fluid Samples</span>
                             </div>
                             <ul class="nav nav-tabs">
                                 <li class="active">
-                                    <a data-toggle="tab"> Actions </a>
+                                    <a data-toggle="tab"> Stats </a>
                                 </li>
 
                             </ul>
@@ -133,27 +133,15 @@
                                     <!-- BEGIN: Actions -->
                                     <div class="mt-actions">
                                         <div class="mt-action">
-                                            <div routerLink="core-catalogs" class="mt-action-body">
-                                                <div class="mt-action-row">
-                                                    <div class="mt-action-info ">
-                                                        <div class="mt-action-icon ">
-
-                                                        </div>
-                                                        <div class="mt-action-details ">
-                                                            <span class="mt-action-author">Registered</span>
-                                                            <p class="mt-action-desc"> {{coreCatalogz}} Core Catalogs</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mt-action-buttons ">
-                                                        <div class="btn-group btn-group-circle">
-                                                            <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                            <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                            <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                                            <div class="chart-wrapper">
+                                                <canvas baseChart 
+                                                [datasets]="OilbarChartData"
+                                                [labels]="OilbarChartLabels"
+                                                [options]="barChartOptions"
+                                                [plugins]="barChartPlugins"
+                                                [legend]="barChartLegend"
+                                                [chartType]="barChartType">
+                                              </canvas>
                                             </div>
                                         </div>
 

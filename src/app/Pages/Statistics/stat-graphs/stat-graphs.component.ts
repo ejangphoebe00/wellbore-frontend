@@ -49,6 +49,12 @@ wells:any;
       { data: [40, 30, 28 ], label: 'Driven' },
     ];
 
+
+    OilbarChartLabels: Label[] = ['Oil', 'Gas', 'Water'];
+    OilbarChartData: ChartDataSets[] = [
+      { data: [45, 37, 60], label: 'Fluid Samples' }
+    ];
+
      
   constructor(  
     private authservice: ApiPipeService,
