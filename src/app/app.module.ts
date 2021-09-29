@@ -4,7 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from "angular-datatables";
 import { ToastrModule } from 'ngx-toastr';
 import { NgPopupsModule } from 'ng-popups';
-
+import { AngularFileUploaderModule } from "angular-file-uploader";
+import { NgxUploaderModule } from 'ngx-uploader';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartsModule } from 'ng2-charts';
 
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -53,6 +58,7 @@ import { AddCuttingsComponent } from './Pages/Cuttings/add-cuttings/add-cuttings
 import { CuttingsListComponent } from './Pages/Cuttings/cuttings-list/cuttings-list.component';
 import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-sample.component';
 import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.component';
+import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +102,7 @@ import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.componen
     CuttingsListComponent,
     AddRockSampleComponent,
     RocksListComponent,
+    StatGraphsComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +114,12 @@ import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.componen
     BrowserAnimationsModule,
     NgPopupsModule.forRoot(),
     ToastrModule.forRoot(),
+    AngularFileUploaderModule,
+    NgxChartsModule,
+    NgxUploaderModule,
+    MatIconModule,    //*FAB Button
+    MatButtonModule, //*FAB Button
+    ChartsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

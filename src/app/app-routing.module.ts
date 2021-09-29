@@ -40,6 +40,7 @@ import { AddCuttingsComponent } from './Pages/Cuttings/add-cuttings/add-cuttings
 import { CuttingsListComponent } from './Pages/Cuttings/cuttings-list/cuttings-list.component';
 import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-sample.component';
 import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.component';
+import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.component';
 
 
 
@@ -83,7 +84,8 @@ const routes: Routes = [
       {path: 'add-cuttings', component:AddCuttingsComponent},
       {path: 'cuttings', component: CuttingsListComponent},
       {path: 'add-rock-sample', component:AddRockSampleComponent},
-      {path: 'rocks', component:RocksListComponent}
+      {path: 'rocks', component:RocksListComponent},
+      {path: 'stats', component: StatGraphsComponent}
 
   ]
 },

@@ -149,6 +149,7 @@
                                        </table>
                                        <div class="clearfix"></div>
                                        <button (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
+                                       <button  (click)="onFile()"  data-dismiss="modal"   class="btn yellow">Add File</button>
 
                                    </div>
                                    <!-- <div class="modal-footer">
@@ -163,6 +164,40 @@
                         </div>
 
 
+                        <div *ngIf="uploadFile" class="portlet light bordered">
+                            <h3>TSZR</h3>
+                            <!-- <angular-file-uploader
+                                [config]="afuConfig">
+                            </angular-file-uploader> -->
+                            <!-- <input type="file" class="file-input"
+                            [accept]="requiredFileType"
+                            (change)="onFileSelected($event)" #fileUpload>
+                     
+                     <div class="file-upload">
+                     
+                        {{fileName || "No file uploaded yet."}}
+                     
+                         <button mat-mini-fab color="primary" class="upload-btn"
+                           (click)="fileUpload.click()">
+                             <mat-icon>attach_file</mat-icon>
+                     
+                         </button>
+                     
+                     </div>
+                     
+                     <div class="progress">
+                     
+                       <mat-progress-bar class="progress-bar" mode="determinate"
+                                         [value]="uploadProgress" *ngIf="uploadProgress">
+                     
+                       </mat-progress-bar>
+                     
+                       <mat-icon class="cancel-upload" (click)="cancelUpload()" 
+                                 *ngIf="uploadProgress">delete_forever</mat-icon>
+                     
+                     </div> -->
+                            
+                        </div>
                      
 
             <div *ngIf="editform" class="portlet light bordered">

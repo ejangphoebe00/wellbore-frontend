@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { NgPopupsService } from 'ng-popups';
+
 
 @Component({
   selector: 'app-cores-list',
@@ -13,6 +14,19 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./cores-list.component.css']
 })
 export class CoresListComponent implements OnInit {
+  @Input()
+  requiredFileType:string | undefined;
+
+  // fileName = '';
+  // uploadProgress:number = 0;
+  // uploadSub: Subscription = any;
+
+//   afuConfig = {
+//     uploadAPI: {
+//       url:"http://127.0.0.1:8899/apiv1/add_file/1"
+//     }
+// };
+
   formGroup!: FormGroup;
   title!: string;
   wellboreIds: any;
@@ -24,6 +38,7 @@ export class CoresListComponent implements OnInit {
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
+  uploadFile: boolean = false;
   details:boolean= false;
   updatevalue: any;
   catalogs:any;
@@ -166,6 +181,8 @@ export class CoresListComponent implements OnInit {
       }
     }
 
+   
+
 
 
     onSelect(selectedItem: any) {
@@ -235,6 +252,14 @@ export class CoresListComponent implements OnInit {
       this.editform = true;
     }
 
+
+    onFile(){
+      console.log("Clicked")
+      this.status = false;
+      this.details= false;
+      this.uploadFile = true;
+    }
+
     captureCoreInstance(){
       this.http.get('http://127.0.0.1:8899/apiv1/get_core/' + this.id)
         .subscribe(response => {
@@ -299,6 +324,32 @@ export class CoresListComponent implements OnInit {
   navigateBack() {
     this.authservice.reload();
   }
+
+//   onFileSelected(event: { target: { files: File[]; }; }) {
+//     const file:File = event.target.files[0];
+  
+//     if (file) {
+//         this.fileName = file.name;
+//         const formData = new FormData();
+//         formData.append("thumbnail", file);
+
+//         const upload$ = this.http.post("/api/thumbnail-upload", formData, {
+//             reportProgress: true,
+//             observe: 'events'
+//         })
+//         .pipe(
+//            //  finalize(() => this.reset())
+//         );
+      
+//         this.uploadSub = upload$.subscribe(event => {
+//           if (event.type == HttpEventType.UploadProgress) {
+//             this.uploadProgress = Math.round(100 * (event.loaded / event.total));
+//           }
+//         })
+//     }
+// }
+
+// }
 
 }
 
