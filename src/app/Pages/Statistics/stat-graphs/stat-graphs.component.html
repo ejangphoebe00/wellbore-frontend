@@ -80,7 +80,7 @@
                                     </div>
                                     <ul class="nav nav-tabs">
                                         <li class="active">
-                                            <a data-toggle="tab"> Actions </a>
+                                            <a data-toggle="tab"><h3> {{wells}} Wells </h3></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -91,25 +91,16 @@
                                             <div class="mt-comments">
                                                 <div class="mt-comment">
 
-                                                    <div class="mt-comment-body">
-                                                        <div routerLink="wellbores" class="mt-comment-info">
-                                                            <span class="mt-comment-author">Registered</span>
-
-                                                            <span class="mt-comment-date">
-
-                                                                    <div class="mt-action-buttons ">
-                                                                            <div routerLink="wellbores" class="btn-group btn-group-circle">
-                                                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                                <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                                <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                            </div>
-                                                                        </div>
-                                                            </span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> {{wells}} Wells </div>
-
-
-                                                    </div>
+                                                    <div style="display: block;" >
+                                                        <canvas baseChart 
+                                                          [datasets]="barChartData"
+                                                          [labels]="barChartLabels"
+                                                          [options]="barChartOptions"
+                                                          [plugins]="barChartPlugins"
+                                                          [legend]="barChartLegend"
+                                                          [chartType]="barChartType">
+                                                        </canvas>
+                                                      </div>
 
                                                 </div>
 

@@ -33,6 +33,22 @@ wells:any;
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
+
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+    
+  public barChartLabels: Label[] = ['KDA', 'FDA'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartPlugins = [];
+    
+    public barChartData: ChartDataSets[] = [
+      { data: [65, 67, 70], label: 'Injector Wells' },
+      { data: [50, 48, 47], label: 'Drilled Wells' },
+      { data: [40, 30, 28 ], label: 'Driven' },
+    ];
+
      
   constructor(  
     private authservice: ApiPipeService,
