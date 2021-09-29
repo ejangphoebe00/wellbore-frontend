@@ -63,6 +63,10 @@
     color: white;
     content: "\f0c3";
 }
+.fa-bar-chart-o:before, .fa-bar-chart:before {
+    color: white;
+    content: "\f080";
+}
 
 .fa-paste:before, .fa-clipboard:before {
     color: white;

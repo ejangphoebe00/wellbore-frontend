@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions,ChartDataSets } from 'chart.js';
-import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, MultiDataSet } from 'ng2-charts';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { Router } from '@angular/router';
 
@@ -54,6 +54,13 @@ wells:any;
     OilbarChartData: ChartDataSets[] = [
       { data: [45, 37, 60], label: 'Fluid Samples' }
     ];
+
+
+    doughnutChartLabels: Label[] = ['Washed_Dried','Washed_Wet','Wet_Unwashed','Dry_Unwashed']
+    doughnutChartData: MultiDataSet = [
+      [2, 5, 1,10]
+    ];
+    doughnutChartType: ChartType = 'doughnut';
 
      
   constructor(  

@@ -158,11 +158,11 @@
                             <div routerLink="wells" class="portlet-title tabbable-line">
                                 <div class="caption">
                                     <i class=" icon-social-twitter font-dark hide"></i>
-                                    <span class="caption-subject font-dark bold uppercase">Wellbore Cores</span>
+                                    <span class="caption-subject font-dark bold uppercase">Cuttings</span>
                                 </div>
                                 <ul class="nav nav-tabs">
                                     <li class="active">
-                                        <a data-toggle="tab"> Actions </a>
+                                        <a data-toggle="tab"> Stats </a>
                                     </li>
 
                                 </ul>
@@ -173,29 +173,12 @@
                                     <div class="tab-pane active" id="tab_actions_pending">
                                         <!-- BEGIN: Actions -->
                                         <div class="mt-actions">
-                                            <div class="mt-action">
-                                                <div class="mt-action-body">
-                                                    <div class="mt-action-row">
-                                                        <div class="mt-action-info ">
-                                                            <div class="mt-action-icon ">
-
-                                                            </div>
-                                                            <div class="mt-action-details ">
-                                                                <span class="mt-action-author">Registered</span>
-                                                                <p class="mt-action-desc"> {{wellborecore}} Wellbore Cores</p>
-                                                            </div>
-                                                        </div>
-
-                                                        <div  class="mt-action-buttons ">
-                                                            <div routerLink="wells" class="btn-group btn-group-circle">
-                                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
+                                            <div class="chart-wrapper">
+                                                <canvas baseChart 
+                                                [data]="doughnutChartData"
+                                                [labels]="doughnutChartLabels"
+                                                [chartType]="doughnutChartType">
+                                              </canvas>
                                             </div>
 
                                         </div>
@@ -206,112 +189,8 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="role" class="col-lg-6 col-xs-12 col-sm-12">
-                            <div class="portlet light bordered">
-                                <div class="portlet-title tabbable-line">
-                                    <div class="caption">
-                                        <i class=" icon-social-twitter font-dark hide"></i>
-                                        <span  routerLink='users' class="caption-subject font-dark bold uppercase">Users</span>
-                                    </div>
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a  data-toggle="tab"> Actions </a>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-                                <div  class="portlet-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab_actions_pending">
-                                            <!-- BEGIN: Actions -->
-                                            <div class="mt-actions">
-                                                <div class="mt-action">
-                                                    <div class="mt-action-body">
-                                                        <div class="mt-action-row">
-                                                            <div class="mt-action-info ">
-                                                                <div class="mt-action-icon ">
-
-                                                                </div>
-                                                                <div routerLink='users' class="mt-action-details ">
-                                                                    <span class="mt-action-author">Accounts</span>
-                                                                    <p class="mt-action-desc"> {{users}} Accounts </p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="mt-action-buttons ">
-                                                                <div routerLink='users' class="btn-group btn-group-circle">
-                                                                    <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                    <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                    <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <!-- END: Actions -->
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
-                                    <div class="portlet-title tabbable-line">
-                                        <div class="caption">
-                                            <i class=" icon-social-twitter font-dark hide"></i>
-                                            <span routerLink="view-companies" class="caption-subject font-dark bold uppercase">Companies</span>
-                                        </div>
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a data-toggle="tab"> Actions </a>
-                                            </li>
-
-                                        </ul>
-
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_actions_pending">
-                                                <!-- BEGIN: Actions -->
-                                                <div class="mt-actions">
-                                                    <div class="mt-action">
-                                                        <div class="mt-action-body">
-                                                            <div class="mt-action-row">
-                                                                <div class="mt-action-info ">
-                                                                    <div class="mt-action-icon ">
-
-                                                                    </div>
-                                                                    <div class="mt-action-details ">
-                                                                        <span class="mt-action-author">Registered</span>
-                                                                        <p class="mt-action-desc"> {{companies}} Companies</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mt-action-buttons ">
-                                                                    <div routerLink="view-companies" class="btn-group btn-group-circle">
-                                                                        <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                        <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                        <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <!-- END: Actions -->
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                   
+                    
             </div>
 
 
