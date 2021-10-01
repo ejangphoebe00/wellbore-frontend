@@ -26,7 +26,8 @@
 .portlet.light.portlet-fit>.portlet-title {
     padding: 2px 2px 2px;
 }
-.modal-body {
-    font-family: fantasy;
-    /* color: #36c6d3; */
+
+
+button.btn.green {
+    margin-left: 1%;
 }

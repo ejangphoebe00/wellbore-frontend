@@ -15,7 +15,7 @@ export class AddUsersComponent implements OnInit {
   role:any;
   userEmail: any;
   loggedin: any;
-  Roles:any = ['Staff','Application Admin', 'Data Admin'];
+  Roles:any = ['App Admin','Data Admin','Staff'];
   securityIds: any;
   submitted:boolean = false
 
@@ -93,7 +93,7 @@ export class AddUsersComponent implements OnInit {
 
   addUserProcess(){
     if(this.formGroup.valid){
-      // console.log(this.formGroup.value)
+      console.log(this.formGroup.value)
       this.authservice.addUser(this.formGroup.value).subscribe(result =>{
         console.log(result)
         if(result.message == "account created successfully"){

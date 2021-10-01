@@ -22,7 +22,7 @@ export class UsersListComponent implements OnInit {
 
   useredit: any = [];
   users: any = [];
-  Roles: any = ['Staff', 'Admin'];
+  Roles:any = ['App Admin','Data Admin','Staff'];
   securityIds: any;
   role: any;
   listuser: any;
@@ -33,7 +33,7 @@ export class UsersListComponent implements OnInit {
   editForm: boolean = true;
   formDetails: boolean = false;
   details: boolean = false;
-
+  updaterole: boolean = false;
 
   constructor(
     private authservice: ApiPipeService,
@@ -90,14 +90,19 @@ export class UsersListComponent implements OnInit {
     this.dtTrigger.unsubscribe();
   }
 
+  editRole(){
+    this.editForm = false;
+    this.details= false;
+    this.formDetails = false;
+    this.updaterole = true;
+  }
+  
   getSecurityId() {
     this.authservice.getWebSeurityId().subscribe(res => {
       this.securityIds = res;
       console.log(this.securityIds);
     })
   }
-
-
 
   userList(): void {
     this.authservice
@@ -113,6 +118,7 @@ export class UsersListComponent implements OnInit {
 
   onSelect(selectedItem: any) {
     this.id = selectedItem.CraneUser_id
+
 
     this.ngPopups.confirm('Are you sure you want to deactivate this account?', { color: 'red' })
       .subscribe(res => {
@@ -146,43 +152,10 @@ export class UsersListComponent implements OnInit {
   }
 
   onEdit(selectedItem: any) {
+    // localStorage.setItem("role_id",selectedItem.CraneUser_id);
     this.editForm = false;
     this.details= false;
     this.formDetails = true;
-    // this.id = selectedItem.CraneUser_id
-    // console.log(this.id);
-    // localStorage.setItem("update-id", this.id);
-
-    // this.http.get('http://127.0.0.1:8899/user/get_user/' + this.id)
-    //   .subscribe(response => {
-    //     this.updatevalue = response;
-    //     this.formGroup.patchValue({
-    //       FirstName: this.authservice.stripFormValue(this.updatevalue.FirstName),
-    //       MiddleName: this.authservice.stripFormValue(this.updatevalue.MiddleName),
-    //       Surname: this.authservice.stripFormValue(this.updatevalue.Surname),
-    //       LUID: this.authservice.stripFormValue(this.updatevalue.LUID),
-    //       CraneUserName: this.authservice.stripFormValue(this.updatevalue.CraneUserName),
-    //       LoginID: this.authservice.stripFormValue(this.updatevalue.LoginID),
-    //       LoginIDAlias: this.authservice.stripFormValue(this.updatevalue.LoginIDAlias),
-    //       UserCategory: this.authservice.stripFormValue(this.updatevalue.UserCategory),
-    //       UserCompany_id: this.authservice.stripFormValue(this.updatevalue.UserCompany_id),
-    //       UserPremsUser_id: this.authservice.stripFormValue(this.updatevalue.UserPremsUser_id),
-    //       UserStaff_id: this.authservice.stripFormValue(this.updatevalue.UserStaff_id),
-    //       OrganisationName: this.authservice.stripFormValue(this.updatevalue.OrganisationName),
-    //       UserEmailAddress: this.authservice.stripFormValue(this.updatevalue.UserEmailAddress),
-    //       UserSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserSecurityLevel_id),
-    //       UserWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserWebSecurityLevel_id),
-    //       UserNogtrWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserNogtrWebSecurityLevel_id),
-    //       UserPremsWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserPremsWebSecurityLevel_id),
-    //       UserIntranetSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserIntranetSecurityLevel_id),
-    //       UserNsdWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserNsdWebSecurityLevel_id),
-    //       Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
-    //       OrganisationUserName: this.authservice.stripFormValue(this.updatevalue.OrganisationUserName),
-    //       DefaultPassword: this.authservice.stripFormValue(this.updatevalue.DefaultPassword)
-
-    //     });
-    //     console.log(this.updatevalue)
-    //   });
 
   }
 
@@ -213,8 +186,6 @@ export class UsersListComponent implements OnInit {
 
     });
   }
-
-
 
   logout() {
     this.authservice.logoutuser()
@@ -342,6 +313,45 @@ export class UsersListComponent implements OnInit {
 
       )
     }
+  }
+
+  updateUserRole(){
+    if (this.formGroup.valid) {
+     console.log(this.formGroup.value)
+      this.authservice.updateRole(this.formGroup.value).subscribe(result => {
+        console.log(result)
+        if (result.message == "User Role successfully Updated") {
+          this.toastr.success("User Role successfully Updated", "", {
+            timeOut: 2000,
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            progressAnimation: 'increasing'
+          })
+          this.formGroup.reset();
+          // setTimeout(() => {
+          //   this.router.navigate(['/web-security-levels']);
+          // }, 1000);
+
+        } else {
+          this.authservice.securityStatus()
+        }
+      }, error => {
+
+        console.log('oops', error.message)
+        if (error) {
+          this.toastr.error(error.error.message, "", {
+            timeOut: 2000,
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          })
+          // this.authservice.CompanyFaliure()
+        }
+      }
+
+      )
+    }
+
   }
 
   back() {

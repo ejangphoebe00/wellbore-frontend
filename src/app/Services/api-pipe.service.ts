@@ -40,6 +40,10 @@ export class ApiPipeService {
     return localStorage.getItem("update-id")
   }
 
+  getRoleId() {
+    return localStorage.getItem("role-id")
+  }
+
   getUserId() {
     return localStorage.getItem("user-id")
   }
@@ -222,10 +226,11 @@ export class ApiPipeService {
   }
 
 
+  updateRole(data: any): Observable<any> {
+    console.log("updateRole")
+    return this.http.put('http://127.0.0.1:8899/user/update_user_role/' + this.getUpdateId(), data)
 
-
-
-
+  }
 
 
 

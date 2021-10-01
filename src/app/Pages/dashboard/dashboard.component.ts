@@ -34,7 +34,7 @@ wells:any;
     this.role= false;
     }
 
-    if(this.authservice.getRole()=="Staff"){
+    if(this.authservice.getRole()=="Data Admin"){
       this.staffstatus=true;
     }else{
     this.staffstatus= false;
