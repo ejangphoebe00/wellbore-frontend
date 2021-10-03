@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BaseComponent implements OnInit {
 role:any;
+checkstaff:any;
 userEmail:any;
 loggedin:any;
 
@@ -29,6 +30,15 @@ loggedin:any;
     }else{
     this.role=false;
     }
+
+
+    if((this.authservice.getRole()=="Application Admin")|| (this.authservice.getRole()=="Data Admin")){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
+    }
+
+   
 
    }
 
