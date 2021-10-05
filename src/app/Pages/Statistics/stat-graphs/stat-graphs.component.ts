@@ -38,7 +38,7 @@ wells:any;
     responsive: true,
   };
     
-  public barChartLabels: Label[] = ['KDA', 'FDA'];
+  public barChartLabels: Label[] = ['KFDA', 'TDA'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];

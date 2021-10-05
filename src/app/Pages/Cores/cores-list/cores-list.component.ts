@@ -4,7 +4,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 import { NgPopupsService } from 'ng-popups';
 
 
@@ -14,18 +14,21 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./cores-list.component.css']
 })
 export class CoresListComponent implements OnInit {
-  @Input()
-  requiredFileType:string | undefined;
+ 
+  selectedFiles: any;
+	currentFile: any;
 
   // fileName = '';
   // uploadProgress:number = 0;
   // uploadSub: Subscription = any;
 
-//   afuConfig = {
-//     uploadAPI: {
-//       url:"http://127.0.0.1:8899/apiv1/add_file/1"
-//     }
-// };
+  
+
+  afuConfig = {
+    uploadAPI: {
+      url:"http://127.0.0.1:8899/apiv1/add_file/7"
+    }
+};
 
   formGroup!: FormGroup;
   title!: string;
@@ -50,6 +53,8 @@ export class CoresListComponent implements OnInit {
 
   users: any = [];
   dialog: any;
+  fileService: any;
+  msg: any;
 
 
     constructor(
@@ -118,6 +123,22 @@ export class CoresListComponent implements OnInit {
         Top_formation:new FormControl(),
         Bottom_formation:new FormControl(),
       });
+    }
+
+    selectFile(event:any) {
+      this.selectedFiles = event.target.files;
+    }
+
+    upload() {
+      this.currentFile = this.selectedFiles.item(0);
+      console.log(this.currentFile)
+      this.authservice.uploadFile(this.currentFile).subscribe(response => {
+      this.selectedFiles.value = '';
+       if (response instanceof HttpResponse) {
+       this.msg = response.body;
+          console.log(response.body);
+        }	  
+      });    
     }
   
 

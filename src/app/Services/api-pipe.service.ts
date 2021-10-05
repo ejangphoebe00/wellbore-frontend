@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -580,6 +580,16 @@ export class ApiPipeService {
 
   }
 
+  uploadFile(file: any): Observable<HttpEvent<{}>> {
+		const formdata: FormData = new FormData();
+		formdata.append('file', file);
+		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/4', formdata, {
+			  reportProgress: true,
+			  responseType: 'text'
+		});
+	
+		return this.http.request(req);
+   }
 
 
 
