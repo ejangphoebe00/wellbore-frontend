@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { NgPopupsService } from 'ng-popups';
 
 @Component({
@@ -25,6 +25,11 @@ export class RocksListComponent implements OnInit {
   details:boolean= false;
   updatevalue: any;
   catalogs:any;
+
+  uploadFile: boolean = false;
+  selectedFiles: any;
+  currentFile: any;
+  msg: any;
 
  
   dtOptions: any = {};
@@ -94,8 +99,17 @@ export class RocksListComponent implements OnInit {
         Sample_basin:new FormControl(),
         Rock_name:new FormControl(),
         Coordinate_location:new FormControl(),
-        Petrographic_description:new FormControl()
+        Petrographic_description:new FormControl(),
+        Petrographic_analysis_reports:new FormControl()
       });
+    }
+
+
+    onFile(){
+      console.log("Clicked")
+      this.status = false;
+      this.details= false;
+      this.uploadFile = true;
     }
   
 
@@ -256,6 +270,31 @@ export class RocksListComponent implements OnInit {
 
   navigateBack() {
     this.authservice.reload();
+  }
+
+  selectFile(event:any) {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload() {
+    this.currentFile = this.selectedFiles.item(0);
+    
+
+    console.log(this.currentFile)
+    this.authservice.uploadRockFile(this.currentFile).subscribe(response => {
+    this.selectedFiles.value = '';
+     if (response instanceof HttpResponse) {
+     this.msg = response.body;
+        console.log(response.body);
+        this.toastr.success("File Uploaded successfully.", "", {
+          timeOut: 2000,
+          positionClass: 'toast-top-center',
+          progressBar: true,
+          progressAnimation: 'increasing'
+        })
+        this.formGroup.reset();
+      }	  
+    });    
   }
 
 }
