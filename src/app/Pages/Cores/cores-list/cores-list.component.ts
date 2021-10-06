@@ -156,10 +156,15 @@ export class CoresListComponent implements OnInit {
 
       this.selectedFiles.value = '';
        if (response instanceof HttpResponse) {
-
-
        this.msg = response.body;
           console.log(response.body);
+          this.toastr.success("File Uploaded successfully.", "", {
+            timeOut: 2000,
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            progressAnimation: 'increasing'
+          })
+          this.formGroup.reset();
         }	  
       });    
     }
