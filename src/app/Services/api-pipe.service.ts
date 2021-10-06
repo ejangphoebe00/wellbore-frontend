@@ -225,6 +225,12 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/user/registration',data)
   }
 
+  UpdateUser(data: any): Observable<any> {
+    console.log("update User")
+    return this.http.put('http://127.0.0.1:8899/user/edit_profile/' + this.getUpdateId(), data)
+
+  }
+
 
   updateRole(data: any): Observable<any> {
     console.log("updateRole")
@@ -580,10 +586,12 @@ export class ApiPipeService {
 
   }
 
-  uploadFile(file: any): Observable<HttpEvent<{}>> {
+  uploadFile(file1: any, file2:any): Observable<HttpEvent<{}>> {
 		const formdata: FormData = new FormData();
-		formdata.append('file', file);
-		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/4', formdata, {
+    formdata.append('Core_analysis_reports', file1);
+    formdata.append('Core_photograph', file2)
+    console.log(file1)
+		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/1', formdata, {
 			  reportProgress: true,
 			  responseType: 'text'
 		});
@@ -591,6 +599,20 @@ export class ApiPipeService {
 		return this.http.request(req);
    }
 
+
+   // Returns an observable
+  upload(file:any):Observable<any> {
+  
+    // Create form data
+    const formData = new FormData(); 
+      
+    // Store form name as "file" with file data
+    formData.append("file", file, file.name);
+      
+    // Make http post request over api
+    // with formData as req
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_file/1', formData)
+}
 
 
 }

@@ -14,9 +14,18 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./cores-list.component.css']
 })
 export class CoresListComponent implements OnInit {
+
+    //file upload
+  // Variable to store shortLink from api response
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file: any;
+  fileresponse: any;
  
   selectedFiles: any;
-	currentFile: any;
+  selectedFilesSecond: any;
+  currentFile: any;
+  currentFile2: any;
 
   // fileName = '';
   // uploadProgress:number = 0;
@@ -122,6 +131,9 @@ export class CoresListComponent implements OnInit {
         Percentage_recovery:new FormControl(),
         Top_formation:new FormControl(),
         Bottom_formation:new FormControl(),
+        Core_analysis_reports: new FormControl(),
+        Core_photograph:new FormControl(),
+        fileSource: new FormControl()
       });
     }
 
@@ -129,12 +141,23 @@ export class CoresListComponent implements OnInit {
       this.selectedFiles = event.target.files;
     }
 
+    selectFileAgain (event:any) {
+      this.selectedFilesSecond = event.target.files;
+    }
+
     upload() {
       this.currentFile = this.selectedFiles.item(0);
+      this.currentFile2 = this.selectedFilesSecond.item(0);
+
       console.log(this.currentFile)
-      this.authservice.uploadFile(this.currentFile).subscribe(response => {
+      this.authservice.uploadFile(this.currentFile, this.currentFile2).subscribe(response => {
+        this.fileresponse = response;
+        console.log(this.fileresponse.message)
+
       this.selectedFiles.value = '';
        if (response instanceof HttpResponse) {
+
+
        this.msg = response.body;
           console.log(response.body);
         }	  
@@ -371,6 +394,53 @@ export class CoresListComponent implements OnInit {
 // }
 
 // }
+
+onChange(event:any) {
+  this.file = event.target.files[0];
+}
+
+// OnClick of button Upload
+onUpload() {
+  this.loading = !this.loading;
+  console.log(this.file);
+  this.authservice.upload(this.file).subscribe(
+    (event: any) => {
+      if (typeof (event) === 'object') {
+
+        // Short link via api response
+        this.shortLink = event.link;
+
+        this.loading = false; // Flag variable 
+      }
+    }
+  );
+}
+
+get f(){
+  return this.formGroup.controls;
+}
+
+onFileChange(event:any) {
+  
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    this.formGroup.patchValue({
+      fileSource: file
+    });
+  }
+}
+
+submit(){
+  const formData = new FormData();
+  formData.append('file', this.formGroup.get('fileSource')!.value);
+  console.log( this.formGroup.get('fileSource')!.value)
+ 
+  this.http.post('http://127.0.0.1:8899/apiv1/add_file/1', formData)
+    .subscribe(res => {
+      console.log(res);
+      alert('Uploaded Successfully.');
+    })
+}
 
 }
 

@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./stat-graphs.component.css']
 })
 export class StatGraphsComponent implements OnInit {
+
+  // Variable to store file
   staffstatus: any;
   role: any;
   userEmail: any;
@@ -57,10 +59,10 @@ export class StatGraphsComponent implements OnInit {
       backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#C04000"]
     }];
 
-    public devechartColors: any[] = [
-      {
-        backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#32CD32", "#0000FF", "#F6BE00"]
-      }];
+  public devechartColors: any[] = [
+    {
+      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#32CD32", "#0000FF", "#F6BE00"]
+    }];
 
   public barChartData: ChartDataSets[] = [
     { data: [65, 67, 70], label: 'Injector Wells' },
@@ -180,6 +182,10 @@ export class StatGraphsComponent implements OnInit {
         console.log(response.length)
       });
   }
+
+
+
+
 
 }
 

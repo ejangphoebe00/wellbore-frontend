@@ -492,7 +492,7 @@
                                 </div>
                             </div> -->
                             <form [formGroup]="formGroup"
-                                (ngSubmit)="addUserProcess()" ngNativeValidate>
+                                (ngSubmit)="UpdateUserProcess()" ngNativeValidate>
                                 <div class="form-body row">
                                     <div class="col-md-3">
 
@@ -694,7 +694,7 @@
                                             <span class="error">*</span>
                                             <input
                                                 required
-                                                formControlName="DefaultPassword"
+                                                formControlName="UserPassword"
                                                 type="password"
                                                 class="form-control"
                                                 placeholder=""

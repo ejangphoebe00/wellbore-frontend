@@ -168,7 +168,7 @@ export class UsersListComponent implements OnInit {
       CraneUserName: new FormControl(),
       LoginID: new FormControl(),
       LoginIDAlias: new FormControl(),
-      UserCategory: new FormControl(),
+      // UserCategory: new FormControl(),
       UserCompany_id: new FormControl(),
       UserPremsUser_id: new FormControl(),
       UserStaff_id: new FormControl(),
@@ -182,7 +182,7 @@ export class UsersListComponent implements OnInit {
       UserNsdWebSecurityLevel_id: new FormControl(),
       Comments: new FormControl(),
       OrganisationUserName: new FormControl(),
-      DefaultPassword: new FormControl('', Validators.required)
+      UserPassword: new FormControl('', Validators.required)
 
     });
   }
@@ -277,13 +277,13 @@ export class UsersListComponent implements OnInit {
   }
 
 
-  addUserProcess() {
+  UpdateUserProcess() {
     if (this.formGroup.valid) {
       // console.log(this.formGroup.value)
-      this.authservice.addUser(this.formGroup.value).subscribe(result => {
+      this.authservice.UpdateUser(this.formGroup.value).subscribe(result => {
         console.log(result)
-        if (result.message == "account created successfully") {
-          this.toastr.success("account created successfully", "", {
+        if (result.message == "Details updated successfully") {
+          this.toastr.success("Details updated successfully", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,

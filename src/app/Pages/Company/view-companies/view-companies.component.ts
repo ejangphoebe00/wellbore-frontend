@@ -294,7 +294,9 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            CompanyPostalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPostalAddress),
            CompanyPhysicalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPhysicalAddress),
            CompanyOtherEmails: this.authservice.stripFormValue(this.updatevalue.CompanyOtherEmails),
-           NSDQualificationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
+          // NSDQualificationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
+           NSDQualificationDate: this.authservice.stripFormValue(this.updatevalue.NSDQualificationDate),
+
            NSDQualificationYear: this.authservice.stripFormValue(this.updatevalue.NSDQualificationYear),
            PrimaryContactEntity: this.authservice.stripFormValue(this.updatevalue.PrimaryContactEntity),
            ContactEntityEmail: this.authservice.stripFormValue(this.updatevalue.ContactEntityEmail),
@@ -303,7 +305,9 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            ContactDesignation: this.authservice.stripFormValue(this.updatevalue.ContactDesignation),
            OperatorSortOrder: this.authservice.stripFormValue(this.updatevalue.OperatorSortOrder),
            ContractorSortOrder: this.authservice.stripFormValue(this.updatevalue.ContractorSortOrder),
-           PAURegistrationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
+           //PAURegistrationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
+           PAURegistrationDate: this.authservice.stripFormValue(this.updatevalue.PAURegistrationDate),
+
            CraneNOGTRID: this.authservice.stripFormValue(this.updatevalue.CraneNOGTRID),
            TempNOGTRIPwd: this.authservice.stripFormValue(this.updatevalue.TempNOGTRIPwd),
            RegistrationStatus_id: this.authservice.stripFormValue(this.updatevalue.RegistrationStatus_id),

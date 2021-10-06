@@ -165,16 +165,52 @@
 
 
                         <div *ngIf="uploadFile" class="portlet light bordered">
-                            <h3>TSZR</h3>
+                                <div class="portlet-body form">
+                                        <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="upload()" ngNativeValidate>
+                    
+                                                <div class="form-body row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                 <label>Core_analysis_reports</label>
+                                                                 <input type="file" formControlName="Core_analysis_reports" (change)="selectFile($event)">                                         
+                                                            </div>
+                                                            <div class="form-group">                                                               
+                                                                <label>Core_photograph</label>
+                                                                <input type="file" formControlName="Core_photograph" (change)="selectFileAgain($event)"> 
+                                                            </div>
+                                                
+                                                        </div>
+                                                      
+                          
+                                                      </div>
+                    
+                                        <div class="form-actions">
+                                            <button  type="submit" class="btn blue">Upload</button>
+                                            <button (click)="navigateBack()" type="button" class="btn default">Back</button>
+                                        </div>
+                                    </form>
+                               
+                                    <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
+  
+                                          
+                                        <div class="form-group">
+                                            <label for="file">File</label>
+                                            <input 
+                                                formControlName="Core_analysis_reports"
+                                                id="file" 
+                                                type="file" 
+                                                class="form-control"
+                                                (change)="onFileChange($event)">
+                                               
+                                           
+                                        </div>
+                                              
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </form> -->
+                                </div>
+                          
 
-                            <div style="text-align:center">
-                                <div [innerHtml]='msg'></div>
-                                <label>
-                                    <input type="file" (change)="selectFile($event)">
-                                    </label>
-                                    <button [disabled]="!selectedFiles" (click)="upload()">Upload</button>
-                            </div>
-
+                           
                             
 
                             <!-- <angular-file-uploader

@@ -51,11 +51,14 @@ export class KfdaComponent implements OnInit {
     this.userList()
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if (this.authservice.getRole() == "Admin") {
-      this.role = true;
-    } else {
-      this.role = false;
-    }
+    // if (this.authservice.getRole() == "Admin") {
+    //   this.role = true;
+    // } else {
+    //   this.role = false;
+    // }
+
+    this.getProspectIds();
+    this.getLicenseIds();
     this.dtOptions = {
       dom: 'Bfrtip',
       // dom:'Btp',
