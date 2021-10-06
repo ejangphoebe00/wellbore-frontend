@@ -147,6 +147,8 @@
                                        </table>
                                        <div class="clearfix"></div>
                                        <button (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
+                                       <button  (click)="onFile()"  data-dismiss="modal"   class="btn yellow">Add File</button>
+
 
                                    </div>
                                    <!-- <div class="modal-footer">
@@ -159,6 +161,89 @@
                                <!-- /.modal-dialog -->
                            </div>
                         </div>
+
+
+                        <div *ngIf="uploadFile" class="portlet light bordered">
+                            <div class="portlet-body form">
+                                    <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="upload()" ngNativeValidate>
+                
+                                            <div class="form-body row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                             <label>Analysis Report</label>
+                                                             <input type="file" formControlName="Analysis_reports" (change)="selectFile($event)">                                         
+                                                        </div>
+                                                        
+                                                    </div>
+                                                  
+                      
+                                                  </div>
+                
+                                    <div class="form-actions">
+                                        <button  type="submit" class="btn blue">Upload</button>
+                                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
+                                    </div>
+                                </form>
+                           
+                                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+                                      
+                                    <div class="form-group">
+                                        <label for="file">File</label>
+                                        <input 
+                                            formControlName="Core_analysis_reports"
+                                            id="file" 
+                                            type="file" 
+                                            class="form-control"
+                                            (change)="onFileChange($event)">
+                                           
+                                       
+                                    </div>
+                                          
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </form> -->
+                            </div>
+                      
+
+                       
+                        
+
+                        <!-- <angular-file-uploader
+                            [config]="afuConfig">
+                        </angular-file-uploader> -->
+                                                    <!-- <angular-file-uploader
+                            [config]="afuConfig">
+                        </angular-file-uploader> -->
+                        <!-- <input type="file" class="file-input"
+                        [accept]="requiredFileType"
+                        (change)="onFileSelected($event)" #fileUpload>
+                 
+                 <div class="file-upload">
+                 
+                    {{fileName || "No file uploaded yet."}}
+                 
+                     <button mat-mini-fab color="primary" class="upload-btn"
+                       (click)="fileUpload.click()">
+                         <mat-icon>attach_file</mat-icon>
+                 
+                     </button>
+                 
+                 </div>
+                 
+                 <div class="progress">
+                 
+                   <mat-progress-bar class="progress-bar" mode="determinate"
+                                     [value]="uploadProgress" *ngIf="uploadProgress">
+                 
+                   </mat-progress-bar>
+                 
+                   <mat-icon class="cancel-upload" (click)="cancelUpload()" 
+                             *ngIf="uploadProgress">delete_forever</mat-icon>
+                 
+                 </div> -->
+                        
+                    </div>
+                 
 
 
                      

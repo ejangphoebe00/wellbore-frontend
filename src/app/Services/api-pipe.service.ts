@@ -591,13 +591,27 @@ export class ApiPipeService {
     formdata.append('Core_analysis_reports', file1);
     formdata.append('Core_photograph', file2)
     console.log(file1)
-		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/1', formdata, {
+		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
 			  reportProgress: true,
 			  responseType: 'text'
 		});
 	
 		return this.http.request(req);
    }
+
+
+   uploadFluidFile(file1: any): Observable<HttpEvent<{}>> {
+		const formdata: FormData = new FormData();
+    formdata.append('Analysis_reports', file1);
+    console.log(file1)
+		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
+			  reportProgress: true,
+			  responseType: 'text'
+		});
+	
+		return this.http.request(req);
+   }
+ 
 
 
    // Returns an observable
