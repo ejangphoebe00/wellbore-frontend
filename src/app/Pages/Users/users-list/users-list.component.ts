@@ -168,7 +168,7 @@ export class UsersListComponent implements OnInit {
       CraneUserName: new FormControl(),
       LoginID: new FormControl(),
       LoginIDAlias: new FormControl(),
-      // UserCategory: new FormControl(),
+      UserCategory: new FormControl(),
       UserCompany_id: new FormControl(),
       UserPremsUser_id: new FormControl(),
       UserStaff_id: new FormControl(),
@@ -316,7 +316,10 @@ export class UsersListComponent implements OnInit {
   }
 
   updateUserRole(){
-    if (this.formGroup.valid) {
+    console.log("Clicked on user role")
+    if (true) {
+      console.log("Clicked on user role Again")
+
      console.log(this.formGroup.value)
       this.authservice.updateRole(this.formGroup.value).subscribe(result => {
         console.log(result)
