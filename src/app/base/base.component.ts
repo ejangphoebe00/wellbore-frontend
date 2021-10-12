@@ -32,7 +32,7 @@ loggedin:any;
     }
 
 
-    if((this.authservice.getRole()=="Application Admin")|| (this.authservice.getRole()=="Data Admin")){
+    if(this.authservice.getRole()=="Data Admin"){
       this.checkstaff=true;
     }else{
     this.checkstaff=false;

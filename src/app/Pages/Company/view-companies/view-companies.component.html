@@ -66,7 +66,7 @@
                                         <td> {{company.CompanyTelephone}}</td>
                                         <td><a class="btn purple btn-outline sbold"
                                           (click)="onView(company)" data-toggle="modal" href="#large">More</a>
-                                        <button  type="button"  (click)="onSelect(company)"
+                                        <button *ngIf="checkstaff" type="button"  (click)="onSelect(company)"
                                           class="btn red btn-outline">
                                           <i class="fa fa-trash-o"></i></button></td>
                                     </tr>
@@ -91,8 +91,11 @@
                   <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                          <h4 class="modal-title">{{data.CompanyLongName}}</h4>
-                          <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
+                          <div class="caption font-red-sunglo">
+                            <i class="fa fa-institution font-red-sunglo"></i>
+                            <span class="caption-subject
+                            bold uppercase">COMPANY :{{data.CompanyLongName}}</span>
+                        </div>
                       </div>
                       <div class="modal-body">
                         <div>
@@ -296,10 +299,13 @@
 
                       </div>
                       <div class="modal-footer">
+
                           <!-- <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                           <button type="button" class="btn green">Save changes</button> -->
+                          <button *ngIf="checkstaff"  type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
 
                       </div>
+
                   </div>
                   <!-- /.modal-content -->
               </div>

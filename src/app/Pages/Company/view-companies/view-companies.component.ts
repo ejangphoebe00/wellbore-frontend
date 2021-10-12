@@ -43,6 +43,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   allYears:any = [];
   newval1:any;
   newval2:any;
+  checkstaff:any;
 
 
 
@@ -63,6 +64,14 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     }else{
     this.role= false;
     }
+
+    
+    if(this.authservice.getRole()=="Data Admin"){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
+    }
+
     this.posts = [];
     this.users();
     this.initForm();
