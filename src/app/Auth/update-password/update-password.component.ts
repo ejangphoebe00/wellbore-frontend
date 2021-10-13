@@ -35,6 +35,7 @@ export class UpdatePasswordComponent implements OnInit {
   formDetails: boolean = false;
   details: boolean = false;
   updaterole: boolean = false;
+  password_update: boolean = false;
 
   constructor(
     private authservice: ApiPipeService,
@@ -51,10 +52,10 @@ export class UpdatePasswordComponent implements OnInit {
     this.getSecurityId();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if (this.authservice.getRole() == "Admin") {
-      this.role = true;
+    if ((this.authservice.getRole() == "Data Admin")|| (this.authservice.getRole() == "Staff")) {
+      this.password_update = false;
     } else {
-      this.role = false;
+      this.password_update = true;
     }
    
   }
