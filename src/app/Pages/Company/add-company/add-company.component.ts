@@ -27,12 +27,12 @@ export class AddCompanyComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     // this.authservice.reload();
-    this.currentYear = new Date().getFullYear();
-    while (this.currentYear >= 2000) {
+    // this.currentYear = new Date().getFullYear();
+    // while (this.currentYear >= 2000) {
 
-      this.allYears.push(this.currentYear);
-      this.currentYear -= 1;
-    }
+    //   this.allYears.push(this.currentYear);
+    //   this.currentYear -= 1;
+    // }
     // console.log(this.allYears)
 
   }
