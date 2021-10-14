@@ -197,13 +197,14 @@ export class UpdatePasswordComponent implements OnInit {
       this.authservice.updatePassword(this.formGroup.value).subscribe(result => {
         console.log(result)
         if (result.message == "Details updated successfully") {
-          this.toastr.success("Details updated successfully", "", {
+          this.toastr.success("Details updated successfully. Please login again", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
             progressAnimation: 'increasing'
           })
           this.formGroup.reset();
+          this.authservice.logoutuser();
           // setTimeout(() => {
           //   this.router.navigate(['/web-security-levels']);
           // }, 1000);
