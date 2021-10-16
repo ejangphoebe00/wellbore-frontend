@@ -38,9 +38,31 @@ loggedin:any;
     this.checkstaff=false;
     }
 
+    this.KFDA();
+    this.TDA();
+
    
 
    }
+
+
+   TDA(): void {
+    this.authservice
+      .getTdaWellbores()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("tda",response.length);
+      });
+  }  
+
+  KFDA(): void {
+    this.authservice
+      .getKdaWellbores()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("kfda",response.length);
+      });
+  } 
 
   logout(){
   this.authservice.logoutuser();

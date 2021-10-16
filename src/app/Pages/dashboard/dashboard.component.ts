@@ -69,6 +69,8 @@ wells:any;
             console.log("Company List")
             console.log(response.length)
             this.companies = response.length
+            localStorage.setItem("App-Admins",response.length);
+
           });
         }
   

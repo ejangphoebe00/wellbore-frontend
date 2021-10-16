@@ -24,6 +24,10 @@ export class StatGraphsComponent implements OnInit {
   lithoz: any;
   coreCatalogz: any;
   wells: any;
+  test:any;
+  kfda:any;
+  tda:any;
+
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -31,7 +35,7 @@ export class StatGraphsComponent implements OnInit {
   };
 
   public pieChartLabels: Label[] = ['Application Admins', 'Data Admin', 'Staff'];
-  public pieChartData: SingleDataSet = [1, 3, 2];
+  public pieChartData: SingleDataSet = [];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -51,7 +55,7 @@ export class StatGraphsComponent implements OnInit {
 
   public barchartColors: any[] = [
     {
-      backgroundColor: ["#000000", "#0000FF", "#E9AB17", "#C04000"]
+      backgroundColor: [ "#C04000"]
     }];
 
   public piechartColors: any[] = [
@@ -65,9 +69,8 @@ export class StatGraphsComponent implements OnInit {
     }];
 
   public barChartData: ChartDataSets[] = [
-    { data: [65, 67, 70], label: 'Injector Wells' },
-    { data: [50, 48, 47], label: 'Drilled Wells' },
-    { data: [40, 30, 28], label: 'Driven' },
+    { data: [45, 37], label: 'Wells' }
+
   ];
 
 
@@ -76,6 +79,11 @@ export class StatGraphsComponent implements OnInit {
     { data: [45, 37, 60], label: 'Fluid Samples' }
   ];
 
+
+  wellbarChartLabels: Label[] = ['KFDA', 'TDA'];
+  wellbarChartData: ChartDataSets[] = [
+    
+  ];
 
   doughnutChartLabels: Label[] = ['Washed_Dried', 'Washed_Wet', 'Wet_Unwashed', 'Dry_Unwashed']
   doughnutChartData: MultiDataSet = [
@@ -94,8 +102,11 @@ export class StatGraphsComponent implements OnInit {
   }
 
 
-
   ngOnInit(): void {
+    this.test = this.authservice.getAdmins();
+    this.tda = this.authservice.gettda();
+    this.kfda = this.authservice.getkfda();
+    console.log(this.test)
     // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
@@ -116,6 +127,8 @@ export class StatGraphsComponent implements OnInit {
     this.WellsList();
     this.lithos();
     this.coreCatalogs();
+    this.pieChartData = [parseInt(this.test),2,2];
+    this.wellbarChartData =  [{ data: [parseInt(this.kfda),  parseInt(this.tda)] }];
 
   }
 

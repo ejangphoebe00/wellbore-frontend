@@ -52,6 +52,17 @@ export class ApiPipeService {
     return localStorage.getItem("Email")
   }
 
+  getAdmins() {
+    return localStorage.getItem("App-Admins")
+  }
+
+  gettda() {
+    return localStorage.getItem("tda")
+  }
+   getkfda() {
+    return localStorage.getItem("kfda")
+  }
+
   Login(data: any): Observable<any> {
     console.log("Logging in process")
     return this.http.post('http://127.0.0.1:8899/user/login', data)
