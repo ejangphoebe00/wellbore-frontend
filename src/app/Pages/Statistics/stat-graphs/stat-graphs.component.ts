@@ -27,6 +27,7 @@ export class StatGraphsComponent implements OnInit {
   test:any;
   kfda:any;
   tda:any;
+  alwelz: any;
 
 
   public pieChartOptions: ChartOptions = {
@@ -42,7 +43,18 @@ export class StatGraphsComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
+  
+      scales : {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            precision:0
+          }
+        }]
+      }
+    
   };
+
 
   public barChartLabels: Label[] = ['KFDA', 'TDA'];
   public barChartType: ChartType = 'bar';
@@ -60,12 +72,12 @@ export class StatGraphsComponent implements OnInit {
 
   public piechartColors: any[] = [
     {
-      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#C04000"]
+      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#C04000" ]
     }];
 
   public devechartColors: any[] = [
     {
-      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#32CD32", "#0000FF", "#F6BE00"]
+      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00" ]
     }];
 
   public barChartData: ChartDataSets[] = [
@@ -80,10 +92,10 @@ export class StatGraphsComponent implements OnInit {
   ];
 
 
-  wellbarChartLabels: Label[] = ['KFDA', 'TDA'];
-  wellbarChartData: ChartDataSets[] = [
-    
+  wellbarChartLabels: Label[] =  ['Kfda', 'Tda', 'All wells'];
+  wellbarChartData: ChartDataSets[] = [   
   ];
+  wellChartType: ChartType = 'bar';
 
   doughnutChartLabels: Label[] = ['Washed_Dried', 'Washed_Wet', 'Wet_Unwashed', 'Dry_Unwashed']
   doughnutChartData: MultiDataSet = [
@@ -103,9 +115,14 @@ export class StatGraphsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.Allwells();
+    this.TDA();
+    this.KFDA();
+    this.alwelz = this.authservice.getAllWells()
     this.test = this.authservice.getAdmins();
     this.tda = this.authservice.gettda();
     this.kfda = this.authservice.getkfda();
+
     console.log(this.test)
     // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
@@ -128,8 +145,36 @@ export class StatGraphsComponent implements OnInit {
     this.lithos();
     this.coreCatalogs();
     this.pieChartData = [parseInt(this.test),2,2];
-    this.wellbarChartData =  [{ data: [parseInt(this.kfda),  parseInt(this.tda)] }];
+    this.wellbarChartData =  [ { data: [parseInt(this.kfda), parseInt(this.tda), parseInt(this.alwelz )], label: 'Registered Wells' }];
+    
+  }
 
+  TDA(): void {
+    this.authservice
+      .getTdaWellbores()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("tda",response.length);
+      });
+  }  
+
+  KFDA(): void {
+    this.authservice
+      .getKdaWellbores()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("kfda",response.length);
+      });
+  } 
+
+  Allwells(): void {
+    this.authservice
+      .getWellbores()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("alwelz",response.length);
+
+      });
   }
 
   logout() {

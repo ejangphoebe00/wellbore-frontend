@@ -40,6 +40,7 @@ loggedin:any;
 
     this.KFDA();
     this.TDA();
+    this.Allwells();
 
    
 
@@ -63,6 +64,16 @@ loggedin:any;
         localStorage.setItem("kfda",response.length);
       });
   } 
+
+  Allwells(): void {
+    this.authservice
+      .getWellbores()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("alwelz",response.length);
+
+      });
+  }
 
   logout(){
   this.authservice.logoutuser();
