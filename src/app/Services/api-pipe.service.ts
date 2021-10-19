@@ -67,6 +67,49 @@ export class ApiPipeService {
     return localStorage.getItem("alwelz")
   }
 
+  getDa(){
+    return localStorage.getItem("DA")
+  }
+
+  getAa(){
+    return localStorage.getItem("AA")
+  }
+
+  getSF(){
+    return localStorage.getItem("SF")
+  }
+
+  getAW(){
+    return localStorage.getItem("WA")
+  }
+
+  getGA(){
+    return localStorage.getItem("GA")
+  }
+
+  getOO(){
+    return localStorage.getItem("OO")
+  }
+
+  getWD(){
+    return localStorage.getItem("WD")
+  }
+
+  getWW(){
+    return localStorage.getItem("WW")
+  }
+
+  getWU(){
+    return localStorage.getItem("WU")
+  }
+
+  getDU(){
+    return localStorage.getItem("DU")
+  }
+
+  
+
+
 
   Login(data: any): Observable<any> {
     console.log("Logging in process")
@@ -117,6 +160,17 @@ export class ApiPipeService {
       localStorage.removeItem('foo')
     }
   }
+
+  // reloadone() {
+  //   if (!localStorage.getItem('foo1')) {
+  //     localStorage.setItem('foo1', 'no reload1')
+  //     location.reloadone()
+  //   } else {
+  //     localStorage.removeItem('foo1')
+  //   }
+  // }
+
+
 
   logoutuser() {
     localStorage.removeItem('token')
@@ -333,10 +387,69 @@ export class ApiPipeService {
   }
 
 
+  getDataAdmins(): Observable<any> {
+    console.log("get da")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_data_admins')
+  }
+
+  getAppAdmins(): Observable<any> {
+    console.log("get da")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_app_admins')
+  }
+
+  getStaff(): Observable<any> {
+    console.log("get da")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_staff')
+  }
+
+  getOil(): Observable<any> {
+    console.log("get oil")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_oil_samples')
+  }
+
+
+  getWater(): Observable<any> {
+    console.log("get water")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_water_samples')
+  }
+
+
+  getGas(): Observable<any> {
+    console.log("get da")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_gas_samples')
+  }
+
+
  getTdaWellbores(): Observable<any> {
     console.log("get Tda")
     return this.http.get('http://127.0.0.1:8899/apiv1/get_tda_welbores')
   }
+
+
+  getWashedDried(): Observable<any> {
+    console.log("get WD")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_washed_dried')
+  }
+
+
+  getWashedWet(): Observable<any> {
+    console.log("get WD")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_washed_wet')
+  }
+
+  getWetUnwashed(): Observable<any> {
+    console.log("get WUD")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_wet_unwashed')
+  }
+
+
+  getDryUnwashed(): Observable<any> {
+    console.log("get DryUwD")
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_dry_unwashed')
+  }
+
+
+
 
   updateWebSecurity(data: any): Observable<any> {
     console.log("update Security")

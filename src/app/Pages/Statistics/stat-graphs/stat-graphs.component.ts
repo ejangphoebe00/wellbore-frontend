@@ -24,10 +24,22 @@ export class StatGraphsComponent implements OnInit {
   lithoz: any;
   coreCatalogz: any;
   wells: any;
-  test:any;
-  kfda:any;
-  tda:any;
+  test: any;
+  kfda: any;
+  tda: any;
   alwelz: any;
+  DA: any;
+  AA: any;
+  SF: any;
+  OO: any;
+  WA:any;
+  GA:any;
+  WD:any;
+  WW:any;
+  WU:any;
+  DU:any;
+
+
 
 
   public pieChartOptions: ChartOptions = {
@@ -43,16 +55,16 @@ export class StatGraphsComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
-  
-      scales : {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            precision:0
-          }
-        }]
-      }
-    
+
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          precision: 0
+        }
+      }]
+    }
+
   };
 
 
@@ -67,17 +79,17 @@ export class StatGraphsComponent implements OnInit {
 
   public barchartColors: any[] = [
     {
-      backgroundColor: [ "#C04000"]
+      backgroundColor: ["#C04000"]
     }];
 
   public piechartColors: any[] = [
     {
-      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#C04000" ]
+      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00", "#C04000"]
     }];
 
   public devechartColors: any[] = [
     {
-      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00" ]
+      backgroundColor: ["#32CD32", "#0000FF", "#F6BE00"]
     }];
 
   public barChartData: ChartDataSets[] = [
@@ -87,19 +99,17 @@ export class StatGraphsComponent implements OnInit {
 
 
   OilbarChartLabels: Label[] = ['Oil', 'Gas', 'Water'];
-  OilbarChartData: ChartDataSets[] = [
-    { data: [45, 37, 60], label: 'Fluid Samples' }
+  OilbarChartData: ChartDataSets[] = [    
   ];
 
 
-  wellbarChartLabels: Label[] =  ['Kfda', 'Tda', 'All wells'];
-  wellbarChartData: ChartDataSets[] = [   
+  wellbarChartLabels: Label[] = ['Kfda', 'Tda', 'All wells'];
+  wellbarChartData: ChartDataSets[] = [
   ];
   wellChartType: ChartType = 'bar';
 
   doughnutChartLabels: Label[] = ['Washed_Dried', 'Washed_Wet', 'Wet_Unwashed', 'Dry_Unwashed']
   doughnutChartData: MultiDataSet = [
-    [2, 5, 1, 10]
   ];
   doughnutChartType: ChartType = 'doughnut';
 
@@ -115,13 +125,46 @@ export class StatGraphsComponent implements OnInit {
 
 
   ngOnInit(): void {
+
     this.Allwells();
     this.TDA();
     this.KFDA();
+    this.dataAdmins();
+    this.AppAdmins();
+    this.Staff();
+    this.AllGA();
+    this.AllOil();
+    this.AllWater();
+    this.washedDried();
+    this.washedWet();
+    this.wetUnwashed();
+    this.DryUnwashed();
+
+    setTimeout(() => {
+      
+    
+      console.log('here2'); // run this after delay
+
+
+
     this.alwelz = this.authservice.getAllWells()
     this.test = this.authservice.getAdmins();
     this.tda = this.authservice.gettda();
     this.kfda = this.authservice.getkfda();
+    this.DA = this.authservice.getDa();
+    this.AA = this.authservice.getAa();
+    this.SF = this.authservice.getSF();
+    this.OO = this.authservice.getOO();
+    this.GA = this.authservice.getGA();
+    this.WA = this.authservice.getAW();
+
+    this.WD = this.authservice.getWD();
+    this.WW = this.authservice.getWW();
+    this.WU = this.authservice.getWU();
+    this.DU = this.authservice.getDU();
+ 
+
+
 
     console.log(this.test)
     // this.authservice.reload();
@@ -144,9 +187,20 @@ export class StatGraphsComponent implements OnInit {
     this.WellsList();
     this.lithos();
     this.coreCatalogs();
-    this.pieChartData = [parseInt(this.test),2,2];
-    this.wellbarChartData =  [ { data: [parseInt(this.kfda), parseInt(this.tda), parseInt(this.alwelz )], label: 'Registered Wells' }];
+    this.pieChartData = [parseInt(this.AA), parseInt(this.DA), parseInt(this.SF)];
+    this.wellbarChartData = [{ data: [parseInt(this.kfda), parseInt(this.tda), parseInt(this.alwelz)], label: 'Registered Wells' }];
+    this.OilbarChartData = [{ data: [parseInt(this.OO), parseInt(this.GA), parseInt(this.WA)], label: 'Fluid Samples' }];
+    this.doughnutChartData = [this.WD, parseInt(this.WW), parseInt(this.WU), parseInt(this.DU)];
+   
+
+
+    }, 1500);
+
     
+
+
+
+
   }
 
   TDA(): void {
@@ -154,27 +208,142 @@ export class StatGraphsComponent implements OnInit {
       .getTdaWellbores()
       .subscribe((response: any) => {
         console.log(response)
-        localStorage.setItem("tda",response.length);
+        localStorage.setItem("tda", response.length);
       });
-  }  
+  }
 
   KFDA(): void {
     this.authservice
       .getKdaWellbores()
       .subscribe((response: any) => {
         console.log(response)
-        localStorage.setItem("kfda",response.length);
+        localStorage.setItem("kfda", response.length);
       });
-  } 
+  }
 
   Allwells(): void {
     this.authservice
       .getWellbores()
       .subscribe((response: any) => {
         console.log(response)
-        localStorage.setItem("alwelz",response.length);
+        localStorage.setItem("alwelz", response.length);
 
       });
+  }
+
+
+  AllWater(): void {
+    this.authservice
+      .getWater()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("WA", response.length);
+      });
+  }
+
+
+
+
+
+  AllOil(): void {
+    this.authservice
+      .getOil()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("OO", response.length);
+      });
+  }
+
+
+  AllGA(): void {
+    this.authservice
+      .getGas()
+      .subscribe((response: any) => {
+        console.log('GAS:'+response.length)
+        localStorage.setItem("GA", response.length);
+
+      });
+  }
+
+
+  dataAdmins(): void {
+    this.authservice
+      .getDataAdmins()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("DA", response.length);
+
+      });
+  }
+
+  AppAdmins(): void {
+    this.authservice
+      .getAppAdmins()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("AA", response.length);
+
+      });
+  }
+
+
+  Staff(): void {
+    this.authservice
+      .getStaff()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("SF", response.length);
+
+      });
+  }
+
+
+  washedDried(): void {
+    this.authservice
+      .getWashedDried()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("WD", response.length);
+
+      });
+  }
+
+
+  washedWet(): void {
+    this.authservice
+      .getWashedWet()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("WW", response.length);
+
+      });
+  }
+
+
+  wetUnwashed(): void {
+    this.authservice
+      .getWetUnwashed()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("WU", response.length);
+
+      });
+  }
+
+  DryUnwashed(): void {
+    this.authservice
+      .getDryUnwashed()
+      .subscribe((response: any) => {
+        console.log(response)
+        localStorage.setItem("DU", response.length);
+
+      });
+  }
+
+  addDelay(): void{
+    setTimeout(() => {
+      console.log("delay Check")
+    }, 1000);
   }
 
   logout() {
