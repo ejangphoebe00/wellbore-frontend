@@ -7,3 +7,19 @@ button.btn.yellow {
     margin-left: 1%;
     /* float: right; */
 }
+
+.carousel-cells[_ngcontent-gki-c106] .carousel-cell {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 30px;
+}
+
+img {
+    background-color: black;
+}

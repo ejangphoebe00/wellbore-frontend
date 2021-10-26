@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartsModule } from 'ng2-charts';
-
+import {IvyGalleryModule} from 'angular-gallery';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -119,7 +119,8 @@ import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.
     NgxUploaderModule,
     MatIconModule,    //*FAB Button
     MatButtonModule, //*FAB Button
-    ChartsModule
+    ChartsModule,
+    IvyGalleryModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

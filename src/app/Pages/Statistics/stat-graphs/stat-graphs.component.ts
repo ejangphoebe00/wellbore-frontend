@@ -126,6 +126,8 @@ export class StatGraphsComponent implements OnInit {
 
   ngOnInit(): void {
 
+  
+
     this.Allwells();
     this.TDA();
     this.KFDA();

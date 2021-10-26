@@ -54,6 +54,7 @@
                                                     <th>Core_number</th>
                                                     <th>Coring_date</th>
                                                     <th>Top_MD</th>
+                                                    <th>Image</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
@@ -64,6 +65,8 @@
                                                     <td>{{post.Core_number}}</td>
                                                     <td>{{post.Coring_date}}</td>
                                                     <td>{{post.Top_MD}}</td>
+                                                    <td style = "width:25%"> <a (click)="showGallery(catalogs)">Cores-Gallery </a></td>
+
                                                     <td>
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
@@ -144,6 +147,10 @@
                                                        
                 
                                                     </tr>
+
+                                                <tr>
+                                                    <th style="width:25%"> Image</th>
+                                                </tr>
                                             
                                            </tbody>
                                        </table>
@@ -271,6 +278,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Wellbore</label>
+                                                    <span class="error">*</span>
                                                     <select class="form-control"
                                                        required formControlName="Wellbore_id"
                                                       name="Wellbore_id">
@@ -293,7 +301,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Top_MD</label>
-                                                    <input type="text" required formControlName="Top_MD" class="form-control">
+                                                    <input type="text" formControlName="Top_MD" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Bottom_MD</label>
