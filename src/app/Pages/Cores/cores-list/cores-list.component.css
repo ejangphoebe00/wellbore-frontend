@@ -3,6 +3,11 @@
     width: 90%;
 }
 
+img {
+    background-color: black;
+    vertical-align: middle;
+}
+
 button.btn.yellow {
     margin-left: 1%;
     /* float: right; */
@@ -18,8 +23,10 @@ button.btn.yellow {
     justify-content: center;
     overflow: hidden;
     padding-top: 30px;
+    background-color: black!important;
 }
 
-img {
-    background-color: black;
+
+.carousel-cell {
+    background-color: black!important;
 }

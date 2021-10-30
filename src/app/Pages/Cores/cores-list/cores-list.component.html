@@ -144,17 +144,17 @@
                                                 <tr>
                                                         <th style="width:25%"> Bottom Formation</th>
                                                         <td style="width:25%">{{catalogs.Bottom_formation}} </td>
+                                                        <th style="width:25%"> Files </th>
+                                                        <td style="width:25%"><a (click)="onSelectFiles(catalogs)" data-dismiss="modal">click to continue </a></td>
                                                        
-                
                                                     </tr>
 
-                                                <tr>
-                                                    <th style="width:25%"> Image</th>
-                                                </tr>
+                                                   
+
+                                               
                                             
                                            </tbody>
                                        </table>
-                                       <div class="clearfix"></div>
                                        <button (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
                                        <button  (click)="onFile()"  data-dismiss="modal"   class="btn yellow">Add File</button>
 
@@ -336,6 +336,17 @@
                                 <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                             </div>
                         </form>
+                    </div>
+                </div>  
+
+
+
+
+                <div *ngIf="viewFiles" class="portlet light bordered">
+                    <div class="portlet-body form">
+
+                        <h3> Files</h3>
+                          
                     </div>
                 </div>  
                 </div>

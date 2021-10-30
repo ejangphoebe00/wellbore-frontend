@@ -57,6 +57,7 @@ export class CoresListComponent implements OnInit {
   details:boolean= false;
   updatevalue: any;
   catalogs:any;
+  viewFiles: boolean = false;
 
  
   dtOptions: any = {};
@@ -306,6 +307,13 @@ export class CoresListComponent implements OnInit {
       this.editform = true;
     }
 
+    onSelectFiles(selectedItem: any) {
+      console.log("hide the elements");
+      this.status = false;
+      this.details= false;
+      this.viewFiles = true;
+    }
+
 
     onFile(){
       console.log("Clicked")
@@ -379,17 +387,17 @@ export class CoresListComponent implements OnInit {
       .getCores()
       .subscribe((response: any) => {
         this.users = response
-        // this.users.forEach((e: { Core_photographs: any; }) => {
-        //   this.ims.push({
-        //     path: e.Core_photographs,
-           
-        //   })
-        // })
-        console.log('all Imagess')
+        console.log('all Imagess tested')
+         
+
+
         for (var product of response) {
-          console.log(product.Core_photograph)
-          // this.ims = product.Core_photograph
-          // console.log((this.ims).length)
+
+          setTimeout(() => { 
+            for (var x in product.Core_photograph){
+            this.ims = product.Core_photograph
+            console.log(this.ims[x])
+          }}, 1500)
 
      }
 
