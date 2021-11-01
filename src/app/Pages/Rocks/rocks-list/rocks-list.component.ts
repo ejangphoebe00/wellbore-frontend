@@ -31,6 +31,11 @@ export class RocksListComponent implements OnInit {
   currentFile: any;
   msg: any;
 
+  ims: any = [];
+  cutImg: any = [];
+  viewFiles: boolean = false;
+
+
  
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
@@ -253,6 +258,40 @@ export class RocksListComponent implements OnInit {
         });
 
 
+    }
+
+
+    onSelectFiles(selectedItem: any) {
+      console.log("hide the elements");
+      this.status = false;
+      this.details = false;
+      this.viewFiles = true;
+      this.getFiles();
+    
+    }
+
+
+    getFiles() {
+      this.authservice
+        .getRocks()
+        .subscribe((response: any) => {
+          this.users = response
+          console.log('all Imagess tested')
+  
+         
+          for (var product of response) {
+            console.log('firat test: ' + product.Petrographic_analysis_reports)
+            this.ims = product.Petrographic_analysis_reports
+            console.log('images  array:' + this.ims.length)
+            for (var image of this.ims) {
+              console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+              this.cutImg.push({'link': image.replace('backend', 'http://127.0.0.1:8899'),
+            'name':image.replace('backend/static/files/','')});
+             
+            }
+          }
+        });
+  
     }
 
 

@@ -32,6 +32,11 @@ export class FluidsListComponent implements OnInit {
   selectedFiles: any;
   currentFile: any;
   msg: any;
+  viewFiles: boolean = false;
+
+  ims: any = [];
+  cutImg: any = [];
+
 
 
   Fluids:any = ['Oil','Gas','Water'];
@@ -271,6 +276,40 @@ export class FluidsListComponent implements OnInit {
       this.status = false;
       this.details= false;
       this.editform = true;
+    }
+
+
+    onSelectFiles(selectedItem: any) {
+      console.log("hide the elements");
+      this.status = false;
+      this.details = false;
+      this.viewFiles = true;
+      this.getFiles();
+    
+    }
+
+
+    getFiles() {
+      this.authservice
+        .getFluids()
+        .subscribe((response: any) => {
+          this.users = response
+          console.log('all Imagess tested')
+  
+         
+          for (var product of response) {
+            console.log('firat test: ' + product.Analysis_reports)
+            this.ims = product.Analysis_reports
+            console.log('images  array:' + this.ims.length)
+            for (var image of this.ims) {
+              console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+              this.cutImg.push({'link': image.replace('backend', 'http://127.0.0.1:8899'),
+            'name':image.replace('backend/static/files/','')});
+             
+            }
+          }
+        });
+  
     }
 
     captureCoreInstance(){
