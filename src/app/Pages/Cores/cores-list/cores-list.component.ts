@@ -61,6 +61,7 @@ export class CoresListComponent implements OnInit {
   updatevalue: any;
   catalogs: any;
   viewFiles: boolean = false;
+  viewImages: boolean = false;
 
 
   dtOptions: any = {};
@@ -324,6 +325,16 @@ export class CoresListComponent implements OnInit {
   }
 
 
+  onSelectImages(selectedItem: any) {
+    console.log("hide the elements");
+    this.status = false;
+    this.details = false;
+    this.viewImages = true;
+    this.getImages();
+  
+  }
+
+
   onFile() {
     console.log("Clicked")
     this.status = false;
@@ -431,6 +442,29 @@ export class CoresListComponent implements OnInit {
         for (var product of response) {
           console.log('firat test: ' + product.Core_analysis_reports)
           this.ims = product.Core_analysis_reports
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            this.cutImg.push({'link': image.replace('backend', 'http://127.0.0.1:8899'),
+          'name':image.replace('backend/static/files/','')});
+           
+          }
+        }
+      });
+
+  }
+
+    getImages() {
+    this.authservice
+      .getCores()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+       
+        for (var product of response) {
+          console.log('firat test: ' + product.Core_photographs)
+          this.ims = product.Core_photographs
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
