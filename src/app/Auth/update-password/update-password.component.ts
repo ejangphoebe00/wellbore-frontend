@@ -46,13 +46,14 @@ export class UpdatePasswordComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+   
     // this.authservice.reload();
     this.initForm();
     this.captureWellsInstance();
     this.getSecurityId();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if ((this.authservice.getRole() == "Data Admin")|| (this.authservice.getRole() == "Staff")) {
+    if ((this.authservice.getRole() == "Data Admin")|| (this.authservice.getRole() == "Staff")||(this.authservice.getRole() == "Application Admin")) {
       this.password_update = false;
     } else {
       this.password_update = true;
