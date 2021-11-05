@@ -1,544 +1,576 @@
 <div class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
-        <div class="page-content">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
 
-            <!-- BEGIN PAGE BAR -->
-            <div class="page-bar">
-                <ul class="page-breadcrumb">
-                    <li>
-                        <a [routerLink]="['/dashboard']">Dashboard</a>
-                        <i class="fa fa-circle"></i>
-                    </li>
-                    <li>
-                        <span>Cores</span>
-                    </li>
-                </ul>
+        <!-- BEGIN PAGE BAR -->
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a [routerLink]="['/dashboard']">Dashboard</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span>Cores</span>
+                </li>
+            </ul>
 
-            </div>
-            <!-- END PAGE BAR -->
-            <!-- BEGIN PAGE TITLE-->
+        </div>
+        <!-- END PAGE BAR -->
+        <!-- BEGIN PAGE TITLE-->
 
-            <!-- END PAGE TITLE-->
+        <!-- END PAGE TITLE-->
 
-            <div class="clearfix"></div>
-            <!-- END DASHBOARD STATS 1-->
-            <div *ngIf="status"  class="portlet light bordered">
+        <div class="clearfix"></div>
+        <!-- END DASHBOARD STATS 1-->
+        <div *ngIf="status" class="portlet light bordered">
 
-                <div class="portlet-body form">
-                    <!-- BEGIN FORM-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light bordered">
-                                <div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class=" fa fa-share-square-o
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-red-sunglo">
+                                    <i class="fa fa-share-square-o
                                         font-red-sunglo"></i>
-                                        <span class="caption-subject
-                                            bold uppercase">Wellbore Cores</span>
-                                    </div>
-                                    <div class="tools"> </div>
+                                    <span class="caption-subject
+                                        bold uppercase">Wellbore Cores</span>
                                 </div>
-                                <div class="portlet-body">
+                                <div class="tools"> </div>
+                            </div>
+                            <div class="portlet-body">
 
-                                            <table datatable
-                                            [dtOptions]="dtOptions"
-                                            [dtTrigger]="dtTrigger"
-                                            class="table table-striped
-                                            table-bordered table-hover"
-                                            id="sample_1">
-                                                <thead>
-                                                  <tr >
-                                                    <th>Wellbore Id</th>
-                                                    <th>CoringDate</th>
-                                                    <th>CoreBtmTVD</th>                                                
-                                                    <th>CoreNumber</th>
-                                                    <th>CoringDate</th>
-                                                    <th>CoreTopMD</th>
-                                                    <th>Actions</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr *ngFor="let post of users">
-                                                    <td>{{post.WellboreCore_id}}</td>
-                                                    <td>{{post.CoringDate}}</td>
-                                                    <td>{{post.CoreBtmTVD}}</td>
-                                                    <td>{{post.CoreNumber}}</td>
-                                                    <td>{{post.CoringDate}}</td>
-                                                    <td>{{post.CoreTopMD}}</td>
-                                                    <td>
-                                                        <!-- <button type="button" (click)="onSelectEdit(post)"
+                                <table datatable
+                                    [dtOptions]="dtOptions"
+                                    [dtTrigger]="dtTrigger"
+                                    class="table table-striped
+                                    table-bordered table-hover"
+                                    id="sample_1">
+                                    <thead>
+                                        <tr>
+                                            <th>Wellbore Id</th>
+                                            <th>CoringDate</th>
+                                            <th>CoreBtmTVD</th>
+                                            <th>CoreNumber</th>
+                                            <th>CoringDate</th>
+                                            <th>CoreTopMD</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let post of users">
+                                            <td>{{post.WellboreCore_id}}</td>
+                                            <td>{{post.CoringDate}}</td>
+                                            <td>{{post.CoreBtmTVD}}</td>
+                                            <td>{{post.CoreNumber}}</td>
+                                            <td>{{post.CoringDate}}</td>
+                                            <td>{{post.CoreTopMD}}</td>
+                                            <td>
+                                                <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button> -->
-                                                      <button  type="button" class="btn red btn-outline"
-                                                      (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
-                                                      <a class="btn purple btn-outline bold" (click)="More(post)"
-                                                      data-toggle="modal" href="#large"> More </a>
-                                                    
-                                                    </td>
-                                                      
-                                                    </tr>
+                                                <button type="button" class="btn
+                                                    red btn-outline"
+                                                    (click)="onSelect(post)"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                                <a class="btn purple btn-outline
+                                                    bold" (click)="More(post)"
+                                                    data-toggle="modal"
+                                                    href="#large"> More </a>
+                                            </td>
+
+                                        </tr>
 
 
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                    </div>
-                                    <!-- END EXAMPLE TABLE PORTLET-->
-                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                    <!-- END EXAMPLE TABLE PORTLET-->
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
-
-                            <!-- END FORM-->
                         </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <!-- END EXAMPLE TABLE PORTLET-->
                     </div>
+                </div>
 
-                    <div *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                        <div class="caption font-red-sunglo">
-                                                <i class=" fa fa-share-square-o
-                                                font-red-sunglo"></i>
-                                                <span class="caption-subject
-                                                    bold uppercase">Cores</span>
-                                            </div>
+                <!-- END FORM-->
+            </div>
+        </div>
 
-                                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
-                                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
-                                    </div>
-                                    <div class="modal-body">
-                                      <table class="table table-bordered table-striped">
-                                          <tbody>
-                                            <tr>
-                                                <td style="width:25%"> Wellbore Id</td>
-                                                <td style="width:25%">{{wellboreCores.Wellbore_id}} </td>
-                                                <td style="width:25%"> CoreNumber </td>
-                                                <td style="width:25%"> {{wellboreCores.CoreNumber}}</td>
-        
-                                            </tr>
-                                            <tr>
-                                                <td style="width:25%"> CoringDate</td>
-                                                <td style="width:25%">{{wellboreCores.CoringDate}} </td>
-                                                <td style="width:25%"> WBCoringContractor Id </td>
-                                                <td style="width:25%"> {{wellboreCores.WBCoringContractor_id}}</td>
-        
-                                            </tr>
+        <div *ngIf="details" class="modal fade bs-modal-lg" id="large"
+            tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true"></button>
+                        <div class="caption font-red-sunglo">
+                            <i class="fa fa-share-square-o
+                                font-red-sunglo"></i>
+                            <span class="caption-subject
+                                bold uppercase">Cores</span>
+                        </div>
 
-                                            <tr>
-                                                <td style="width:25%"> Core Top MD</td>
-                                                <td style="width:25%">{{wellboreCores.CoreTopMD}} </td>
-                                                <td style="width:25%"> CoreBtmMD</td>
-                                                <td style="width:25%"> {{wellboreCores.CoreBtmMD}}</td>
-        
-                                            </tr>
+                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
+                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <td style="width:25%"> Wellbore Id</td>
+                                    <td style="width:25%">{{wellboreCores.Wellbore_id}}
+                                    </td>
+                                    <td style="width:25%"> CoreNumber </td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreNumber}}</td>
 
-                                            <tr>
-                                                <td style="width:25%"> Core TopTVD</td>
-                                                <td style="width:25%">{{wellboreCores.CoreTopTVD}} </td>
-                                                <td style="width:25%"> Core BtmTVD </td>
-                                                <td style="width:25%"> {{wellboreCores.CoreBtmTVD}}</td>
-        
-                                            </tr>
+                                </tr>
+                                <tr>
+                                    <td style="width:25%"> CoringDate</td>
+                                    <td style="width:25%">{{wellboreCores.CoringDate}}
+                                    </td>
+                                    <td style="width:25%"> WBCoringContractor Id
+                                    </td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.WBCoringContractor_id}}</td>
+                                </tr>
 
-                                            <tr>
-                                                    <td style="width:25%"> BottomStratLitho Id</td>
-                                                    <td style="width:25%">{{wellboreCores.CutLength}} </td>
-                                                    <td style="width:25%"> CutLengthTVD </td>
-                                                    <td style="width:25%"> {{wellboreCores.CutLengthTVD}}</td>
-            
-                                             </tr>
+                                <tr>
+                                    <td style="width:25%"> Core Top MD</td>
+                                    <td style="width:25%">{{wellboreCores.CoreTopMD}}
+                                    </td>
+                                    <td style="width:25%"> CoreBtmMD</td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreBtmMD}}</td>
+                                </tr>
 
-                                             <tr>
-                                                    <td style="width:25%">  Recovered Length</td>
-                                                    <td style="width:25%">{{wellboreCores.RecoveredLength}} </td>
-                                                    <td style="width:25%"> Percentage Core Recovery</td>
-                                                    <td style="width:25%"> {{wellboreCores.PercentageCoreRecovery}}</td>
-            
-                                             </tr>
+                                <tr>
+                                    <td style="width:25%"> Core TopTVD</td>
+                                    <td style="width:25%">{{wellboreCores.CoreTopTVD}}
+                                    </td>
+                                    <td style="width:25%"> Core BtmTVD </td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreBtmTVD}}</td>
 
-                                             <tr>
-                                                    <td style="width:25%">  CoreTop StratLitho Id</td>
-                                                    <td style="width:25%">{{wellboreCores.CoreTopStratLitho_id}} </td>
-                                                    <td style="width:25%"> CoreBottomStratLitho Id </td>
-                                                    <td style="width:25%"> {{wellboreCores.CoreBottomStratLitho_id}}</td>
-            
-                                             </tr>
-                                           <tr>
-                                                    <td style="width:25%">  Core Picture Soft Copy Path</td>
-                                                    <td style="width:25%">{{wellboreCores.CorePictureSoftcopyPath}} </td>
-                                                    <td style="width:25%"> Core Picture Hyperlink </td>
-                                                    <td style="width:25%"> {{wellboreCores.CoreReportHyperlink}}</td>
-            
-                                             </tr>
+                                </tr>
 
-                                            <tr>
-                                                     <td style="width:25%"> ReportUploadDate</td>
-                                                     <td style="width:25%">{{wellboreCores.ReportUploadDate}} </td>
-                                                     <td style="width:25%"> Comments</td>
-                                                     <td style="width:25%">{{wellboreCores.Comments}} </td>
-             
-                                            </tr>
-                                            <tr>
-                                              <td style="width:25%">  Cat Report File Size</td>
-                                              <td style="width:25%">{{wellboreCores.ReportFileSize}} </td>
-                                              <td style="width:25%"> Core Report Security Grade Id</td>
-                                              <td style="width:25%"> {{wellboreCores.CoreReportSecurityGrade_id}}</td>
-      
-                                              </tr>
-                                              <tr>
-                                                    <td style="width:25%">  Report Open Due Date</td>
-                                                    <td style="width:25%">{{wellboreCores.ReportOpenDueDate}} </td>
-                                                    <td style="width:25%"> Report Document Title</td>
-                                                    <td style="width:25%"> {{wellboreCores.ReportDocumentTitle}}</td>
-            
-                                            </tr>
-                                            <tr>
-                                                    <td style="width:25%"> Report Received Date</td>
-                                                    <td style="width:25%">{{wellboreCores.ReportReceivedDate}} </td>
-                                                    <td style="width:25%"> Report Document Date</td>
-                                                    <td style="width:25%"> {{wellboreCores.ReportDocumentDate}}</td>
-            
-                                                </tr>
-                                            <tr>
-                                                    <td style="width:25%"> Report Document Name</td>
-                                                    <td style="width:25%">{{wellboreCores.ReportDocumentName}} </td>
-                                                    <td style="width:25%"> Core Type Name</td>
-                                                    <td style="width:25%"> {{wellboreCores.CoreTypeName}}</td>
-            
-                                                </tr>
-                                                   
-                                       
-                                            
-                                           </tbody>
-                                       </table>
-                                       <div class="clearfix"></div>
-                                       <button (click)="onSelectEdit(wellboreCores)" data-dismiss="modal"   class="btn blue">Edit</button>
+                                <tr>
+                                    <td style="width:25%"> BottomStratLitho Id</td>
+                                    <td style="width:25%">{{wellboreCores.CutLength}}
+                                    </td>
+                                    <td style="width:25%"> CutLengthTVD </td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CutLengthTVD}}</td>
+                                </tr>
 
-                                   </div>
-                                   <!-- <div class="modal-footer">
+                                <tr>
+                                    <td style="width:25%"> Recovered Length</td>
+                                    <td style="width:25%">{{wellboreCores.RecoveredLength}}
+                                    </td>
+                                    <td style="width:25%"> Percentage Core
+                                        Recovery</td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.PercentageCoreRecovery}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width:25%"> CoreTop StratLitho Id</td>
+                                    <td style="width:25%">{{wellboreCores.CoreTopStratLitho_id}}
+                                    </td>
+                                    <td style="width:25%"> CoreBottomStratLitho
+                                        Id </td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreBottomStratLitho_id}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:25%"> Core Picture Soft
+                                        Copy Path</td>
+                                    <td style="width:25%">{{wellboreCores.CorePictureSoftcopyPath}}
+                                    </td>
+                                    <td style="width:25%"> Core Picture
+                                        Hyperlink </td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreReportHyperlink}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width:25%"> ReportUploadDate</td>
+                                    <td style="width:25%">{{wellboreCores.ReportUploadDate}}
+                                    </td>
+                                    <td style="width:25%"> Comments</td>
+                                    <td style="width:25%">{{wellboreCores.Comments}}
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="width:25%"> Cat Report File Size</td>
+                                    <td style="width:25%">{{wellboreCores.ReportFileSize}}
+                                    </td>
+                                    <td style="width:25%"> Core Report Security
+                                        Grade Id</td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreReportSecurityGrade_id}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:25%"> Report Open Due Date</td>
+                                    <td style="width:25%">{{wellboreCores.ReportOpenDueDate}}
+                                    </td>
+                                    <td style="width:25%"> Report Document Title</td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.ReportDocumentTitle}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:25%"> Report Received Date</td>
+                                    <td style="width:25%">{{wellboreCores.ReportReceivedDate}}
+                                    </td>
+                                    <td style="width:25%"> Report Document Date</td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.ReportDocumentDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:25%"> Report Document Name</td>
+                                    <td style="width:25%">{{wellboreCores.ReportDocumentName}}
+                                    </td>
+                                    <td style="width:25%"> Core Type Name</td>
+                                    <td style="width:25%">
+                                        {{wellboreCores.CoreTypeName}}</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                        <button (click)="onSelectEdit(wellboreCores)"
+                            data-dismiss="modal" class="btn blue">Edit</button>
+                    </div>
+                    <!-- <div class="modal-footer">
                                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                                        <button type="button" class="btn green">Save changes</button>
                                    </div> -->
-                                   <!-- /.modal-content -->
-                               </div>
-              
-                               <!-- /.modal-dialog -->
-                           </div>
-                        </div>   
+                    <!-- /.modal-content -->
+                </div>
 
-                    
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
 
 
 
 
-                    <div  *ngIf="editform" class="portlet light bordered">
-                            <div class="portlet-body form">
-                                <form class="form-horizontal" [formGroup]="formGroup"
-                                (ngSubmit)="updateWellboreCoreProcess()" ngNativeValidate>
-                        
-                                <div class="form-body row">
-                                        <div class="col-md-3">
-                                            
-                
-                                            <div class="form-group">
-                
-                                                <label>Wellbore</label>
-                                                <span class="error">*</span>
-                                                    <select class="form-control"
-                                                         required formControlName="Wellbore_id"
-                                                        name="Wellbore_id">
-                                                        <option *ngFor="let city of wellboreIds"
-                                                            [ngValue]="city.Wellbore_id"
-                                                            (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
-                                                        </option>
-                                                    </select>
-                                                     
-                
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Number</label>
-                                                <span class="error">*</span>
-                                                <input required formControlName="CoreNumber"
-                                                    type="number" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Type Name</label>
-                                                <select class="form-control"  required formControlName="CoreTypeName">
-                                                        <option *ngFor="let role of CoreNames" [ngValue]="role"
-                                                            (change)="changeRoles($event)">{{role}}
-                                                        </option>
-                                                        </select>    
-                                                                                               
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Coring Date</label>
-                                                <input formControlName="CoringDate"
-                                                    type="date" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>WB CoringContractor</label>
-                                                <!-- <input formControlName="WBCoringContractor_id"
+
+
+        <div *ngIf="editform" class="portlet light bordered">
+            <div class="portlet-body form">
+                <form class="form-horizontal" [formGroup]="formGroup"
+                    (ngSubmit)="updateWellboreCoreProcess()" ngNativeValidate>
+                    <div class="form-body row">
+                        <div class="col-md-3">
+
+
+                            <div class="form-group">
+
+                                <label>Wellbore</label>
+                                <span class="error">*</span>
+                                <select class="form-control"
+                                    required formControlName="Wellbore_id"
+                                    name="Wellbore_id">
+                                    <option *ngFor="let city of wellboreIds"
+                                        [ngValue]="city.Wellbore_id"
+                                        (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
+                                    </option>
+                                </select>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Core Number</label>
+                                <span class="error">*</span>
+                                <input required formControlName="CoreNumber"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Type Name</label>
+                                <select class="form-control" required
+                                    formControlName="CoreTypeName">
+                                    <option *ngFor="let role of CoreNames"
+                                        [ngValue]="role"
+                                        (change)="changeRoles($event)">{{role}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Coring Date</label>
+                                <input formControlName="CoringDate"
+                                    type="date" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>WB CoringContractor</label>
+                                <!-- <input formControlName="WBCoringContractor_id"
                                                     type="number" class="form-control"
                                                     placeholder=""> -->
-                                                    <select
-                                                        formControlName="WBCoringContractor_id"
-                                                        name="WBCoringContractor_id"
-                                                        class="form-control">
-                                                        <option *ngFor="let city of
-                                                            WBCoringContractor_id"
-                                                            [ngValue]="city.Company_id"
-                                                            (change)="changeContractingId($event)">{{city.Company_id}}-->{{city.CompanyShortName}}
-                                                        </option>
-                                                    </select>
-                
-                
-                
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Top </label>
-                                                <input
-                                                    formControlName="CoreTopMD"
-                                                    type="number" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                    <label>Core Btm </label>
-                                                    <input formControlName="CoreBtmMD"
-                                                        type="number" class="form-control"
-                                                        placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Top TVD</label>
-                                                <input
-                                                    formControlName="CoreTopTVD"
-                                                    type="number" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            
-                                            
-                                        </div>
-                                        <div class="col-md-3">
-                
-                                                <div class="form-group">
-                                                        <label>Core Btm TVD</label>
-                                                        <input
-                                                            formControlName="CoreBtmTVD"
-                                                            type="number" class="form-control"
-                                                            placeholder="">
-                                                 </div>
-                                               
-                                                   
-                                                    <div class="form-group">
-                                                        <label>Cut Length</label>
-                                                        <input
-                                                            formControlName="CutLength"
-                                                            type="text" class="form-control"
-                                                            placeholder="">
-                                                    </div>
-                
-                                            <div class="form-group">
-                                                <label>Cut Length TVD</label>
-                                                <input
-                                                    formControlName="CutLengthTVD"
-                                                    type="number" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                    <label>Recovered Length</label>
-                                                    <input
-                                                        formControlName="RecoveredLength"
-                                                        type="number" class="form-control"
-                                                        placeholder="">
-                                                </div>
-                
-                                                <div *ngIf="role" class="form-group">
-                                                        <label>PercentageCoreRecovery</label>
-                                                        <input
-                                                            formControlName="PercentageCoreRecovery"
-                                                            type="text" class="form-control"
-                                                            placeholder="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Core Top Strat Litho</label>                                      
-                
-                                                    <select class="form-control"
-                                                    formControlName="CoreTopStratLitho_id"
-                                                    name="CoreTopStratLitho_id">
-                                                    <option *ngFor="let city of
-                                                        CoreTopStratLitho_id"
-                                                        [ngValue]="city.StratLitho_id"
-                                                        (change)="changeCoreTopStratLitho($event)">{{city.StratLitho_id}}-->{{city.StratLithoName}}
-                                                    </option>
-                                                </select>
-                
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Core Bottom StratLitho</label>
-                                                    <!-- <input
+                                <select
+                                    formControlName="WBCoringContractor_id"
+                                    name="WBCoringContractor_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                        WBCoringContractor_id"
+                                        [ngValue]="city.Company_id"
+                                        (change)="changeContractingId($event)">{{city.Company_id}}-->{{city.CompanyShortName}}
+                                    </option>
+                                </select>
+
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Core Top </label>
+                                <input
+                                    formControlName="CoreTopMD"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Btm </label>
+                                <input formControlName="CoreBtmMD"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Top TVD</label>
+                                <input
+                                    formControlName="CoreTopTVD"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label>Core Btm TVD</label>
+                                <input
+                                    formControlName="CoreBtmTVD"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Cut Length</label>
+                                <input
+                                    formControlName="CutLength"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Cut Length TVD</label>
+                                <input
+                                    formControlName="CutLengthTVD"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Recovered Length</label>
+                                <input
+                                    formControlName="RecoveredLength"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+
+                            <div *ngIf="role" class="form-group">
+                                <label>PercentageCoreRecovery</label>
+                                <input
+                                    formControlName="PercentageCoreRecovery"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Top Strat Litho</label>
+
+                                <select class="form-control"
+                                    formControlName="CoreTopStratLitho_id"
+                                    name="CoreTopStratLitho_id">
+                                    <option *ngFor="let city of
+                                        CoreTopStratLitho_id"
+                                        [ngValue]="city.StratLitho_id"
+                                        (change)="changeCoreTopStratLitho($event)">{{city.StratLitho_id}}-->{{city.StratLithoName}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Core Bottom StratLitho</label>
+                                <!-- <input
                                                         formControlName="CoreBottomStratLitho_id"
                                                         type="number" class="form-control"
                                                         placeholder=""> -->
-                                                    <select formControlName="CoreBottomStratLitho_id"
-                                                    name="CoreBottomStratLitho_id"
-                                                    class="form-control">
-                                                    <option *ngFor="let city of
-                                                        CoreBottomStratLitho_id"
-                                                        [ngValue]="city.StratLitho_id"
-                                                        (change)="changeCoreBottomStratLitho($event)">{{city.StratLitho_id}}-->{{city.StratLithoName}}
-                                                    </option>
-                                                </select>
-                
-                                                </div>
-                                                <div class="form-group">
-                                                        <label>Core Picture Softcopy Path</label>
-                                                        <input
-                                                            formControlName="CorePictureSoftcopyPath"
-                                                            type="text" class="form-control"
-                                                            placeholder="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label>Core Picture Hyperlink</label>
-                                                            <input
-                                                                formControlName="CorePictureHyperlink"
-                                                                type="text" class="form-control"
-                                                                placeholder="">
-                                                        </div>
-                                               
-                
-                                        </div>
-                                        <div class="col-md-3">
-                                               
-                                            <div class="form-group">
-                                                <label>Picture Upload Date</label>
-                                                <input
-                                                    formControlName="PictureUploadDate"
-                                                    type="number" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Report Softcopy Path</label>
-                                                <input
-                                                    formControlName="CoreReportSoftcopyPath"
-                                                    type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Core Report Hyperlink</label>
-                                                <input
-                                                    formControlName="CoreReportHyperlink"
-                                                    type="text" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Report Upload Date</label>
-                                                <input formControlName="ReportUploadDate"
-                                                    type="date" class="form-control"
-                                                    placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Report Format </label>
-                                                    <select formControlName="ReportFormat_id"
-                                                        name="ReportFormat_id"
-                                                        class="form-control">
-                                                        <option *ngFor="let city of
-                                                            ReportFormat_id"
-                                                            [ngValue]="city.FileFormat_id"
-                                                            (change)="changeReportFormat_id($event)">{{city.FileFormat_id}}-->{{city.FileFormatName}}
-                                                        </option>
-                                                    </select>
-                                            </div>
-                                            <div class="form-group">
-                                                    <label>Report File Size</label>
-                                                    <input
-                                                        formControlName="ReportFileSize"
-                                                        type="number" class="form-control"
-                                                        placeholder="">
-                                                </div>
-                        
-                                                <div class="form-group">
-                                                    <label>Core Report Security Grade</label>
-                                                    <!-- <input
+                                <select
+                                    formControlName="CoreBottomStratLitho_id"
+                                    name="CoreBottomStratLitho_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                        CoreBottomStratLitho_id"
+                                        [ngValue]="city.StratLitho_id"
+                                        (change)="changeCoreBottomStratLitho($event)">{{city.StratLitho_id}}-->{{city.StratLithoName}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Core Picture Softcopy Path</label>
+                                <input
+                                    formControlName="CorePictureSoftcopyPath"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Picture Hyperlink</label>
+                                <input
+                                    formControlName="CorePictureHyperlink"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label>Picture Upload Date</label>
+                                <input
+                                    formControlName="PictureUploadDate"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Report Softcopy Path</label>
+                                <input
+                                    formControlName="CoreReportSoftcopyPath"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Report Hyperlink</label>
+                                <input
+                                    formControlName="CoreReportHyperlink"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Upload Date</label>
+                                <input formControlName="ReportUploadDate"
+                                    type="date" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Format </label>
+                                <select formControlName="ReportFormat_id"
+                                    name="ReportFormat_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                        ReportFormat_id"
+                                        [ngValue]="city.FileFormat_id"
+                                        (change)="changeReportFormat_id($event)">{{city.FileFormat_id}}-->{{city.FileFormatName}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Report File Size</label>
+                                <input
+                                    formControlName="ReportFileSize"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Core Report Security Grade</label>
+                                <!-- <input
                                                         formControlName="CoreReportSecurityGrade_id"
                                                         type="number" class="form-control"
                                                         placeholder=""> -->
-                        
-                                                        <select formControlName="CoreReportSecurityGrade_id"
-                                                        name="CoreReportSecurityGrade_id"
-                                                        class="form-control">
-                                                        <option *ngFor="let city of
-                                                        CoreReportSecurityGrade_id"
-                                                            [ngValue]="city.FileSecurityGrade_id"
-                                                            (change)="changeCoreReportSecurityGrade_id($event)">{{city.FileSecurityGrade_id}}-->{{city.	FileSecurityGradeName}}
-                                                        </option>
-                                                    </select>
-                                                        
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Report Open Due Date</label>
-                                                    <input
-                                                        formControlName="ReportOpenDueDate"
-                                                        type="date" class="form-control"
-                                                        placeholder="">
-                                                </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                        
-                                        <div class="form-group">
-                                            <label>Report Document Title</label>
-                                            <input
-                                                formControlName="ReportDocumentTitle"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Report Received Date</label>
-                                            <input
-                                                formControlName="ReportReceivedDate"
-                                                type="date" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Report Document Date</label>
-                                            <input formControlName="ReportDocumentDate"
-                                                type="date" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Report Document Name</label>
-                                            <input
-                                                formControlName="ReportDocumentName"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <!-- <div class="form-group">
+                                <select
+                                    formControlName="CoreReportSecurityGrade_id"
+                                    name="CoreReportSecurityGrade_id"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                        CoreReportSecurityGrade_id"
+                                        [ngValue]="city.FileSecurityGrade_id"
+                                        (change)="changeCoreReportSecurityGrade_id($event)">{{city.FileSecurityGrade_id}}-->{{city.
+                                        FileSecurityGradeName}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Report Open Due Date</label>
+                                <input
+                                    formControlName="ReportOpenDueDate"
+                                    type="date" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label>Report Document Title</label>
+                                <input
+                                    formControlName="ReportDocumentTitle"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Received Date</label>
+                                <input
+                                    formControlName="ReportReceivedDate"
+                                    type="date" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Document Date</label>
+                                <input formControlName="ReportDocumentDate"
+                                    type="date" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Document Name</label>
+                                <input
+                                    formControlName="ReportDocumentName"
+                                    type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <!-- <div class="form-group">
                                             <label>Wellbore Core Name</label>
                                             <input
                                                 formControlName="WellboreCoreName"
                                                 type="text" class="form-control"
                                                 placeholder="">
                                         </div> -->
-                                        <div class="form-group">
-                                                <label>Comments</label>
-                                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
-                                            </div>
-                                        
-                
-                                        </div>
-                                    </div>
-                
-                                    <div class="form-actions">
-                                        <button  type="submit" class="btn blue">Update</button>
-                                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
-                                    </div>
-                                </form>
+                            <div class="form-group">
+                                <label>Comments</label>
+                                <textarea name="name" rows="4" cols="40"
+                                    formControlName="Comments"
+                                    class="form-control" placeholder=""></textarea>
                             </div>
-                        </div>         
 
-                </div>
-                <!-- END CONTENT BODY -->
+
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Update</button>
+                        <button (click)="navigateBack()" type="button"
+                            class="btn default">Back</button>
+                    </div>
+                </form>
             </div>
+        </div>
+
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
