@@ -17,6 +17,9 @@ export class AddCompanyComponent implements OnInit {
   year!: Date;
   currentYear:any;
   allYears:any = [];
+  maxd:any;
+  mindate: any;
+ 
 
   constructor(
     private authservice: ApiPipeService,
@@ -25,16 +28,18 @@ export class AddCompanyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
+    console.log("final working date"+this.mindate)
+
     this.initForm();
     // this.authservice.reload();
     this.currentYear = new Date().getFullYear();
-    while (this.currentYear >= 2000) {
-
+    while (this.currentYear >= 1900) {
       this.allYears.push(this.currentYear);
       this.currentYear -= 1;
     }
     console.log(this.allYears)
-
   }
 
 

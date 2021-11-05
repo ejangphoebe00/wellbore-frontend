@@ -40,6 +40,8 @@ export class WellsComponent implements OnInit {
     CoreReportSecurityGrade_id: any;
     details: boolean = false;
     wellboreCores:any;
+    CoreNames:any = ['Slab','1/2 Slab','1/3 Slab','2/3 Slab','Biscuit Slab','Full Diameter','SideWall Core'];
+
 
     constructor(
       private authservice: ApiPipeService,
@@ -121,15 +123,17 @@ export class WellsComponent implements OnInit {
       this.formGroup = new FormGroup({
         Wellbore_id:new FormControl(),
         CoreNumber:new FormControl(),
+        CoreTypeName:new FormControl(),
         CoringDate:new FormControl(),
         WBCoringContractor_id:new FormControl(),
-        CoreTopMDRT:new FormControl(),
-        CoreBtmMDRT:new FormControl(),
+        CoreTopMD:new FormControl(),
+        CoreBtmMD:new FormControl(),
         CoreTopTVD:new FormControl(),
         CoreBtmTVD:new FormControl(),
         CutLength:new FormControl(),
         CutLengthTVD:new FormControl(),
         RecoveredLength:new FormControl(),
+        PercentageCoreRecovery: new FormControl(),
         CoreRecovery:new FormControl(),
         CoreTopStratLitho_id:new FormControl(),
         CoreBottomStratLitho_id:new FormControl(),
@@ -147,9 +151,17 @@ export class WellsComponent implements OnInit {
         ReportReceivedDate:new FormControl(),
         ReportDocumentDate:new FormControl(),
         ReportDocumentName:new FormControl(),
-        WellboreCoreName:new FormControl(),
+        // WellboreCoreName:new FormControl(),
         Comments:new FormControl()
       });
+    }
+
+
+    changeRoles(e:any) {
+      console.log(e.value)
+      this.CoreNames.setValue(e.target.value, {
+        onlySelf: true
+      })
     }
 
     onView(item: any) {
@@ -318,7 +330,7 @@ export class WellsComponent implements OnInit {
       .subscribe(res => {
         if (res) {
         console.log("Selected item Id: ", selectedItem.WellboreCore_id);
-        this.http.delete('http://127.0.0.1:8899/apiv1/delete_welbore_core/' + this.id)
+        this.http.delete('http://127.0.0.1:8899/apiv1/delete_core/' + this.id)
           .subscribe(response => {
             this.deleteresp = response;
             console.log(this.deleteresp.message)
@@ -371,7 +383,7 @@ export class WellsComponent implements OnInit {
         CutLength:item.CutLength,
         CutLengthTVD:item.CutLengthTVD,
         RecoveredLength:item.RecoveredLength,
-        CoreRecovery:item.CoreRecovery,
+        PercentageCoreRecovery:item.PercentageCoreRecovery,
         CoreTopStratLitho_id:item.CoreTopStratLitho_id,
         CoreBottomStratLitho_id:item.CoreBottomStratLitho_id,
         CorePictureSoftcopyPath:item.CorePictureSoftcopyPath,
@@ -388,13 +400,13 @@ export class WellsComponent implements OnInit {
         ReportReceivedDate:item.ReportReceived,
         ReportDocumentDate:item.ReportDocumentDate,
         ReportDocumentName:item.ReportDocumentName,
-        WellboreCoreName:item.WellboreCoreName,
+        CoreTypeName:item.CoreTypeName,
         Comments:item.Comments
 
       }
     }
   captureWellsInstance() {
-    this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_core/' + this.id)
+    this.http.get('http://127.0.0.1:8899/apiv1/get_core/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
         console.log("grab update value")
@@ -412,7 +424,7 @@ export class WellsComponent implements OnInit {
       CutLength:this.authservice.stripFormValue(this.updatevalue.CutLength),
       CutLengthTVD:this.authservice.stripFormValue(this.updatevalue.CutLengthTVD),
       RecoveredLength:this.authservice.stripFormValue(this.updatevalue.RecoveredLength),
-      CoreRecovery:this.authservice.stripFormValue(this.updatevalue.CoreRecovery),
+      PercentageCoreRecovery:this.authservice.stripFormValue(this.updatevalue.PercentageCoreRecovery),
       CoreTopStratLitho_id:this.authservice.stripFormValue(this.updatevalue.CoreTopStratLitho_id),
       CoreBottomStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLitho_id),
       CorePictureSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.CorePictureSoftcopyPath),
@@ -429,7 +441,7 @@ export class WellsComponent implements OnInit {
       ReportReceivedDate:this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),
       ReportDocumentDate:this.authservice.stripFormValue(this.updatevalue.ReportDocumentDate),
       ReportDocumentName:this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
-      WellboreCoreName:this.authservice.stripFormValue(this.updatevalue.WellboreCoreName),
+      CoreTypeName:this.authservice.stripFormValue(this.updatevalue.CoreTypeName),
       Comments:this.authservice.stripFormValue(this.updatevalue.Comments)
         });
         console.log(this.updatevalue)

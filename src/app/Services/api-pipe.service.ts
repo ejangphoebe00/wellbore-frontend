@@ -227,12 +227,12 @@ export class ApiPipeService {
 
   adddWellboreCore(data: any): Observable<any> {
     console.log("add user")
-    return this.http.post('http://127.0.0.1:8899/apiv1/add_welbore_core', data)
+    return this.http.post('http://127.0.0.1:8899/apiv1/add_core', data)
   }
 
   updateWellboreCore(data: any): Observable<any> {
     console.log("updatewellborecore")
-    return this.http.put('http://127.0.0.1:8899/apiv1/edit_welbore_core/'+this.getUpdateId(), data)
+    return this.http.put('http://127.0.0.1:8899/apiv1/edit_core/'+this.getUpdateId(), data)
   }
 
   updateCoreCatalog(data: any): Observable<any> {
@@ -247,7 +247,7 @@ export class ApiPipeService {
 
   getwellboreCores(): Observable<any> {
     console.log("Wellbore Cores")
-    return this.http.get('http://127.0.0.1:8899/apiv1/get_welbore_cores')
+    return this.http.get('http://127.0.0.1:8899/apiv1/get_cores')
   }
 
   getCatalogList(): Observable<any> {

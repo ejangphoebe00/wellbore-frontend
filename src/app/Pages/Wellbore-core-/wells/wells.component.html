@@ -10,7 +10,7 @@
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <span>Wellbore Cores</span>
+                        <span>Cores</span>
                     </li>
                 </ul>
 
@@ -51,10 +51,10 @@
                                                   <tr >
                                                     <th>Wellbore Id</th>
                                                     <th>CoringDate</th>
-                                                    <th>WellboreCoreName</th>                                                
+                                                    <th>CoreBtmTVD</th>                                                
                                                     <th>CoreNumber</th>
                                                     <th>CoringDate</th>
-                                                    <th>CoreTopMDRT</th>
+                                                    <th>CoreTopMD</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
@@ -62,10 +62,10 @@
                                                   <tr *ngFor="let post of users">
                                                     <td>{{post.WellboreCore_id}}</td>
                                                     <td>{{post.CoringDate}}</td>
-                                                    <td>{{post.WellboreCoreName}}</td>
+                                                    <td>{{post.CoreBtmTVD}}</td>
                                                     <td>{{post.CoreNumber}}</td>
                                                     <td>{{post.CoringDate}}</td>
-                                                    <td>{{post.CoreTopMDRT}}</td>
+                                                    <td>{{post.CoreTopMD}}</td>
                                                     <td>
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
@@ -103,7 +103,7 @@
                                                 <i class=" fa fa-share-square-o
                                                 font-red-sunglo"></i>
                                                 <span class="caption-subject
-                                                    bold uppercase">Wellbore Cores</span>
+                                                    bold uppercase">Cores</span>
                                             </div>
 
                                         <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
@@ -128,10 +128,10 @@
                                             </tr>
 
                                             <tr>
-                                                <td style="width:25%"> Core Top MDRT</td>
-                                                <td style="width:25%">{{wellboreCores.CoreTopMDRT}} </td>
-                                                <td style="width:25%"> CoreBtmMDRT</td>
-                                                <td style="width:25%"> {{wellboreCores.CoreBtmMDRT}}</td>
+                                                <td style="width:25%"> Core Top MD</td>
+                                                <td style="width:25%">{{wellboreCores.CoreTopMD}} </td>
+                                                <td style="width:25%"> CoreBtmMD</td>
+                                                <td style="width:25%"> {{wellboreCores.CoreBtmMD}}</td>
         
                                             </tr>
 
@@ -154,8 +154,8 @@
                                              <tr>
                                                     <td style="width:25%">  Recovered Length</td>
                                                     <td style="width:25%">{{wellboreCores.RecoveredLength}} </td>
-                                                    <td style="width:25%"> Core Recovery</td>
-                                                    <td style="width:25%"> {{wellboreCores.CoreRecovery}}</td>
+                                                    <td style="width:25%"> Percentage Core Recovery</td>
+                                                    <td style="width:25%"> {{wellboreCores.PercentageCoreRecovery}}</td>
             
                                              </tr>
 
@@ -177,8 +177,8 @@
                                             <tr>
                                                      <td style="width:25%"> ReportUploadDate</td>
                                                      <td style="width:25%">{{wellboreCores.ReportUploadDate}} </td>
-                                                     <td style="width:25%"> ReportFormat Id </td>
-                                                     <td style="width:25%"> {{wellboreCores.ReportFormat_id}}</td>
+                                                     <td style="width:25%"> Comments</td>
+                                                     <td style="width:25%">{{wellboreCores.Comments}} </td>
              
                                             </tr>
                                             <tr>
@@ -205,17 +205,11 @@
                                             <tr>
                                                     <td style="width:25%"> Report Document Name</td>
                                                     <td style="width:25%">{{wellboreCores.ReportDocumentName}} </td>
-                                                    <td style="width:25%"> Wellbore Core Name</td>
-                                                    <td style="width:25%"> {{wellboreCores.WellboreCoreName}}</td>
+                                                    <td style="width:25%"> Core Type Name</td>
+                                                    <td style="width:25%"> {{wellboreCores.CoreTypeName}}</td>
             
                                                 </tr>
-                                                <tr>
-                                                        <td style="width:25%"> Comments</td>
-                                                        <td style="width:25%">{{wellboreCores.Comments}} </td>
-                                                        <!-- <td style="width:25%"> Wellbore Core Name</td>
-                                                        <td style="width:25%"> {{catalogs.WellboreCoreName}}</td> -->
-                
-                                                    </tr>    
+                                                   
                                        
                                             
                                            </tbody>
@@ -245,13 +239,13 @@
                                 <form class="form-horizontal" [formGroup]="formGroup"
                                 (ngSubmit)="updateWellboreCoreProcess()" ngNativeValidate>
                         
-                                    <div class="form-body row">
+                                <div class="form-body row">
                                         <div class="col-md-3">
                                             
                 
                                             <div class="form-group">
                 
-                                                <label>Wellbore </label>
+                                                <label>Wellbore</label>
                                                 <span class="error">*</span>
                                                     <select class="form-control"
                                                          required formControlName="Wellbore_id"
@@ -267,9 +261,18 @@
                                             <div class="form-group">
                                                 <label>Core Number</label>
                                                 <span class="error">*</span>
-                                                <input formControlName="CoreNumber"
+                                                <input required formControlName="CoreNumber"
                                                     type="number" class="form-control"
                                                     placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Core Type Name</label>
+                                                <select class="form-control"  required formControlName="CoreTypeName">
+                                                        <option *ngFor="let role of CoreNames" [ngValue]="role"
+                                                            (change)="changeRoles($event)">{{role}}
+                                                        </option>
+                                                        </select>    
+                                                                                               
                                             </div>
                                             <div class="form-group">
                                                 <label>Coring Date</label>
@@ -278,7 +281,7 @@
                                                     placeholder="">
                                             </div>
                                             <div class="form-group">
-                                                <label>WB CoringContractor </label>
+                                                <label>WB CoringContractor</label>
                                                 <!-- <input formControlName="WBCoringContractor_id"
                                                     type="number" class="form-control"
                                                     placeholder=""> -->
@@ -297,15 +300,15 @@
                 
                                             </div>
                                             <div class="form-group">
-                                                <label>Core Top MDRT</label>
+                                                <label>Core Top </label>
                                                 <input
-                                                    formControlName="CoreTopMDRT"
+                                                    formControlName="CoreTopMD"
                                                     type="number" class="form-control"
                                                     placeholder="">
                                             </div>
                                             <div class="form-group">
-                                                    <label>Core Btm MDRT</label>
-                                                    <input formControlName="CoreBtmMDRT"
+                                                    <label>Core Btm </label>
+                                                    <input formControlName="CoreBtmMD"
                                                         type="number" class="form-control"
                                                         placeholder="">
                                             </div>
@@ -316,16 +319,18 @@
                                                     type="number" class="form-control"
                                                     placeholder="">
                                             </div>
-                                            <div class="form-group">
-                                                    <label>Core Btm TVD</label>
-                                                    <input
-                                                        formControlName="CoreBtmTVD"
-                                                        type="number" class="form-control"
-                                                        placeholder="">
-                                             </div>
+                                            
                                             
                                         </div>
                                         <div class="col-md-3">
+                
+                                                <div class="form-group">
+                                                        <label>Core Btm TVD</label>
+                                                        <input
+                                                            formControlName="CoreBtmTVD"
+                                                            type="number" class="form-control"
+                                                            placeholder="">
+                                                 </div>
                                                
                                                    
                                                     <div class="form-group">
@@ -351,10 +356,10 @@
                                                         placeholder="">
                                                 </div>
                 
-                                                <div class="form-group">
-                                                        <label>Core Recovery</label>
+                                                <div *ngIf="role" class="form-group">
+                                                        <label>PercentageCoreRecovery</label>
                                                         <input
-                                                            formControlName="CoreRecovery"
+                                                            formControlName="PercentageCoreRecovery"
                                                             type="text" class="form-control"
                                                             placeholder="">
                                                 </div>
@@ -373,7 +378,7 @@
                 
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Core Bottom StratLitho </label>
+                                                    <label>Core Bottom StratLitho</label>
                                                     <!-- <input
                                                         formControlName="CoreBottomStratLitho_id"
                                                         type="number" class="form-control"
@@ -510,13 +515,13 @@
                                                 type="text" class="form-control"
                                                 placeholder="">
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>Wellbore Core Name</label>
                                             <input
                                                 formControlName="WellboreCoreName"
                                                 type="text" class="form-control"
                                                 placeholder="">
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                                 <label>Comments</label>
                                                 <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>

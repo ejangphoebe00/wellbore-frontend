@@ -260,7 +260,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     console.log("Selected item Id: ", selectedItem.Company_id);
 
     this.currentYear = new Date().getFullYear();
-    while (this.currentYear >= 2000) {
+    while (this.currentYear >= 1900) {
 
       this.allYears.push(this.currentYear);
       this.currentYear -= 1;

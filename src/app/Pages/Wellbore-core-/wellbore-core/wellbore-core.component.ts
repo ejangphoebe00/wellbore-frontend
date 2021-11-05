@@ -16,6 +16,8 @@ export class WellboreCoreComponent implements OnInit {
   role:any;
   userEmail: any;
   loggedin: any;
+  CoreNames:any = ['Slab','1/2 Slab','1/3 Slab','2/3 Slab','Biscuit Slab','Full Diameter','SideWall Core'];
+  coreRecovery:boolean = true;
 
 
   wellboreIds: any;
@@ -35,6 +37,7 @@ export class WellboreCoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.coreRecovery =true
     // this.authservice.reload();
     this.initForm();
     this.userEmail = this.authservice.getEmail();
@@ -57,15 +60,17 @@ export class WellboreCoreComponent implements OnInit {
     this.formGroup = new FormGroup({
       Wellbore_id:new FormControl('',Validators.required),
       CoreNumber:new FormControl(),
+      CoreTypeName:new FormControl(),
       CoringDate:new FormControl(),
       WBCoringContractor_id:new FormControl(),
-      CoreTopMDRT:new FormControl(),
-      CoreBtmMDRT:new FormControl(),
+      CoreTopMD:new FormControl(),
+      CoreBtmMD:new FormControl(),
       CoreTopTVD:new FormControl(),
       CoreBtmTVD:new FormControl(),
       CutLength:new FormControl(),
       CutLengthTVD:new FormControl(),
       RecoveredLength:new FormControl(),
+      PercentageCoreRecovery: new FormControl(),
       CoreRecovery:new FormControl(),
       CoreTopStratLitho_id:new FormControl(),
       CoreBottomStratLitho_id:new FormControl(),
@@ -83,9 +88,17 @@ export class WellboreCoreComponent implements OnInit {
       ReportReceivedDate:new FormControl(),
       ReportDocumentDate:new FormControl(),
       ReportDocumentName:new FormControl(),
-      WellboreCoreName:new FormControl(),
+      // WellboreCoreName:new FormControl(),
       Comments:new FormControl()
     });
+  }
+
+
+  changeRoles(e:any) {
+    console.log(e.value)
+    this.CoreNames.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
 

@@ -315,13 +315,60 @@ export class CoresListComponent implements OnInit {
     this.editform = true;
   }
 
+
+  onDeleteFile(selectedItem: any) {
+    console.log('you clicked on element no: ' + selectedItem.file_id);
+
+
+
+    this.id = selectedItem.file_id;
+
+    this.ngPopups.confirm("Are you sure you want to delete this file?", {
+      // theme: 'material',
+      color: 'OrangeRed',
+      okButtonText: 'Yes',
+      cancelButtonText: 'No',
+      title: "Confirm",
+    })
+      .subscribe(res => {
+        if (res) {
+          console.log("Selected item Id: ", selectedItem.Core_sample_id);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_file/' + this.id)
+            .subscribe(response => {
+              this.deleteresp = response;
+              console.log(this.deleteresp.message)
+              if (this.deleteresp.message == "File successfully deleted.") {
+                this.toastr.success("File successfully deleted.", "", {
+                  timeOut: 2000,
+                  positionClass: 'toast-top-center',
+                  progressBar: true,
+                  progressAnimation: 'increasing'
+                })
+                setTimeout(() => {
+                  this.authservice.reload();
+                }, 1000);
+
+              } else {
+                this.authservice.securityStatusUpdate()
+              }
+              console.log(this.deleteresp)
+            });
+        } else {
+          console.log("You clicked cancel.")
+        }
+      });
+
+
+  }
+
+
   onSelectFiles(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
     this.details = false;
     this.viewFiles = true;
     this.getFiles();
-  
+
   }
 
 
@@ -331,7 +378,7 @@ export class CoresListComponent implements OnInit {
     this.details = false;
     this.viewImages = true;
     this.getImages();
-  
+
   }
 
 
@@ -407,7 +454,7 @@ export class CoresListComponent implements OnInit {
       .getCores()
       .subscribe((response: any) => {
         this.users = response
-       
+
 
         for (var product of response) {
           console.log('firat test: ' + product.Core_photographs)
@@ -438,39 +485,48 @@ export class CoresListComponent implements OnInit {
         this.users = response
         console.log('all Imagess tested')
 
-       
+
         for (var product of response) {
           console.log('firat test: ' + product.Core_analysis_reports)
           this.ims = product.Core_analysis_reports
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
-            this.cutImg.push({'link': image.replace('backend', 'http://127.0.0.1:8899'),
-          'name':image.replace('backend/static/files/','')});
-           
+            console.log(' Testing Index of  image:' + this.ims.indexOf(image));
+
+            if (image != 'null') {
+              this.cutImg.push({
+                'link': image.replace('backend', 'http://127.0.0.1:8899'),
+                'file_id': this.ims.indexOf(image) + 1,
+                'name': image.replace('backend/static/files/', '')
+              });
+            }
+
           }
         }
       });
 
   }
 
-    getImages() {
+  getImages() {
     this.authservice
       .getCores()
       .subscribe((response: any) => {
         this.users = response
         console.log('all Imagess tested')
 
-       
+
         for (var product of response) {
           console.log('firat test: ' + product.Core_photographs)
           this.ims = product.Core_photographs
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
-            this.cutImg.push({'link': image.replace('backend', 'http://127.0.0.1:8899'),
-          'name':image.replace('backend/static/files/','')});
-           
+            this.cutImg.push({
+              'link': image.replace('backend', 'http://127.0.0.1:8899'),
+              'name': image.replace('backend/static/files/', '')
+            });
+
           }
         }
       });
