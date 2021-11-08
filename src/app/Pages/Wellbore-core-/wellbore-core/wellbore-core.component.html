@@ -35,14 +35,14 @@
 
                             <div class="form-group">
 
-                                <label>Wellbore</label>
+                                <label>Wellbore_PAUID</label>
                                 <span class="error">*</span>
                                     <select class="form-control"
-                                         required formControlName="Wellbore_id"
-                                        name="Wellbore_id">
+                                         required formControlName="WellborePAUID"
+                                        name="WellborePAUID">
                                         <option *ngFor="let city of wellboreIds"
-                                            [ngValue]="city.Wellbore_id"
-                                            (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
+                                            [ngValue]="city.WellborePAUID"
+                                            (change)="changeWellboreId($event)">{{city.WellborePAUID}}-->{{city.WellboreLocalName}}
                                         </option>
                                     </select>
                                      

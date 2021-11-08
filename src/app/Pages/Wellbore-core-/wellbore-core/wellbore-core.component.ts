@@ -58,7 +58,7 @@ export class WellboreCoreComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      Wellbore_id:new FormControl('',Validators.required),
+      WellborePAUID:new FormControl('',Validators.required),
       CoreNumber:new FormControl(),
       CoreTypeName:new FormControl(),
       CoringDate:new FormControl(),

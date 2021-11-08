@@ -121,7 +121,7 @@ export class WellsComponent implements OnInit {
 
     initForm(){
       this.formGroup = new FormGroup({
-        Wellbore_id:new FormControl(),
+        WellborePAUID:new FormControl(),
         CoreNumber:new FormControl(),
         CoreTypeName:new FormControl(),
         CoringDate:new FormControl(),
@@ -372,7 +372,7 @@ export class WellsComponent implements OnInit {
       console.log("Selected item Id: ", item.WellboreCore_id);
       this.captureWellsInstance();
       this.wellboreCores = {
-        Wellbore_id:item.Wellbore_id,
+        WellborePAUID:item.WellborePAUID,
         CoreNumber:item.CoreNumber,
         CoringDate:item.CoringDate,
         WBCoringContractor_id:item.WBCoringContractor_id,
@@ -413,7 +413,7 @@ export class WellsComponent implements OnInit {
         console.log(this.updatevalue)
         this.formGroup.patchValue({
 
-      Wellbore_id:this.authservice.stripFormValue(this.updatevalue.Wellbore_id),
+      WellborePAUID:this.authservice.stripFormValue(this.updatevalue.WellborePAUID),
       CoreNumber:this.authservice.stripFormValue(this.updatevalue.CoreNumber),
       CoringDate:this.authservice.stripFormValue(this.updatevalue.CoringDate),
       WBCoringContractor_id:this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
