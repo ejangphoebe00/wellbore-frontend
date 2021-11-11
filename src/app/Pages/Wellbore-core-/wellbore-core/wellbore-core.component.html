@@ -236,9 +236,9 @@
                                         name="ReportFormat_id"
                                         class="form-control">
                                         <option *ngFor="let city of
-                                            ReportFormat_id"
-                                            [ngValue]="city.FileFormat_id"
-                                            (change)="changeReportFormat_id($event)">{{city.FileFormat_id}}-->{{city.FileFormatName}}
+                                        RptFormat"
+                                            [ngValue]="city"
+                                            (change)="changeFormat($event)">{{city}}
                                         </option>
                                     </select>
                             </div>
@@ -261,9 +261,9 @@
                                         name="CoreReportSecurityGrade_id"
                                         class="form-control">
                                         <option *ngFor="let city of
-                                        CoreReportSecurityGrade_id"
-                                            [ngValue]="city.FileSecurityGrade_id"
-                                            (change)="changeCoreReportSecurityGrade_id($event)">{{city.FileSecurityGrade_id}}-->{{city.	FileSecurityGradeName}}
+                                        Security"
+                                            [ngValue]="city"
+                                            (change)="changeSecurity($event)">{{city}}
                                         </option>
                                     </select>
                                         

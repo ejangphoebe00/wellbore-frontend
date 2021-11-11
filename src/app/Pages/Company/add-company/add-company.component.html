@@ -41,11 +41,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Country Of Origin</label>
-                                    <input type="number" formControlName="CountryOfOrigin_id" class="form-control">
+                                    <select class="form-control" formControlName="CountryOfOrigin_id" >
+                                            <option *ngFor="let role of Countries" [ngValue]="role"
+                                                (change)="changeCountries($event)">{{role}}
+                                            </option>
+                                            </select> 
                                 </div>
                                 <div class="form-group">
                                     <label>Country Of Registration</label>
-                                    <input type="number" formControlName="CountryOfRegistration_id" class="form-control">
+                                    <select class="form-control" formControlName="CountryOfRegistration_id" >
+                                        <option *ngFor="let role of Countries" [ngValue]="role"
+                                            (change)="changeCountries($event)">{{role}}
+                                        </option>
+                                        </select> 
                                 </div>
                                 <div class="form-group">
                                     <label>Registration Number<span class="red asterisk-validate ml-2">*</span></label>

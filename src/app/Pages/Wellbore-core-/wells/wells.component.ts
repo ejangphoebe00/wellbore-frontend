@@ -41,6 +41,8 @@ export class WellsComponent implements OnInit {
   details: boolean = false;
   wellboreCores: any;
   CoreNames: any = ['Slab', '1/2 Slab', '1/3 Slab', '2/3 Slab', 'Biscuit Slab', 'Full Diameter', 'SideWall Core'];
+  RptFormat:any = ['PDF','Excel'];
+  Security:any = ['Restricted','Open', 'Confidential'];
   maxd: any;
   mindate: any;
 
@@ -291,6 +293,8 @@ export class WellsComponent implements OnInit {
     this.ReportFormat_id.setValue(e.target.value, {
       onlySelf: true
     })
+
+
   }
 
   changeCoreBottomStratLitho(e: any) {
@@ -317,6 +321,21 @@ export class WellsComponent implements OnInit {
   changeWellboreId(e: any) {
     console.log(e.value)
     this.wellboreIds.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+
+     changeFormat(e:any) {
+    console.log(e.value)
+    this.RptFormat.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeSecurity(e:any) {
+    console.log(e.value)
+    this.Security.setValue(e.target.value, {
       onlySelf: true
     })
   }

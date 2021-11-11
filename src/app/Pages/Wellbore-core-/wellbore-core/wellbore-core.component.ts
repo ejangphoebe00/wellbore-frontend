@@ -17,6 +17,10 @@ export class WellboreCoreComponent implements OnInit {
   userEmail: any;
   loggedin: any;
   CoreNames:any = ['Slab','1/2 Slab','1/3 Slab','2/3 Slab','Biscuit Slab','Full Diameter','SideWall Core'];
+  RptFormat:any = ['PDF','Excel'];
+  Security:any = ['Restricted','Open', 'Confidential'];
+
+
   coreRecovery:boolean = true;
 
 
@@ -101,6 +105,20 @@ export class WellboreCoreComponent implements OnInit {
   changeRoles(e:any) {
     console.log(e.value)
     this.CoreNames.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+    changeFormat(e:any) {
+    console.log(e.value)
+    this.RptFormat.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeSecurity(e:any) {
+    console.log(e.value)
+    this.Security.setValue(e.target.value, {
       onlySelf: true
     })
   }
