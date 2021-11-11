@@ -43,6 +43,8 @@ export class RocksListComponent implements OnInit {
 
   users: any = [];
   dialog: any;
+  maxd: any;
+  mindate: any;
 
 
     constructor(
@@ -55,6 +57,8 @@ export class RocksListComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+      this.maxd = new Date(); 
+      this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
       
       this.rocks();
       this.initForm();

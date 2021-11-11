@@ -17,6 +17,8 @@ export class AddCuttingsComponent implements OnInit {
   WBCoringContractor_id: any;
   today : any;
   cuttings:any = ['Washed_Dried','Washed_Wet','Wet_Unwashed','Dry_Unwashed'];
+  maxd: any;
+  mindate: any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -26,6 +28,8 @@ export class AddCuttingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     this.initForm();
     this.getWelboreId();
     this.getWBCoringContractorId();

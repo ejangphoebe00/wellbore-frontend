@@ -257,13 +257,13 @@
                                                
                                                 <div class="form-group">
                                                     <label>Date_collected</label>
-                                                    <input type="date" formControlName="Date_collected" class="form-control">
+                                                    <input type="date"  min="1900-10-01" max={{mindate}} formControlName="Date_collected" class="form-control">
               
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Date Received</label>
                                                     <span class="error">*</span>
-                                                    <input type="date" required formControlName="Date_received" class="form-control">
+                                                    <input type="date" min="1900-10-01" max={{mindate}}  required formControlName="Date_received" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Sample_basin</label>

@@ -432,7 +432,7 @@
                         </div>
                         <div class="form-group">
                             <label>NSD Qualification Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="NSDQualificationDate">
+                            <input type="datetime-local"  min="1900-10-01" max={{mindate}}  class="form-control" formControlName="NSDQualificationDate">
                         </div>
                         <div class="form-group">
                             <label>NSD Qualification Year</label>
@@ -489,7 +489,7 @@
                         </div>
                         <div class="form-group">
                             <label>PAU Registration Date</label>
-                            <input type="datetime-local" class="form-control" formControlName="PAURegistrationDate">
+                            <input type="datetime-local" min="1900-10-01" max={{mindate}}  class="form-control" formControlName="PAURegistrationDate">
                         </div>
                         <div class="form-group">
                             <label>Crane NOGTRID</label>
@@ -549,7 +549,7 @@
                         </div>
                         <div class="form-group">
                             <label>NSD To Date</label>
-                            <input type="date" class="form-control" formControlName="NSD_ToDate">
+                            <input type="date" min="1900-10-01" max={{mindate}}  class="form-control" formControlName="NSD_ToDate">
                         </div>
                         <div class="form-group">
                             <label>Imported From NSD</label>
@@ -561,11 +561,11 @@
                         </div>
                         <div class="form-group">
                             <label>Imported Date</label>
-                            <input type="date" class="form-control" formControlName="ImportedDate">
+                            <input type="date" min="1900-10-01" max={{mindate}}  class="form-control" formControlName="ImportedDate">
                         </div>
                         <div class="form-group">
                             <label>Exported Date</label>
-                            <input type="date" class="form-control" formControlName="ExportedDate">
+                            <input type="date" min="1900-10-01" max={{mindate}}  class="form-control" formControlName="ExportedDate">
                         </div>
                         <div class="form-group">
                             <label>Exported To Nogtr</label>

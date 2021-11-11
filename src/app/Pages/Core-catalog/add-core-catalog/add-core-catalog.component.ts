@@ -23,6 +23,8 @@ export class AddCoreCatalogComponent implements OnInit {
   // BottomStratLitho_id: any;
   // CatalogReportFormat_id: any;
   CatalogSecurityFlag_ids: any;
+  maxd: any;
+  mindate:any;
  
 
 
@@ -35,6 +37,8 @@ export class AddCoreCatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
   
     this.initForm();
     this.getCoreReportSecurityGrade_id()

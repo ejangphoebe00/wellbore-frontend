@@ -13,6 +13,9 @@ export class AddRockSampleComponent implements OnInit {
 
   formGroup!: FormGroup;
   title!: string;
+  Basins:any = ['The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
+  maxd: any;
+  mindate: any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -23,6 +26,8 @@ export class AddRockSampleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     this.initForm();
   }
 
@@ -71,6 +76,13 @@ export class AddRockSampleComponent implements OnInit {
 
       )
     }
+  }
+
+  changeBasins(e:any) {
+    console.log(e.value)
+    this.Basins.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
 

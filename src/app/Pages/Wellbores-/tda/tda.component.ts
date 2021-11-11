@@ -35,6 +35,8 @@ export class TdaComponent implements OnInit {
   loggedin: any;
   details: boolean = false;
   wells:any;
+  maxd: any;
+  mindate: any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -45,6 +47,8 @@ export class TdaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     // this.authservice.reload();
     this.initForm();
     this.userList()

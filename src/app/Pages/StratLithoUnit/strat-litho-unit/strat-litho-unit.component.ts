@@ -13,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class StratLithoUnitComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
+  maxd: any;
+  mindate: any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -21,6 +23,8 @@ export class StratLithoUnitComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     this.initForm();
   }
 

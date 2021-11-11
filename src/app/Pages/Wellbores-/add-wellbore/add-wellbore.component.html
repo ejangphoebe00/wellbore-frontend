@@ -68,13 +68,13 @@
                                 <label>Wellbore Spud Date</label>
                                 <input
                                     formControlName="WellboreSpudDate"
-                                    type="date" class="form-control"
+                                    type="date" min="1900-10-01" max={{mindate}}  class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Spud Year</label>
                                 <input formControlName="SpudYear"
-                                    type="date" class="form-control"
+                                    type="date"  min="1900-10-01" max={{mindate}} class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
@@ -95,7 +95,7 @@
                                 <label>PurposeChangeDate</label>
                                 <input
                                     formControlName="PurposeChangeDate"
-                                    type="date" class="form-control"
+                                    type="date" min="1900-10-01" max={{mindate}}  class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
@@ -275,7 +275,7 @@
                                 <label>TD_Date</label>
                                 <input
                                     formControlName="TD_Date"
-                                    type="date"
+                                    type="date" min="1900-10-01" max={{mindate}} 
                                     class="form-control"
                                     placeholder="">
                             </div>
@@ -388,7 +388,7 @@
                                 <label>Completion Date</label>
                                 <input
                                     formControlName="CompletionDate"
-                                    type="date"
+                                    type="date" min="1900-10-01" max={{mindate}} 
                                     class="form-control"
                                     placeholder="">
                             </div>

@@ -18,6 +18,8 @@ export class AddUsersComponent implements OnInit {
   Roles:any = ['App Admin','Data Admin','Staff'];
   securityIds: any;
   submitted:boolean = false
+  maxd: any;
+  mindate: any;
 
 
 
@@ -29,6 +31,8 @@ export class AddUsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     // this.authservice.reload();
 
     this.userEmail = this.authservice.getEmail();

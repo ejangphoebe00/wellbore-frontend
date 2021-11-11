@@ -18,6 +18,8 @@ export class AddWellboreComponent implements OnInit {
   prospectIds: any;
   licenceIds: any
   DevAreas:any = ['KFDA','TDA'];
+  maxd: any;
+  mindate: any;
 
 
   constructor(
@@ -28,6 +30,8 @@ export class AddWellboreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     // this.authservice.reload();
 
     this.initForm();

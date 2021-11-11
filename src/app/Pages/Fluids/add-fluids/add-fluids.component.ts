@@ -17,6 +17,8 @@ export class AddFluidsComponent implements OnInit {
   WBCoringContractor_id: any;
   today : any;
   Fluids:any = ['Oil','Gas','Water'];
+  maxd: any;
+  mindate: any;
 
   constructor(
     private authservice: ApiPipeService,
@@ -42,6 +44,8 @@ export class AddFluidsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     this.initForm();
     this.getWelboreId();
     this.getWBCoringContractorId();

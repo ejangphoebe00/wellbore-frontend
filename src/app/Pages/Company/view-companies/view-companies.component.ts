@@ -44,6 +44,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   newval1:any;
   newval2:any;
   checkstaff:any;
+  maxd: any;
+  mindate: any;
 
 
 
@@ -56,6 +58,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();

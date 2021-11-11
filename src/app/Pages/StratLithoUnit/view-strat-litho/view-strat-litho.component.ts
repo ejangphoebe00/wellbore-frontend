@@ -41,6 +41,8 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
   loggedin: any;
   data: any;
   formdata: any;
+  maxd: any;
+  mindate: any;
   // value:any;
 
 
@@ -55,6 +57,8 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();

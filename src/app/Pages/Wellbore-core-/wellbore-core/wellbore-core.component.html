@@ -67,7 +67,7 @@
                             <div class="form-group">
                                 <label>Coring Date</label>
                                 <input formControlName="CoringDate"
-                                    type="date" class="form-control"
+                                    type="date" min="1900-10-01" max={{mindate}} class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
@@ -207,7 +207,7 @@
                                 <label>Picture Upload Date</label>
                                 <input
                                     formControlName="PictureUploadDate"
-                                    type="number" class="form-control"
+                                    type="date"  min="1900-10-01" max={{mindate}} class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
@@ -227,7 +227,7 @@
                             <div class="form-group">
                                 <label>Report Upload Date</label>
                                 <input formControlName="ReportUploadDate"
-                                    type="date" class="form-control"
+                                    type="date"  min="1900-10-01" max={{mindate}} class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
@@ -272,7 +272,7 @@
                                     <label>Report Open Due Date</label>
                                     <input
                                         formControlName="ReportOpenDueDate"
-                                        type="date" class="form-control"
+                                        type="date" min="1900-10-01" max={{mindate}}  class="form-control"
                                         placeholder="">
                                 </div>
                         </div>
@@ -289,13 +289,13 @@
                             <label>Report Received Date</label>
                             <input
                                 formControlName="ReportReceivedDate"
-                                type="date" class="form-control"
+                                type="date"  min="1900-10-01" max={{mindate}} class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-group">
                             <label>Report Document Date</label>
                             <input formControlName="ReportDocumentDate"
-                                type="date" class="form-control"
+                                type="date" min="1900-10-01" max={{mindate}}  class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-group">

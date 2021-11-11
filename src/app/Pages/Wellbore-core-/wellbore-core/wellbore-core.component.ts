@@ -26,6 +26,8 @@ export class WellboreCoreComponent implements OnInit {
   CoreBottomStratLitho_id: any;
   ReportFormat_id: any;
   CoreReportSecurityGrade_id: any;
+  maxd: any;
+  mindate: any;
 
 
 
@@ -37,6 +39,8 @@ export class WellboreCoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.maxd = new Date(); 
+    this.mindate = this.maxd.getFullYear()+'-'+parseInt(this.maxd.getMonth()+1)+'-'+ 0+this.maxd.getDate()
     this.coreRecovery =true
     // this.authservice.reload();
     this.initForm();
