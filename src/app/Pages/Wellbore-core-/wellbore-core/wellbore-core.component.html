@@ -41,8 +41,8 @@
                                          required formControlName="WellborePAUID"
                                         name="WellborePAUID">
                                         <option *ngFor="let city of wellboreIds"
-                                            [ngValue]="city.WellborePAUID"
-                                            (change)="changeWellboreId($event)">{{city.WellborePAUID}}-->{{city.WellboreLocalName}}
+                                            [ngValue]="city.PAUID"
+                                            (change)="changeWellboreId($event)">{{city.PAUID}}-->{{city.WellboreLocalName}}
                                         </option>
                                     </select>
                                      
