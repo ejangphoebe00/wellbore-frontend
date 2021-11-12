@@ -37,7 +37,7 @@ export class WellsComponent implements OnInit {
   CoreTopStratLitho_id: any;
   CoreBottomStratLitho_id: any;
   ReportFormat_id: any;
-  CoreReportSecurityGrade_id: any;
+  ReportSecurityGrade : any;
   details: boolean = false;
   wellboreCores: any;
   CoreNames: any = ['Slab', '1/2 Slab', '1/3 Slab', '2/3 Slab', 'Biscuit Slab', 'Full Diameter', 'SideWall Core'];
@@ -102,7 +102,7 @@ export class WellsComponent implements OnInit {
     this.getCoreTopStratLitho_id();
     this.getCoreBottomStratLitho_id();
     this.getReportFormat_id();
-    this.getCoreReportSecurityGrade_id();
+    this.getReportSecurityGrade ();
   }
 
   ngOnDestroy(): void {
@@ -149,9 +149,9 @@ export class WellsComponent implements OnInit {
       CoreReportSoftcopyPath: new FormControl(),
       CoreReportHyperlink: new FormControl(),
       ReportUploadDate: new FormControl(),
-      ReportFormat_id: new FormControl(),
+      ReportFileFormat: new FormControl(),
       ReportFileSize: new FormControl(),
-      CoreReportSecurityGrade_id: new FormControl(),
+      ReportSecurityGrade : new FormControl(),
       ReportOpenDueDate: new FormControl(),
       ReportDocumentTitle: new FormControl(),
       ReportReceivedDate: new FormControl(),
@@ -238,10 +238,10 @@ export class WellsComponent implements OnInit {
 
   get f() { return this.formGroup.controls }
 
-  getCoreReportSecurityGrade_id() {
+  getReportSecurityGrade () {
     this.authservice.getCoreReportSecurity().subscribe(res => {
-      this.CoreReportSecurityGrade_id = res;
-      console.log(this.CoreReportSecurityGrade_id);
+      this.ReportSecurityGrade  = res;
+      console.log(this.ReportSecurityGrade );
     })
   }
 
@@ -281,9 +281,9 @@ export class WellsComponent implements OnInit {
     })
   }
 
-  changeCoreReportSecurityGrade_id(e: any) {
+  changeReportSecurityGrade (e: any) {
     console.log(e.value)
-    this.CoreReportSecurityGrade_id.setValue(e.target.value, {
+    this.ReportSecurityGrade .setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -415,9 +415,9 @@ export class WellsComponent implements OnInit {
       CoreReportSoftcopyPath: item.CoreReportSoftcopyPath,
       CoreReportHyperlink: item.CoreReportHyperlink,
       ReportUploadDate: item.ReportUploadDate,
-      ReportFormat_id: item.ReportFormat_id,
+      ReportFileFormat: item.ReportFileFormat,
       ReportFileSize: item.ReportFileSize,
-      CoreReportSecurityGrade_id: item.CoreReportSecurityGrade_id,
+      ReportSecurityGrade : item.ReportSecurityGrade ,
       ReportOpenDueDate: item.ReportOpenDueDate,
       ReportDocumentTitle: item.ReportDocumentTitle,
       ReportReceivedDate: item.ReportReceived,
@@ -456,9 +456,9 @@ export class WellsComponent implements OnInit {
           CoreReportSoftcopyPath: this.authservice.stripFormValue(this.updatevalue.CoreReportSoftcopyPath),
           CoreReportHyperlink: this.authservice.stripFormValue(this.updatevalue.CoreReportHyperlink),
           ReportUploadDate: this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
-          ReportFormat_id: this.authservice.stripFormValue(this.updatevalue.ReportFormat_id),
+          ReportFileFormat: this.authservice.stripFormValue(this.updatevalue.ReportFileFormat),
           ReportFileSize: this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
-          CoreReportSecurityGrade_id: this.authservice.stripFormValue(this.updatevalue.CoreReportSecurityGrade_id),
+          ReportSecurityGrade : this.authservice.stripFormValue(this.updatevalue.ReportSecurityGrade ),
           ReportOpenDueDate: this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
           ReportDocumentTitle: this.authservice.stripFormValue(this.updatevalue.ReportDocumentTitle),
           ReportReceivedDate: this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),

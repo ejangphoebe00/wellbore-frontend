@@ -124,13 +124,7 @@
                                 <th  style="width:25%"> Company Category Id </th>
                                 <td  style="width:25%"> {{ data.CompanyCategory_id }} </td>
                               </tr>
-                              <tr>
-                                <th  style="width:25%">Country Of Origin Id</th>
-                                <td  style="width:25%"> {{ data.CountryOfOrigin_id }} </td>
-
-                                <th  style="width:25%">Country Of Registration Id</th>
-                                <td  style="width:25%"> {{ data.CountryOfRegistration_id }} </td>
-                              </tr>
+                              
                               <tr>
                                 <th  style="width:25%">Registration Number</th>
                                 <td  style="width:25%"> {{ data.RegistrationNumber }} </td>
@@ -292,6 +286,13 @@
                                 <th  style="width:25%">Previous Legal Name</th>
                                 <td  style="width:25%"> {{ data.PreviousLegalName }} </td>
                               </tr>
+                              <tr>
+                                <th  style="width:25%">Country</th>
+                                <td  style="width:25%"> {{ data.Country }} </td>
+
+                                <!-- <th  style="width:25%">Country Of Registration Id</th>
+                                <td  style="width:25%"> {{ data.CountryOfRegistration_id }} </td> -->
+                              </tr>
                              </tbody>
                          </table>
                         </div>
@@ -340,21 +341,21 @@
                             <input type="number" formControlName="CompanyCategory_id" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Country Of Origin</label>
-                            <select class="form-control" formControlName="CountryOfOrigin_id" >
+                            <label>Country</label>
+                            <select class="form-control" formControlName="Country" >
                                     <option *ngFor="let role of Countries" [ngValue]="role"
                                         (change)="changeCountries($event)">{{role}}
                                     </option>
                                     </select> 
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Country Of Registration</label>
                             <select class="form-control" formControlName="CountryOfRegistration_id" >
                                 <option *ngFor="let role of Countries" [ngValue]="role"
                                     (change)="changeCountries($event)">{{role}}
                                 </option>
                                 </select> 
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Registration Number<span class="red asterisk-validate ml-2">*</span></label>
                             <input type="text" required formControlName="RegistrationNumber"  class="form-control">

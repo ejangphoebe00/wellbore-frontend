@@ -17,7 +17,7 @@ export class WellboreCoreComponent implements OnInit {
   userEmail: any;
   loggedin: any;
   CoreNames:any = ['Slab','1/2 Slab','1/3 Slab','2/3 Slab','Biscuit Slab','Full Diameter','SideWall Core'];
-  RptFormat:any = ['PDF','Excel'];
+  RptFormat:any = ['PDF','EXCEL'];
   Security:any = ['Restricted','Open', 'Confidential'];
 
 
@@ -29,7 +29,7 @@ export class WellboreCoreComponent implements OnInit {
   CoreTopStratLitho_id: any;
   CoreBottomStratLitho_id: any;
   ReportFormat_id: any;
-  CoreReportSecurityGrade_id: any;
+  ReportSecurityGrade: any;
   maxd: any;
   mindate: any;
 
@@ -61,7 +61,7 @@ export class WellboreCoreComponent implements OnInit {
     this.getCoreTopStratLitho_id();
     this.getCoreBottomStratLitho_id();
     this.getReportFormat_id();
-    this.getCoreReportSecurityGrade_id();
+    this.getReportSecurityGrade();
   }
 
   initForm(){
@@ -88,9 +88,9 @@ export class WellboreCoreComponent implements OnInit {
       CoreReportSoftcopyPath:new FormControl(),
       CoreReportHyperlink:new FormControl(),
       ReportUploadDate:new FormControl(),
-      ReportFormat_id:new FormControl(),
+      ReportFileFormat:new FormControl(),
       ReportFileSize:new FormControl(),
-      CoreReportSecurityGrade_id:new FormControl(),
+      ReportSecurityGrade:new FormControl(),
       ReportOpenDueDate:new FormControl(),
       ReportDocumentTitle:new FormControl(),
       ReportReceivedDate:new FormControl(),
@@ -168,10 +168,10 @@ export class WellboreCoreComponent implements OnInit {
 
   get f(){return this.formGroup.controls}
 
-  getCoreReportSecurityGrade_id(){
+  getReportSecurityGrade(){
     this.authservice.getCoreReportSecurity().subscribe(res =>{
-      this.CoreReportSecurityGrade_id = res;
-      console.log(this.CoreReportSecurityGrade_id);
+      this.ReportSecurityGrade = res;
+      console.log(this.ReportSecurityGrade);
     })
   }
 
@@ -211,9 +211,9 @@ export class WellboreCoreComponent implements OnInit {
     })
   }
 
-  changeCoreReportSecurityGrade_id(e:any) {
+  changeReportSecurityGrade(e:any) {
     console.log(e.value)
-    this.CoreReportSecurityGrade_id.setValue(e.target.value, {
+    this.ReportSecurityGrade.setValue(e.target.value, {
       onlySelf: true
     })
   }

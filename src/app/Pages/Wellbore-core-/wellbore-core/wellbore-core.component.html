@@ -232,8 +232,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Report Format </label>
-                                    <select formControlName="ReportFormat_id"
-                                        name="ReportFormat_id"
+                                    <select formControlName="ReportFileFormat"
+                                        name="ReportFileFormat"
                                         class="form-control">
                                         <option *ngFor="let city of
                                         RptFormat"
@@ -253,12 +253,12 @@
                                 <div class="form-group">
                                     <label>Core Report Security Grade</label>
                                     <!-- <input
-                                        formControlName="CoreReportSecurityGrade_id"
+                                        formControlName="ReportSecurityGrade"
                                         type="number" class="form-control"
                                         placeholder=""> -->
         
-                                        <select formControlName="CoreReportSecurityGrade_id"
-                                        name="CoreReportSecurityGrade_id"
+                                        <select formControlName="ReportSecurityGrade"
+                                        name="ReportSecurityGrade"
                                         class="form-control">
                                         <option *ngFor="let city of
                                         Security"
