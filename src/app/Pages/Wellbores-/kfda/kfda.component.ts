@@ -13,7 +13,7 @@ import { NgPopupsService } from 'ng-popups';
   styleUrls: ['./kfda.component.css']
 })
 export class KfdaComponent implements OnInit {
-  DevAreas:any = ['KFDA','TDA'];
+  DevAreas:any = ['KFDA','TDA','Others'];
   formGroup!: FormGroup;
   title!: string;
   prospectIds: any;

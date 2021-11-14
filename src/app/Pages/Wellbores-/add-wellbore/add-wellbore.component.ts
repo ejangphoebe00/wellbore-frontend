@@ -17,7 +17,7 @@ export class AddWellboreComponent implements OnInit {
   loggedin: any;
   prospectIds: any;
   licenceIds: any
-  DevAreas:any = ['KFDA','TDA'];
+  DevAreas:any = ['KFDA','TDA','Others'];
   maxd: any;
   mindate: any;
 

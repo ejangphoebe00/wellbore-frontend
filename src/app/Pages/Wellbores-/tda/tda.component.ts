@@ -27,7 +27,7 @@ export class TdaComponent implements OnInit {
   status: boolean = true;
   editform: boolean = false;
   updatevalue: any;
-  DevAreas:any = ['KFDA','TDA'];
+  DevAreas:any = ['KFDA','TDA','Others'];
 
   wellbores: any = [];
   role: any;
