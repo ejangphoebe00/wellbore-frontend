@@ -102,7 +102,7 @@ export class WellboreCoreComponent implements OnInit {
       ReportReceivedDate:new FormControl(),
       ReportDocumentDate:new FormControl(),
       ReportDocumentName:new FormControl(),
-      // WellboreCoreName:new FormControl(),
+      WelboreCoreName:new FormControl(),
       Comments:new FormControl()
     });
   }

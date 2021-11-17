@@ -52,7 +52,7 @@
                                                     <th>Sample_id</th>
                                                     <th>Date_collected</th>
                                                     <th>Date_received</th>
-                                                    <th>Sample_basin</th>
+                                                    <th>Rock_name</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
@@ -61,7 +61,7 @@
                                                     <td>{{post.Sample_id}}</td>
                                                     <td>{{post.Date_collected}}</td>
                                                     <td>{{post.Date_received}}</td>
-                                                    <td>{{post.Sample_basin}}</td>
+                                                    <td>{{post.Rock_name}}</td>
                                                     <td>
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
@@ -245,50 +245,53 @@
                     <div class="portlet-body form">
                             <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateRockProcess()" ngNativeValidate>
         
-                                    <div class="form-body row">
-                                            <div class="col-md-6">
-                                               
-                                                
-                                                <div class="form-group">
-                                                    <label>Sample</label>
-                                                    <span class="error">*</span>
-                                                    <input type="number" required formControlName="Sample_id" class="form-control">
-                                                </div>
-                                               
-                                                <div class="form-group">
-                                                    <label>Date_collected</label>
-                                                    <input type="date"  min="1900-10-01" max={{mindate}} formControlName="Date_collected" class="form-control">
-              
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Date Received</label>
-                                                    <span class="error">*</span>
-                                                    <input type="date" min="1900-10-01" max={{mindate}}  required formControlName="Date_received" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Sample_basin</label>
-                                                    <input type="number" Step="any" formControlName="Sample_basin" class="form-control">
-                                                </div>
-                                              
-                                            </div>
-                                            <div class="col-md-6">
-                                              <div class="form-group">
-                                                      <label>Rock_name</label>
-                                                      <input type="text" formControlName="Rock_name" class="form-control">
-                                                  </div>
-              
-                                                <div class="form-group">
-                                                    <label>Coordinate_location</label>
-                                                    <input type="text" formControlName="Coordinate_location" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Petrographic_description</label>
-                                                    <input type="text" formControlName="Petrographic_description" class="form-control">
-                                                </div>
-                                                                              
-                                            </div>
-              
+                                <div class="form-body row">
+                                    <div class="col-md-6">
+                                       
+                                        
+                                        <div class="form-group">
+                                            <label>Sample</label>
+                                            <span class="error">*</span>
+                                            <input type="number" required formControlName="Sample_id" class="form-control">
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <label>Date_collected</label>
+                                            <input type="date"  min="1900-10-01" max={{mindate}} formControlName="Date_collected" class="form-control">
+      
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Date Received</label>
+                                            <input type="date" min="1900-10-01" max={{mindate}}  formControlName="Date_received" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Sample_basin</label>
+                                            <select class="form-control"  required formControlName="Sample_basin">
+                                                <option *ngFor="let role of Basins" [ngValue]="role"
+                                                    (change)="changeBasins($event)">{{role}}
+                                                </option>
+                                                </select>
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                              <label>Rock_name</label>
+                                              <input type="text" formControlName="Rock_name" class="form-control">
                                           </div>
+      
+                                        <div class="form-group">
+                                            <label>Coordinate_location</label>
+                                            <input type="text" formControlName="Coordinate_location" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Petrographic_description</label>
+                                            <input type="text" formControlName="Petrographic_description" class="form-control">
+                                        </div>
+                                                                      
+                                    </div>
+      
+                                  </div>
                             <div class="form-actions">
                                 <button  type="submit" class="btn blue">Update</button>
                                 <button (click)="navigateBack()" type="button" class="btn default">Back</button>

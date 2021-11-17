@@ -25,6 +25,8 @@ export class RocksListComponent implements OnInit {
   details:boolean= false;
   updatevalue: any;
   catalogs:any;
+  Basins:any = ['The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
+
 
   uploadFile: boolean = false;
   selectedFiles: any;
@@ -236,7 +238,7 @@ export class RocksListComponent implements OnInit {
         Sample_id:item.Sample_id,
         Date_collected:item.Date_collected,
         Date_received:item.Date_received,
-        Sample_basin:item.Sample_basin,
+        Sample_basin:(item.Sample_basin).replace("BasinsEnum.", ''),
         Rock_name:item.Rock_name,
         Coordinate_location:item.Coordinate_location,
         Petrographic_description:item.Petrographic_description
@@ -258,7 +260,7 @@ export class RocksListComponent implements OnInit {
             Sample_id:this.stripFormValue(this.updatevalue.Sample_id),
             Date_collected:this.stripFormValue(this.updatevalue.Date_collected),
             Date_received:this.stripFormValue(this.updatevalue.Date_received),
-            Sample_basin:this.stripFormValue(this.updatevalue.Sample_basin),
+            Sample_basin:this.stripFormValue((this.updatevalue.Sample_basin).replace("BasinsEnum.", '')),
             Rock_name:this.stripFormValue(this.updatevalue.Rock_name),
             Coordinate_location:this.stripFormValue(this.updatevalue.Coordinate_location),
             Petrographic_description:this.stripFormValue(this.updatevalue.Petrographic_description)
@@ -343,6 +345,14 @@ export class RocksListComponent implements OnInit {
         this.formGroup.reset();
       }	  
     });    
+  }
+
+
+  changeBasins(e:any) {
+    console.log(e.value)
+    this.Basins.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
 }

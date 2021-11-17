@@ -51,8 +51,7 @@
                                                   <tr >
                                                     <th>ID</th>
                                                     <th>Store Identifier</th>
-                                                    <th>Core To Depth</th>
-                                                    <th>Core Type</th>
+                                                    <th>Core To Depth</th>                                                    
                                                     <th>Catalog Core From Depth</th>
                                                     <th>Actions</th>
                                                   </tr>
@@ -61,8 +60,7 @@
                                                   <tr *ngFor="let post of users">
                                                     <td>{{post.CoreCatalog_id}}</td>
                                                     <td>{{post.StoreIdentifier}}</td>
-                                                    <td>{{post.CatalogCoreToDepth}}</td>
-                                                    <td>{{post.CoreType}}</td>
+                                                    <td>{{post.CatalogCoreToDepth}}</td>                                                    
                                                     <td>{{post.CatalogCoreFromDepth}}</td>
                                                     <td>
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
@@ -113,8 +111,9 @@
                                             <tr>
                                                 <td style="width:25%"> Wellbore Core Id</td>
                                                 <td style="width:25%">{{catalogs.WellboreCore_id}} </td>
-                                                <td style="width:25%"> CoreType </td>
-                                                <td style="width:25%"> {{catalogs.CoreType}}</td>
+                                                <td style="width:25%"> Catalog Core To Depth</td>
+                                                <td style="width:25%">{{catalogs.CatalogCoreToDepth}} </td>
+                                            
         
                                             </tr>
                                             <tr>
@@ -125,14 +124,7 @@
         
                                             </tr>
 
-                                            <tr>
-                                                <td style="width:25%"> Catalog Core To Depth</td>
-                                                <td style="width:25%">{{catalogs.CatalogCoreToDepth}} </td>
-                                                <td style="width:25%"> CoreCatalog Security Flag Id </td>
-                                                <td style="width:25%"> {{catalogs.CoreCatalogSecurityFlag_id}}</td>
-        
-                                            </tr>
-
+                                           
                                             <tr>
                                                 <td style="width:25%"> Was Analysed Id</td>
                                                 <td style="width:25%">{{catalogs.WasAnalysed_id}} </td>
@@ -173,19 +165,13 @@
                                              </tr>
 
                                             <tr>
-                                                     <td style="width:25%">  Catalog Report Format_id</td>
-                                                     <td style="width:25%">{{catalogs.CatalogReportFormat_id}} </td>
+                                                <td style="width:25%"> Core Catalog Name</td>
+                                                <td style="width:25%"> {{catalogs.CoreCatalogName}}</td>
                                                      <td style="width:25%"> Cat Report Upload Date </td>
                                                      <td style="width:25%"> {{catalogs.CatalogReportFileSize}}</td>
              
                                             </tr>
-                                            <tr>
-                                              <td style="width:25%">  Catalog Report Security Grade Id</td>
-                                              <td style="width:25%">{{catalogs.CatalogReportSecurityGrade_id}} </td>
-                                              <td style="width:25%"> Core Catalog Name</td>
-                                              <td style="width:25%"> {{catalogs.CoreCatalogName}}</td>
-      
-                                              </tr>
+                                           
                                               <tr>
                                                     <td style="width:25%">  Comments</td>
                                                     <td style="width:25%">{{catalogs.Comments}} </td>
@@ -219,73 +205,50 @@
                     <div class="portlet-body form">
                             <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateCoreCatProcess()" ngNativeValidate>
         
-                            <div class="form-body row">
-                                <div class="col-md-3">
-        
-                                    <div class="form-group">
-        
-                                        <label>Wellbore Core </label>
-                                        <span class="error">*</span>
-                                            <select class="custom-select"
-                                            required formControlName="WellboreCore_id"
-                                            name="WellboreCore_id"
-                                            class="form-control">
-                                            <option *ngFor="let city of
-                                                wellboreCoreIds"
-                                                [ngValue]="city.WellboreCore_id"
-                                                (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.CoreNumber}}
-                                            </option>
-                                        </select>
-                                        
-        
-        
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Core Type</label>
-                                        <span class="error">*</span>
-                                        <select class="form-control" required formControlName="CoreType">
-                                                <option *ngFor="let  id of CoreTypeIds" [ngValue]="id.CoreType_id"
-                                                    (change)="changeCoreTypes($event)">{{id.CoreType_id}}-->{{id.CoreTypeName}}
+                                <div class="form-body row">
+                                    <div class="col-md-6">
+            
+                                        <div class="form-group">
+            
+                                            <label>Wellbore Core </label>
+                                            <span class="error">*</span>
+                                                <select class="custom-select"
+                                               required formControlName="WellboreCore_id"
+                                                name="WellboreCore_id"
+                                                class="form-control">
+                                                <option *ngFor="let city of
+                                                    wellboreCoreIds"
+                                                    [ngValue]="city.WellboreCore_id"
+                                                    (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.CoreNumber}}
                                                 </option>
-                                                </select>    
-        
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Store Identifier</label>
-                                        <input formControlName="StoreIdentifier"
-                                            type="text" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label>Catalog Core From Depth</label>
-                                        <input
-                                            formControlName="CatalogCoreFromDepth"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Catalog Core To Depth</label>
-                                        <input formControlName="CatalogCoreToDepth"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Core Catalog Security Flag </label>
-                                        <select formControlName="CoreCatalogSecurityFlag_id"
-                                        name="CoreCoreCatalogSecurityFlag_id"
-                                        class="form-control">
-                                        <option *ngFor="let city of
-                                        CatalogSecurityFlag_ids"
-                                            [ngValue]="city.CatalogSecurityFlag_id"
-                                            (change)="changeCoreReportSecurityGrade_id($event)">{{city.CatalogSecurityFlag_id}}-->{{city.CatalogSecurityFlagName}}
-                                        </option>
-                                    </select>
-                                    </div>
-                                    <div class="form-group">
-                                            <label>Was Analysed </label>
+                                            </select>
+                                            
+            
+            
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Store Identifier</label>
+                                            <input formControlName="StoreIdentifier"
+                                                type="text" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <label>Catalog Core From Depth</label>
+                                            <input
+                                                formControlName="CatalogCoreFromDepth"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Catalog Core To Depth</label>
+                                            <input formControlName="CatalogCoreToDepth"
+                                                type="number" class="form-control"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Was Analysed</label>
                                             <input
                                                 formControlName="WasAnalysed_id"
                                                 type="number" class="form-control"
@@ -320,73 +283,59 @@
                                                     type="text" class="form-control"
                                                     placeholder="">
                                             </div>
-        
-                                </div>
-                                <div class="col-md-3">
-        
-                                
-                                        <div class="form-group">
-                                            <label>Catalogue Picture Softcopy Path</label>
-                                            <input
-                                                formControlName="CataloguePictureSoftcopyPath"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Catalogue Report Softcopy Path </label>
-                                            <input
-                                                formControlName="CatalogueReportSoftcopyPath"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Catalogue Report Hyperlink</label>
-                                            <input
-                                                formControlName="CatalogueReportHyperlink"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                                <label>Catalog Report Format Id</label>
+                                    </div>
+            
+            
+                                  
+                                    <div class="col-md-6">
+            
+                                  
+                                            <div class="form-group">
+                                                <label>Catalogue Picture Softcopy Path</label>
                                                 <input
-                                                    formControlName="CatalogReportFormat_id"
-                                                    type="number" class="form-control"
+                                                    formControlName="CataloguePictureSoftcopyPath"
+                                                    type="text" class="form-control"
                                                     placeholder="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Catalog Report FileSize</label>  <input
-                                                    formControlName="CatalogReportFileSize"
-                                                    type="number" class="form-control"
+                                                <label>Catalogue Report Softcopy Path </label>
+                                                <input
+                                                    formControlName="CatalogueReportSoftcopyPath"
+                                                    type="text" class="form-control"
                                                     placeholder="">
                                             </div>
-        
+                                            <div class="form-group">
+                                                <label>Catalogue Report Hyperlink</label>
+                                                <input
+                                                    formControlName="CatalogueReportHyperlink"
+                                                    type="text" class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                           
+                                                <div class="form-group">
+                                                    <label>Catalog Report FileSize</label>  <input
+                                                        formControlName="CatalogReportFileSize"
+                                                        type="number" class="form-control"
+                                                        placeholder="">
+                                                </div>
+            
+                                                <div class="form-group">
+                                                    <label>Core Catalog Name</label>
+                                                    <span class="error">*</span>
+                                                    <input
+                                                        required 
+                                                        formControlName="CoreCatalogName"
+                                                        type="text" class="form-control"
+                                                        placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Comments</label>
+                                                    <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                                                </div>
+            
+                                    </div>
+                                  
                                 </div>
-                                <div class="col-md-3">
-                                    
-                                    
-                                    <div class="form-group">
-                                        <label>Catalog Report Security Grade </label>
-                                        <input
-                                            formControlName="CatalogReportSecurityGrade_id"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Core Catalog Name</label>
-                                        <span class="error">*</span>
-                                        <input
-                                            required
-                                            formControlName="CoreCatalogName"
-                                            type="text" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Comments</label>
-                                        <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
-                                    </div>
-                                    
-                                </div>
-                            </div>
         
                             <div class="form-actions">
                                 <button  type="submit" class="btn blue">Update</button>

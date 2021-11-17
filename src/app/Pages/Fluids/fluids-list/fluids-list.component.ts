@@ -269,7 +269,7 @@ export class FluidsListComponent implements OnInit {
     this.catalogs = {
       Wellbore_id: item.Wellbore_id,
       Sampling_activity: item.Sampling_activity,
-      Fluid_category: item.Fluid_category,
+      Fluid_category: item.Fluid_category.replace('FluidCategoryEnum.', ''),
       Sample_type: item.Sample_type,
       Sample_volume: item.Sample_volume,
       Depth_obtained: item.Depth_obtained,
@@ -329,7 +329,7 @@ export class FluidsListComponent implements OnInit {
         this.formGroup.patchValue({
           Wellbore_id: this.stripFormValue(this.updatevalue.Wellbore_id),
           Sampling_activity: this.stripFormValue(this.updatevalue.Sampling_activity),
-          Fluid_category: this.stripFormValue(this.updatevalue.Fluid_category),
+          Fluid_category: this.stripFormValue(this.updatevalue.Fluid_category).replace('FluidCategoryEnum.', ''),
           Sample_type: this.stripFormValue(this.updatevalue.Sample_type),
           Sample_volume: this.stripFormValue(this.updatevalue.Sample_volume),
           Depth_obtained: this.stripFormValue(this.updatevalue.Depth_obtained),

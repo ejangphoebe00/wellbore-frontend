@@ -36,12 +36,12 @@ export class WellsComponent implements OnInit {
   WBCoringContractor_id: any;
   CoreTopStratLitho_id: any;
   CoreBottomStratLitho_id: any;
-  ReportFormat_id: any;
+  ReportFileFormat_id: any;
   ReportSecurityGrade : any;
   details: boolean = false;
   wellboreCores: any;
-  CoreNames: any = ['Slab', '1/2 Slab', '1/3 Slab', '2/3 Slab', 'Biscuit Slab', 'Full Diameter', 'SideWall Core'];
-  RptFormat:any = ['PDF','Excel'];
+  CoreNames:any = ['Slab','1/2 Slab','1/3 Slab','2/3 Slab','Biscuit Slab','Full Diameter','SideWall Core'];
+  RptFormat:any = ['PDF','EXCEL'];
   Security:any = ['Restricted','Open', 'Confidential'];
   maxd: any;
   mindate: any;
@@ -106,7 +106,7 @@ export class WellsComponent implements OnInit {
     this.getWBCoringContractorId();
     this.getCoreTopStratLitho_id();
     this.getCoreBottomStratLitho_id();
-    this.getReportFormat_id();
+ //   this.getReportFormat_id();
     this.getReportSecurityGrade ();
   }
 
@@ -130,42 +130,43 @@ export class WellsComponent implements OnInit {
   }
 
 
-  initForm() {
+  initForm(){
     this.formGroup = new FormGroup({
-      WellborePAUID: new FormControl(),
-      CoreNumber: new FormControl(),
-      CoreTypeName: new FormControl(),
-      CoringDate: new FormControl(),
-      WBCoringContractor_id: new FormControl(),
-      CoreTopMD: new FormControl(),
-      CoreBtmMD: new FormControl(),
-      CoreTopTVD: new FormControl(),
-      CoreBtmTVD: new FormControl(),
-      CutLength: new FormControl(),
-      CutLengthTVD: new FormControl(),
-      RecoveredLength: new FormControl(),
+      WellborePAUID:new FormControl(),
+      CoreNumber:new FormControl(),
+      CoreTypeName:new FormControl(),
+      CoringDate:new FormControl(),
+      WBCoringContractor_id:new FormControl(),
+      CoreTopMD:new FormControl(),
+      CoreBtmMD:new FormControl(),
+      CoreTopTVD:new FormControl(),
+      CoreBtmTVD:new FormControl(),
+      CutLength:new FormControl(),
+      CutLengthTVD:new FormControl(),
+      RecoveredLength:new FormControl(),
       PercentageCoreRecovery: new FormControl(),
-      CoreRecovery: new FormControl(),
-      CoreTopStratLitho_id: new FormControl(),
-      CoreBottomStratLitho_id: new FormControl(),
-      CorePictureSoftcopyPath: new FormControl(),
-      CorePictureHyperlink: new FormControl(),
-      PictureUploadDate: new FormControl(),
-      CoreReportSoftcopyPath: new FormControl(),
-      CoreReportHyperlink: new FormControl(),
-      ReportUploadDate: new FormControl(),
-      ReportFileFormat: new FormControl(),
-      ReportFileSize: new FormControl(),
-      ReportSecurityGrade : new FormControl(),
-      ReportOpenDueDate: new FormControl(),
-      ReportDocumentTitle: new FormControl(),
-      ReportReceivedDate: new FormControl(),
-      ReportDocumentDate: new FormControl(),
-      ReportDocumentName: new FormControl(),
-      // WellboreCoreName:new FormControl(),
-      Comments: new FormControl()
+      CoreRecovery:new FormControl(),
+      CoreTopStratLitho_id:new FormControl(),
+      CoreBottomStratLitho_id:new FormControl(),
+      CorePictureSoftcopyPath:new FormControl(),
+      CorePictureHyperlink:new FormControl(),
+      PictureUploadDate:new FormControl(),
+      CoreReportSoftcopyPath:new FormControl(),
+      CoreReportHyperlink:new FormControl(),
+      ReportUploadDate:new FormControl(),
+      ReportFileFormat:new FormControl(),
+      ReportFileSize:new FormControl(),
+      ReportSecurityGrade:new FormControl(),
+      ReportOpenDueDate:new FormControl(),
+      ReportDocumentTitle:new FormControl(),
+      ReportReceivedDate:new FormControl(),
+      ReportDocumentDate:new FormControl(),
+      ReportDocumentName:new FormControl(),
+      WelboreCoreName:new FormControl(),
+      Comments:new FormControl()
     });
   }
+
 
 
   changeRoles(e: any) {
@@ -201,6 +202,7 @@ export class WellsComponent implements OnInit {
       CatalogReportFileSize: item.CatalogReportFileSize,
       CatalogReportSecurityGrade_id: item.CatalogReportSecurityGrade_id,
       CoreCatalogName: item.CoreCatalogName,
+      WelboreCoreName: item.WelboreCoreName,
       Comments: item.Comments,
     }
   }
@@ -250,12 +252,12 @@ export class WellsComponent implements OnInit {
     })
   }
 
-  getReportFormat_id() {
-    this.authservice.getFormat().subscribe(res => {
-      this.ReportFormat_id = res;
-      console.log(this.ReportFormat_id);
-    })
-  }
+  // getReportFormat_id() {
+  //   this.authservice.getFormat().subscribe(res => {
+  //     this.ReportFormat_id = res;
+  //     console.log(this.ReportFormat_id);
+  //   })
+  // }
 
   getCoreBottomStratLitho_id() {
     this.authservice.getStrat().subscribe(res => {
@@ -293,14 +295,14 @@ export class WellsComponent implements OnInit {
     })
   }
 
-  changeReportFormat_id(e: any) {
-    console.log(e.value)
-    this.ReportFormat_id.setValue(e.target.value, {
-      onlySelf: true
-    })
+  // changeReportFormat_id(e: any) {
+  //   console.log(e.value)
+  //   this.ReportFormat_id.setValue(e.target.value, {
+  //     onlySelf: true
+  //   })
 
 
-  }
+  // }
 
   changeCoreBottomStratLitho(e: any) {
     console.log(e.value)
@@ -404,8 +406,8 @@ export class WellsComponent implements OnInit {
       CoreNumber: item.CoreNumber,
       CoringDate: item.CoringDate,
       WBCoringContractor_id: item.WBCoringContractor_id,
-      CoreTopMDRT: item.CoreTopMDRT,
-      CoreBtmMDRT: item.CoreBtmMDRT,
+      CoreTopMD: item.CoreTopMD,
+      CoreBtmMD: item.CoreBtmMD,
       CoreTopTVD: item.CoreTopTVD,
       CoreBtmTVD: item.CoreBtmTVD,
       CutLength: item.CutLength,
@@ -422,13 +424,13 @@ export class WellsComponent implements OnInit {
       ReportUploadDate: item.ReportUploadDate,
       ReportFileFormat: item.ReportFileFormat,
       ReportFileSize: item.ReportFileSize,
-      ReportSecurityGrade : item.ReportSecurityGrade ,
+      ReportSecurityGrade : (item.ReportSecurityGrade).replace('SecurityGradeEnum.', '') ,
       ReportOpenDueDate: item.ReportOpenDueDate,
       ReportDocumentTitle: item.ReportDocumentTitle,
-      ReportReceivedDate: item.ReportReceived,
+      ReportReceivedDate: item.ReportReceivedDate,
       ReportDocumentDate: item.ReportDocumentDate,
       ReportDocumentName: item.ReportDocumentName,
-      CoreTypeName: item.CoreTypeName,
+      CoreTypeName: (item.CoreTypeName).replace('CoreTypeEnum.', ''),
       Comments: item.Comments
 
     }
@@ -445,8 +447,8 @@ export class WellsComponent implements OnInit {
           CoreNumber: this.authservice.stripFormValue(this.updatevalue.CoreNumber),
           CoringDate: this.authservice.stripFormValue(this.updatevalue.CoringDate),
           WBCoringContractor_id: this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
-          CoreTopMDRT: this.authservice.stripFormValue(this.updatevalue.CoreTopMDRT),
-          CoreBtmMDRT: this.authservice.stripFormValue(this.updatevalue.CoreBtmMDRT),
+          CoreTopMD: this.authservice.stripFormValue(this.updatevalue.CoreTopMD),
+          CoreBtmMD: this.authservice.stripFormValue(this.updatevalue.CoreBtmMD),
           CoreTopTVD: this.authservice.stripFormValue(this.updatevalue.CoreTopTVD),
           CoreBtmTVD: this.authservice.stripFormValue(this.updatevalue.CoreBtmTVD),
           CutLength: this.authservice.stripFormValue(this.updatevalue.CutLength),
@@ -463,16 +465,18 @@ export class WellsComponent implements OnInit {
           ReportUploadDate: this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
           ReportFileFormat: this.authservice.stripFormValue(this.updatevalue.ReportFileFormat),
           ReportFileSize: this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
-          ReportSecurityGrade : this.authservice.stripFormValue(this.updatevalue.ReportSecurityGrade ),
+          ReportSecurityGrade : this.authservice.stripFormValue((this.updatevalue.ReportSecurityGrade).replace('SecurityGradeEnum.', '')),
           ReportOpenDueDate: this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
           ReportDocumentTitle: this.authservice.stripFormValue(this.updatevalue.ReportDocumentTitle),
           ReportReceivedDate: this.authservice.stripFormValue(this.updatevalue.ReportReceivedDate),
           ReportDocumentDate: this.authservice.stripFormValue(this.updatevalue.ReportDocumentDate),
           ReportDocumentName: this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
-          CoreTypeName: this.authservice.stripFormValue(this.updatevalue.CoreTypeName),
-          Comments: this.authservice.stripFormValue(this.updatevalue.Comments)
+          CoreTypeName: this.authservice.stripFormValue((this.updatevalue.CoreTypeName).replace('CoreTypeEnum.', '')),
+         Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
+         WelboreCoreName: this.authservice.stripFormValue(this.updatevalue.WelboreCoreName)
         });
         console.log(this.updatevalue)
+        console.log('add update check'+ (this.updatevalue.CoreTypeName).replace('CoreTypeEnum.', ''))
       });
   }
 

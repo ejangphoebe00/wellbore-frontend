@@ -29,7 +29,7 @@
                  <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="addCoreCatProcess()" ngNativeValidate>
 
                     <div class="form-body row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
 
                             <div class="form-group">
 
@@ -49,16 +49,7 @@
 
 
                             </div>
-                            <div class="form-group">
-                                <label>Core Type</label>
-                                <span class="error">*</span>
-                                <select class="form-control" required formControlName="CoreType">
-                                        <option *ngFor="let  id of CoreTypeIds" [ngValue]="id.CoreType_id"
-                                            (change)="changeCoreTypes($event)">{{id.CoreType_id}}-->{{id.CoreTypeName}}
-                                        </option>
-                                        </select>    
-
-                            </div>
+                            
                             <div class="form-group">
                                 <label>Store Identifier</label>
                                 <input formControlName="StoreIdentifier"
@@ -79,59 +70,47 @@
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
-                        </div>
-                        <div class="col-md-3">
                             <div class="form-group">
-                                <label>Core Catalog Security Flag</label>
-                                <select formControlName="CoreCatalogSecurityFlag_id"
-                                name="CoreCoreCatalogSecurityFlag_id"
+                                <label>Was Analysed</label>
+                                <input
+                                    formControlName="WasAnalysed_id"
+                                    type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Top StratLitho </label>                               
+                                <select formControlName="TopStratLitho_id"
+                                name="TopStratLitho_id"
                                 class="form-control">
-                                <option *ngFor="let city of
-                                CatalogSecurityFlag_ids"
-                                    [ngValue]="city.CatalogSecurityFlag_id"
-                                    (change)="changeCoreReportSecurityGrade_id($event)">{{city.CatalogSecurityFlag_id}}-->{{city.CatalogSecurityFlagName}}
+                                <option *ngFor="let city of TopStratLitho_id"
+                                    [ngValue]="city.StratLitho_id"
+                                    (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
                                 </option>
                             </select>
                             </div>
                             <div class="form-group">
-                                    <label>Was Analysed</label>
+                                <label>BottomStratLitho</label>
+                                <select formControlName="BottomStratLitho_id"
+                                name="BottomStratLitho_id"
+                                class="form-control">
+                                <option *ngFor="let city of TopStratLitho_id"
+                                    [ngValue]="city.StratLitho_id"
+                                    (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                </option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                    <label>Catalogue Core Picture Name</label>
                                     <input
-                                        formControlName="WasAnalysed_id"
-                                        type="number" class="form-control"
+                                        formControlName="CatalogueCorePictureName"
+                                        type="text" class="form-control"
                                         placeholder="">
                                 </div>
-                                <div class="form-group">
-                                    <label>Top StratLitho </label>                               
-                                    <select formControlName="TopStratLitho_id"
-                                    name="TopStratLitho_id"
-                                    class="form-control">
-                                    <option *ngFor="let city of TopStratLitho_id"
-                                        [ngValue]="city.StratLitho_id"
-                                        (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
-                                    </option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>BottomStratLitho</label>
-                                    <select formControlName="BottomStratLitho_id"
-                                    name="BottomStratLitho_id"
-                                    class="form-control">
-                                    <option *ngFor="let city of TopStratLitho_id"
-                                        [ngValue]="city.StratLitho_id"
-                                        (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
-                                    </option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                        <label>Catalogue Core Picture Name</label>
-                                        <input
-                                            formControlName="CatalogueCorePictureName"
-                                            type="text" class="form-control"
-                                            placeholder="">
-                                    </div>
-
                         </div>
-                        <div class="col-md-3">
+
+
+                      
+                        <div class="col-md-6">
 
                       
                                 <div class="form-group">
@@ -155,13 +134,7 @@
                                         type="text" class="form-control"
                                         placeholder="">
                                 </div>
-                                <div class="form-group">
-                                        <label>Catalog Report Format </label>
-                                        <input
-                                            formControlName="CatalogReportFormat_id"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
+                               
                                     <div class="form-group">
                                         <label>Catalog Report FileSize</label>  <input
                                             formControlName="CatalogReportFileSize"
@@ -169,32 +142,22 @@
                                             placeholder="">
                                     </div>
 
+                                    <div class="form-group">
+                                        <label>Core Catalog Name</label>
+                                        <span class="error">*</span>
+                                        <input
+                                            required 
+                                            formControlName="CoreCatalogName"
+                                            type="text" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Comments</label>
+                                        <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                                    </div>
+
                         </div>
-                        <div class="col-md-3">
-                           
-                            
-                            <div class="form-group">
-                                <label>Catalog Report Security Grade </label>
-                                <input
-                                    formControlName="CatalogReportSecurityGrade_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Core Catalog Name</label>
-                                <span class="error">*</span>
-                                <input
-                                    required 
-                                    formControlName="CoreCatalogName"
-                                    type="text" class="form-control"
-                                    placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label>Comments</label>
-                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
-                            </div>
-                           
-                        </div>
+                      
                     </div>
 
                     <div class="form-actions">

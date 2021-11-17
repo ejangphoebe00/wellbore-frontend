@@ -69,11 +69,11 @@ export class AddCoreCatalogComponent implements OnInit {
   initForm(){
     this.formGroup = new FormGroup({
       WellboreCore_id:new FormControl(),
-      CoreType:new FormControl(),
+      // CoreType:new FormControl(),
       StoreIdentifier:new FormControl(),
       CatalogCoreFromDepth:new FormControl(),
       CatalogCoreToDepth: new FormControl(),
-      CoreCatalogSecurityFlag_id:new FormControl(),
+      // CoreCatalogSecurityFlag_id:new FormControl(),
       WasAnalysed_id:new FormControl(),
       TopStratLitho_id:new FormControl(),
       BottomStratLitho_id:new FormControl(),
@@ -84,9 +84,9 @@ export class AddCoreCatalogComponent implements OnInit {
       CatalogueReportSoftcopyPath:new FormControl(),
       CatalogueReportHyperlink:new FormControl(),
       CatReportUploadDate:new FormControl(),
-      CatalogReportFormat_id:new FormControl(),
+      // CatalogReportFormat_id:new FormControl(),
       CatalogReportFileSize: new FormControl(),
-      CatalogReportSecurityGrade_id:new FormControl(),
+      // CatalogReportSecurityGrade_id:new FormControl(),
       CoreCatalogName:new FormControl(),
       Comments:new FormControl()
      

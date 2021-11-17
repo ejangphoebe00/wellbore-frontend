@@ -57,6 +57,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Core Type Name</label>
+                                <span class="error">*</span>
                                 <select class="form-control"  required formControlName="CoreTypeName">
                                         <option *ngFor="let role of CoreNames" [ngValue]="role"
                                             (change)="changeRoles($event)">{{role}}
@@ -305,13 +306,19 @@
                                 type="text" class="form-control"
                                 placeholder="">
                         </div>
-                        <!-- <div class="form-group">
-                            <label>Wellbore Core Name</label>
-                            <input
-                                formControlName="WellboreCoreName"
-                                type="text" class="form-control"
-                                placeholder="">
-                        </div> -->
+                        <div class="form-group">
+                            <label>Welbore Core Name</label>               
+
+                                <span class="error">*</span>
+                                    <select class="form-control"
+                                         required formControlName="WelboreCoreName"
+                                        name="WelboreCoreName">
+                                        <option *ngFor="let city of wellboreIds"
+                                            [ngValue]="city.WellboreOfficialName"
+                                            (change)="changeWellboreId($event)">{{city.WellboreOfficialName}}
+                                        </option>
+                                    </select>
+                        </div>
                         <div class="form-group">
                                 <label>Comments</label>
                                 <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>

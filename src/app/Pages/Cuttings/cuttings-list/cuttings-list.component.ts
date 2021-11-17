@@ -228,7 +228,7 @@ export class CuttingsListComponent implements OnInit {
 
       Wellbore_id: item.Wellbore_id,
       Sample_box_number: item.Sample_box_number,
-      Cutting_category: item.Cutting_category,
+      Cutting_category: item.Cutting_category.replace('CuttingsCategoryEnum.', ''),
       Sample_type: item.Sample_type,
       Minimum_depth: item.Minimum_depth,
       Maximum_depth: item.Maximum_depth,
@@ -253,7 +253,7 @@ export class CuttingsListComponent implements OnInit {
         this.formGroup.patchValue({
           Wellbore_id: this.stripFormValue(this.updatevalue.Wellbore_id),
           Sample_box_number: this.stripFormValue(this.updatevalue.Sample_box_number),
-          Cutting_category: this.stripFormValue(this.updatevalue.Cutting_category),
+          Cutting_category: this.stripFormValue(this.updatevalue.Cutting_category).replace('CuttingsCategoryEnum.', ''),
           Sample_type: this.stripFormValue(this.updatevalue.Sample_type),
           Minimum_depth: this.stripFormValue(this.updatevalue.Minimum_depth),
           Maximum_depth: this.stripFormValue(this.updatevalue.Maximum_depth),
