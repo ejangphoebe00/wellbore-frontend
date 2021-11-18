@@ -50,6 +50,7 @@ export class FluidsListComponent implements OnInit {
   dialog: any;
   maxd: any;
   mindate: any;
+  checkstaff: boolean = false;
 
 
   constructor(
@@ -62,6 +63,12 @@ export class FluidsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.authservice.getRole()=="Data Admin"){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
+    }
+
     this.maxd = new Date();
     if (this.maxd.getDate() < 9) {
       this.mindate = this.maxd.getFullYear() + '-' + parseInt(this.maxd.getMonth() + 1) + '-' + 0 + this.maxd.getDate()

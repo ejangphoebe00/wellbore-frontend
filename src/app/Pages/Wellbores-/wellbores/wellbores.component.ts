@@ -38,6 +38,7 @@ export class WellboresComponent implements OnInit {
   wells:any;
   maxd: any;
   mindate: any;
+  checkstaff: boolean = false;
 
   constructor(
     private authservice: ApiPipeService,
@@ -60,11 +61,11 @@ export class WellboresComponent implements OnInit {
     this.userList()
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    // if (this.authservice.getRole() == "Admin") {
-    //   this.role = true;
-    // } else {
-    //   this.role = false;
-    // }
+   if(this.authservice.getRole()=="Data Admin"){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
+    }
 
     this.getProspectIds();
     this.getLicenseIds();

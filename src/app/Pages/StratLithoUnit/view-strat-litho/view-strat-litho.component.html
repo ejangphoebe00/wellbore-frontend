@@ -71,7 +71,7 @@
 
                                        <td>  <a class="btn purple btn-outline bold" (click)="onView(strat)"
                                             data-toggle="modal" href="#large"> More </a>
-                                       <button type="button" class="btn red btn-outline"
+                                       <button   *ngIf="checkstaff" type="button" class="btn red btn-outline"
                                        (click)="onSelect(strat)"><i class="fa fa-trash-o"></i></button></td>
                                    </tr>
 
@@ -169,7 +169,7 @@
                          </table>
                      </div>
                      <div class="modal-footer">
-                             <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
+                             <button  *ngIf="checkstaff" type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button>
                     </div>
                      <!-- /.modal-content -->
 

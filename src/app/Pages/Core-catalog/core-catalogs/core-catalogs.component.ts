@@ -41,6 +41,7 @@ export class CoreCatalogsComponent implements OnInit {
 
   users: any = [];
   dialog: any;
+  checkstaff: boolean = false;
 
 
     constructor(
@@ -53,6 +54,11 @@ export class CoreCatalogsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+      if(this.authservice.getRole()=="Data Admin"){
+        this.checkstaff=true;
+      }else{
+      this.checkstaff=false;
+      }
       this.initForm();
       this.getCoreReportSecurityGrade_id()
       this.getCoreType();

@@ -68,7 +68,7 @@
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button> -->
-                                                      <button type="button" class="btn red btn-outline"
+                                                      <button *ngIf="checkstaff" type="button" class="btn red btn-outline"
                                                       (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
                                                       <a class="btn purple btn-outline bold" (click)="onView(post)"
                                                       data-toggle="modal" href="#large"> More </a>
@@ -148,7 +148,7 @@
                                            </tbody>
                                        </table>
                                        <div class="clearfix"></div>
-                                       <button (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
+                                       <button  *ngIf="checkstaff" (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
 
                                    </div>
                                    <!-- <div class="modal-footer">

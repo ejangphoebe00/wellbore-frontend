@@ -43,6 +43,7 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
   formdata: any;
   maxd: any;
   mindate: any;
+  checkstaff: boolean = false;
   // value:any;
 
 
@@ -72,6 +73,12 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
       this.role=true;
     }else{
     this.role= false;
+    }
+
+    if(this.authservice.getRole()=="Data Admin"){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
     }
 
     this.posts = [];

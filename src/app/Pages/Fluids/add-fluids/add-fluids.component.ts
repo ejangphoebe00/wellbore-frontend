@@ -19,6 +19,7 @@ export class AddFluidsComponent implements OnInit {
   Fluids:any = ['Oil','Gas','Water'];
   maxd: any;
   mindate: any;
+  checkstaff: boolean = false;
 
   constructor(
     private authservice: ApiPipeService,
@@ -44,6 +45,12 @@ export class AddFluidsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.authservice.getRole()=="Data Admin"){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
+    }
+
     this.maxd = new Date(); 
      this.maxd = new Date();
     if (this.maxd.getDate() < 9) {

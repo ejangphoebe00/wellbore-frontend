@@ -70,7 +70,7 @@
                                                 <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button> -->
-                                                <button type="button" class="btn
+                                                <button   *ngIf="checkstaff" type="button" class="btn
                                                     red btn-outline"
                                                     (click)="onSelect(post)"><i
                                                         class="fa fa-trash-o"></i></button>
@@ -241,7 +241,7 @@
                             </tbody>
                         </table>
                         <div class="clearfix"></div>
-                        <button (click)="onSelectEdit(wellboreCores)"
+                        <button  *ngIf="checkstaff" (click)="onSelectEdit(wellboreCores)"
                             data-dismiss="modal" class="btn blue">Edit</button>
                     </div>
                     <!-- <div class="modal-footer">

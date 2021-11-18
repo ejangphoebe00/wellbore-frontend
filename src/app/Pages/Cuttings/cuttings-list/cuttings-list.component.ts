@@ -39,6 +39,7 @@ export class CuttingsListComponent implements OnInit {
   dialog: any;
   maxd: any;
   mindate: any;
+  checkstaff: boolean = false;
 
 
   constructor(
@@ -51,6 +52,11 @@ export class CuttingsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.authservice.getRole()=="Data Admin"){
+      this.checkstaff=true;
+    }else{
+    this.checkstaff=false;
+    }
     this.maxd = new Date(); 
      this.maxd = new Date();
     if (this.maxd.getDate() < 9) {
