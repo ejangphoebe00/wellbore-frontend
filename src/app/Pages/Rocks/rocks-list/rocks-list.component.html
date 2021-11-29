@@ -49,19 +49,19 @@
                                             id="sample_1">
                                                 <thead>
                                                   <tr >
-                                                    <th>Sample_id</th>
+                                                    <th>Store_id</th>
                                                     <th>Date_collected</th>
                                                     <th>Date_received</th>
-                                                    <th>Rock_name</th>
+                                                    <th>Sample_name</th>
                                                     <th>Actions</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
                                                   <tr *ngFor="let post of users">
-                                                    <td>{{post.Sample_id}}</td>
+                                                    <td>{{post.Store_id}}</td>
                                                     <td>{{post.Date_collected}}</td>
                                                     <td>{{post.Date_received}}</td>
-                                                    <td>{{post.Rock_name}}</td>
+                                                    <td>{{post.Sample_name}}</td>
                                                     <td>
                                                         <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
@@ -110,7 +110,7 @@
                                           <tbody>
                                             <tr>
                                                 <th style="width:25%"> Sample</th>
-                                                <td style="width:25%">{{catalogs.Sample_id}} </td>
+                                                <td style="width:25%">{{catalogs.Store_id}} </td>
                                                 <th style="width:25%"> Date Collected </th>
                                                 <td style="width:25%"> {{catalogs.Date_collected}}</td>
         
@@ -125,7 +125,7 @@
                                            
                                                 <tr>
                                                     <th style="width:25%"> Rock Name</th>
-                                                    <td style="width:25%">{{catalogs.Rock_name}} </td>
+                                                    <td style="width:25%">{{catalogs.Sample_name}} </td>
                                                     <th style="width:25%"> Coordinate Location </th>
                                                     <td style="width:25%"> {{catalogs.Coordinate_location}}</td>
             
@@ -252,7 +252,7 @@
                                         <div class="form-group">
                                             <label>Sample</label>
                                             <span class="error">*</span>
-                                            <input type="number" required formControlName="Sample_id" class="form-control">
+                                            <input type="number" required formControlName="Store_id" class="form-control">
                                         </div>
                                        
                                         <div class="form-group">
@@ -276,8 +276,8 @@
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                              <label>Rock_name</label>
-                                              <input type="text" formControlName="Rock_name" class="form-control">
+                                              <label>Sample_name</label>
+                                              <input type="text" formControlName="Sample_name" class="form-control">
                                           </div>
       
                                         <div class="form-group">

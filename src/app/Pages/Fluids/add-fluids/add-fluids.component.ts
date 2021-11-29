@@ -20,6 +20,7 @@ export class AddFluidsComponent implements OnInit {
   maxd: any;
   mindate: any;
   checkstaff: boolean = false;
+  Basins:any = ['Edward-George','Semiliki','Pakwach'];
 
   constructor(
     private authservice: ApiPipeService,
@@ -70,6 +71,7 @@ export class AddFluidsComponent implements OnInit {
       Sampling_activity:new FormControl(),
       Fluid_category:new FormControl(),
       Sample_type:new FormControl(),
+      Sample_basin:new FormControl(),
       Sample_volume:new FormControl(),
       Depth_obtained:new FormControl(),
       Date_collected:new FormControl(),
@@ -145,6 +147,13 @@ export class AddFluidsComponent implements OnInit {
   changeFluids(e:any) {
     console.log(e.value)
     this.Fluids.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeBasins(e: any) {
+    console.log(e.value)
+    this.Basins.setValue(e.target.value, {
       onlySelf: true
     })
   }

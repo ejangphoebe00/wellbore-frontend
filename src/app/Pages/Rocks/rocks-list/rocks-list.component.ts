@@ -116,11 +116,11 @@ export class RocksListComponent implements OnInit {
 
     initForm(){
       this.formGroup = new FormGroup({
-        Sample_id:new FormControl(),
+        Store_id:new FormControl(),
         Date_collected:new FormControl(),
         Date_received:new FormControl(),
         Sample_basin:new FormControl(),
-        Rock_name:new FormControl(),
+        Sample_name:new FormControl(),
         Coordinate_location:new FormControl(),
         Petrographic_description:new FormControl(),
         Petrographic_analysis_reports:new FormControl()
@@ -242,11 +242,11 @@ export class RocksListComponent implements OnInit {
       localStorage.setItem("update-id", this.id);
       this.captureCoreInstance();
       this.catalogs = {
-        Sample_id:item.Sample_id,
+        Store_id:item.Store_id,
         Date_collected:item.Date_collected,
         Date_received:item.Date_received,
         Sample_basin:(item.Sample_basin).replace("BasinsEnum.", ''),
-        Rock_name:item.Rock_name,
+        Sample_name:item.Sample_name,
         Coordinate_location:item.Coordinate_location,
         Petrographic_description:item.Petrographic_description
       }
@@ -264,11 +264,11 @@ export class RocksListComponent implements OnInit {
         .subscribe(response => {
           this.updatevalue = response;
           this.formGroup.patchValue({
-            Sample_id:this.stripFormValue(this.updatevalue.Sample_id),
+            Store_id:this.stripFormValue(this.updatevalue.Store_id),
             Date_collected:this.stripFormValue(this.updatevalue.Date_collected),
             Date_received:this.stripFormValue(this.updatevalue.Date_received),
             Sample_basin:this.stripFormValue((this.updatevalue.Sample_basin).replace("BasinsEnum.", '')),
-            Rock_name:this.stripFormValue(this.updatevalue.Rock_name),
+            Sample_name:this.stripFormValue(this.updatevalue.Sample_name),
             Coordinate_location:this.stripFormValue(this.updatevalue.Coordinate_location),
             Petrographic_description:this.stripFormValue(this.updatevalue.Petrographic_description)
           });

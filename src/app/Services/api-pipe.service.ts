@@ -716,6 +716,18 @@ export class ApiPipeService {
 
   }
 
+  stripSemValue(formValue: any){
+    if (formValue == 'None'){
+      return null;
+    }else if (formValue == 'Edward-George'){
+
+      return 'Edward-George'
+    }else{
+      return formValue
+    }
+
+  }
+
   uploadFile(file1: any, file2:any): Observable<HttpEvent<{}>> {
 		const formdata: FormData = new FormData();
     formdata.append('Core_analysis_reports', file1);

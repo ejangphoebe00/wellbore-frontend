@@ -49,6 +49,15 @@
                                     
                                   </div>
                                   <div class="col-md-6">
+                                        <div class="form-group">
+                                                <label> Sample Basin </label>
+                                                <span class="error">*</span>
+                                                    <select class="form-control"  required formControlName="Sample_basin">
+                                                        <option *ngFor="let area of Basins" [ngValue]="area"
+                                                            (change)="changeBasins($event)">{{area}}
+                                                        </option>
+                                                        </select>  
+                                            </div>
                                     <div class="form-group">
                                             <label>Depth_obtained</label>
                                             <input type="number"  step="any" formControlName="Depth_obtained" class="form-control">

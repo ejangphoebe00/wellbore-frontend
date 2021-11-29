@@ -16,6 +16,9 @@ export class StratLithoUnitComponent implements OnInit {
   maxd: any;
   mindate: any;
 
+  LithAge: any = ['Early Pliocene','Early Miocene','Early Pleistocene','Holocene','Late Miocene','Late Pleistocene','Middle Miocene','Precambrian'];
+
+
   constructor(
     private authservice: ApiPipeService,
     private router: Router,
@@ -38,10 +41,10 @@ export class StratLithoUnitComponent implements OnInit {
     this.formGroup = new FormGroup({
       PAUID:new FormControl(),
       StratLithoName:new FormControl(),
-      ReserviorUnit:new FormControl(),
+      // ReserviorUnit:new FormControl(),
       LithoStratAlias:new FormControl(),
       IsReservoirUnit_id:new FormControl(),
-      LithoStratAge_id:new FormControl(),
+      LithoStratAge:new FormControl(),
       LithoStratDescriptionSoftcopyPath:new FormControl(),
       LithoStratDescriptionHyperlink:new FormControl(),
       LithoStratMapSoftCopyPath:new FormControl(),
@@ -90,6 +93,16 @@ export class StratLithoUnitComponent implements OnInit {
 
       )
     }
+  }
+
+    changeLitho(e: any) {
+    console.log(e.target.value)
+    this.LithAge.setValue(e.target.value, {
+      onlySelf: true
+    })
+    // if (this.cityName()? == 'Others'){
+    //    console.log('got you nigga')
+    // }
   }
 
   get f(){return this.formGroup.controls}

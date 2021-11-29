@@ -39,11 +39,11 @@ export class AddRockSampleComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      Sample_id:new FormControl(),
+      Store_id:new FormControl(),
       Date_collected:new FormControl(),
       Date_received:new FormControl(),
       Sample_basin:new FormControl(),
-      Rock_name:new FormControl(),
+      Sample_name:new FormControl(),
       Coordinate_location:new FormControl(),
       Petrographic_description:new FormControl(),
         });

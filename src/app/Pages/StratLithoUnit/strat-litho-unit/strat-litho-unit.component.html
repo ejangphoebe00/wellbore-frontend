@@ -25,13 +25,13 @@
                                       <label>Litho Strat Alias<span class="red asterisk-validate ml-2">*</span></label>
                                       <input type="text" required formControlName="LithoStratAlias" class="form-control">
                                   </div>
-                                  <div class="form-group">
+                                  <!-- <div class="form-group">
                                       <label>Reservior Unit</label>
                                       <select class="form-control" formControlName="ReservoirUnit">
                                         <option>0</option>
                                         <option>1</option>
                                       </select>
-                                  </div>
+                                  </div> -->
                                   <div class="form-group">
                                       <label>Is Reservoir Unit </label>
                                       <input type="number" formControlName="IsReservoirUnit_id" class="form-control">
@@ -39,7 +39,11 @@
                                   </div>
                                   <div class="form-group">
                                       <label>Litho Strat Age <span class="red asterisk-validate ml-2">*</span></label>
-                                      <input type="text" required formControlName="LithoStratAge_id" class="form-control">
+                                        <select class="form-control"  required formControlName="LithoStratAge">
+                                            <option *ngFor="let area of LithAge" [ngValue]="area"
+                                                (change)="changeLitho($event)">{{area}}
+                                            </option>
+                                            </select> 
                                   </div>
                                   <div class="form-group">
                                       <label>Litho Strat Description Softcopy Path</label>
@@ -74,7 +78,7 @@
                                   </div>
                                   <div class="form-group">
                                       <label>Comments</label>
-                                      <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control"></textarea>
+                                      <textarea name="name" formControlName="Comments" rows="4" cols="80" class="form-control"></textarea>
                                   </div>
                                   <div class="form-actions">
                                       <button type="submit" class="btn blue">Submit</button>

@@ -33,6 +33,8 @@ export class FluidsListComponent implements OnInit {
   currentFile: any;
   msg: any;
   viewFiles: boolean = false;
+  Basins:any = ['Edward-George','Semiliki','Pakwach'];
+
 
   ims: any = [];
   cutImg: any = [];
@@ -124,6 +126,7 @@ export class FluidsListComponent implements OnInit {
       Sampling_activity: new FormControl(),
       Fluid_category: new FormControl(),
       Sample_type: new FormControl(),
+      Sample_basin: new FormControl(),
       Sample_volume: new FormControl(),
       Depth_obtained: new FormControl(),
       Date_collected: new FormControl(),
@@ -279,6 +282,7 @@ export class FluidsListComponent implements OnInit {
       Fluid_category: item.Fluid_category.replace('FluidCategoryEnum.', ''),
       Sample_type: item.Sample_type,
       Sample_volume: item.Sample_volume,
+      Sample_basin: item.Sample_basin,
       Depth_obtained: item.Depth_obtained,
       Date_collected: item.Date_collected,
       Date_received: item.Date_received,
@@ -339,6 +343,7 @@ export class FluidsListComponent implements OnInit {
           Fluid_category: this.stripFormValue(this.updatevalue.Fluid_category).replace('FluidCategoryEnum.', ''),
           Sample_type: this.stripFormValue(this.updatevalue.Sample_type),
           Sample_volume: this.stripFormValue(this.updatevalue.Sample_volume),
+          Sample_basin: this.stripFormValue(this.updatevalue.Sample_basin),
           Depth_obtained: this.stripFormValue(this.updatevalue.Depth_obtained),
           Date_collected: this.stripFormValue(this.updatevalue.Date_collected),
           Date_received: this.stripFormValue(this.updatevalue.Date_received),
@@ -392,6 +397,13 @@ export class FluidsListComponent implements OnInit {
   changeFluids(e: any) {
     console.log(e.value)
     this.Fluids.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeBasins(e:any) {
+    console.log(e.value)
+    this.Basins.setValue(e.target.value, {
       onlySelf: true
     })
   }

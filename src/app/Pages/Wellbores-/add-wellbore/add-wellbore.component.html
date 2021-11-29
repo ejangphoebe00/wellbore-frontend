@@ -59,7 +59,7 @@
                                 <label>Wellbore Alias Name</label>
                                 <span class="error">*</span>
                                 <input
-                                required formControlName="WellboreAliasName"
+                             formControlName="WellboreAliasName"
                                     type="text" class="form-control"
                                     placeholder="">
                                      
@@ -79,17 +79,25 @@
                             </div>
                             <div class="form-group">
                                 <label>Wellbore Type</label>
-                                <input
-                                    formControlName="WellboreType_id"
+                                    <select class="form-control"   formControlName="Wellbore_type">
+                                        <option *ngFor="let area of WellboreType" [ngValue]="area"
+                                            (change)="changeWelboreType($event)">{{area}}
+                                        </option>
+                                        </select>  
+                            </div>
+                            <div class="form-group">
+                                <label>Wellbore Type Id</label>
+                                <input formControlName="WellboreType_id"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>Initial Wellbore Purpose</label>
-                                <input
-                                    formControlName="InitialWellborePurpose_id"
-                                    type="number" class="form-control"
-                                    placeholder="">
+                                <label>Initial Wellbore Purpose</label>                     
+                                    <select class="form-control"  formControlName="InitialWellborePurpose">
+                                        <option *ngFor="let area of Wellborepurpose" [ngValue]="area"
+                                            (change)="changePurpose($event)">{{area}}
+                                        </option>
+                                        </select> 
                             </div>
                             <div class="form-group">
                                 <label>PurposeChangeDate</label>
@@ -99,9 +107,9 @@
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>Well</label>
+                                <label>WellborePurpose_id</label>
                                 <input
-                                    formControlName="Well_id"
+                                    formControlName="WellborePurpose_id"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
@@ -118,37 +126,57 @@
                             <div class="form-group">
                                     <label>Discovery </label>
                                     <input
-                                        formControlName="Discovery_id"
-                                        type="number" class="form-control"
+                                        formControlName="Discovery"
+                                        type="text" class="form-control"
                                         placeholder="">
                                 </div>
                             <div class="form-group">
                                     <label>WellboreContent</label>
                                     <input
                                         formControlName="WellboreContent_id"
-                                        type="text" class="form-control"
+                                        type="number" class="form-control"
                                         placeholder="">
                                 </div>
-                                <div class="form-group">
-                                        <label>Wellbore Status</label>
-                                        <input
-                                            formControlName="WellboreStatus_id"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
+                               
                                  
 
                         </div>  
                         <div class="col-md-3">  
-                                
+
+                                <div class="form-group">
+                                        <label>Development Area Name</label>
+                                        <span class="error">*</span>
+                                        <select class="form-control"  required formControlName="DevelopmentAreaName">
+                                                <option *ngFor="let area of DevAreas" [ngValue]="area"
+                                                    (change)="changeDevAreas($event)">{{area}}
+                                                </option>
+                                                </select>    
+                                                                                       
+                                    </div>
                                     <div class="form-group">
+                                        <label>Other Development Area</label>
+                                        <input
+                                            formControlName="OtherDevelopmentArea"
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="">
+                                    </div> 
+                            <div class="form-group">
+                                <label>Wellbore Status</label>                            
+                                    <select class="form-control" formControlName="WellboreStatus">
+                                        <option *ngFor="let area of WellboreStatuses" [ngValue]="area"
+                                            (change)="changeWellboreStatus($event)">{{area}}
+                                        </option>
+                                        </select> 
+                            </div>
+                                    <!-- <div class="form-group">
                                         <label>Wellbore Responsible Licence
                                             </label>
                                         <input
                                             formControlName="WellboreResponsibleLicence_id"
                                             type="number" class="form-control"
                                             placeholder="">
-                                    </div>  
+                                    </div>   -->
                                
                                 <div class="form-group">
                                     <label>License Operator Company </label>
@@ -178,11 +206,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Basin </label>
-                                    <input
-                                        formControlName="Basin_id"
-                                        type="number"
-                                        class="form-control"
-                                        placeholder="">
+                                    <span class="error">*</span>
+                                        <select class="form-control"  required formControlName="Basin">
+                                            <option *ngFor="let area of Basins" [ngValue]="area"
+                                                (change)="changeBasins($event)">{{area}}
+                                            </option>
+                                            </select>  
                                 </div>
                                 <div class="form-group">
                                         <label>Former Expl Area Name</label>
@@ -205,7 +234,7 @@
                                             <label>TD_TVD</label>
                                             <input
                                                 formControlName="TD_TVD"
-                                                type="text"
+                                                type="number"
                                                 class="form-control"
                                                 placeholder="">
                                      </div>
@@ -219,14 +248,14 @@
                                                             </option>
                                                      </select>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>RCI Taken </label>
                                             <input
                                                 formControlName="RCI_Taken_id"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label>MDT Done </label>
                                             <input
@@ -251,14 +280,7 @@
                                                 class="form-control"
                                                 placeholder="">
                                         </div>
-                                        <div class="form-group">
-                                                <label>Ground Level Elavation </label>
-                                                <input
-                                                    formControlName="GroundLevelElavation"
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder="">
-                                            </div>
+                                      
                         </div>
                         
                         <div class="col-md-3">                   
@@ -472,16 +494,15 @@
                             </div>
 
                             <div class="form-group">
-                                    <label>Development Area Name</label>
-                                    <span class="error">*</span>
-                                    <select class="form-control"  required formControlName="DevelopmentAreaName">
-                                            <option *ngFor="let area of DevAreas" [ngValue]="area"
-                                                (change)="changeDevAreas($event)">{{area}}
-                                            </option>
-                                            </select>    
-                                                                                   
+                                    <label>Ground Level Elavation </label>
+                                    <input
+                                        formControlName="GroundLevelElavation"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="">
                                 </div>
 
+                              
 
                             <div class="form-group">
                                     <label> Comments</label>

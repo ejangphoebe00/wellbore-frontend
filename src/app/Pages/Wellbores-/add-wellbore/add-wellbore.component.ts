@@ -18,6 +18,10 @@ export class AddWellboreComponent implements OnInit {
   prospectIds: any;
   licenceIds: any
   DevAreas:any = ['KFDA','TDA','Others'];
+  Wellborepurpose: any = ['Wildcat','Appraisal','Production','Injection','Observation'];
+  WellboreType: any = ['Exploration','Development'];
+  Basins:any = ['Edward-George','Semiliki','Pakwach'];
+  WellboreStatuses:any = ['Plugged and abandoned','Planned','Suspended','Withdrawn','In operation','In progress']
   maxd: any;
   mindate: any;
 
@@ -59,20 +63,20 @@ export class AddWellboreComponent implements OnInit {
       WellboreAliasName:new FormControl('',Validators.required),
       WellboreSpudDate:new FormControl(),
       SpudYear:new FormControl(),
-      WellboreType_id:new FormControl(),
-      InitialWellborePurpose_id:new FormControl(),
+      Wellbore_type:new FormControl(),
+      InitialWellborePurpose:new FormControl(),
       WellborePurpose_id:new FormControl(),
       PurposeChangeDate:new FormControl(),
-      Well_id:new FormControl(),
+      // Well_id:new FormControl(),
       Prospect_id:new FormControl(),
-      Discovery_id:new FormControl(),
+      Discovery:new FormControl(),
       WellboreContent_id:new FormControl(),
-      WellboreStatus_id:new FormControl(),
+      WellboreStatus:new FormControl(),
       WellboreResponsibleLicence_id:new FormControl(),
       LicenseOperatorCompany_id:new FormControl(),
       DrillingContractorCompany_id:new FormControl(),
       WellBoreRigName:new FormControl(),
-      Basin_id:new FormControl(),
+      Basin:new FormControl(),
       FormerExplAreaName:new FormControl(),
       SeismicLine:new FormControl(),
       RotaryTableElavation:new FormControl(),
@@ -81,7 +85,7 @@ export class AddWellboreComponent implements OnInit {
       TD_TVD:new FormControl(),
       TD_Date:new FormControl(),
       CoreContractor_id:new FormControl(),
-      RCI_Taken_id:new FormControl(),
+      // RCI_Taken_id:new FormControl(),
       MDT_Done_id:new FormControl(),
       FET_Done_id:new FormControl(),
       WFTContractor:new FormControl(),
@@ -107,7 +111,9 @@ export class AddWellboreComponent implements OnInit {
       WellboreMapSoftcopyPath:new FormControl(),
       WellboreMapHyperlink:new FormControl(),
       MapPortalWellboreMapLink:new FormControl(),
-      WellboreFactsiteUrl:new FormControl()
+      WellboreFactsiteUrl:new FormControl(),
+      OtherDevelopmentArea:new FormControl(),
+      WellboreType_id:new FormControl()
     });
   }
 
@@ -183,10 +189,47 @@ export class AddWellboreComponent implements OnInit {
   }
 
   changeDevAreas(e:any) {
-    console.log(e.value)
+    console.log(e.target.value)  
     this.DevAreas.setValue(e.target.value, {
       onlySelf: true
     })
+    // if (this.cityName()? == 'Others'){
+    //    console.log('got you nigga')
+    // }
+  }
+
+  changePurpose(e:any) {
+    console.log(e.value)
+    this.Wellborepurpose.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeWelboreType(e:any) {
+    console.log("getting type")
+    console.log(e.value)
+    this.WellboreType.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changeBasins(e:any) {
+    console.log(e.value)
+    this.Basins.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+  
+  changeWellboreStatus (e:any) {
+    console.log(e.value)
+    this.WellboreStatuses.setValue(e.target.value, {
+      onlySelf: true
+    })
+    
+  }
+
+  get dev() {
+    return this.formGroup.get('DevelopmentAreaName');
   }
 
 

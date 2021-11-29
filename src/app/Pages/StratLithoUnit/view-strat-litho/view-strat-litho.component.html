@@ -54,7 +54,7 @@
                                      <th> ID </th>
                                      <th> PAUID </th>
                                      <th> Name </th>
-                                     <th> Reservior Unit </th>
+                                     <!-- <th> Reservior Unit </th> -->
                                      <th> Date Created </th>
                                      <th> Modified On </th>
                                      <th>Actions</th>
@@ -65,7 +65,7 @@
                                      <td> {{ strat.StratLitho_id }} </td>
                                      <td> {{ strat.PAUID }} </td>
                                      <td> {{ strat.StratLithoName }} </td>
-                                     <td> {{ strat.ReserviorUnit }} </td>
+                                     <!-- <td> {{ strat.ReserviorUnit }} </td> -->
                                      <td> {{ strat.DateCreated }} </td>
                                      <td> {{ strat.ModifiedOn }} </td>
 
@@ -112,13 +112,13 @@
                                 <th style="width:25%"> PAUID </th>
                                 <td> {{ data.PAUID }} </td>
                               </tr>
-                              <tr>
+                              <!-- <tr>
                                 <th style="width:25%"> Name </th>
-                                <td> {{ data.StratLithoName }} </td>
+                                <td> {{ data.StratLithoName }} </td> -->
 
-                                <th style="width:25%"> Reservior Unit </th>
-                                <td> {{ data.ReserviorUnit }} </td>
-                              </tr>
+                                <!-- <th style="width:25%"> Reservior Unit </th>
+                                <td> {{ data.ReserviorUnit }} </td> -->
+                              <!-- </tr> -->
                               <tr>
                                 <th style="width:25%"> Litho Strat Alias </th>
                                 <td> {{ data.LithoStratAlias }} </td>
@@ -127,8 +127,8 @@
                                 <td> {{ data.IsReservoirUnit_id }}</td>
                               </tr>
                               <tr>
-                                <th style="width:25%"> LithoStrat Age Id </th>
-                                <td> {{ data.LithoStratAge_id }}</td>
+                                <th style="width:25%"> LithoStrat Age  </th>
+                                <td> {{ data.LithoStratAge }}</td>
 
                                 <th style="width:25%"> Litho Strat Description Softcopy Path </th>
                                 <td> {{ data.LithoStratDescriptionSoftcopyPath }}</td>
@@ -154,16 +154,18 @@
                                 <th style="width:25%"> Comments </th>
                                 <td> {{ data.Comments }}</td>
                               </tr>
-                              <tr>
+                              <!-- <tr>
                                 <th  style="width:25%"> Date Created </th>
                                 <td> {{ data.DateCreated }} </td>
 
                                 <th  style="width:25%"> Modified On </th>
                                 <td> {{ data.ModifiedOn }} </td>
-                              </tr>
+                              </tr> -->
                               <tr>
-                                <th   style="width:25%"> Modified By </th>
-                                <td> {{ data.ModifiedBy }} </td>
+                                <!-- <th   style="width:25%"> Modified By </th>
+                                <td> {{ data.ModifiedBy }} </td> -->
+                                <th style="width:25%"> Name </th>
+                                <td> {{ data.StratLithoName }} </td>
                               </tr>
                              </tbody>
                          </table>
@@ -181,79 +183,83 @@
 
           <div *ngIf="editform" class="portlet-body form">
               <form [formGroup]="formGroup" (ngSubmit)="updateStratLithoProcess()" ngNativeValidate>
-                <div class="form-body row">
-                  <div class="col-md-6">
+                    <div class="form-body row">
+                            <div class="col-md-6">
 
-                      <div class="form-group">
-                          <label>PAUID</label>
-                          <input type="text" formControlName="PAUID" class="form-control" required>
-                      </div>
-                      <div class="form-group">
-                          <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
-                          <input type="text" required formControlName="StratLithoName" class="form-control" required>
-                      </div>
-                      <div class="form-group">
-                          <label>Litho Strat Alias<span class="red asterisk-validate ml-2">*</span></label>
-                          <input type="text" required formControlName="LithoStratAlias" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Reservior Unit</label>
-                          <select class="form-control" formControlName="ReservoirUnit">
-                            <option>0</option>
-                            <option>1</option>
-                          </select>
-                      </div>
-                      <div class="form-group">
-                          <label>Is Reservoir Unit </label>
-                          <input type="number" formControlName="IsReservoirUnit_id" class="form-control">
+                                <div class="form-group">
+                                    <label>PAUID</label>
+                                    <input type="text" formControlName="PAUID" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
+                                    <input type="text" required formControlName="StratLithoName" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Alias<span class="red asterisk-validate ml-2">*</span></label>
+                                    <input type="text" required formControlName="LithoStratAlias" class="form-control">
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label>Reservior Unit</label>
+                                    <select class="form-control" formControlName="ReservoirUnit">
+                                      <option>0</option>
+                                      <option>1</option>
+                                    </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Is Reservoir Unit </label>
+                                    <input type="number" formControlName="IsReservoirUnit_id" class="form-control">
 
-                      </div>
-                      <div class="form-group">
-                          <label>Litho Strat Age <span class="red asterisk-validate ml-2">*</span></label>
-                          <input type="text" required formControlName="LithoStratAge_id" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Litho Strat Description Softcopy Path</label>
-                          <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control">
-                      </div>
-                      <div class="form-group">
-                            <label>Litho Strat Description Hyperlink</label>
-                            <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control">
-                      </div>
-                  </div>
-                  <div class="col-md-6">
+                                </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Age <span class="red asterisk-validate ml-2">*</span></label>
+                                      <select class="form-control"  required formControlName="LithoStratAge">
+                                          <option *ngFor="let area of LithAge" [ngValue]="area"
+                                              (change)="changeLitho($event)">{{area}}
+                                          </option>
+                                          </select> 
+                                </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Description Softcopy Path</label>
+                                    <input type="text" formControlName="LithoStratDescriptionSoftcopyPath" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                      <label>Litho Strat Description Hyperlink</label>
+                                      <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
 
-                      <div class="form-group">
-                          <label>Litho Strat Description Hyperlink</label>
-                          <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Litho Strat Map Softcopy Path</label>
-                          <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Litho Strat Map Hyperlink</label>
-                          <input type="text" formControlName="LithoStratMapHyperlink" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Map Portal Litho Strat MapLink</label>
-                          <input type="text" formControlName="MapPortalLithoStratMapLink" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Litho Strat Fact site Url</label>
-                          <input type="text" formControlName="LithoStratFactsiteUrl" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label>Comments</label>
-                          <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control"></textarea>
-                      </div>
-                      <div class="form-actions">
-                          <button type="submit" class="btn blue">Submit</button>
-                          <button type="button" class="btn default">Cancel</button>
-                      </div>
-                  </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Description Hyperlink</label>
+                                    <input type="text" formControlName="LithoStratDescriptionHyperlink" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Map Softcopy Path</label>
+                                    <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Map Hyperlink</label>
+                                    <input type="text" formControlName="LithoStratMapHyperlink" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Map Portal Litho Strat MapLink</label>
+                                    <input type="text" formControlName="MapPortalLithoStratMapLink" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Litho Strat Fact site Url</label>
+                                    <input type="text" formControlName="LithoStratFactsiteUrl" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Comments</label>
+                                    <textarea name="name" formControlName="Comments" rows="4" cols="80" class="form-control"></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn blue">Submit</button>
+                                    <button type="button" class="btn default">Cancel</button>
+                                </div>
+                            </div>
 
-                </div>
+                          </div>
                </form>
           </div>
 
