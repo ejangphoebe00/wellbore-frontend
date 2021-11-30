@@ -20,7 +20,7 @@ export class AddFluidsComponent implements OnInit {
   maxd: any;
   mindate: any;
   checkstaff: boolean = false;
-  Basins:any = ['Edward-George','Semiliki','Pakwach'];
+  Basins:any = ['Edward-George','Semiliki','Pakwach', 'The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
 
   constructor(
     private authservice: ApiPipeService,

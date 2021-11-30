@@ -360,6 +360,7 @@
                                         <tr>
                                             <th>File Name </th>
                                             <th>Download link</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -367,6 +368,14 @@
                                             <td>{{img.name}}</td>
                                             <td><a href={{img.link}}
                                                     target="_blank">Download</a></td>
+                                                    <td>
+                    
+                                                            <button type="button" class="btn
+                                                                red btn-outline"
+                                                                (click)="onDeleteFile(img)"><i
+                                                                    class="fa fa-trash-o"></i></button>
+                                                          
+                                                        </td>             
                                         </tr>
                                     </tbody>
                                 </table>

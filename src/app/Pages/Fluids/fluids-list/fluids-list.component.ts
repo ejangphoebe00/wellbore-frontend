@@ -33,7 +33,7 @@ export class FluidsListComponent implements OnInit {
   currentFile: any;
   msg: any;
   viewFiles: boolean = false;
-  Basins:any = ['Edward-George','Semiliki','Pakwach'];
+  Basins:any = ['Edward-George','Semiliki','Pakwach', 'The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
 
 
   ims: any = [];
@@ -412,6 +412,52 @@ export class FluidsListComponent implements OnInit {
   navigateBack() {
     this.authservice.reload();
   }
+
+  onDeleteFile(selectedItem: any) {
+    console.log('you clicked on element no: ' + selectedItem.file_id);
+
+
+
+    this.id = selectedItem.file_id;
+
+    this.ngPopups.confirm("Are you sure you want to delete this file?", {
+      // theme: 'material',
+      color: 'OrangeRed',
+      okButtonText: 'Yes',
+      cancelButtonText: 'No',
+      title: "Confirm",
+    })
+      .subscribe(res => {
+        if (res) {
+          console.log("Selected item Id: ", selectedItem.Core_sample_id);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_file/' + this.id)
+            .subscribe(response => {
+              this.deleteresp = response;
+              console.log(this.deleteresp.message)
+              if (this.deleteresp.message == "File successfully deleted.") {
+                this.toastr.success("File successfully deleted.", "", {
+                  timeOut: 2000,
+                  positionClass: 'toast-top-center',
+                  progressBar: true,
+                  progressAnimation: 'increasing'
+                })
+                setTimeout(() => {
+                  this.authservice.reload();
+                }, 1000);
+
+              } else {
+                this.authservice.securityStatusUpdate()
+              }
+              console.log(this.deleteresp)
+            });
+        } else {
+          console.log("You clicked cancel.")
+        }
+      });
+
+
+  }
+
 
 }
 

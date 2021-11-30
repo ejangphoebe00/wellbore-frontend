@@ -13,7 +13,7 @@ export class AddRockSampleComponent implements OnInit {
 
   formGroup!: FormGroup;
   title!: string;
-  Basins:any = ['The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
+  Basins:any = ['Edward-George','Semiliki','Pakwach', 'The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
   maxd: any;
   mindate: any;
 
