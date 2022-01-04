@@ -96,7 +96,8 @@ div#login-customise {
 
 .full-screen-container {
   /* background-image: url('src/assets/assets/pages/img/welbore.jpeg'); */
-  background-image: url('https://chorus.stimg.co/22060537/ows_ea676574_e8b5_440b_9579_6db28bcfd92a.jpg?fit=crop&crop=faces');
+  /* background-image: url('https://chorus.stimg.co/22060537/ows_ea676574_e8b5_440b_9579_6db28bcfd92a.jpg?fit=crop&crop=faces'); */
+  background-image: url('https://web.uri.edu/gso/files/IMG_04373-1.jpg');
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -104,6 +105,10 @@ div#login-customise {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+label.rememberme.check.mt-checkbox.mt-checkbox-outline {
+  color: black !important;
 }
 
 img {
@@ -119,3 +124,21 @@ h3 {
   FONT-WEIGHT: bolder;
   color: #333;
 }
+
+.hide {
+  display: none;
+}
+.inner-addon { 
+    position: relative; 
+}
+.inner-addon .fas {
+  position: absolute;
+  padding: 10px 30px;
+  z-index: 100;
+  cursor: pointer;
+}
+.left-addon .fas  { left:  0px; }
+.right-addon .fas { right: 0px; }
+ 
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }

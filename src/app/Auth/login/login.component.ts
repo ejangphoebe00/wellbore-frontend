@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   date: any;
+  public showPassword!: boolean;
+  public showPasswordOnPress!: boolean;
 
   constructor(
     private authservice: ApiPipeService,
