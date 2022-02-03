@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpEvent, HttpResponse} from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgPopupsService } from 'ng-popups';
+import { Gallery } from 'angular-gallery';
 
 
 @Component({
@@ -46,6 +47,40 @@ export class WellsComponent implements OnInit {
   maxd: any;
   mindate: any;
   checkstaff: boolean = false;
+  msg: any;
+  uploadFile: boolean = false;
+  viewImages: boolean = false;
+  viewFiles: boolean = false;
+
+
+
+
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file: any;
+  fileresponse: any;
+  ims: any = [];
+  cutImg: any = [];
+  filenames: any = [];
+
+
+  selectedFiles: any;
+  selectedFilesSecond: any;
+  currentFile: any;
+  currentFile2: any;
+
+  // fileName = '';
+  // uploadProgress:number = 0;
+  // uploadSub: Subscription = any;
+
+
+
+  afuConfig = {
+    uploadAPI: {
+      url: "http://127.0.0.1:8899/apiv1/add_file/7"
+    }
+  };
+
 
 
   constructor(
@@ -53,7 +88,9 @@ export class WellsComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private http: HttpClient,
-    private ngPopups: NgPopupsService
+    private ngPopups: NgPopupsService,
+    private gallery: Gallery
+
   ) { }
 
   ngOnInit(): void {
@@ -171,7 +208,10 @@ export class WellsComponent implements OnInit {
       ReportDocumentDate:new FormControl(),
       ReportDocumentName:new FormControl(),
       WelboreCoreName:new FormControl(),
-      Comments:new FormControl()
+      Comments:new FormControl(),
+      Core_analysis_reports: new FormControl(),
+      Core_photograph: new FormControl(),
+      fileSource: new FormControl()
     });
   }
 
@@ -251,7 +291,7 @@ export class WellsComponent implements OnInit {
     }
   }
 
-  get f() { return this.formGroup.controls }
+  // get f() { return this.formGroup.controls }
 
   getReportSecurityGrade () {
     this.authservice.getCoreReportSecurity().subscribe(res => {
@@ -530,6 +570,242 @@ export class WellsComponent implements OnInit {
 
       )
     }
+  }
+
+
+  onChange(event: any) {
+    this.file = event.target.files[0];
+  }
+
+  // OnClick of button Upload
+  onUpload() {
+    this.loading = !this.loading;
+    console.log(this.file);
+    this.authservice.upload(this.file).subscribe(
+      (event: any) => {
+        if (typeof (event) === 'object') {
+
+          // Short link via api response
+          this.shortLink = event.link;
+
+          this.loading = false; // Flag variable 
+        }
+      }
+    );
+  }
+
+  get f() {
+    return this.formGroup.controls;
+  }
+
+  onFileChange(event: any) {
+
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.formGroup.patchValue({
+        fileSource: file
+      });
+    }
+  }
+
+  submit() {
+    const formData = new FormData();
+    formData.append('file', this.formGroup.get('fileSource')!.value);
+    console.log(this.formGroup.get('fileSource')!.value)
+
+    this.http.post('http://127.0.0.1:8899/apiv1/add_file/1', formData)
+      .subscribe(res => {
+        console.log(res);
+        alert('Uploaded Successfully.');
+      })
+  }
+
+  upload() {
+    this.currentFile = this.selectedFiles.item(0);
+    this.currentFile2 = this.selectedFilesSecond.item(0);
+
+    console.log(this.currentFile)
+    this.authservice.uploadFile(this.currentFile, this.currentFile2).subscribe(response => {
+      this.fileresponse = response;
+      console.log(this.fileresponse.message)
+
+      this.selectedFiles.value = '';
+      if (response instanceof HttpResponse) {
+        this.msg = response.body;
+        console.log(response.body);
+        this.toastr.success("File Uploaded successfully.", "", {
+          timeOut: 2000,
+          positionClass: 'toast-top-center',
+          progressBar: true,
+          progressAnimation: 'increasing'
+        })
+        this.formGroup.reset();
+      }
+    });
+  }
+
+
+  selectFile(event: any) {
+    this.selectedFiles = event.target.files;
+  }
+
+  selectFileAgain(event: any) {
+    this.selectedFilesSecond = event.target.files;
+  }
+
+  onFile() {
+    console.log("Clicked")
+    this.status = false;
+    this.details = false;
+    this.uploadFile = true;
+  }
+
+  onSelectImages(selectedItem: any) {
+    console.log("hide the elements");
+    this.status = false;
+    this.details = false;
+    this.viewImages = true;
+    this.getImages();
+
+  }
+
+  showGallery(index: number) {
+    this.authservice
+      .getCores()
+      .subscribe((response: any) => {
+        this.users = response
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.Core_photographs)
+          this.ims = product.Core_photographs
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+          }
+
+          let prop = {
+
+            images: [
+              { path: image.replace('backend', 'http://127.0.0.1:8899') }
+            ],
+            index
+          };
+          this.gallery.load(prop);
+        }
+      });
+
+  }
+
+
+  getFiles() {
+    this.authservice
+      .getCores()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.Core_analysis_reports)
+          this.ims = product.Core_analysis_reports
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            console.log(' Testing Index of  image:' + this.ims.indexOf(image));
+
+            if (image != 'null') {
+              this.cutImg.push({
+                'link': image.replace('backend', 'http://127.0.0.1:8899'),
+                'file_id': this.ims.indexOf(image) + 1,
+                'name': image.replace('backend/static/files/', '')
+              });
+            }
+
+          }
+        }
+      });
+
+  }
+
+  getImages() {
+    this.authservice
+      .getCores()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.Core_photographs)
+          this.ims = product.Core_photographs
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            this.cutImg.push({
+              'link': image.replace('backend', 'http://127.0.0.1:8899'),
+              'name': image.replace('backend/static/files/', '')
+            });
+
+          }
+        }
+      });
+
+  }
+
+  onDeleteFile(selectedItem: any) {
+    console.log('you clicked on element no: ' + selectedItem.file_id);
+
+
+
+    this.id = selectedItem.file_id;
+
+    this.ngPopups.confirm("Are you sure you want to delete this file?", {
+      // theme: 'material',
+      color: 'OrangeRed',
+      okButtonText: 'Yes',
+      cancelButtonText: 'No',
+      title: "Confirm",
+    })
+      .subscribe(res => {
+        if (res) {
+          console.log("Selected item Id: ", selectedItem.Core_sample_id);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_file/' + this.id)
+            .subscribe(response => {
+              this.deleteresp = response;
+              console.log(this.deleteresp.message)
+              if (this.deleteresp.message == "File successfully deleted.") {
+                this.toastr.success("File successfully deleted.", "", {
+                  timeOut: 2000,
+                  positionClass: 'toast-top-center',
+                  progressBar: true,
+                  progressAnimation: 'increasing'
+                })
+                setTimeout(() => {
+                  this.authservice.reload();
+                }, 1000);
+
+              } else {
+                this.authservice.securityStatusUpdate()
+              }
+              console.log(this.deleteresp)
+            });
+        } else {
+          console.log("You clicked cancel.")
+        }
+      });
+
+
+  }
+
+
+  onSelectFiles(selectedItem: any) {
+    console.log("hide the elements");
+    this.status = false;
+    this.details = false;
+    this.viewFiles = true;
+    this.getFiles();
+
   }
 
 

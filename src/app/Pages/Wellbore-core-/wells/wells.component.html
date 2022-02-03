@@ -237,12 +237,32 @@
                                         {{wellboreCores.CoreTypeName}}</td>
                                 </tr>
 
+                                <tr>
+                                    
+                                    <th style="width:25%"> Files </th>
+                                    <td style="width:25%"><a
+                                            (click)="onSelectFiles(wellboreCores)"
+                                            data-dismiss="modal">View
+                                            Files</a></td>
+                                </tr>
 
-                            </tbody>
+                                <tr>
+                                    <th style="width:25%">Images </th>
+                                    <td style="width:25%"><a
+                                            (click)="onSelectImages(wellboreCores)"
+                                            data-dismiss="modal">View
+                                            Images </a></td>
+                                    <tr>
+
+
+                            </tbody>  
                         </table>
                         <div class="clearfix"></div>
                         <button  *ngIf="checkstaff" (click)="onSelectEdit(wellboreCores)"
                             data-dismiss="modal" class="btn blue">Edit</button>
+
+                            <button (click)="onFile()" data-dismiss="modal"
+                            class="btn yellow">Add File</button>
                     </div>
                     <!-- <div class="modal-footer">
                                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
@@ -572,6 +592,179 @@
                 </form>
             </div>
         </div>
+
+
+        <div *ngIf="viewFiles" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Files</h3>
+
+                <div class="portlet-body">
+
+                    <table datatable
+                        [dtOptions]="dtOptions"
+                        [dtTrigger]="dtTrigger"
+                        class="table table-striped
+                        table-bordered table-hover"
+                        id="sample_1">
+                        <thead>
+                            <tr>
+                                <th>File Name </th>
+                                <th>Download link</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let img of cutImg">
+                                <td>{{img.name}}</td>
+                                <td><a href={{img.link}}
+                                        target="_blank">Download</a></td>
+
+                                        <td>
+                                              
+                                                <button type="button" class="btn
+                                                    red btn-outline"
+                                                    (click)="onDeleteFile(img)"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                              
+                                            </td>        
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button (click)="navigateBack()" type="button"
+                        class="btn default">Back</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="viewImages" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Uploaded Images </h3>
+
+                <div class="portlet-body">
+
+                    <table datatable
+                        [dtOptions]="dtOptions"
+                        [dtTrigger]="dtTrigger"
+                        class="table table-striped
+                        table-bordered table-hover"
+                        id="sample_1">
+                        <thead>
+                            <tr>
+                                <th>Image Name </th>
+                                <th>Download link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let img of cutImg">
+                                <td>{{img.name}}</td>
+                                <td><a href={{img.link}}
+                                        target="_blank">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button (click)="navigateBack()" type="button"
+                        class="btn default">Back</button>
+                </div>
+
+            </div>
+        </div>
+
+
+                <div *ngIf="uploadFile" class="portlet light bordered">
+                    <div class="portlet-body form">
+                        <form class="form-horizontal" [formGroup]="formGroup"
+                            (ngSubmit)="upload()" ngNativeValidate>
+
+                            <div class="form-body row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Core_analysis_reports</label>
+                                        <input type="file"
+                                            formControlName="Core_analysis_reports"
+                                            (change)="selectFile($event)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Core_photograph</label>
+                                        <input type="file"
+                                            formControlName="Core_photograph"
+                                            (change)="selectFileAgain($event)">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn blue">Upload</button>
+                                <button (click)="navigateBack()" type="button"
+                                    class="btn default">Back</button>
+                            </div>
+                        </form>
+
+                        <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
+  
+                                          
+                                        <div class="form-group">
+                                            <label for="file">File</label>
+                                            <input 
+                                                formControlName="Core_analysis_reports"
+                                                id="file" 
+                                                type="file" 
+                                                class="form-control"
+                                                (change)="onFileChange($event)">
+                                               
+                                           
+                                        </div>
+                                              
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </form> -->
+                    </div>
+
+
+
+
+
+                    <!-- <angular-file-uploader
+                                [config]="afuConfig">
+                            </angular-file-uploader> -->
+                    <!-- <angular-file-uploader
+                                [config]="afuConfig">
+                            </angular-file-uploader> -->
+                    <!-- <input type="file" class="file-input"
+                            [accept]="requiredFileType"
+                            (change)="onFileSelected($event)" #fileUpload>
+                     
+                     <div class="file-upload">
+                     
+                        {{fileName || "No file uploaded yet."}}
+                     
+                         <button mat-mini-fab color="primary" class="upload-btn"
+                           (click)="fileUpload.click()">
+                             <mat-icon>attach_file</mat-icon>
+                     
+                         </button>
+                     
+                     </div>
+                     
+                     <div class="progress">
+                     
+                       <mat-progress-bar class="progress-bar" mode="determinate"
+                                         [value]="uploadProgress" *ngIf="uploadProgress">
+                     
+                       </mat-progress-bar>
+                     
+                       <mat-icon class="cancel-upload" (click)="cancelUpload()" 
+                                 *ngIf="uploadProgress">delete_forever</mat-icon>
+                     
+                     </div> -->
+                </div>
+
 
     </div>
     <!-- END CONTENT BODY -->
