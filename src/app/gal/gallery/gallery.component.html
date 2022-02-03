@@ -1,0 +1,45 @@
+
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+
+        <!-- END PAGE HEADER-->
+        <!-- <div class="gallerize-example">
+
+            <h2>Lightbox Example</h2>
+            <p class="container">
+                <img *ngFor="let item of items; index as i" 
+                 [attr.lightbox]="i"
+                 src="item.data.thumb">
+            </p>
+          
+          <h2>Another lightbox with custom gallery config</h2>
+              <p class="container">
+                <img *ngFor="let item of items; index as i" 
+                  [attr.lightbox]="i"
+                  [attr.gallery]="'anotherLightbox'"
+                  [src]="item.data.thumb">
+            </p>
+          
+        </div> -->
+       
+
+  <div style="width: 840px; height: 500px; text-align:center;margin:0; padding:0;">
+  <ng-image-slider #nav
+    [images]="imgObject"
+    [infinite]="false"
+    [autoSlide]="1"
+    [imagePopup]= "false"
+    [imageSize]="{width: '70%', height:'70%' }"
+    slideImage="1"></ng-image-slider>
+</div>
+
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+
+
+
+
+
+

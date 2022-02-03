@@ -59,6 +59,11 @@ import { CuttingsListComponent } from './Pages/Cuttings/cuttings-list/cuttings-l
 import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-sample.component';
 import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.component';
 import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.component';
+import { GalleryComponent } from './gal/gallery/gallery.component';
+import { LightboxModule } from 'ngx-lightbox';
+import { GalleryModule } from '@ngx-gallery/core';
+import { FileSaverModule } from 'ngx-filesaver';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -103,6 +108,7 @@ import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.
     AddRockSampleComponent,
     RocksListComponent,
     StatGraphsComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,7 +126,12 @@ import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.
     MatIconModule,    //*FAB Button
     MatButtonModule, //*FAB Button
     ChartsModule,
-    IvyGalleryModule
+    IvyGalleryModule,
+    GalleryModule,
+    LightboxModule,
+    FileSaverModule,
+    NgImageSliderModule
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
