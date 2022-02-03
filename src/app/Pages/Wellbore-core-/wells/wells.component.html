@@ -244,6 +244,10 @@
                                             (click)="onSelectFiles(wellboreCores)"
                                             data-dismiss="modal">View
                                             Files</a></td>
+                                    <th style="width:25%"> Gallery </th>
+                                    <td style="width:25%"><a
+                                            (click)="onSelectGallery(wellboreCores)"
+                                            data-dismiss="modal">Continue to Gallery</a></td>        
                                 </tr>
 
                                 <tr>
@@ -666,6 +670,28 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <button (click)="navigateBack()" type="button"
+                        class="btn default">Back</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="gal" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Uploaded Images </h3>
+
+                <div class="portlet-body">
+
+                    <ng-image-slider #nav
+                    [images]="imgObject"
+                    [infinite]="false"
+                    [autoSlide]="1"
+                    [imagePopup]= "false"
+                    [imageSize]="{width: '70%', height:'70%' }"
+                    slideImage="1"></ng-image-slider>
 
                     <button (click)="navigateBack()" type="button"
                         class="btn default">Back</button>

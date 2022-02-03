@@ -51,12 +51,14 @@ export class WellsComponent implements OnInit {
   uploadFile: boolean = false;
   viewImages: boolean = false;
   viewFiles: boolean = false;
+  imgObject: Array<object> = [];
 
 
 
 
   shortLink: string = "";
   loading: boolean = false; // Flag variable
+  gal:boolean = false;
   file: any;
   fileresponse: any;
   ims: any = [];
@@ -720,6 +722,24 @@ export class WellsComponent implements OnInit {
                 'file_id': this.ims.indexOf(image) + 1,
                 'name': image.replace('backend/static/files/', '')
               });
+
+             
+            }
+
+          }
+
+
+           for (var show of this.ims) {
+            console.log(' Testing new gallery:' + show.replace('backend', 'http://127.0.0.1:8899'))
+           
+            if (show != 'null') {             
+
+              this.imgObject.push({
+                image: show.replace('backend', 'http://127.0.0.1:8899'),
+                thumbImage:show.replace('backend', 'http://127.0.0.1:8899'),
+                title: show.replace('backend/static/files/', ''),
+                alt: show.replace('backend/static/files/', ''),
+              });
             }
 
           }
@@ -745,6 +765,13 @@ export class WellsComponent implements OnInit {
             this.cutImg.push({
               'link': image.replace('backend', 'http://127.0.0.1:8899'),
               'name': image.replace('backend/static/files/', '')
+            });
+
+            this.imgObject.push({
+              image:  image.replace('backend', 'http://127.0.0.1:8899'),
+              thumbImage:image.replace('backend', 'http://127.0.0.1:8899'),
+              title: image.replace('backend/static/files/', ''),
+              alt: image.replace('backend/static/files/', ''),
             });
 
           }
@@ -807,6 +834,15 @@ export class WellsComponent implements OnInit {
     this.getFiles();
 
   }
+
+  onSelectGallery(selectedItem:any) {
+    this.status = false;
+    this.details = false;
+    this.viewFiles = false;
+    this.gal = true;
+    this.getImages();
+    
+  } 
 
 
 }
