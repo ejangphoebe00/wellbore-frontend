@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token", this.title);
           this.authservice.loginSucess()
           setTimeout(() => {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/samples']);
           }, 1000);
         } else {
           this.authservice.loginFaliure()

@@ -49,7 +49,7 @@ import { GalleryComponent } from './gal/gallery/gallery.component';
 
 
 const routes: Routes = [
-  {path: 'dashboard', component: BaseComponent,
+  {path: 'samples', component: BaseComponent,
     children: [
       {path: 'add-users', component: AddUsersComponent},
       {path: '', component: DashboardComponent},
