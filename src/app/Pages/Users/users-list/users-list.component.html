@@ -71,7 +71,7 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let post of users">
-                                            <td>{{post.CraneUser_id}}</td>
+                                            <td>{{post.CraneUserId}}</td>
                                             <td>{{post.FirstName}}</td>
                                             <td>{{post.Surname}}</td>
                                             <td>{{post.LUID}}</td>
@@ -124,7 +124,7 @@
                                                         uppercase">User Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                       {{user.CraneUser_id}} </div>
+                                                       {{user.CraneUserId}} </div>
                                                 </div>
                                             </div>
                                             <div class="portlet-title">
@@ -227,7 +227,7 @@
                                                             uppercase">User Intranet SecurityLevel Id</span>
                                                         <div class="caption-desc
                                                             font-grey-cascade">
-                                                            {{user.UserIntranetSecurityLevel_id}}
+                                                            {{user.UserIntranetSecurityLevelId}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -240,7 +240,7 @@
                                                             uppercase">User Nsd Web SecurityLevel Id</span>
                                                         <div class="caption-desc
                                                             font-grey-cascade">
-                                                           {{user.UserNsdWebSecurityLevel_id}} </div>
+                                                           {{user.UserNsdWebSecurityLevelId}} </div>
                                                     </div>
                                                 </div>
                                                 <div class="portlet-title">
@@ -284,7 +284,7 @@
                                                         uppercase">User Company id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                        {{user.UserCompany_id}}
+                                                        {{user.UserCompanyId}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -335,7 +335,7 @@
                                                         uppercase">User Prems User Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                        {{user.UserPremsUser_id}}
+                                                        {{user.UserPremsUserId}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -348,7 +348,7 @@
                                                         uppercase">User Staff Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                       {{user.UserStaff_id}} </div>
+                                                       {{user.UserStaffId}} </div>
                                                 </div>
                                             </div>
                                             <div class="portlet-title">
@@ -379,7 +379,7 @@
                                                         uppercase">Login Status Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                        {{user.LoginStatus_id}} 
+                                                        {{user.LoginStatusId}} 
                                                     </div>
                                                 </div>
                                             </div>
@@ -406,7 +406,7 @@
                                                         uppercase">User Security Level Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                       {{user.UserSecurityLevel_id}} </div>
+                                                       {{user.UserSecurityLevelId}} </div>
                                                 </div>
                                             </div>
                                             <div class="portlet-title">
@@ -418,7 +418,7 @@
                                                         uppercase">User Web SecurityLevel Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                        {{user.UserWebSecurityLevel_id}} 
+                                                        {{user.UserWebSecurityLevelId}} 
                                                     </div>
                                                 </div>
                                             </div>
@@ -431,7 +431,7 @@
                                                         uppercase">User Nogtr WebSecurity Level Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                       {{user.UserNogtrWebSecurityLevel_id}} </div>
+                                                       {{user.UserNogtrWebSecurityLevelId}} </div>
                                                 </div>
                                             </div>
                                             <div class="portlet-title">
@@ -443,7 +443,7 @@
                                                         uppercase">User Prems WebSecurity Level Id</span>
                                                     <div class="caption-desc
                                                         font-grey-cascade">
-                                                       {{user.UserPremsWebSecurityLevel_id}}
+                                                       {{user.UserPremsWebSecurityLevelId}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -560,7 +560,7 @@
                                         <div class="form-group">
                                             <label>User Company</label>
                                             <input
-                                                formControlName="UserCompany_id"
+                                                formControlName="UserCompanyId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -569,7 +569,7 @@
                                         <div class="form-group">
                                             <label>User Prems User</label>
                                             <input
-                                                formControlName="UserPremsUser_id"
+                                                formControlName="UserPremsUserId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -580,7 +580,7 @@
                                             <span class="error">*</span>
                                             <input
                                                 required
-                                                formControlName="UserStaff_id"
+                                                formControlName="UserStaffId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -615,7 +615,7 @@
                                         <div class="form-group">
                                             <label>User Security Level </label>
                                             <input
-                                                formControlName="UserSecurityLevel_id"
+                                                formControlName="UserSecurityLevelId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -626,13 +626,13 @@
                                             <span class="error">*</span>
                                             <select class="custom-select"
                                                 required
-                                                formControlName="UserWebSecurityLevel_id"
-                                                name="UserWebSecurityLevel_id"
+                                                formControlName="UserWebSecurityLevelId"
+                                                name="UserWebSecurityLevelId"
                                                 class="form-control">
                                                 <option *ngFor="let city of
                                                     securityIds"
-                                                    [ngValue]="city.WebSecurityLevel_id"
-                                                    (change)="changeSecurity($event)">{{city.WebSecurityLevel_id}}-->{{city.WebSecurityLevelName}}
+                                                    [ngValue]="city.WebSecurityLevelId"
+                                                    (change)="changeSecurity($event)">{{city.WebSecurityLevelId}}-->{{city.WebSecurityLevelName}}
                                                 </option>
                                             </select>
 
@@ -643,7 +643,7 @@
                                             <label> Nogtr Web Security Level
                                             </label>
                                             <input
-                                                formControlName="UserNogtrWebSecurityLevel_id"
+                                                formControlName="UserNogtrWebSecurityLevelId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -653,7 +653,7 @@
                                             <label> Prems Web Security Level
                                             </label>
                                             <input
-                                                formControlName="UserPremsWebSecurityLevel_id"
+                                                formControlName="UserPremsWebSecurityLevelId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -662,7 +662,7 @@
                                             <label>Intranet Security Level
                                             </label>
                                             <input
-                                                formControlName="UserIntranetSecurityLevel_id"
+                                                formControlName="UserIntranetSecurityLevelId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -676,7 +676,7 @@
                                             <label>User Nsd Web Security Level
                                             </label>
                                             <input
-                                                formControlName="UserNsdWebSecurityLevel_id"
+                                                formControlName="UserNsdWebSecurityLevelId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -802,19 +802,19 @@
                                                 </tr>
                                                 <tr>
                                                     <th style="width:25%"> User
-                                                        Company_id </th>
-                                                    <td style="width:25%">{{listuser.UserCompany_id}}
+                                                        CompanyId </th>
+                                                    <td style="width:25%">{{listuser.UserCompanyId}}
                                                     </td>
                                                     <th style="width:25%"> User
                                                         Prems User Id </th>
                                                     <td style="width:25%">
-                                                        {{listuser.UserPremsUser_id}}</td>
+                                                        {{listuser.UserPremsUserId}}</td>
                                                 </tr>
 
                                                 <tr>
                                                     <th style="width:25%"> User
                                                         Staff Id</th>
-                                                    <td style="width:25%">{{listuser.UserStaff_id}}
+                                                    <td style="width:25%">{{listuser.UserStaffId}}
                                                     </td>
                                                     <th style="width:25%">
                                                         Organisation Name </th>
@@ -829,35 +829,35 @@
                                                     <th style="width:25%"> User
                                                         Security Level Id</th>
                                                     <td style="width:25%">
-                                                        {{listuser.UserSecurityLevel_id}}</td>
+                                                        {{listuser.UserSecurityLevelId}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th style="width:25%"> User
                                                         WebSecurity Level Id</th>
-                                                    <td style="width:25%">{{listuser.UserWebSecurityLevel_id}}
+                                                    <td style="width:25%">{{listuser.UserWebSecurityLevelId}}
                                                     </td>
                                                     <th style="width:25%"> User
                                                         Nogtr WebSecurity Level
                                                         Id</th>
                                                     <td style="width:25%">
-                                                        {{listuser.UserNogtrWebSecurityLevel_id}}</td>
+                                                        {{listuser.UserNogtrWebSecurityLevelId}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th style="width:25%"> User
                                                         Prems WebSecurity Level
                                                         Id</th>
-                                                    <td style="width:25%">{{listuser.UserPremsWebSecurityLevel_id}}
+                                                    <td style="width:25%">{{listuser.UserPremsWebSecurityLevelId}}
                                                     </td>
                                                     <th style="width:25%"> User
                                                         Intranet Security Level
                                                         Id</th>
                                                     <td style="width:25%">
-                                                        {{listuser.UserIntranetSecurityLevel_id}}</td>
+                                                        {{listuser.UserIntranetSecurityLevelId}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th style="width:25%"> User
                                                         Nsd WebSecurity Level Id</th>
-                                                    <td style="width:25%">{{listuser.UserNsdWebSecurityLevel_id}}
+                                                    <td style="width:25%">{{listuser.UserNsdWebSecurityLevelId}}
                                                     </td>
                                                     <th style="width:25%">
                                                         Comments</th>

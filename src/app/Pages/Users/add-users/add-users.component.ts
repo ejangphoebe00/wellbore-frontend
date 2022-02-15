@@ -68,28 +68,28 @@ export class AddUsersComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      FirstName:new FormControl('',Validators.required),
+      FirstName:new FormControl(),
       MiddleName:new FormControl(),
-      Surname:new FormControl('',Validators.required),
+      Surname:new FormControl(),
       LUID:new FormControl(),
-      CraneUserName:new FormControl('',Validators.required),
+      CraneUserName:new FormControl(),
       LoginID:new FormControl(),
       LoginIDAlias:new FormControl(),
-      UserCategory:new FormControl('',Validators.required),
-      UserCompany_id:new FormControl(),
-      UserPremsUser_id:new FormControl(),
-      UserStaff_id:new FormControl('',Validators.required),
-      OrganisationName:new FormControl('',Validators.required),
-      UserEmailAddress:new FormControl('',Validators.required),
-      UserSecurityLevel_id:new FormControl(),
-      UserWebSecurityLevel_id:new FormControl('',Validators.required),
-      UserNogtrWebSecurityLevel_id:new FormControl(),
-      UserPremsWebSecurityLevel_id:new FormControl(),
-      UserIntranetSecurityLevel_id:new FormControl(),
-      UserNsdWebSecurityLevel_id:new FormControl(),
+      // UserCategory:new FormControl(),
+      UserCompanyId:new FormControl(),
+      UserPremsUserId:new FormControl(),
+      UserStaffId:new FormControl(),
+      OrganisationName:new FormControl(),
+      UserEmailAddress:new FormControl(),
+      UserSecurityLevelId:new FormControl(),
+      UserWebSecurityLevelId:new FormControl(),
+      UserNogtrWebSecurityLevelId:new FormControl(),
+      UserPremsWebSecurityLevelId:new FormControl(),
+      UserIntranetSecurityLevelId:new FormControl(),
+      UserNsdWebSecurityLevelId:new FormControl(),
       Comments:new FormControl(),
       OrganisationUserName:new FormControl(),
-      DefaultPassword:new FormControl('',Validators.required)
+      DefaultPassword:new FormControl()
       
     });
   }
@@ -102,6 +102,7 @@ export class AddUsersComponent implements OnInit {
 
 
   addUserProcess(){
+    console.log("Clicked")
     if(this.formGroup.valid){
       console.log(this.formGroup.value)
       this.authservice.addUser(this.formGroup.value).subscribe(result =>{

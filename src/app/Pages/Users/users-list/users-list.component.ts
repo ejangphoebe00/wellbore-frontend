@@ -126,7 +126,7 @@ export class UsersListComponent implements OnInit {
   }
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.CraneUser_id
+    this.id = selectedItem.CraneUserId
 
 
     this.ngPopups.confirm('Are you sure you want to deactivate this account?', { color: 'red' })
@@ -161,7 +161,7 @@ export class UsersListComponent implements OnInit {
   }
 
   onEdit(selectedItem: any) {
-    // localStorage.setItem("role_id",selectedItem.CraneUser_id);
+    // localStorage.setItem("roleId",selectedItem.CraneUserId);
     this.editForm = false;
     this.details= false;
     this.formDetails = true;
@@ -178,17 +178,17 @@ export class UsersListComponent implements OnInit {
       LoginID: new FormControl(),
       LoginIDAlias: new FormControl(),
       UserCategory: new FormControl(),
-      UserCompany_id: new FormControl(),
-      UserPremsUser_id: new FormControl(),
-      UserStaff_id: new FormControl(),
+      UserCompanyId: new FormControl(),
+      UserPremsUserId: new FormControl(),
+      UserStaffId: new FormControl(),
       OrganisationName: new FormControl(),
       UserEmailAddress: new FormControl(),
-      UserSecurityLevel_id: new FormControl(),
-      UserWebSecurityLevel_id: new FormControl(),
-      UserNogtrWebSecurityLevel_id: new FormControl(),
-      UserPremsWebSecurityLevel_id: new FormControl(),
-      UserIntranetSecurityLevel_id: new FormControl(),
-      UserNsdWebSecurityLevel_id: new FormControl(),
+      UserSecurityLevelId: new FormControl(),
+      UserWebSecurityLevelId: new FormControl(),
+      UserNogtrWebSecurityLevelId: new FormControl(),
+      UserPremsWebSecurityLevelId: new FormControl(),
+      UserIntranetSecurityLevelId: new FormControl(),
+      UserNsdWebSecurityLevelId: new FormControl(),
       Comments: new FormControl(),
       OrganisationUserName: new FormControl(),
       UserPassword: new FormControl('', Validators.required)
@@ -210,7 +210,7 @@ export class UsersListComponent implements OnInit {
 
   More(item: any) {
     this.details = true;
-    this.id = item.CraneUser_id
+    this.id = item.CraneUserId
     console.log(this.id);
     localStorage.setItem("update-id", this.id);
     this.captureWellsInstance();
@@ -223,17 +223,17 @@ export class UsersListComponent implements OnInit {
       LoginID:item.LoginID,
       LoginIDAlias:item.LoginIDAlias,
       UserCategory:item.UserCategory,
-      UserCompany_id:item.UserCompany_id,
-      UserPremsUser_id:item.UserPremsUser_id,
-      UserStaff_id:item.UserStaff_id,
+      UserCompanyId:item.UserCompanyId,
+      UserPremsUserId:item.UserPremsUserId,
+      UserStaffId:item.UserStaffId,
       OrganisationName:item.OrganisationName,
       UserEmailAddress:item.UserEmailAddress,
-      UserSecurityLevel_id:item.UserSecurityLevel_id,
-      UserWebSecurityLevel_id:item.UserWebSecurityLevel_id,
-      UserNogtrWebSecurityLevel_id:item.UserNogtrWebSecurityLevel_id,
-      UserPremsWebSecurityLevel_id:item.UserPremsWebSecurityLevel_id,
-      UserIntranetSecurityLevel_id:item.UserIntranetSecurityLevel_id,
-      UserNsdWebSecurityLevel_id:item.UserNsdWebSecurityLevel_id,
+      UserSecurityLevelId:item.UserSecurityLevelId,
+      UserWebSecurityLevelId:item.UserWebSecurityLevelId,
+      UserNogtrWebSecurityLevelId:item.UserNogtrWebSecurityLevelId,
+      UserPremsWebSecurityLevelId:item.UserPremsWebSecurityLevelId,
+      UserIntranetSecurityLevelId:item.UserIntranetSecurityLevelId,
+      UserNsdWebSecurityLevelId:item.UserNsdWebSecurityLevelId,
       Comments:item.Comments,
       OrganisationUserName:item.OrganisationUserName,
       DefaultPassword: item.DefaultPassword
@@ -253,17 +253,17 @@ export class UsersListComponent implements OnInit {
           LoginID: this.authservice.stripFormValue(this.updatevalue.LoginID),
           LoginIDAlias: this.authservice.stripFormValue(this.updatevalue.LoginIDAlias),
           UserCategory: this.authservice.stripFormValue(this.updatevalue.UserCategory),
-          UserCompany_id: this.authservice.stripFormValue(this.updatevalue.UserCompany_id),
-          UserPremsUser_id: this.authservice.stripFormValue(this.updatevalue.UserPremsUser_id),
-          UserStaff_id: this.authservice.stripFormValue(this.updatevalue.UserStaff_id),
+          UserCompanyId: this.authservice.stripFormValue(this.updatevalue.UserCompanyId),
+          UserPremsUserId: this.authservice.stripFormValue(this.updatevalue.UserPremsUserId),
+          UserStaffId: this.authservice.stripFormValue(this.updatevalue.UserStaffId),
           OrganisationName: this.authservice.stripFormValue(this.updatevalue.OrganisationName),
           UserEmailAddress: this.authservice.stripFormValue(this.updatevalue.UserEmailAddress),
-          UserSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserSecurityLevel_id),
-          UserWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserWebSecurityLevel_id),
-          UserNogtrWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserNogtrWebSecurityLevel_id),
-          UserPremsWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserPremsWebSecurityLevel_id),
-          UserIntranetSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserIntranetSecurityLevel_id),
-          UserNsdWebSecurityLevel_id: this.authservice.stripFormValue(this.updatevalue.UserNsdWebSecurityLevel_id),
+          UserSecurityLevelId: this.authservice.stripFormValue(this.updatevalue.UserSecurityLevelId),
+          UserWebSecurityLevelId: this.authservice.stripFormValue(this.updatevalue.UserWebSecurityLevelId),
+          UserNogtrWebSecurityLevelId: this.authservice.stripFormValue(this.updatevalue.UserNogtrWebSecurityLevelId),
+          UserPremsWebSecurityLevelId: this.authservice.stripFormValue(this.updatevalue.UserPremsWebSecurityLevelId),
+          UserIntranetSecurityLevelId: this.authservice.stripFormValue(this.updatevalue.UserIntranetSecurityLevelId),
+          UserNsdWebSecurityLevelId: this.authservice.stripFormValue(this.updatevalue.UserNsdWebSecurityLevelId),
           Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
           OrganisationUserName: this.authservice.stripFormValue(this.updatevalue.OrganisationUserName),
           DefaultPassword: this.authservice.stripFormValue(this.updatevalue.DefaultPassword)

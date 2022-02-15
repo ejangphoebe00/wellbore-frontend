@@ -205,7 +205,7 @@
                                     type="text" class="form-control"
                                     placeholder="">
                             </div>
-
+<!-- 
                             <div class="form-group">
                                     <label>User Category</label>
                                     <span class="error">*</span>
@@ -215,12 +215,12 @@
                                             </option>
                                             </select>    
                                                                                    
-                                </div>
+                                </div> -->
 
                         <div class="form-group">
                             <label>User Company</label>
                             <input
-                                formControlName="UserCompany_id"
+                                formControlName="UserCompanyId"
                                 type="number" class="form-control"
                                 placeholder="">
                         </div>
@@ -228,7 +228,7 @@
                         <div class="form-group">
                                 <label>User Prems User</label>
                                 <input
-                                    formControlName="UserPremsUser_id"
+                                    formControlName="UserPremsUserId"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
@@ -237,7 +237,7 @@
                                     <label>User Staff </label>
                                     <span class="error">*</span>
                                     <input
-                                    required formControlName="UserStaff_id"
+                                    required formControlName="UserStaffId"
                                         type="number" class="form-control"
                                         placeholder="">
                                        
@@ -270,7 +270,7 @@
                             <div class="form-group">
                                 <label>User Security Level </label>
                                 <input
-                                    formControlName="UserSecurityLevel_id"
+                                    formControlName="UserSecurityLevelId"
                                     type="number" class="form-control"
                                     placeholder="">                                                
                                    
@@ -279,12 +279,12 @@
                                 <label>User Web Security Level</label>
                                 <span class="error">*</span>
                                 <select class="custom-select"
-                                required formControlName="UserWebSecurityLevel_id"
-                                    name="UserWebSecurityLevel_id"
+                                required formControlName="UserWebSecurityLevelId"
+                                    name="UserWebSecurityLevelId"
                                     class="form-control">
                                     <option *ngFor="let city of securityIds"
-                                    [ngValue]="city.WebSecurityLevel_id"
-                                    (change)="changeSecurity($event)">{{city.WebSecurityLevel_id}}-->{{city.WebSecurityLevelName}}
+                                    [ngValue]="city.WebSecurityLevelId"
+                                    (change)="changeSecurity($event)">{{city.WebSecurityLevelId}}-->{{city.WebSecurityLevelName}}
                                     </option>
                                 </select>
                                 
@@ -295,7 +295,7 @@
                                     <label>User Nogtr Web Security Level
                                         </label>
                                     <input
-                                        formControlName="UserNogtrWebSecurityLevel_id"
+                                        formControlName="UserNogtrWebSecurityLevelId"
                                         type="number" class="form-control"
                                         placeholder="">
                                 </div>
@@ -304,7 +304,7 @@
                                 <label>User Prems Web Security Level
                                    </label>
                                 <input
-                                    formControlName="UserPremsWebSecurityLevel_id"
+                                    formControlName="UserPremsWebSecurityLevelId"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
@@ -312,7 +312,7 @@
                                 <label>User Intranet Security Level
                                     </label>
                                 <input
-                                    formControlName="UserIntranetSecurityLevel_id"
+                                    formControlName="UserIntranetSecurityLevelId"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
@@ -325,7 +325,7 @@
                                 <label>User Nsd Web Security Level
                                     </label>
                                 <input
-                                    formControlName="UserNsdWebSecurityLevel_id"
+                                    formControlName="UserNsdWebSecurityLevelId"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
