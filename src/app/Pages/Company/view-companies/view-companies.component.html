@@ -57,10 +57,10 @@
                                 </thead>
                                 <tbody *ngIf="posts?.length != 0">
                                     <tr *ngFor="let company of posts">
-                                        <td> {{company.Company_id}}</td>
+                                        <td> {{company.CompanyId}}</td>
                                         <td> {{company.PAUID}}</td>
                                         <td> {{company.CompanyLongName}}</td>
-                                        <td> {{company.NSD_Number}}</td>
+                                        <td> {{company.NSDNumber}}</td>
                                         <td> {{company.RegistrationNumber}}</td>
                                         <td> {{company.TINNumber}}</td>
                                         <td> {{company.CompanyTelephone}}</td>
@@ -105,7 +105,7 @@
 
                               <tr>
                                 <th  style="width:25%">ID</th>
-                                <td  style="width:25%"> {{ data.Company_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyId }} </td>
 
                                 <th  style="width:25%">PAUID</th>
                                 <td  style="width:25%"> {{ data.PAUID }} </td>
@@ -119,10 +119,10 @@
                               </tr>
                               <tr>
                                 <th  style="width:25%"> NSD Number </th>
-                                <td  style="width:25%"> {{ data.NSD_Number }} </td>
+                                <td  style="width:25%"> {{ data.NSDNumber }} </td>
 
                                 <th  style="width:25%"> Company Category Id </th>
-                                <td  style="width:25%"> {{ data.CompanyCategory_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyCategoryId }} </td>
                               </tr>
                               
                               <tr>
@@ -144,25 +144,25 @@
                                 <td  style="width:25%"> {{ data.CompanyWebsite }} </td>
 
                                 <th  style="width:25%">Company Entity Type Id</th>
-                                <td  style="width:25%"> {{ data.CompanyEntityType_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyEntityTypeId }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Company Entity SubType Id</th>
-                                <td  style="width:25%"> {{ data.CompanyEntitySubType_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyEntitySubTypeId }} </td>
 
                                 <th  style="width:25%">Company Major Activity Id</th>
-                                <td  style="width:25%"> {{ data.CompanyMajorActivity_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyMajorActivityId }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Company Activity Division Id</th>
-                                <td  style="width:25%"> {{ data.CompanyActivityDivision_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyActivityDivisionId }} </td>
 
                                 <th  style="width:25%">Company Activity Division Class Id</th>
-                                <td  style="width:25%"> {{ data.CompanyActivityDivisionClass_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyActivityDivisionClassId }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Company Activity Division Class Category Id</th>
-                                <td  style="width:25%"> {{ data.CompanyActivityDivisionClassCategory_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyActivityDivisionClassCategoryId }} </td>
 
                                 <th  style="width:25%">Business Nature Description</th>
                                 <td  style="width:25%"> {{ data.BusinessNatureDescription }} </td>
@@ -221,28 +221,28 @@
                                 <td  style="width:25%"> {{ data.TempNOGTRIPwd }} </td>
 
                                 <th  style="width:25%">Registration Status Id</th>
-                                <td  style="width:25%"> {{ data.RegistrationStatus_id }} </td>
+                                <td  style="width:25%"> {{ data.RegistrationStatusId }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Classify As Ugandan Id</th>
-                                <td  style="width:25%"> {{ data.ClassifyAsUgandan_id }} </td>
+                                <td  style="width:25%"> {{ data.ClassifyAsUgandanId }} </td>
 
                                 <th  style="width:25%">Comments</th>
                                 <td  style="width:25%"> {{ data.Comments }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Primary Company Kind Id</th>
-                                <td  style="width:25%"> {{ data.PrimaryCompanyKind_id }} </td>
+                                <td  style="width:25%"> {{ data.PrimaryCompanyKindId }} </td>
 
                                 <th  style="width:25%">Secondary Company Kind Id</th>
-                                <td  style="width:25%"> {{ data.SecondaryCompanyKind_id }} </td>
+                                <td  style="width:25%"> {{ data.SecondaryCompanyKindId }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Other CompanyKind Id</th>
-                                <td  style="width:25%"> {{ data.OtherCompanyKind_id }} </td>
+                                <td  style="width:25%"> {{ data.OtherCompanyKindId }} </td>
 
                                 <th  style="width:25%">Company Group Id</th>
-                                <td  style="width:25%"> {{ data.CompanyGroup_id }} </td>
+                                <td  style="width:25%"> {{ data.CompanyGroupId }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">Company Mobile</th>
@@ -256,11 +256,11 @@
                                 <td  style="width:25%"> {{ data.ContactEntityFax }} </td>
 
                                 <th  style="width:25%">NSD From Date</th>
-                                <td  style="width:25%"> {{ data.NSD_FromDate }} </td>
+                                <td  style="width:25%"> {{ data.NSDFromDate }} </td>
                               </tr>
                               <tr>
                                 <th  style="width:25%">NSD To Date</th>
-                                <td  style="width:25%"> {{ data.NSD_ToDate }} </td>
+                                <td  style="width:25%"> {{ data.NSDToDate }} </td>
 
                                 <th  style="width:25%">Imported From NSD</th>
                                 <td  style="width:25%"> {{ data.ImportedFromNSD }} </td>
@@ -291,7 +291,7 @@
                                 <td  style="width:25%"> {{ data.Country }} </td>
 
                                 <!-- <th  style="width:25%">Country Of Registration Id</th>
-                                <td  style="width:25%"> {{ data.CountryOfRegistration_id }} </td> -->
+                                <td  style="width:25%"> {{ data.CountryOfRegistrationId }} </td> -->
                               </tr>
                              </tbody>
                          </table>
@@ -334,11 +334,11 @@
                         </div>
                         <div class="form-group">
                             <label>NSD Number <span class="red asterisk-validate ml-2">*</span></label>
-                            <input type="text" required formControlName="NSD_Number"  class="form-control">
+                            <input type="text" required formControlName="NSDNumber"  class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Category </label>
-                            <input type="number" formControlName="CompanyCategory_id" class="form-control">
+                            <input type="number" formControlName="CompanyCategoryId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Country</label>
@@ -350,7 +350,7 @@
                         </div>
                         <!-- <div class="form-group">
                             <label>Country Of Registration</label>
-                            <select class="form-control" formControlName="CountryOfRegistration_id" >
+                            <select class="form-control" formControlName="CountryOfRegistrationId" >
                                 <option *ngFor="let role of Countries" [ngValue]="role"
                                     (change)="changeCountries($event)">{{role}}
                                 </option>
@@ -391,11 +391,11 @@
                         </div>
                         <div class="form-group">
                             <label>Company Entity Type</label>
-                            <input type="number" class="form-control" formControlName="CompanyEntityType_id">
+                            <input type="number" class="form-control" formControlName="CompanyEntityTypeId">
                         </div>
                         <div class="form-group">
                             <label>Company Entity Sub Type</label>
-                            <input type="number" formControlName="CompanyEntitySubType_id" class="form-control">
+                            <input type="number" formControlName="CompanyEntitySubTypeId" class="form-control">
                         </div>
                       </div>
 
@@ -403,19 +403,19 @@
 
                         <div class="form-group">
                             <label>Company Major Activity </label>
-                            <input type="number" formControlName="CompanyMajorActivity_id" class="form-control">
+                            <input type="number" formControlName="CompanyMajorActivityId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Activity Division </label>
-                            <input type="number" formControlName="CompanyActivityDivision_id" class="form-control">
+                            <input type="number" formControlName="CompanyActivityDivisionId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Activity Division Class</label>
-                            <input type="number" formControlName="CompanyActivityDivisionClass_id" class="form-control">
+                            <input type="number" formControlName="CompanyActivityDivisionClassId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>  Company Activity Division Class Category </label>
-                            <input type="number" formControlName="CompanyActivityDivisionClassCategory_id" class="form-control" >
+                            <input type="number" formControlName="CompanyActivityDivisionClassCategoryId" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>Business Nature Description</label>
@@ -510,27 +510,27 @@
                         </div>
                         <div class="form-group">
                             <label>Registration Status </label>
-                            <input type="number" formControlName="RegistrationStatus_id" class="form-control">
+                            <input type="number" formControlName="RegistrationStatusId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Classify As Ugandan </label>
-                            <input type="number" formControlName="ClassifyAsUgandan_id" class="form-control">
+                            <input type="number" formControlName="ClassifyAsUgandanId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Primary Company Kind </label>
-                            <input type="number" formControlName="PrimaryCompanyKind_id" class="form-control">
+                            <input type="number" formControlName="PrimaryCompanyKindId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Secondary Company Kind </label>
-                            <input type="number" formControlName="SecondaryCompanyKind_id" class="form-control">
+                            <input type="number" formControlName="SecondaryCompanyKindId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Other Company Kind </label>
-                            <input type="number" formControlName="OtherCompanyKind_id" class="form-control">
+                            <input type="number" formControlName="OtherCompanyKindId" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Group</label>
-                            <input type="number" formControlName="CompanyGroup_id" class="form-control">
+                            <input type="number" formControlName="CompanyGroupId" class="form-control">
                         </div>
                       </div>
 
@@ -554,11 +554,11 @@
                         </div>
                         <div class="form-group">
                             <label>NSD From Date</label>
-                            <input type="date" class="form-control" formControlName="NSD_FromDate">
+                            <input type="date" class="form-control" formControlName="NSDFromDate">
                         </div>
                         <div class="form-group">
                             <label>NSD To Date</label>
-                            <input type="date" min="1900-10-01" max={{mindate}}  class="form-control" formControlName="NSD_ToDate">
+                            <input type="date" min="1900-10-01" max={{mindate}}  class="form-control" formControlName="NSDToDate">
                         </div>
                         <div class="form-group">
                             <label>Imported From NSD</label>

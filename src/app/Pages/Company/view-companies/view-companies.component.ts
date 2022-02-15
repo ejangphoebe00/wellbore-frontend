@@ -151,7 +151,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   }
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.Company_id
+    this.id = selectedItem.CompanyId
 
     this.ngPopups.confirm("Are you sure you want to delete ?",{
       // theme: 'material',
@@ -162,7 +162,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     })
     .subscribe(res => {
       if (res) {
-        console.log("Selected item Id: ", selectedItem.Company_id);
+        console.log("Selected item Id: ", selectedItem.CompanyId);
         this.http.delete('http://127.0.0.1:8899/apiv1/delete_company/' + this.id)
           .subscribe(response => {
             this.deleteresp = response
@@ -194,25 +194,25 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.details= true;
     this.editform = false;
     this.data = {
-      Company_id: selectedItem.Company_id,
+      CompanyId: selectedItem.CompanyId,
       PAUID: selectedItem.PAUID,
       CompanyLongName: selectedItem.CompanyLongName,
       CompanyShortName: selectedItem.CompanyShortName,
-      NSD_Number: selectedItem.NSD_Number,
-      CompanyCategory_id: selectedItem.CompanyCategory_id,
+      NSDNumber: selectedItem.NSDNumber,
+      CompanyCategoryId: selectedItem.CompanyCategoryId,
       Country: selectedItem.Country,
-      // CountryOfRegistration_id: selectedItem.CountryOfRegistration_id,
+      // CountryOfRegistrationId: selectedItem.CountryOfRegistrationId,
       RegistrationNumber: selectedItem.RegistrationNumber,
       TINNumber: selectedItem.TINNumber,
       CompanyTelephone: selectedItem.CompanyTelephone,
       CompanyEmail: selectedItem.CompanyEmail,
       CompanyWebsite: selectedItem.CompanyWebsite,
-      CompanyEntityType_id: selectedItem.CompanyEntityType_id,
-      CompanyEntitySubType_id: selectedItem.CompanyEntitySubType_id,
-      CompanyMajorActivity_id: selectedItem.CompanyMajorActivity_id,
-      CompanyActivityDivision_id: selectedItem.CompanyActivityDivision_id,
-      CompanyActivityDivisionClass_id: selectedItem.CompanyActivityDivisionClass_id,
-      CompanyActivityDivisionClassCategory_id: selectedItem.CompanyActivityDivisionClassCategory_id,
+      CompanyEntityTypeId: selectedItem.CompanyEntityTypeId,
+      CompanyEntitySubTypeId: selectedItem.CompanyEntitySubTypeId,
+      CompanyMajorActivityId: selectedItem.CompanyMajorActivityId,
+      CompanyActivityDivisionId: selectedItem.CompanyActivityDivisionId,
+      CompanyActivityDivisionClassId: selectedItem.CompanyActivityDivisionClassId,
+      CompanyActivityDivisionClassCategoryId: selectedItem.CompanyActivityDivisionClassCategoryId,
       BusinessNatureDescription: selectedItem.BusinessNatureDescription,
       CompanyPostalAddress: selectedItem.CompanyPostalAddress,
       CompanyPhysicalAddress: selectedItem.CompanyPhysicalAddress,
@@ -229,18 +229,18 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       PAURegistrationDate: selectedItem.PAURegistrationDate,
       CraneNOGTRID: selectedItem.CraneNOGTRID,
       TempNOGTRIPwd: selectedItem.TempNOGTRIPwd,
-      RegistrationStatus_id: selectedItem.RegistrationStatus_id,
-      ClassifyAsUgandan_id: selectedItem.ClassifyAsUgandan_id,
+      RegistrationStatusId: selectedItem.RegistrationStatusId,
+      ClassifyAsUgandanId: selectedItem.ClassifyAsUgandanId,
       Comments: selectedItem.Comments,
-      PrimaryCompanyKind_id: selectedItem.PrimaryCompanyKind_id,
-      SecondaryCompanyKind_id: selectedItem.SecondaryCompanyKind_id,
-      OtherCompanyKind_id: selectedItem.OtherCompanyKind_id,
-      CompanyGroup_id: selectedItem.CompanyGroup_id,
+      PrimaryCompanyKindId: selectedItem.PrimaryCompanyKindId,
+      SecondaryCompanyKindId: selectedItem.SecondaryCompanyKindId,
+      OtherCompanyKindId: selectedItem.OtherCompanyKindId,
+      CompanyGroupId: selectedItem.CompanyGroupId,
       CompanyMobile: selectedItem.CompanyMobile,
       CompanyFax: selectedItem.CompanyFax,
       ContactEntityFax: selectedItem.ContactEntityFax,
-      NSD_FromDate: selectedItem.NSD_FromDate,
-      NSD_ToDate: selectedItem.NSD_ToDate,
+      NSDFromDate: selectedItem.NSDFromDate,
+      NSDToDate: selectedItem.NSDToDate,
       ImportedFromNSD: selectedItem.ImportedFromNSD,
       ImportedDate: selectedItem.ImportedDate,
       ExportedDate: selectedItem.ExportedDate,
@@ -267,9 +267,9 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.status = false;
     this.editform = true;
     this.details = false;
-    this.id = selectedItem.Company_id
+    this.id = selectedItem.CompanyId
     localStorage.setItem("update-id", this.id);
-    console.log("Selected item Id: ", selectedItem.Company_id);
+    console.log("Selected item Id: ", selectedItem.CompanyId);
 
     this.currentYear = new Date().getFullYear();
     while (this.currentYear >= 1900) {
@@ -292,25 +292,25 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
 
         this.formGroup.patchValue(
           {
-           Company_id: this.authservice.stripFormValue(this.updatevalue.Company_id),
+           CompanyId: this.authservice.stripFormValue(this.updatevalue.CompanyId),
            PAUID: this.authservice.stripFormValue(this.updatevalue.PAUID),
            CompanyLongName: this.authservice.stripFormValue(this.updatevalue.CompanyLongName),
            CompanyShortName: this.authservice.stripFormValue(this.updatevalue.CompanyShortName),
-           NSD_Number: this.authservice.stripFormValue(this.updatevalue.NSD_Number),
-           CompanyCategory_id: this.authservice.stripFormValue(this.updatevalue.CompanyCategory_id),
+           NSDNumber: this.authservice.stripFormValue(this.updatevalue.NSDNumber),
+           CompanyCategoryId: this.authservice.stripFormValue(this.updatevalue.CompanyCategoryId),
            Country: this.authservice.stripFormValue(this.updatevalue.Country),
-          // CountryOfRegistration_id: this.authservice.stripFormValue(this.updatevalue.CountryOfRegistration_id),
+          // CountryOfRegistrationId: this.authservice.stripFormValue(this.updatevalue.CountryOfRegistrationId),
            RegistrationNumber: this.authservice.stripFormValue(this.updatevalue.RegistrationNumber),
            TINNumber: this.authservice.stripFormValue(this.updatevalue.TINNumber),
            CompanyTelephone: this.authservice.stripFormValue(this.updatevalue.CompanyTelephone),
            CompanyEmail: this.authservice.stripFormValue(this.updatevalue.CompanyEmail),
            CompanyWebsite: this.authservice.stripFormValue(this.updatevalue.CompanyWebsite),
-           CompanyEntityType_id: this.authservice.stripFormValue(this.updatevalue.CompanyEntityType_id),
-           CompanyEntitySubType_id: this.authservice.stripFormValue(this.updatevalue.CompanyEntitySubType_id),
-           CompanyMajorActivity_id: this.authservice.stripFormValue(this.updatevalue.CompanyMajorActivity_id),
-           CompanyActivityDivision_id: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivision_id),
-           CompanyActivityDivisionClass_id: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionClass_id),
-           CompanyActivityDivisionClassCategory_id: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionClassCategory_id),
+           CompanyEntityTypeId: this.authservice.stripFormValue(this.updatevalue.CompanyEntityTypeId),
+           CompanyEntitySubTypeId: this.authservice.stripFormValue(this.updatevalue.CompanyEntitySubTypeId),
+           CompanyMajorActivityId: this.authservice.stripFormValue(this.updatevalue.CompanyMajorActivityId),
+           CompanyActivityDivisionId: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionId),
+           CompanyActivityDivisionClassId: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionClassId),
+           CompanyActivityDivisionClassCategoryId: this.authservice.stripFormValue(this.updatevalue.CompanyActivityDivisionClassCategoryId),
            BusinessNatureDescription: this.authservice.stripFormValue(this.updatevalue.BusinessNatureDescription),
            CompanyPostalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPostalAddress),
            CompanyPhysicalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPhysicalAddress),
@@ -331,18 +331,18 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
 
            CraneNOGTRID: this.authservice.stripFormValue(this.updatevalue.CraneNOGTRID),
            TempNOGTRIPwd: this.authservice.stripFormValue(this.updatevalue.TempNOGTRIPwd),
-           RegistrationStatus_id: this.authservice.stripFormValue(this.updatevalue.RegistrationStatus_id),
-           ClassifyAsUgandan_id: this.authservice.stripFormValue(this.updatevalue.ClassifyAsUgandan_id),
+           RegistrationStatusId: this.authservice.stripFormValue(this.updatevalue.RegistrationStatusId),
+           ClassifyAsUgandanId: this.authservice.stripFormValue(this.updatevalue.ClassifyAsUgandanId),
            Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
-           PrimaryCompanyKind_id: this.authservice.stripFormValue(this.updatevalue.PrimaryCompanyKind_id),
-           SecondaryCompanyKind_id: this.authservice.stripFormValue(this.updatevalue.SecondaryCompanyKind_id),
-           OtherCompanyKind_id: this.authservice.stripFormValue(this.updatevalue.OtherCompanyKind_id),
-           CompanyGroup_id: this.authservice.stripFormValue(this.updatevalue.CompanyGroup_id),
+           PrimaryCompanyKindId: this.authservice.stripFormValue(this.updatevalue.PrimaryCompanyKindId),
+           SecondaryCompanyKindId: this.authservice.stripFormValue(this.updatevalue.SecondaryCompanyKindId),
+           OtherCompanyKindId: this.authservice.stripFormValue(this.updatevalue.OtherCompanyKindId),
+           CompanyGroupId: this.authservice.stripFormValue(this.updatevalue.CompanyGroupId),
            CompanyMobile: this.authservice.stripFormValue(this.updatevalue.CompanyMobile),
            CompanyFax: this.authservice.stripFormValue(this.updatevalue.CompanyFax),
            ContactEntityFax: this.authservice.stripFormValue(this.updatevalue.ContactEntityFax),
-           NSD_FromDate: this.authservice.stripFormValue(this.updatevalue.NSD_FromDate),
-           NSD_ToDate: this.authservice.stripFormValue(this.updatevalue.NSD_ToDate),
+           NSDFromDate: this.authservice.stripFormValue(this.updatevalue.NSDFromDate),
+           NSDToDate: this.authservice.stripFormValue(this.updatevalue.NSDToDate),
            ImportedFromNSD: this.authservice.stripFormValue(this.updatevalue.ImportedFromNSD),
            ImportedDate: this.authservice.stripFormValue(this.updatevalue.ImportedDate),
            ExportedDate: this.authservice.stripFormValue(this.updatevalue.ExportedDate),
@@ -413,21 +413,21 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       PAUID:new FormControl(),
       CompanyLongName:new FormControl(),
       CompanyShortName:new FormControl(),
-      NSD_Number:new FormControl(),
-      CompanyCategory_id:new FormControl(),
+      NSDNumber:new FormControl(),
+      CompanyCategoryId:new FormControl(),
       Country:new FormControl(),
-     // CountryOfRegistration_id:new FormControl(),
+     // CountryOfRegistrationId:new FormControl(),
       RegistrationNumber:new FormControl(),
       TINNumber:new FormControl(),
       CompanyTelephone:new FormControl(),
       CompanyEmail:new FormControl(),
       CompanyWebsite:new FormControl(),
-      CompanyEntityType_id:new FormControl(),
-      CompanyEntitySubType_id:new FormControl(),
-      CompanyMajorActivity_id:new FormControl(),
-      CompanyActivityDivision_id:new FormControl(),
-      CompanyActivityDivisionClass_id:new FormControl(),
-      CompanyActivityDivisionClassCategory_id:new FormControl(),
+      CompanyEntityTypeId:new FormControl(),
+      CompanyEntitySubTypeId:new FormControl(),
+      CompanyMajorActivityId:new FormControl(),
+      CompanyActivityDivisionId:new FormControl(),
+      CompanyActivityDivisionClassId:new FormControl(),
+      CompanyActivityDivisionClassCategoryId:new FormControl(),
       BusinessNatureDescription:new FormControl(),
       CompanyPostalAddress:new FormControl(),
       CompanyPhysicalAddress:new FormControl(),
@@ -444,18 +444,18 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       PAURegistrationDate:new FormControl(),
       CraneNOGTRID:new FormControl(),
       TempNOGTRIPwd:new FormControl(),
-      RegistrationStatus_id:new FormControl(),
-      ClassifyAsUgandan_id:new FormControl(),
+      RegistrationStatusId:new FormControl(),
+      ClassifyAsUgandanId:new FormControl(),
       Comments:new FormControl(),
-      PrimaryCompanyKind_id:new FormControl(),
-      SecondaryCompanyKind_id:new FormControl(),
-      OtherCompanyKind_id:new FormControl(),
-      CompanyGroup_id:new FormControl(),
+      PrimaryCompanyKindId:new FormControl(),
+      SecondaryCompanyKindId:new FormControl(),
+      OtherCompanyKindId:new FormControl(),
+      CompanyGroupId:new FormControl(),
       CompanyMobile:new FormControl(),
       CompanyFax:new FormControl(),
       ContactEntityFax:new FormControl(),
-      NSD_FromDate:new FormControl(),
-      NSD_ToDate:new FormControl(),
+      NSDFromDate:new FormControl(),
+      NSDToDate:new FormControl(),
       ImportedFromNSD:new FormControl(),
       ImportedDate:new FormControl(),
       ExportedDate:new FormControl(),
