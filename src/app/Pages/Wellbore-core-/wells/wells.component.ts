@@ -34,10 +34,10 @@ export class WellsComponent implements OnInit {
 
 
   wellboreIds: any;
-  WBCoringContractor_id: any;
-  CoreTopStratLitho_id: any;
-  CoreBottomStratLitho_id: any;
-  ReportFileFormat_id: any;
+  WBCoringContractorId: any;
+  CoreTopStratLithoId: any;
+  CoreBottomStratLithoId: any;
+  ReportFileFormatId: any;
   ReportSecurityGrade : any;
   details: boolean = false;
   wellboreCores: any;
@@ -151,9 +151,9 @@ export class WellsComponent implements OnInit {
 
     this.getWelboreId();
     this.getWBCoringContractorId();
-    this.getCoreTopStratLitho_id();
-    this.getCoreBottomStratLitho_id();
- //   this.getReportFormat_id();
+    this.getCoreTopStratLithoId();
+    this.getCoreBottomStratLithoId();
+ //   this.getReportFormatId();
     this.getReportSecurityGrade ();
   }
 
@@ -183,7 +183,7 @@ export class WellsComponent implements OnInit {
       CoreNumber:new FormControl(),
       CoreTypeName:new FormControl(),
       CoringDate:new FormControl(),
-      WBCoringContractor_id:new FormControl(),
+      WBCoringContractorId:new FormControl(),
       CoreTopMD:new FormControl(),
       CoreBtmMD:new FormControl(),
       CoreTopTVD:new FormControl(),
@@ -193,8 +193,8 @@ export class WellsComponent implements OnInit {
       RecoveredLength:new FormControl(),
       PercentageCoreRecovery: new FormControl(),
       CoreRecovery:new FormControl(),
-      CoreTopStratLitho_id:new FormControl(),
-      CoreBottomStratLitho_id:new FormControl(),
+      CoreTopStratLithoId:new FormControl(),
+      CoreBottomStratLithoId:new FormControl(),
       CorePictureSoftcopyPath:new FormControl(),
       CorePictureHyperlink:new FormControl(),
       PictureUploadDate:new FormControl(),
@@ -211,8 +211,10 @@ export class WellsComponent implements OnInit {
       ReportDocumentName:new FormControl(),
       WelboreCoreName:new FormControl(),
       Comments:new FormControl(),
-      Core_analysis_reports: new FormControl(),
-      Core_photograph: new FormControl(),
+      StoreIdentifier: new FormControl(),
+      AnalysisReportDetails: new FormControl(),
+      CoreAnalysisReports: new FormControl(),
+      CorePhotograph: new FormControl(),
       fileSource: new FormControl()
     });
   }
@@ -228,19 +230,19 @@ export class WellsComponent implements OnInit {
 
   onView(item: any) {
     this.details = true;
-    this.id = item.CoreCatalog_id
+    this.id = item.CoreCatalogId
     localStorage.setItem("update-id", this.id);
     this.captureWellsInstance();
     this.wells = {
-      WellboreCore_id: item.WellboreCore_id,
+      WellboreCoreId: item.WellboreCoreId,
       CoreType: item.CoreType,
       StoreIdentifier: item.StoreIdentifier,
       CatalogCoreFromDepth: item.CatalogCoreFromDepth,
       CatalogCoreToDepth: item.CatalogCoreToDepth,
-      CoreCatalogSecurityFlag_id: item.CoreCatalogSecurityFlag_id,
-      WasAnalysed_id: item.WasAnalysed_id,
-      TopStratLitho_id: item.TopStratLitho_id,
-      BottomStratLitho_id: item.BottomStratLitho_id,
+      CoreCatalogSecurityFlagId: item.CoreCatalogSecurityFlagId,
+      WasAnalysedId: item.WasAnalysedId,
+      TopStratLithoId: item.TopStratLithoId,
+      BottomStratLithoId: item.BottomStratLithoId,
       CatalogueCorePictureName: item.CatalogueCorePictureName,
       CataloguePictureSoftcopyPath: item.CataloguePictureSoftcopyPath,
       CataloguePictureHyperlink: item.CataloguePictureHyperlink,
@@ -248,12 +250,13 @@ export class WellsComponent implements OnInit {
       CatalogueReportSoftcopyPath: item.CatalogueReportSoftcopyPath,
       CatalogueReportHyperlink: item.CatalogueReportHyperlink,
       CatReportUploadDate: item.CatReportUploadDate,
-      CatalogReportFormat_id: item.CatalogReportFormat_id,
+      CatalogReportFormatId: item.CatalogReportFormatId,
       CatalogReportFileSize: item.CatalogReportFileSize,
-      CatalogReportSecurityGrade_id: item.CatalogReportSecurityGrade_id,
+      CatalogReportSecurityGradeId: item.CatalogReportSecurityGradeId,
       CoreCatalogName: item.CoreCatalogName,
       WelboreCoreName: item.WelboreCoreName,
       Comments: item.Comments,
+      AnalysisReportDetails: item.AnalysisReportDetails
     }
   }
 
@@ -302,32 +305,32 @@ export class WellsComponent implements OnInit {
     })
   }
 
-  // getReportFormat_id() {
+  // getReportFormatId() {
   //   this.authservice.getFormat().subscribe(res => {
-  //     this.ReportFormat_id = res;
-  //     console.log(this.ReportFormat_id);
+  //     this.ReportFormatId = res;
+  //     console.log(this.ReportFormatId);
   //   })
   // }
 
-  getCoreBottomStratLitho_id() {
+  getCoreBottomStratLithoId() {
     this.authservice.getStrat().subscribe(res => {
-      this.CoreBottomStratLitho_id = res;
-      console.log(this.CoreBottomStratLitho_id);
+      this.CoreBottomStratLithoId = res;
+      console.log(this.CoreBottomStratLithoId);
     })
   }
 
 
-  getCoreTopStratLitho_id() {
+  getCoreTopStratLithoId() {
     this.authservice.getAllStratLithoUnits().subscribe(res => {
-      this.CoreTopStratLitho_id = res;
-      console.log(this.CoreTopStratLitho_id);
+      this.CoreTopStratLithoId = res;
+      console.log(this.CoreTopStratLithoId);
     })
   }
 
   getWBCoringContractorId() {
     this.authservice.getCompanies().subscribe(res => {
-      this.WBCoringContractor_id = res;
-      console.log(this.WBCoringContractor_id);
+      this.WBCoringContractorId = res;
+      console.log(this.WBCoringContractorId);
     })
   }
 
@@ -345,9 +348,9 @@ export class WellsComponent implements OnInit {
     })
   }
 
-  // changeReportFormat_id(e: any) {
+  // changeReportFormatId(e: any) {
   //   console.log(e.value)
-  //   this.ReportFormat_id.setValue(e.target.value, {
+  //   this.ReportFormatId.setValue(e.target.value, {
   //     onlySelf: true
   //   })
 
@@ -356,21 +359,21 @@ export class WellsComponent implements OnInit {
 
   changeCoreBottomStratLitho(e: any) {
     console.log(e.value)
-    this.CoreBottomStratLitho_id.setValue(e.target.value, {
+    this.CoreBottomStratLithoId.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   changeCoreTopStratLitho(e: any) {
     console.log(e.value)
-    this.CoreTopStratLitho_id.setValue(e.target.value, {
+    this.CoreTopStratLithoId.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   changeContractingId(e: any) {
     console.log(e.value)
-    this.WBCoringContractor_id.setValue(e.target.value, {
+    this.WBCoringContractorId.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -398,7 +401,7 @@ export class WellsComponent implements OnInit {
   }
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.WellboreCore_id
+    this.id = selectedItem.WellboreCoreId
 
     this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
@@ -409,7 +412,7 @@ export class WellsComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.WellboreCore_id);
+          console.log("Selected item Id: ", selectedItem.WellboreCoreId);
           this.http.delete('http://127.0.0.1:8899/apiv1/delete_core/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;
@@ -447,15 +450,15 @@ export class WellsComponent implements OnInit {
 
   More(item: any) {
     this.details = true;
-    this.id = item.WellboreCore_id
+    this.id = item.WellboreCoreId
     localStorage.setItem("update-id", this.id);
-    console.log("Selected item Id: ", item.WellboreCore_id);
+    console.log("Selected item Id: ", item.WellboreCoreId);
     this.captureWellsInstance();
     this.wellboreCores = {
       WellborePAUID: item.WellborePAUID,
       CoreNumber: item.CoreNumber,
       CoringDate: item.CoringDate,
-      WBCoringContractor_id: item.WBCoringContractor_id,
+      WBCoringContractorId: item.WBCoringContractorId,
       CoreTopMD: item.CoreTopMD,
       CoreBtmMD: item.CoreBtmMD,
       CoreTopTVD: item.CoreTopTVD,
@@ -464,8 +467,8 @@ export class WellsComponent implements OnInit {
       CutLengthTVD: item.CutLengthTVD,
       RecoveredLength: item.RecoveredLength,
       PercentageCoreRecovery: item.PercentageCoreRecovery,
-      CoreTopStratLitho_id: item.CoreTopStratLitho_id,
-      CoreBottomStratLitho_id: item.CoreBottomStratLitho_id,
+      CoreTopStratLithoId: item.CoreTopStratLithoId,
+      CoreBottomStratLithoId: item.CoreBottomStratLithoId,
       CorePictureSoftcopyPath: item.CorePictureSoftcopyPath,
       CorePictureHyperlink: item.CorePictureHyperlink,
       PictureUploadDate: item.PictureUploadDate,
@@ -481,7 +484,9 @@ export class WellsComponent implements OnInit {
       ReportDocumentDate: item.ReportDocumentDate,
       ReportDocumentName: item.ReportDocumentName,
       CoreTypeName: (item.CoreTypeName).replace('CoreTypeEnum.', ''),
-      Comments: item.Comments
+      Comments: item.Comments,
+      StoreIdentifier: item.StoreIdentifier,
+      AnalysisReportDetails:item.AnalysisReportDetails
 
     }
   }
@@ -496,7 +501,7 @@ export class WellsComponent implements OnInit {
           WellborePAUID: this.authservice.stripFormValue(this.updatevalue.WellborePAUID),
           CoreNumber: this.authservice.stripFormValue(this.updatevalue.CoreNumber),
           CoringDate: this.authservice.stripFormValue(this.updatevalue.CoringDate),
-          WBCoringContractor_id: this.authservice.stripFormValue(this.updatevalue.WBCoringContractor_id),
+          WBCoringContractorId: this.authservice.stripFormValue(this.updatevalue.WBCoringContractorId),
           CoreTopMD: this.authservice.stripFormValue(this.updatevalue.CoreTopMD),
           CoreBtmMD: this.authservice.stripFormValue(this.updatevalue.CoreBtmMD),
           CoreTopTVD: this.authservice.stripFormValue(this.updatevalue.CoreTopTVD),
@@ -505,8 +510,8 @@ export class WellsComponent implements OnInit {
           CutLengthTVD: this.authservice.stripFormValue(this.updatevalue.CutLengthTVD),
           RecoveredLength: this.authservice.stripFormValue(this.updatevalue.RecoveredLength),
           PercentageCoreRecovery: this.authservice.stripFormValue(this.updatevalue.PercentageCoreRecovery),
-          CoreTopStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreTopStratLitho_id),
-          CoreBottomStratLitho_id: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLitho_id),
+          CoreTopStratLithoId: this.authservice.stripFormValue(this.updatevalue.CoreTopStratLithoId),
+          CoreBottomStratLithoId: this.authservice.stripFormValue(this.updatevalue.CoreBottomStratLithoId),
           CorePictureSoftcopyPath: this.authservice.stripFormValue(this.updatevalue.CorePictureSoftcopyPath),
           CorePictureHyperlink: this.authservice.stripFormValue(this.updatevalue.CorePictureHyperlink),
           PictureUploadDate: this.authservice.stripFormValue(this.updatevalue.PictureUploadDate),
@@ -523,7 +528,8 @@ export class WellsComponent implements OnInit {
           ReportDocumentName: this.authservice.stripFormValue(this.updatevalue.ReportDocumentName),
           CoreTypeName: this.authservice.stripFormValue((this.updatevalue.CoreTypeName).replace('CoreTypeEnum.', '')),
          Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
-         WelboreCoreName: this.authservice.stripFormValue(this.updatevalue.WelboreCoreName)
+         WelboreCoreName: this.authservice.stripFormValue(this.updatevalue.WelboreCoreName),
+         AnalysisReportDetails: this.authservice.stripFormValue(this.updatevalue.AnalysisReportDetails)
         });
         console.log(this.updatevalue)
         console.log('add update check'+ (this.updatevalue.CoreTypeName).replace('CoreTypeEnum.', ''))
@@ -679,8 +685,8 @@ export class WellsComponent implements OnInit {
 
 
         for (var product of response) {
-          console.log('firat test: ' + product.Core_photographs)
-          this.ims = product.Core_photographs
+          console.log('firat test: ' + product.CorePhotographs)
+          this.ims = product.CorePhotographs
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
@@ -709,8 +715,8 @@ export class WellsComponent implements OnInit {
 
 
         for (var product of response) {
-          console.log('firat test: ' + product.Core_analysis_reports)
-          this.ims = product.Core_analysis_reports
+          console.log('firat test: ' + product.CoreAnalysisReports)
+          this.ims = product.CoreAnalysisReports
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
@@ -719,7 +725,7 @@ export class WellsComponent implements OnInit {
             if (image != 'null') {
               this.cutImg.push({
                 'link': image.replace('backend', 'http://127.0.0.1:8899'),
-                'file_id': this.ims.indexOf(image) + 1,
+                'fileId': this.ims.indexOf(image) + 1,
                 'name': image.replace('backend/static/files/', '')
               });
 
@@ -757,8 +763,8 @@ export class WellsComponent implements OnInit {
 
 
         for (var product of response) {
-          console.log('firat test: ' + product.Core_photographs)
-          this.ims = product.Core_photographs
+          console.log('firat test: ' + product.CorePhotographs)
+          this.ims = product.CorePhotographs
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
@@ -781,11 +787,11 @@ export class WellsComponent implements OnInit {
   }
 
   onDeleteFile(selectedItem: any) {
-    console.log('you clicked on element no: ' + selectedItem.file_id);
+    console.log('you clicked on element no: ' + selectedItem.fileId);
 
 
 
-    this.id = selectedItem.file_id;
+    this.id = selectedItem.fileId;
 
     this.ngPopups.confirm("Are you sure you want to delete this file?", {
       // theme: 'material',
@@ -796,7 +802,7 @@ export class WellsComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.Core_sample_id);
+          console.log("Selected item Id: ", selectedItem.Core_sampleId);
           this.http.delete('http://127.0.0.1:8899/apiv1/delete_file/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;

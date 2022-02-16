@@ -14,9 +14,10 @@ export class AddFluidsComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   wellboreIds: any;
-  WBCoringContractor_id: any;
+  WBCoringContractorId: any;
   today : any;
   Fluids:any = ['Oil','Gas','Water'];
+  Purpose: any = ['Crude Oil Analysis','PVT Analysis','Formation Water Analysis','Natural Gas Analysis','Others'];
   maxd: any;
   mindate: any;
   checkstaff: boolean = false;
@@ -67,16 +68,18 @@ export class AddFluidsComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      Wellbore_id:new FormControl(),
-      Sampling_activity:new FormControl(),
-      Fluid_category:new FormControl(),
-      Sample_type:new FormControl(),
-      Sample_basin:new FormControl(),
-      Sample_volume:new FormControl(),
-      Depth_obtained:new FormControl(),
-      Date_collected:new FormControl(),
-      Date_received:new FormControl(),
-      Sampling_company:new FormControl(),
+      WellboreId:new FormControl(),
+      SamplingActivity:new FormControl(),
+      FluidCategory:new FormControl(),
+      SampleType:new FormControl(),
+      SampleBasin:new FormControl(),
+      SampleVolume:new FormControl(),
+      DepthObtained:new FormControl(),
+      DateCollected:new FormControl(),
+      DateReceived:new FormControl(),
+      SamplingCompany:new FormControl(),
+      SamplePurpose: new FormControl(),
+      OtherSpecifiedSamplePurpose: new FormControl()
     });
   }
 
@@ -125,7 +128,7 @@ export class AddFluidsComponent implements OnInit {
 
   changeContractingId(e:any) {
     console.log(e.value)
-    this.WBCoringContractor_id.setValue(e.target.value, {
+    this.WBCoringContractorId.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -139,14 +142,21 @@ export class AddFluidsComponent implements OnInit {
 
   getWBCoringContractorId(){
     this.authservice.getCompanies().subscribe(res =>{
-      this.WBCoringContractor_id = res;
-      console.log(this.WBCoringContractor_id);
+      this.WBCoringContractorId = res;
+      console.log(this.WBCoringContractorId);
     })
   }
 
   changeFluids(e:any) {
     console.log(e.value)
     this.Fluids.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  changePurpose(e:any) {
+    console.log(e.value)
+    this.Purpose.setValue(e.target.value, {
       onlySelf: true
     })
   }

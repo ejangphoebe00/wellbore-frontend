@@ -58,7 +58,7 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr *ngFor="let post of users">
-                                                    <td>{{post.CoreCatalog_id}}</td>
+                                                    <td>{{post.CoreCatalogId}}</td>
                                                     <td>{{post.StoreIdentifier}}</td>
                                                     <td>{{post.CatalogCoreToDepth}}</td>                                                    
                                                     <td>{{post.CatalogCoreFromDepth}}</td>
@@ -110,7 +110,7 @@
                                           <tbody>
                                             <tr>
                                                 <td style="width:25%"> Wellbore Core Id</td>
-                                                <td style="width:25%">{{catalogs.WellboreCore_id}} </td>
+                                                <td style="width:25%">{{catalogs.WellboreCoreId}} </td>
                                                 <td style="width:25%"> Catalog Core To Depth</td>
                                                 <td style="width:25%">{{catalogs.CatalogCoreToDepth}} </td>
                                             
@@ -127,15 +127,15 @@
                                            
                                             <tr>
                                                 <td style="width:25%"> Was Analysed Id</td>
-                                                <td style="width:25%">{{catalogs.WasAnalysed_id}} </td>
+                                                <td style="width:25%">{{catalogs.WasAnalysedId}} </td>
                                                 <td style="width:25%"> TopStratLitho Id </td>
-                                                <td style="width:25%"> {{catalogs.TopStratLitho_id}}</td>
+                                                <td style="width:25%"> {{catalogs.TopStratLithoId}}</td>
         
                                             </tr>
 
                                             <tr>
                                                     <td style="width:25%">  BottomStratLitho Id</td>
-                                                    <td style="width:25%">{{catalogs.BottomStratLitho_id}} </td>
+                                                    <td style="width:25%">{{catalogs.BottomStratLithoId}} </td>
                                                     <td style="width:25%"> CatalogueCore Picture Name </td>
                                                     <td style="width:25%"> {{catalogs.CatalogueCorePictureName}}</td>
             
@@ -213,13 +213,13 @@
                                             <label>Wellbore Core </label>
                                             <span class="error">*</span>
                                                 <select class="custom-select"
-                                               required formControlName="WellboreCore_id"
-                                                name="WellboreCore_id"
+                                               required formControlName="WellboreCoreId"
+                                                name="WellboreCoreId"
                                                 class="form-control">
                                                 <option *ngFor="let city of
                                                     wellboreCoreIds"
-                                                    [ngValue]="city.WellboreCore_id"
-                                                    (change)="changeWellboreCoreId($event)">{{city.WellboreCore_id}}-->{{city.CoreNumber}}
+                                                    [ngValue]="city.WellboreCoreId"
+                                                    (change)="changeWellboreCoreId($event)">{{city.WellboreCoreId}}-->{{city.CoreNumber}}
                                                 </option>
                                             </select>
                                             
@@ -250,29 +250,29 @@
                                         <div class="form-group">
                                             <label>Was Analysed</label>
                                             <input
-                                                formControlName="WasAnalysed_id"
+                                                formControlName="WasAnalysedId"
                                                 type="number" class="form-control"
                                                 placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <label>Top StratLitho </label>                               
-                                            <select formControlName="TopStratLitho_id"
-                                            name="TopStratLitho_id"
+                                            <select formControlName="TopStratLithoId"
+                                            name="TopStratLithoId"
                                             class="form-control">
-                                            <option *ngFor="let city of TopStratLitho_id"
-                                                [ngValue]="city.StratLitho_id"
-                                                (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                            <option *ngFor="let city of TopStratLithoId"
+                                                [ngValue]="city.StratLithoId"
+                                                (change)="changeTopStratLithoId($event)">{{city.StratLithoId}}-->{{city.	StratLithoName}}
                                             </option>
                                         </select>
                                         </div>
                                         <div class="form-group">
                                             <label>BottomStratLitho</label>
-                                            <select formControlName="BottomStratLitho_id"
-                                            name="BottomStratLitho_id"
+                                            <select formControlName="BottomStratLithoId"
+                                            name="BottomStratLithoId"
                                             class="form-control">
-                                            <option *ngFor="let city of TopStratLitho_id"
-                                                [ngValue]="city.StratLitho_id"
-                                                (change)="changeTopStratLitho_id($event)">{{city.StratLitho_id}}-->{{city.	StratLithoName}}
+                                            <option *ngFor="let city of TopStratLithoId"
+                                                [ngValue]="city.StratLithoId"
+                                                (change)="changeTopStratLithoId($event)">{{city.StratLithoId}}-->{{city.	StratLithoName}}
                                             </option>
                                         </select>
                                         </div>

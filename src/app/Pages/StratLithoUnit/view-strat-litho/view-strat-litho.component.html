@@ -62,7 +62,7 @@
                                </thead>
                                <tbody *ngIf="posts?.length != 0">
                                    <tr *ngFor="let strat of posts">
-                                     <td> {{ strat.StratLitho_id }} </td>
+                                     <td> {{ strat.StratLithoId }} </td>
                                      <td> {{ strat.PAUID }} </td>
                                      <td> {{ strat.StratLithoName }} </td>
                                      <!-- <td> {{ strat.ReserviorUnit }} </td> -->
@@ -107,7 +107,7 @@
                             <tbody>
                               <tr>
                                 <th style="width:25%"> ID </th>
-                                <td style="width:25%"> {{ data.StratLitho_id }} </td>
+                                <td style="width:25%"> {{ data.StratLithoId }} </td>
 
                                 <th style="width:25%"> PAUID </th>
                                 <td> {{ data.PAUID }} </td>
@@ -124,7 +124,7 @@
                                 <td> {{ data.LithoStratAlias }} </td>
 
                                 <th style="width:25%"> Is Reservoir Unit Id </th>
-                                <td> {{ data.IsReservoirUnit_id }}</td>
+                                <td> {{ data.IsReservoirUnitId }}</td>
                               </tr>
                               <tr>
                                 <th style="width:25%"> LithoStrat Age  </th>
@@ -188,7 +188,7 @@
 
                                 <div class="form-group">
                                     <label>PAUID</label>
-                                    <input type="text" formControlName="PAUID" class="form-control" required>
+                                    <input type="number" formControlName="PAUID" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Strat Litho Name<span class="red asterisk-validate ml-2">*</span></label>
@@ -207,7 +207,7 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label>Is Reservoir Unit </label>
-                                    <input type="number" formControlName="IsReservoirUnit_id" class="form-control">
+                                    <input type="number" formControlName="IsReservoirUnitId" class="form-control">
 
                                 </div>
                                 <div class="form-group">
@@ -235,7 +235,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Litho Strat Map Softcopy Path</label>
-                                    <input type="text" formControlName="LithoStratMapSoftcopyPath" class="form-control">
+                                    <input type="text" formControlName="LithoStratMapSoftCopyPath" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Litho Strat Map Hyperlink</label>

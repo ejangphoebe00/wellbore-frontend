@@ -16,23 +16,23 @@
                                       <div class="form-group">
                                           <label>Wellbore</label>
                                           <select class="form-control"
-                                             required formControlName="Wellbore_id"
-                                            name="Wellbore_id">
+                                             required formControlName="WellboreId"
+                                            name="WellboreId">
                                             <option *ngFor="let city of wellboreIds"
-                                                [ngValue]="city.Wellbore_id"
-                                                (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
+                                                [ngValue]="city.WellboreId"
+                                                (change)="changeWellboreId($event)">{{city.WellboreId}}-->{{city.WellboreLocalName}}
                                             </option>
                                         </select>
                                       </div>
                                       <div class="form-group">
                                           <label>Sampling Activity</label>
-                                          <input type="text" formControlName="Sampling_activity" class="form-control">
+                                          <input type="text" formControlName="SamplingActivity" class="form-control">
                                       </div>
                                      
                                       <div class="form-group">
                                           <label>Fluid Category</label>
                                           <span class="error">*</span>
-                                          <select class="form-control"  required formControlName="Fluid_category">
+                                          <select class="form-control"  required formControlName="FluidCategory">
                                                   <option *ngFor="let role of Fluids" [ngValue]="role"
                                                       (change)="changeFluids($event)">{{role}}
                                                   </option>
@@ -40,19 +40,31 @@
                                       </div>
                                       <div class="form-group">
                                           <label>Sample_type</label>
-                                          <input type="text"  formControlName="Sample_type" class="form-control">
+                                          <input type="text"  formControlName="SampleType" class="form-control">
                                       </div>
                                       <div class="form-group">
                                           <label>Sample_volume</label>
-                                          <input type="text" formControlName="Sample_volume" class="form-control">
+                                          <input type="text" formControlName="SampleVolume" class="form-control">
                                       </div>
+                                      <div class="form-group">
+                                        <label>Sample_Purpose</label>                                        
+                                        <select class="form-control"  required formControlName="SamplePurpose">
+                                                <option *ngFor="let role of Purpose" [ngValue]="role"
+                                                    (change)="changePurpose($event)">{{role}}
+                                                </option>
+                                                </select>
+                                    </div>
                                     
                                   </div>
                                   <div class="col-md-6">
                                         <div class="form-group">
+                                                <label>Other Specified SamplePurpose</label>
+                                                <input type="text" formControlName="OtherSpecifiedSamplePurpose" class="form-control">
+                                            </div>
+                                        <div class="form-group">
                                                 <label> Sample Basin </label>
                                                 <span class="error">*</span>
-                                                    <select class="form-control"  required formControlName="Sample_basin">
+                                                    <select class="form-control"  required formControlName="SampleBasin">
                                                         <option *ngFor="let area of Basins" [ngValue]="area"
                                                             (change)="changeBasins($event)">{{area}}
                                                         </option>
@@ -60,27 +72,27 @@
                                             </div>
                                     <div class="form-group">
                                             <label>Depth_obtained</label>
-                                            <input type="number"  step="any" formControlName="Depth_obtained" class="form-control">
+                                            <input type="number"  step="any" formControlName="DepthObtained" class="form-control">
                                         </div>
     
                                       <div class="form-group">
                                           <label>Date_collected</label>
-                                          <input type="date" min="1900-10-01" max={{mindate}}  formControlName="Date_collected" class="form-control">
+                                          <input type="date" min="1900-10-01" max={{mindate}}  formControlName="DateCollected" class="form-control">
                                       </div>
                                       <div class="form-group">
                                           <label>Date_received</label>
-                                          <input type="date"  min="1900-10-01" max={{mindate}} formControlName="Date_received" class="form-control">
+                                          <input type="date"  min="1900-10-01" max={{mindate}} formControlName="DateReceived" class="form-control">
                                       </div>
                                       <div class="form-group">
                                           <label>Sampling_company</label>
                                           <select
-                                          formControlName="Sampling_company"
-                                          name="Sampling_company"
+                                          formControlName="SamplingCompany"
+                                          name="SamplingCompany"
                                           class="form-control">
                                           <option *ngFor="let city of
-                                              WBCoringContractor_id"
-                                              [ngValue]="city.Company_id"
-                                              (change)="changeContractingId($event)">{{city.Company_id}}-->{{city.CompanyShortName}}
+                                              WBCoringContractorId"
+                                              [ngValue]="city.CompanyId"
+                                              (change)="changeContractingId($event)">{{city.CompanyId}}-->{{city.CompanyShortName}}
                                           </option>
                                       </select>  
                                         </div>                                

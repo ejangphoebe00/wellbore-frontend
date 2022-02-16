@@ -19,10 +19,10 @@ export class AddCoreCatalogComponent implements OnInit {
 
   wellboreCoreIds: any;
   CoreTypeIds: any;
-  TopStratLitho_id: any;
-  // BottomStratLitho_id: any;
-  // CatalogReportFormat_id: any;
-  CatalogSecurityFlag_ids: any;
+  TopStratLithoId: any;
+  // BottomStratLithoId: any;
+  // CatalogReportFormatId: any;
+  CatalogSecurityFlagIds: any;
   maxd: any;
   mindate:any;
  
@@ -47,10 +47,10 @@ export class AddCoreCatalogComponent implements OnInit {
     }
   
     this.initForm();
-    this.getCoreReportSecurityGrade_id()
+    this.getCoreReportSecurityGradeId()
     this.getCoreType();
     this.getWelboreCoreId();
-    this.getTopStratLitho_id();
+    this.getTopStratLithoId();
  
   
     this.userEmail = this.authservice.getEmail();
@@ -68,15 +68,15 @@ export class AddCoreCatalogComponent implements OnInit {
 
   initForm(){
     this.formGroup = new FormGroup({
-      WellboreCore_id:new FormControl(),
+      WellboreCoreId:new FormControl(),
       // CoreType:new FormControl(),
       StoreIdentifier:new FormControl(),
       CatalogCoreFromDepth:new FormControl(),
       CatalogCoreToDepth: new FormControl(),
-      // CoreCatalogSecurityFlag_id:new FormControl(),
-      WasAnalysed_id:new FormControl(),
-      TopStratLitho_id:new FormControl(),
-      BottomStratLitho_id:new FormControl(),
+      // CoreCatalogSecurityFlagId:new FormControl(),
+      WasAnalysedId:new FormControl(),
+      TopStratLithoId:new FormControl(),
+      BottomStratLithoId:new FormControl(),
       CatalogueCorePictureName: new FormControl(),
       CataloguePictureSoftcopyPath:new FormControl(),
       CataloguePictureHyperlink:new FormControl(),
@@ -84,9 +84,9 @@ export class AddCoreCatalogComponent implements OnInit {
       CatalogueReportSoftcopyPath:new FormControl(),
       CatalogueReportHyperlink:new FormControl(),
       CatReportUploadDate:new FormControl(),
-      // CatalogReportFormat_id:new FormControl(),
+      // CatalogReportFormatId:new FormControl(),
       CatalogReportFileSize: new FormControl(),
-      // CatalogReportSecurityGrade_id:new FormControl(),
+      // CatalogReportSecurityGradeId:new FormControl(),
       CoreCatalogName:new FormControl(),
       Comments:new FormControl()
      
@@ -139,54 +139,54 @@ export class AddCoreCatalogComponent implements OnInit {
 
   get f(){return this.formGroup.controls}
 
-  // changeCatalogReportSecurityGrade_id(e:any) {
+  // changeCatalogReportSecurityGradeId(e:any) {
   //   console.log(e.value)
-  //   this.CatalogReportFormat_id.setValue(e.target.value, {
+  //   this.CatalogReportFormatId.setValue(e.target.value, {
   //     onlySelf: true
   //   })
   // }
 
 
 
-  // getCatalogReportFormat_id(){
+  // getCatalogReportFormatId(){
   //   this.authservice.getAllCatalogSecurityFlags().subscribe(res =>{
-  //     this.CatalogReportFormat_id = res;
-  //     console.log(this.CatalogReportFormat_id);
+  //     this.CatalogReportFormatId = res;
+  //     console.log(this.CatalogReportFormatId);
   //   })
   //  }
 
-  //  changeCatalogReportFormat_id(e:any) {
+  //  changeCatalogReportFormatId(e:any) {
   //   console.log(e.value)
-  //   this.CatalogReportFormat_id.setValue(e.target.value, {
+  //   this.CatalogReportFormatId.setValue(e.target.value, {
   //     onlySelf: true
   //   })
   // }
 
-  // getBottomStratLitho_id(){
+  // getBottomStratLithoId(){
   //   this.authservice.getStrat().subscribe(res =>{
-  //     this.BottomStratLitho_id = res;
-  //     console.log(this.BottomStratLitho_id);
+  //     this.BottomStratLithoId = res;
+  //     console.log(this.BottomStratLithoId);
   //   })
   //  }
 
-  //  changeBottomStratLitho_id(e:any) {
+  //  changeBottomStratLithoId(e:any) {
   //   console.log(e.value)
-  //   this.BottomStratLitho_id.setValue(e.target.value, {
+  //   this.BottomStratLithoId.setValue(e.target.value, {
   //     onlySelf: true
   //   })
   // }
 
 
-  getTopStratLitho_id(){
+  getTopStratLithoId(){
     this.authservice.getStrat().subscribe(res =>{
-      this.TopStratLitho_id = res;
-      console.log(this.TopStratLitho_id);
+      this.TopStratLithoId = res;
+      console.log(this.TopStratLithoId);
     })
    }
 
-   changeTopStratLitho_id(e:any) {
+   changeTopStratLithoId(e:any) {
     console.log(e.value)
-    this.TopStratLitho_id.setValue(e.target.value, {
+    this.TopStratLithoId.setValue(e.target.value, {
       onlySelf: true
     })
   } 
@@ -222,18 +222,18 @@ export class AddCoreCatalogComponent implements OnInit {
     })
   }
 
-  getCoreReportSecurityGrade_id(){
+  getCoreReportSecurityGradeId(){
     this.authservice.getAllCatalogSecurityFlags().subscribe(res =>{
-      this.CatalogSecurityFlag_ids = res;
-      console.log(this.CatalogSecurityFlag_ids);
+      this.CatalogSecurityFlagIds = res;
+      console.log(this.CatalogSecurityFlagIds);
     })
   }
 
 
 
-  changeCoreReportSecurityGrade_id(e:any) {
+  changeCoreReportSecurityGradeId(e:any) {
     console.log(e.value)
-    this.CatalogSecurityFlag_ids.setValue(e.target.value, {
+    this.CatalogSecurityFlagIds.setValue(e.target.value, {
       onlySelf: true
     })
   }

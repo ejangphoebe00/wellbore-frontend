@@ -73,17 +73,17 @@
                             </div>
                             <div class="form-group">
                                 <label>WB CoringContractor</label>
-                                <!-- <input formControlName="WBCoringContractor_id"
+                                <!-- <input formControlName="WBCoringContractorId"
                                     type="number" class="form-control"
                                     placeholder=""> -->
                                     <select
-                                        formControlName="WBCoringContractor_id"
-                                        name="WBCoringContractor_id"
+                                        formControlName="WBCoringContractorId"
+                                        name="WBCoringContractorId"
                                         class="form-control">
                                         <option *ngFor="let city of
-                                            WBCoringContractor_id"
-                                            [ngValue]="city.Company_id"
-                                            (change)="changeContractingId($event)">{{city.Company_id}}-->{{city.CompanyShortName}}
+                                            WBCoringContractorId"
+                                            [ngValue]="city.CompanyId"
+                                            (change)="changeContractingId($event)">{{city.CompanyId}}-->{{city.CompanyShortName}}
                                         </option>
                                     </select>
 
@@ -128,7 +128,7 @@
                                         <label>Cut Length</label>
                                         <input
                                             formControlName="CutLength"
-                                            type="text" class="form-control"
+                                            type="number" class="form-control"
                                             placeholder="">
                                     </div>
 
@@ -151,19 +151,19 @@
                                         <label>PercentageCoreRecovery</label>
                                         <input
                                             formControlName="PercentageCoreRecovery"
-                                            type="text" class="form-control"
+                                            type="number" class="form-control"
                                             placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label>Core Top Strat Litho</label>                                      
 
                                     <select class="form-control"
-                                    formControlName="CoreTopStratLitho_id"
-                                    name="CoreTopStratLitho_id">
+                                    formControlName="CoreTopStratLithoId"
+                                    name="CoreTopStratLithoId">
                                     <option *ngFor="let city of
-                                        CoreTopStratLitho_id"
-                                        [ngValue]="city.StratLitho_id"
-                                        (change)="changeCoreTopStratLitho($event)">{{city.StratLitho_id}}-->{{city.StratLithoName}}
+                                        CoreTopStratLithoId"
+                                        [ngValue]="city.StratLithoId"
+                                        (change)="changeCoreTopStratLitho($event)">{{city.StratLithoId}}-->{{city.StratLithoName}}
                                     </option>
                                 </select>
 
@@ -171,16 +171,16 @@
                                 <div class="form-group">
                                     <label>Core Bottom StratLitho</label>
                                     <!-- <input
-                                        formControlName="CoreBottomStratLitho_id"
+                                        formControlName="CoreBottomStratLithoId"
                                         type="number" class="form-control"
                                         placeholder=""> -->
-                                    <select formControlName="CoreBottomStratLitho_id"
-                                    name="CoreBottomStratLitho_id"
+                                    <select formControlName="CoreBottomStratLithoId"
+                                    name="CoreBottomStratLithoId"
                                     class="form-control">
                                     <option *ngFor="let city of
-                                        CoreBottomStratLitho_id"
-                                        [ngValue]="city.StratLitho_id"
-                                        (change)="changeCoreBottomStratLitho($event)">{{city.StratLitho_id}}-->{{city.StratLithoName}}
+                                        CoreBottomStratLithoId"
+                                        [ngValue]="city.StratLithoId"
+                                        (change)="changeCoreBottomStratLitho($event)">{{city.StratLithoId}}-->{{city.StratLithoName}}
                                     </option>
                                 </select>
 
@@ -319,10 +319,27 @@
                                         </option>
                                     </select>
                         </div>
+
+                        <div class="form-group">
+                            <label>Store Identifier</label>
+                            <input
+                                formControlName="StoreIdentifier"
+                                type="text" class="form-control"
+                                placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Analysis Report Details</label>
+                            <input
+                                formControlName="AnalysisReportDetails"
+                                type="text" class="form-control"
+                                placeholder="">
+                        </div>
+
                         <div class="form-group">
                                 <label>Comments</label>
-                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
-                            </div>
+                                <textarea name="name" rows="2" cols="20" formControlName="Comments" class="form-control" placeholder=""></textarea>
+                         </div>
                         
 
                         </div>

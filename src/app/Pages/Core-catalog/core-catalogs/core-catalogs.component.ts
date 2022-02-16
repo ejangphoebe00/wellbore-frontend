@@ -33,8 +33,8 @@ export class CoreCatalogsComponent implements OnInit {
 
   wellboreCoreIds: any;
   CoreTypeIds: any;
-  TopStratLitho_id: any;
-  CatalogSecurityFlag_ids: any;
+  TopStratLithoId: any;
+  CatalogSecurityFlagIds: any;
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -60,10 +60,10 @@ export class CoreCatalogsComponent implements OnInit {
       this.checkstaff=false;
       }
       this.initForm();
-      this.getCoreReportSecurityGrade_id()
+      this.getCoreReportSecurityGradeId()
       this.getCoreType();
       this.getWelboreCoreId();
-      this.getTopStratLitho_id();
+      this.getTopStratLithoId();
       this. coreCatalogList();
       this.userEmail = this.authservice.getEmail();
       this.loggedin = this.authservice.getRole();
@@ -121,15 +121,15 @@ export class CoreCatalogsComponent implements OnInit {
 
     initForm(){
       this.formGroup = new FormGroup({
-        WellboreCore_id:new FormControl(),
+        WellboreCoreId:new FormControl(),
         // CoreType:new FormControl(),
         StoreIdentifier:new FormControl(),
         CatalogCoreFromDepth:new FormControl(),
         CatalogCoreToDepth: new FormControl(),
-        // CoreCatalogSecurityFlag_id:new FormControl(),
-        WasAnalysed_id:new FormControl(),
-        TopStratLitho_id:new FormControl(),
-        BottomStratLitho_id:new FormControl(),
+        // CoreCatalogSecurityFlagId:new FormControl(),
+        WasAnalysedId:new FormControl(),
+        TopStratLithoId:new FormControl(),
+        BottomStratLithoId:new FormControl(),
         CatalogueCorePictureName: new FormControl(),
         CataloguePictureSoftcopyPath:new FormControl(),
         CataloguePictureHyperlink:new FormControl(),
@@ -137,9 +137,9 @@ export class CoreCatalogsComponent implements OnInit {
         CatalogueReportSoftcopyPath:new FormControl(),
         CatalogueReportHyperlink:new FormControl(),
         CatReportUploadDate:new FormControl(),
-        // CatalogReportFormat_id:new FormControl(),
+        // CatalogReportFormatId:new FormControl(),
         CatalogReportFileSize: new FormControl(),
-        // CatalogReportSecurityGrade_id:new FormControl(),
+        // CatalogReportSecurityGradeId:new FormControl(),
         CoreCatalogName:new FormControl(),
         Comments:new FormControl()
 
@@ -219,38 +219,38 @@ export class CoreCatalogsComponent implements OnInit {
       })
     }
 
-    getCoreReportSecurityGrade_id(){
+    getCoreReportSecurityGradeId(){
       this.authservice.getAllCatalogSecurityFlags().subscribe(res =>{
-        this.CatalogSecurityFlag_ids = res;
-        console.log(this.CatalogSecurityFlag_ids);
+        this.CatalogSecurityFlagIds = res;
+        console.log(this.CatalogSecurityFlagIds);
       })
     }
 
 
 
-    changeCoreReportSecurityGrade_id(e:any) {
+    changeCoreReportSecurityGradeId(e:any) {
       console.log(e.value)
-      this.CatalogSecurityFlag_ids.setValue(e.target.value, {
+      this.CatalogSecurityFlagIds.setValue(e.target.value, {
         onlySelf: true
       })
     }
 
-    getTopStratLitho_id(){
+    getTopStratLithoId(){
       this.authservice.getStrat().subscribe(res =>{
-        this.TopStratLitho_id = res;
-        console.log(this.TopStratLitho_id);
+        this.TopStratLithoId = res;
+        console.log(this.TopStratLithoId);
       })
      }
 
-     changeTopStratLitho_id(e:any) {
+     changeTopStratLithoId(e:any) {
       console.log(e.value)
-      this.TopStratLitho_id.setValue(e.target.value, {
+      this.TopStratLithoId.setValue(e.target.value, {
         onlySelf: true
       })
     }
 
     onSelect(selectedItem: any) {
-      this.id = selectedItem.CoreCatalog_id;
+      this.id = selectedItem.CoreCatalogId;
 
       this.ngPopups.confirm("Are you sure you want to delete ?",{
         // theme: 'material',
@@ -261,7 +261,7 @@ export class CoreCatalogsComponent implements OnInit {
       })
       .subscribe(res => {
         if (res) {
-        console.log("Selected item Id: ", selectedItem.CoreCatalog_id);
+        console.log("Selected item Id: ", selectedItem.CoreCatalogId);
         this.http.delete('http://127.0.0.1:8899/apiv1/delete_core_catalog/' + this.id)
           .subscribe(response => {
             this.deleteresp = response;
@@ -291,19 +291,19 @@ export class CoreCatalogsComponent implements OnInit {
 
     onView(item: any) {
       this.details = true;
-      this.id = item.CoreCatalog_id
+      this.id = item.CoreCatalogId
       localStorage.setItem("update-id", this.id);
       this.captureCoreInstance();
       this.catalogs = {
-        WellboreCore_id:item.WellboreCore_id,
+        WellboreCoreId:item.WellboreCoreId,
         // CoreType:item.CoreType,
         StoreIdentifier:item.StoreIdentifier,
         CatalogCoreFromDepth:item.CatalogCoreFromDepth,
         CatalogCoreToDepth:item.CatalogCoreToDepth,
-        // CoreCatalogSecurityFlag_id:item.CoreCatalogSecurityFlag_id,
-        WasAnalysed_id:item.WasAnalysed_id,
-        TopStratLitho_id:item.TopStratLitho_id,
-        BottomStratLitho_id:item.BottomStratLitho_id,
+        // CoreCatalogSecurityFlagId:item.CoreCatalogSecurityFlagId,
+        WasAnalysedId:item.WasAnalysedId,
+        TopStratLithoId:item.TopStratLithoId,
+        BottomStratLithoId:item.BottomStratLithoId,
         CatalogueCorePictureName:item.CatalogueCorePictureName,
         CataloguePictureSoftcopyPath:item.CataloguePictureSoftcopyPath,
         CataloguePictureHyperlink:item.CataloguePictureHyperlink,
@@ -311,9 +311,9 @@ export class CoreCatalogsComponent implements OnInit {
         CatalogueReportSoftcopyPath:item.CatalogueReportSoftcopyPath,
         CatalogueReportHyperlink:item.CatalogueReportHyperlink,
         CatReportUploadDate:item.CatReportUploadDate,
-        // CatalogReportFormat_id:item.CatalogReportFormat_id,
+        // CatalogReportFormatId:item.CatalogReportFormatId,
         CatalogReportFileSize:item.CatalogReportFileSize,
-        // CatalogReportSecurityGrade_id:item.CatalogReportSecurityGrade_id,
+        // CatalogReportSecurityGradeId:item.CatalogReportSecurityGradeId,
         CoreCatalogName:item.CoreCatalogName,
         Comments:item.Comments,
       }
@@ -332,15 +332,15 @@ export class CoreCatalogsComponent implements OnInit {
           this.updatevalue = response;
           this.formGroup.patchValue({
 
-            WellboreCore_id:this.stripFormValue(this.updatevalue.WellboreCore_id),
+            WellboreCoreId:this.stripFormValue(this.updatevalue.WellboreCoreId),
             // CoreType:this.stripFormValue(this.updatevalue.CoreType),
             StoreIdentifier:this.stripFormValue(this.updatevalue.StoreIdentifier),
             CatalogCoreFromDepth:this.stripFormValue(this.updatevalue.CatalogCoreFromDepth),
             CatalogCoreToDepth:this.stripFormValue( this.updatevalue.CatalogCoreToDepth),
-            // CoreCatalogSecurityFlag_id:this.stripFormValue(this.updatevalue.CoreCatalogSecurityFlag_id),
-            WasAnalysed_id:this.stripFormValue(this.updatevalue.WasAnalysed_id),
-            TopStratLitho_id:this.stripFormValue(this.updatevalue.TopStratLitho_id),
-            BottomStratLitho_id:this.stripFormValue(this.updatevalue.BottomStratLitho_id),
+            // CoreCatalogSecurityFlagId:this.stripFormValue(this.updatevalue.CoreCatalogSecurityFlagId),
+            WasAnalysedId:this.stripFormValue(this.updatevalue.WasAnalysedId),
+            TopStratLithoId:this.stripFormValue(this.updatevalue.TopStratLithoId),
+            BottomStratLithoId:this.stripFormValue(this.updatevalue.BottomStratLithoId),
             CatalogueCorePictureName:this.stripFormValue( this.updatevalue.CatalogueCorePictureName),
             CataloguePictureSoftcopyPath:this.stripFormValue(this.updatevalue.CataloguePictureSoftcopyPath),
             CataloguePictureHyperlink:this.stripFormValue(this.updatevalue.CataloguePictureHyperlink),
@@ -348,9 +348,9 @@ export class CoreCatalogsComponent implements OnInit {
             CatalogueReportSoftcopyPath:this.stripFormValue(this.updatevalue.CatalogueReportSoftcopyPath),
             CatalogueReportHyperlink:this.stripFormValue(this.updatevalue.CatalogueReportHyperlink),
             CatReportUploadDate:this.stripFormValue(this.updatevalue.CatReportUploadDate),
-            // CatalogReportFormat_id:this.stripFormValue(this.updatevalue.CatalogReportFormat_id),
+            // CatalogReportFormatId:this.stripFormValue(this.updatevalue.CatalogReportFormatId),
             CatalogReportFileSize:this.stripFormValue(this.updatevalue.CatalogReportFileSize),
-            // CatalogReportSecurityGrade_id:this.stripFormValue(this.updatevalue.CatalogReportSecurityGrade_id),
+            // CatalogReportSecurityGradeId:this.stripFormValue(this.updatevalue.CatalogReportSecurityGradeId),
             CoreCatalogName:this.stripFormValue(this.updatevalue.CoreCatalogName),
             Comments:this.stripFormValue(this.updatevalue.Comments)
 

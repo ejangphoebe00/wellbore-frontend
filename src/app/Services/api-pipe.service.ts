@@ -730,8 +730,8 @@ export class ApiPipeService {
 
   uploadFile(file1: any, file2:any): Observable<HttpEvent<{}>> {
 		const formdata: FormData = new FormData();
-    formdata.append('Core_analysis_reports', file1);
-    formdata.append('Core_photograph', file2)
+    formdata.append('CoreAnalysisReports', file1);
+    formdata.append('CorePhotograph', file2)
     console.log(file1)
 		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
 			  reportProgress: true,

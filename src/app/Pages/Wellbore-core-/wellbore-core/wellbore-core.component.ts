@@ -25,10 +25,10 @@ export class WellboreCoreComponent implements OnInit {
 
 
   wellboreIds: any;
-  WBCoringContractor_id: any;
-  CoreTopStratLitho_id: any;
-  CoreBottomStratLitho_id: any;
-  ReportFormat_id: any;
+  WBCoringContractorId: any;
+  CoreTopStratLithoId: any;
+  CoreBottomStratLithoId: any;
+  ReportFormatId: any;
   ReportSecurityGrade: any;
   maxd: any;
   mindate: any;
@@ -64,19 +64,19 @@ export class WellboreCoreComponent implements OnInit {
 
     this.getWelboreId();
     this.getWBCoringContractorId();
-    this.getCoreTopStratLitho_id();
-    this.getCoreBottomStratLitho_id();
-    this.getReportFormat_id();
+    this.getCoreTopStratLithoId();
+    this.getCoreBottomStratLithoId();
+    this.getReportFormatId();
     this.getReportSecurityGrade();
   }
 
   initForm(){
     this.formGroup = new FormGroup({
-      WellborePAUID:new FormControl('',Validators.required),
+      WellborePAUID:new FormControl(),
       CoreNumber:new FormControl(),
       CoreTypeName:new FormControl(),
       CoringDate:new FormControl(),
-      WBCoringContractor_id:new FormControl(),
+      WBCoringContractorId:new FormControl(),
       CoreTopMD:new FormControl(),
       CoreBtmMD:new FormControl(),
       CoreTopTVD:new FormControl(),
@@ -86,8 +86,8 @@ export class WellboreCoreComponent implements OnInit {
       RecoveredLength:new FormControl(),
       PercentageCoreRecovery: new FormControl(),
       CoreRecovery:new FormControl(),
-      CoreTopStratLitho_id:new FormControl(),
-      CoreBottomStratLitho_id:new FormControl(),
+      CoreTopStratLithoId:new FormControl(),
+      CoreBottomStratLithoId:new FormControl(),
       CorePictureSoftcopyPath:new FormControl(),
       CorePictureHyperlink:new FormControl(),
       PictureUploadDate:new FormControl(),
@@ -103,7 +103,9 @@ export class WellboreCoreComponent implements OnInit {
       ReportDocumentDate:new FormControl(),
       ReportDocumentName:new FormControl(),
       WelboreCoreName:new FormControl(),
-      Comments:new FormControl()
+      Comments:new FormControl(),
+      StoreIdentifier: new FormControl(),
+      AnalysisReportDetails: new FormControl()
     });
   }
 
@@ -181,32 +183,32 @@ export class WellboreCoreComponent implements OnInit {
     })
   }
 
-  getReportFormat_id(){
+  getReportFormatId(){
     this.authservice.getFormat().subscribe(res =>{
-      this.ReportFormat_id = res;
-      console.log(this.ReportFormat_id);
+      this.ReportFormatId = res;
+      console.log(this.ReportFormatId);
     })
   }
 
-  getCoreBottomStratLitho_id(){
+  getCoreBottomStratLithoId(){
     this.authservice.getStrat().subscribe(res =>{
-      this.CoreBottomStratLitho_id = res;
-      console.log(this.CoreBottomStratLitho_id);
+      this.CoreBottomStratLithoId = res;
+      console.log(this.CoreBottomStratLithoId);
     })
   }
 
 
-  getCoreTopStratLitho_id(){
+  getCoreTopStratLithoId(){
     this.authservice.getAllStratLithoUnits().subscribe(res =>{
-      this.CoreTopStratLitho_id = res;
-      console.log(this.CoreTopStratLitho_id);
+      this.CoreTopStratLithoId = res;
+      console.log(this.CoreTopStratLithoId);
     })
   }
 
   getWBCoringContractorId(){
     this.authservice.getCompanies().subscribe(res =>{
-      this.WBCoringContractor_id = res;
-      console.log(this.WBCoringContractor_id);
+      this.WBCoringContractorId = res;
+      console.log(this.WBCoringContractorId);
     })
   }
 
@@ -224,30 +226,30 @@ export class WellboreCoreComponent implements OnInit {
     })
   }
 
-  changeReportFormat_id(e:any) {
+  changeReportFormatId(e:any) {
     console.log(e.value)
-    this.ReportFormat_id.setValue(e.target.value, {
+    this.ReportFormatId.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   changeCoreBottomStratLitho(e:any) {
     console.log(e.value)
-    this.CoreBottomStratLitho_id.setValue(e.target.value, {
+    this.CoreBottomStratLithoId.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   changeCoreTopStratLitho(e:any) {
     console.log(e.value)
-    this.CoreTopStratLitho_id.setValue(e.target.value, {
+    this.CoreTopStratLithoId.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
   changeContractingId(e:any) {
     console.log(e.value)
-    this.WBCoringContractor_id.setValue(e.target.value, {
+    this.WBCoringContractorId.setValue(e.target.value, {
       onlySelf: true
     })
   }
