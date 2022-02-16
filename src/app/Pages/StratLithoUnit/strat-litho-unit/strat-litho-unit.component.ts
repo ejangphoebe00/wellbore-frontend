@@ -43,7 +43,7 @@ export class StratLithoUnitComponent implements OnInit {
       StratLithoName:new FormControl(),
       // ReserviorUnit:new FormControl(),
       LithoStratAlias:new FormControl(),
-      IsReservoirUnit_id:new FormControl(),
+      IsReservoirUnitId:new FormControl(),
       LithoStratAge:new FormControl(),
       LithoStratDescriptionSoftcopyPath:new FormControl(),
       LithoStratDescriptionHyperlink:new FormControl(),

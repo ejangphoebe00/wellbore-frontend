@@ -63,12 +63,12 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let post of wellbores">
-                                            <td>{{post.Wellbore_id}}</td>
+                                            <td>{{post.WellboreId}}</td>
                                             <td>{{post.WellboreLocalName}}</td>
                                             <td>{{post.WellboreAliasName}}</td>
                                             <td>{{post.WellboreSpudDate}}</td>
                                             <td>{{post.SpudYear}}</td>
-                                            <!-- <td>{{post.Well_id}}</td> -->
+                                            <!-- <td>{{post.WellId}}</td> -->
                                             <td>
                                                 <!-- <button type="button" (click)="onSelectEdit(post)"
                                                     class="btn blue btn-outline">
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Wellbore Type</label>
-                                        <select class="form-control"   formControlName="Wellbore_type">
+                                        <select class="form-control"   formControlName="WellboreType">
                                             <option *ngFor="let area of WellboreType" [ngValue]="area"
                                                 (change)="changeWelboreType($event)">{{area}}
                                             </option>
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Wellbore Type Id</label>
-                                    <input formControlName="WellboreType_id"
+                                    <input formControlName="WellboreTypeId"
                                         type="number" class="form-control"
                                         placeholder="">
                                 </div>
@@ -186,18 +186,18 @@
                                         placeholder="">
                                 </div>
                                 <div class="form-group">
-                                    <label>WellborePurpose_id</label>
+                                    <label>WellborePurposeId</label>
                                     <input
-                                        formControlName="WellborePurpose_id"
+                                        formControlName="WellborePurposeId"
                                         type="number" class="form-control"
                                         placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label>Prospect </label>
-                                    <select class="form-control" formControlName="Prospect_id">                                               
+                                    <select class="form-control" formControlName="ProspectId">                                               
                                             <option *ngFor="let city of prospectIds"
-                                            [ngValue]="city.Company_id"
-                                            (change)="changeProspect($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                            [ngValue]="city.CompanyId"
+                                            (change)="changeProspect($event)">{{city.CompanyId}}-->{{city.PAUID}}
                                             </option>
                                          </select>
     
@@ -212,7 +212,7 @@
                                 <div class="form-group">
                                         <label>WellboreContent</label>
                                         <input
-                                            formControlName="WellboreContent_id"
+                                            formControlName="WellboreContentId"
                                             type="number" class="form-control"
                                             placeholder="">
                                     </div>
@@ -252,26 +252,26 @@
                                             <label>Wellbore Responsible Licence
                                                 </label>
                                             <input
-                                                formControlName="WellboreResponsibleLicence_id"
+                                                formControlName="WellboreResponsibleLicenceId"
                                                 type="number" class="form-control"
                                                 placeholder="">
                                         </div>   -->
                                    
                                     <div class="form-group">
                                         <label>License Operator Company </label>
-                                            <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                            <select class="form-control" formControlName="LicenseOperatorCompanyId">                                               
                                                     <option *ngFor="let city of licenceIds"
-                                                    [ngValue]="city.Company_id"
-                                                    (change)="changeLicense($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                                    [ngValue]="city.CompanyId"
+                                                    (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.PAUID}}
                                                     </option>
                                                  </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Drilling Contractor Company</label>
-                                            <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                            <select class="form-control" formControlName="LicenseOperatorCompanyId">                                               
                                                     <option *ngFor="let city of licenceIds"
-                                                    [ngValue]="city.Company_id"
-                                                    (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                    [ngValue]="city.CompanyId"
+                                                    (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                     </option>
                                                  </select>
                                     </div>
@@ -310,9 +310,9 @@
                                         </div>
     
                                         <div class="form-group">
-                                                <label>TD_TVD</label>
+                                                <label>TDTVD</label>
                                                 <input
-                                                    formControlName="TD_TVD"
+                                                    formControlName="TDTVD"
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="">
@@ -320,17 +320,17 @@
                                           
                                             <div class="form-group">
                                                     <label>Core Contractor </label>
-                                                        <select class="form-control" formControlName="CoreContractor_id">                                               
+                                                        <select class="form-control" formControlName="CoreContractorId">                                               
                                                                 <option *ngFor="let city of licenceIds"
-                                                                [ngValue]="city.Company_id"
-                                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                                [ngValue]="city.CompanyId"
+                                                                (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                                 </option>
                                                          </select>
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label>RCI Taken </label>
                                                 <input
-                                                    formControlName="RCI_Taken_id"
+                                                    formControlName="RCITakenId"
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="">
@@ -338,7 +338,7 @@
                                             <div class="form-group">
                                                 <label>MDT Done </label>
                                                 <input
-                                                    formControlName="MDT_Done_id"
+                                                    formControlName="MDTDoneId"
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="">
@@ -346,7 +346,7 @@
                                             <div class="form-group">
                                                     <label>FET Done </label>
                                                     <input
-                                                        formControlName="FET_Done_id"
+                                                        formControlName="FETDoneId"
                                                         type="number"
                                                         class="form-control"
                                                         placeholder="">
@@ -364,18 +364,18 @@
                             
                             <div class="col-md-3">                   
                                 <div class="form-group">
-                                    <label>TD_MD</label>
+                                    <label>TDMD</label>
                                     <input
-                                        formControlName="TD_MD"
+                                        formControlName="TDMD"
                                         type="number"
                                         class="form-control"
                                         placeholder="">
                                 </div>
                                
                                 <div class="form-group">
-                                    <label>TD_Date</label>
+                                    <label>TDDate</label>
                                     <input
-                                        formControlName="TD_Date"
+                                        formControlName="TDDate"
                                         type="date" min="1900-10-01" max={{mindate}} 
                                         class="form-control"
                                         placeholder="">
@@ -391,7 +391,7 @@
                                     <div class="form-group">
                                         <label>DST Done </label>
                                         <input
-                                            formControlName="DST_Done_id"
+                                            formControlName="DSTDoneId"
                                             type="number"
                                             class="form-control"
                                             placeholder="">
@@ -399,34 +399,34 @@
                                     <div class="form-group">
                                         <label>Manifold Flow Tested </label>
                                         <input
-                                            formControlName="ManifoldFlowTested_id"
+                                            formControlName="ManifoldFlowTestedId"
                                             type="number"
                                             class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>DST Contractor </label>
-                                            <select class="form-control" formControlName="DST_Contractor_id">                                               
+                                            <select class="form-control" formControlName="DSTContractorId">                                               
                                                     <option *ngFor="let city of licenceIds"
-                                                    [ngValue]="city.Company_id"
-                                                    (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                    [ngValue]="city.CompanyId"
+                                                    (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                     </option>
                                              </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Has PetrophysicalLogs </label>
                                         <input
-                                            formControlName="HasPetrophysicalLogs_id"
+                                            formControlName="HasPetrophysicalLogsId"
                                             type="number"
                                             class="form-control"
                                             placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Core Petrophysical Contractor </label>
-                                            <select class="form-control" formControlName="PetrophysicalContractor_id">                                               
+                                            <select class="form-control" formControlName="PetrophysicalContractorId">                                               
                                                     <option *ngFor="let city of licenceIds"
-                                                    [ngValue]="city.Company_id"
-                                                    (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                    [ngValue]="city.CompanyId"
+                                                    (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                     </option>
                                              </select>
                                     </div>
@@ -657,16 +657,16 @@
 
                                 <!-- <tr>
                                                 <td style="width:25%"> Was Analysed Id</td>
-                                                <td style="width:25%">{{wells.WasAnalysed_id}}
+                                                <td style="width:25%">{{wells.WasAnalysedId}}
                                                 </td>
                                                 <td style="width:25%"> TopStratLitho Id
                                                 </td>
                                                 <td style="width:25%">
-                                                    {{wells.TopStratLitho_id}}</td>
+                                                    {{wells.TopStratLithoId}}</td>
                                             </tr> -->
                                 <tr>
                                     <td style="width:25%"> WellboreType Id</td>
-                                    <td style="width:25%">{{wells.WellboreType_id}}
+                                    <td style="width:25%">{{wells.WellboreTypeId}}
                                     </td>
                                     <td style="width:25%"> Initial Wellbore
                                         Purpose </td>
@@ -677,7 +677,7 @@
                                 <tr>
                                     <td style="width:25%"> Wellbore Purpose
                                         Id</td>
-                                    <td style="width:25%">{{wells.WellborePurpose_id}}
+                                    <td style="width:25%">{{wells.WellborePurposeId}}
                                     </td>
                                     <td style="width:25%"> Purpose Change
                                         Date </td>
@@ -686,12 +686,12 @@
                                 </tr>
 
                                 <tr>
-                                    <td style="width:25%"> Wellbore_type</td>
-                                    <td style="width:25%">{{wells.Wellbore_type}}
+                                    <td style="width:25%"> Wellboretype</td>
+                                    <td style="width:25%">{{wells.WellboreType}}
                                     </td>
                                     <td style="width:25%"> Prospect Id </td>
                                     <td style="width:25%">
-                                        {{wells.Prospect_id}}</td>
+                                        {{wells.ProspectId}}</td>
 
                                 </tr>
                                 <tr>
@@ -701,7 +701,7 @@
                                     <td style="width:25%"> Wellbore Content
                                         Id </td>
                                     <td style="width:25%">
-                                        {{wells.WellboreContent_id}}</td>
+                                        {{wells.WellboreContentId}}</td>
                                 </tr>
 
 
@@ -711,14 +711,14 @@
                                     <td style="width:25%">{{wells.WellboreStatus}}
                                     </td>
                                     <td style="width:25%"> License Operator
-                                        Company_id</td>
+                                        CompanyId</td>
                                     <td style="width:25%">
-                                        {{wells.LicenseOperatorCompany_id}}</td>
+                                        {{wells.LicenseOperatorCompanyId}}</td>
                                 </tr>
                                 <tr>
                                     <td style="width:25%"> Drilling
                                         Contractor Company Id</td>
-                                    <td style="width:25%">{{wells.DrillingContractorCompany_id}}
+                                    <td style="width:25%">{{wells.DrillingContractorCompanyId}}
                                     </td>
                                     <td style="width:25%"> WellBore Rig Name</td>
                                     <td style="width:25%">
@@ -749,64 +749,64 @@
                                         Elavation</td>
                                     <td style="width:25%">{{wells.GroundLevelElavation}}
                                     </td>
-                                    <td style="width:25%"> TD_MD</td>
-                                    <td style="width:25%"> {{wells.TD_MD}}</td>
+                                    <td style="width:25%"> TDMD</td>
+                                    <td style="width:25%"> {{wells.TDMD}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width:25%"> TD_TVD</td>
-                                    <td style="width:25%">{{wells.TD_TVD}}
+                                    <td style="width:25%"> TDTVD</td>
+                                    <td style="width:25%">{{wells.TDTVD}}
                                     </td>
-                                    <td style="width:25%"> TD_Date</td>
-                                    <td style="width:25%"> {{wells.TD_Date}}</td>
+                                    <td style="width:25%"> TDDate</td>
+                                    <td style="width:25%"> {{wells.TDDate}}</td>
                                 </tr>
 
                                 <tr>
                                     <td style="width:25%"> Core Contractor
                                         Id</td>
-                                    <td style="width:25%">{{wells.CoreContractor_id}}
+                                    <td style="width:25%">{{wells.CoreContractorId}}
                                     </td>
                                     <!-- <td style="width:25%"> RCI Taken Id
                                                 </td>
                                                 <td style="width:25%">
-                                                    {{wells.RCI_Taken_id}}</td> -->
+                                                    {{wells.RCITakenId}}</td> -->
                                 </tr>
                                 <tr>
-                                    <td style="width:25%"> MDT_Done_id</td>
-                                    <td style="width:25%">{{wells.MDT_Done_id}}
+                                    <td style="width:25%"> MDTDoneId</td>
+                                    <td style="width:25%">{{wells.MDTDoneId}}
                                     </td>
                                     <td style="width:25%"> FET Done Id</td>
                                     <td style="width:25%">
-                                        {{wells.FET_Done_id}}</td>
+                                        {{wells.FETDoneId}}</td>
 
                                 </tr>
                                 <tr>
                                     <td style="width:25%"> WFT Contractor</td>
                                     <td style="width:25%">{{wells.WFTContractor}}
                                     </td>
-                                    <td style="width:25%"> DST_Done_id</td>
+                                    <td style="width:25%"> DSTDoneId</td>
                                     <td style="width:25%">
-                                        {{wells.DST_Done_id}}</td>
+                                        {{wells.DSTDoneId}}</td>
 
                                 </tr>
 
                                 <tr>
                                     <td style="width:25%"> Manifold Flow
-                                        Tested_id</td>
-                                    <td style="width:25%">{{wells.ManifoldFlowTested_id}}
+                                        TestedId</td>
+                                    <td style="width:25%">{{wells.ManifoldFlowTestedId}}
                                     </td>
-                                    <td style="width:25%"> DST_Contractor Id</td>
+                                    <td style="width:25%"> DSTContractor Id</td>
                                     <td style="width:25%">
-                                        {{wells.DST_Contractor_id}}</td>
+                                        {{wells.DSTContractorId}}</td>
                                 </tr>
                                 <tr>
                                     <td style="width:25%"> Has Petrophysical
                                         Logs Id</td>
-                                    <td style="width:25%">{{wells.HasPetrophysicalLogs_id}}
+                                    <td style="width:25%">{{wells.HasPetrophysicalLogsId}}
                                     </td>
                                     <td style="width:25%"> Petrophysical
-                                        Contractor_id</td>
+                                        ContractorId</td>
                                     <td style="width:25%">
-                                        {{wells.PetrophysicalContractor_id}}</td>
+                                        {{wells.PetrophysicalContractorId}}</td>
                                 </tr>
                                 <tr>
                                     <td style="width:25%"> Top Basement MD</td>

@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Wellbore Type</label>
-                                    <select class="form-control"   formControlName="Wellbore_type">
+                                    <select class="form-control"   formControlName="WellboreType">
                                         <option *ngFor="let area of WellboreType" [ngValue]="area"
                                             (change)="changeWelboreType($event)">{{area}}
                                         </option>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Wellbore Type Id</label>
-                                <input formControlName="WellboreType_id"
+                                <input formControlName="WellboreTypeId"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
@@ -107,18 +107,18 @@
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>WellborePurpose_id</label>
+                                <label>WellborePurposeId</label>
                                 <input
-                                    formControlName="WellborePurpose_id"
+                                    formControlName="WellborePurposeId"
                                     type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Prospect </label>
-                                <select class="form-control" formControlName="Prospect_id">                                               
+                                <select class="form-control" formControlName="ProspectId">                                               
                                         <option *ngFor="let city of prospectIds"
-                                        [ngValue]="city.Company_id"
-                                        (change)="changeProspect($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                        [ngValue]="city.CompanyId"
+                                        (change)="changeProspect($event)">{{city.CompanyId}}-->{{city.PAUID}}
                                         </option>
                                      </select>
 
@@ -133,7 +133,7 @@
                             <div class="form-group">
                                     <label>WellboreContent</label>
                                     <input
-                                        formControlName="WellboreContent_id"
+                                        formControlName="WellboreContentId"
                                         type="number" class="form-control"
                                         placeholder="">
                                 </div>
@@ -173,26 +173,26 @@
                                         <label>Wellbore Responsible Licence
                                             </label>
                                         <input
-                                            formControlName="WellboreResponsibleLicence_id"
+                                            formControlName="WellboreResponsibleLicenceId"
                                             type="number" class="form-control"
                                             placeholder="">
                                     </div>   -->
                                
                                 <div class="form-group">
                                     <label>License Operator Company </label>
-                                        <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                        <select class="form-control" formControlName="LicenseOperatorCompanyId">                                               
                                                 <option *ngFor="let city of licenceIds"
-                                                [ngValue]="city.Company_id"
-                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.PAUID}}
+                                                [ngValue]="city.CompanyId"
+                                                (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.PAUID}}
                                                 </option>
                                              </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Drilling Contractor Company</label>
-                                        <select class="form-control" formControlName="LicenseOperatorCompany_id">                                               
+                                        <select class="form-control" formControlName="LicenseOperatorCompanyId">                                               
                                                 <option *ngFor="let city of licenceIds"
-                                                [ngValue]="city.Company_id"
-                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                [ngValue]="city.CompanyId"
+                                                (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                 </option>
                                              </select>
                                 </div>
@@ -231,9 +231,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                            <label>TD_TVD</label>
+                                            <label>TDTVD</label>
                                             <input
-                                                formControlName="TD_TVD"
+                                                formControlName="TDTVD"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -241,17 +241,17 @@
                                       
                                         <div class="form-group">
                                                 <label>Core Contractor </label>
-                                                    <select class="form-control" formControlName="CoreContractor_id">                                               
+                                                    <select class="form-control" formControlName="CoreContractorId">                                               
                                                             <option *ngFor="let city of licenceIds"
-                                                            [ngValue]="city.Company_id"
-                                                            (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                            [ngValue]="city.CompanyId"
+                                                            (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                             </option>
                                                      </select>
                                         </div>
                                         <!-- <div class="form-group">
                                             <label>RCI Taken </label>
                                             <input
-                                                formControlName="RCI_Taken_id"
+                                                formControlName="RCITakenId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -259,7 +259,7 @@
                                         <div class="form-group">
                                             <label>MDT Done </label>
                                             <input
-                                                formControlName="MDT_Done_id"
+                                                formControlName="MDTDoneId"
                                                 type="number"
                                                 class="form-control"
                                                 placeholder="">
@@ -267,7 +267,7 @@
                                         <div class="form-group">
                                                 <label>FET Done </label>
                                                 <input
-                                                    formControlName="FET_Done_id"
+                                                    formControlName="FETDoneId"
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="">
@@ -285,18 +285,18 @@
                         
                         <div class="col-md-3">                   
                             <div class="form-group">
-                                <label>TD_MD</label>
+                                <label>TDMD</label>
                                 <input
-                                    formControlName="TD_MD"
+                                    formControlName="TDMD"
                                     type="number"
                                     class="form-control"
                                     placeholder="">
                             </div>
                            
                             <div class="form-group">
-                                <label>TD_Date</label>
+                                <label>TDDate</label>
                                 <input
-                                    formControlName="TD_Date"
+                                    formControlName="TDDate"
                                     type="date" min="1900-10-01" max={{mindate}} 
                                     class="form-control"
                                     placeholder="">
@@ -312,7 +312,7 @@
                                 <div class="form-group">
                                     <label>DST Done </label>
                                     <input
-                                        formControlName="DST_Done_id"
+                                        formControlName="DSTDoneId"
                                         type="number"
                                         class="form-control"
                                         placeholder="">
@@ -320,34 +320,34 @@
                                 <div class="form-group">
                                     <label>Manifold Flow Tested </label>
                                     <input
-                                        formControlName="ManifoldFlowTested_id"
+                                        formControlName="ManifoldFlowTestedId"
                                         type="number"
                                         class="form-control"
                                         placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label>DST Contractor </label>
-                                        <select class="form-control" formControlName="DST_Contractor_id">                                               
+                                        <select class="form-control" formControlName="DSTContractorId">                                               
                                                 <option *ngFor="let city of licenceIds"
-                                                [ngValue]="city.Company_id"
-                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                [ngValue]="city.CompanyId"
+                                                (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                 </option>
                                          </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Has PetrophysicalLogs </label>
                                     <input
-                                        formControlName="HasPetrophysicalLogs_id"
+                                        formControlName="HasPetrophysicalLogsId"
                                         type="number"
                                         class="form-control"
                                         placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label>Core Petrophysical Contractor </label>
-                                        <select class="form-control" formControlName="PetrophysicalContractor_id">                                               
+                                        <select class="form-control" formControlName="PetrophysicalContractorId">                                               
                                                 <option *ngFor="let city of licenceIds"
-                                                [ngValue]="city.Company_id"
-                                                (change)="changeLicense($event)">{{city.Company_id}}-->{{city.CompanyLongName}}
+                                                [ngValue]="city.CompanyId"
+                                                (change)="changeLicense($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
                                                 </option>
                                          </select>
                                 </div>

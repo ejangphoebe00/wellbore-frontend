@@ -145,7 +145,7 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
   }
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.StratLitho_id
+    this.id = selectedItem.StratLithoId
 
     this.ngPopups.confirm("Are you sure you want to delete ?",{
       // theme: 'material',
@@ -156,7 +156,7 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
     })
     .subscribe(res => {
       if (res) {
-        console.log("Selected item Id: ", selectedItem.StratLitho_id);
+        console.log("Selected item Id: ", selectedItem.StratLithoId);
         this.http.delete('http://127.0.0.1:8899/apiv1/delete_strat_litho_unit/' + this.id)
           .subscribe(response => {
             this.deleteresp = response;
@@ -189,11 +189,11 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
     this.editform = false;
     this.data = {
       PAUID:selectedItem.PAUID,
-      StratLitho_id:selectedItem.StratLitho_id,
+      StratLithoId:selectedItem.StratLithoId,
       StratLithoName:selectedItem.StratLithoName,
       // ReserviorUnit:selectedItem.ReserviorUnit,
       LithoStratAlias:selectedItem.LithoStratAlias,
-      IsReservoirUnit_id:selectedItem.IsReservoirUnit_id,
+      IsReservoirUnitId:selectedItem.IsReservoirUnitId,
       LithoStratAge:(selectedItem.LithoStratAge).replace('LithoAgeEnum.', ''),
       LithoStratDescriptionSoftcopyPath:selectedItem.LithoStratDescriptionSoftcopyPath,
       LithoStratDescriptionHyperlink:selectedItem.LithoStratDescriptionHyperlink,
@@ -210,9 +210,9 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
     this.status = false;
     this.editform = true;
     this.details = false;
-    this.id = selectedItem.StratLitho_id
+    this.id = selectedItem.StratLithoId
     localStorage.setItem("update-id", this.id);
-    console.log("Selected item Id: ", selectedItem.StratLitho_id);
+    console.log("Selected item Id: ", selectedItem.StratLithoId);
     this.http.get('http://127.0.0.1:8899/apiv1/get_strat_litho_unit/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
@@ -222,7 +222,7 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
           StratLithoName:this.authservice.stripFormValue(this.updatevalue.StratLithoName),
           ReserviorUnit:this.authservice.stripFormValue(this.updatevalue.ReserviorUnit),
           LithoStratAlias:this.authservice.stripFormValue(this.updatevalue.LithoStratAlias),
-          IsReservoirUnit_id:this.authservice.stripFormValue(this.updatevalue.IsReservoirUnit_id),
+          IsReservoirUnitId:this.authservice.stripFormValue(this.updatevalue.IsReservoirUnitId),
           LithoStratAge:this.authservice.stripFormValue(this.updatevalue.LithoStratAge),
           LithoStratDescriptionSoftcopyPath:this.authservice.stripFormValue(this.updatevalue.LithoStratDescriptionSoftcopyPath),
           LithoStratDescriptionHyperlink:this.authservice.stripFormValue(this.updatevalue.LithoStratDescriptionHyperlink),
@@ -289,7 +289,7 @@ export class ViewStratLithoComponent implements OnInit, OnDestroy {
       StratLithoName:new FormControl(),
      /// ReserviorUnit:new FormControl(),
       LithoStratAlias:new FormControl(),
-      IsReservoirUnit_id:new FormControl(),
+      IsReservoirUnitId:new FormControl(),
       LithoStratAge:new FormControl(),
       LithoStratDescriptionSoftcopyPath:new FormControl(),
       LithoStratDescriptionHyperlink:new FormControl(),

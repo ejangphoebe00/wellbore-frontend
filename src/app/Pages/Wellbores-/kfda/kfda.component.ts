@@ -122,7 +122,7 @@ export class KfdaComponent implements OnInit {
   }
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.Wellbore_id
+    this.id = selectedItem.WellboreId
 
     this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
@@ -133,7 +133,7 @@ export class KfdaComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.Wellbore_id);
+          console.log("Selected item Id: ", selectedItem.WellboreId);
           this.http.delete('http://127.0.0.1:8899/apiv1/delete_wellbore/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;
@@ -170,9 +170,9 @@ export class KfdaComponent implements OnInit {
 
   More(item: any) {
     this.details = true;
-    this.id = item.Wellbore_id
+    this.id = item.WellboreId
     localStorage.setItem("update-id", this.id);
-    console.log("Selected item Id: ", item.Wellbore_id);
+    console.log("Selected item Id: ", item.WellboreId);
     this.captureWellsInstance();
     this.wells = {
 
@@ -182,37 +182,37 @@ export class KfdaComponent implements OnInit {
       WellboreAliasName: item.WellboreAliasName,
       WellboreSpudDate: item.WellboreSpudDate,
       SpudYear: item.SpudYear,
-      WellboreType_id: item.WellboreType_id,
+      WellboreTypeId: item.WellboreTypeId,
       InitialWellborePurpose: (item.InitialWellborePurpose).replace('PurposeEnum.', ''),
-      WellborePurpose_id: item.WellborePurpose_id,
+      WellborePurposeId: item.WellborePurposeId,
       PurposeChangeDate: item.PurposeChangeDate,
-      Wellbore_type: (item.Wellbore_type).replace('WellboreTypeEnum.', ''),
-      Prospect_id: item.Prospect_id,
+      WellboreType: (item.WellboreType).replace('WellboreTypeEnum.', ''),
+      ProspectId: item.ProspectId,
       Discovery: item.Discovery,
-      WellboreContent_id: item.WellboreContent_id,
+      WellboreContentId: item.WellboreContentId,
       WellboreStatus: (item.WellboreStatus).replace('StatusEnum.', ''),
-      WellboreResponsibleLicence_id: item.WellboreResponsibleLicence_id,
-      LicenseOperatorCompany_id: item.LicenseOperatorCompany_id,
-      DrillingContractorCompany_id: item.DrillingContractorCompany_id,
+      WellboreResponsibleLicenceId: item.WellboreResponsibleLicenceId,
+      LicenseOperatorCompanyId: item.LicenseOperatorCompanyId,
+      DrillingContractorCompanyId: item.DrillingContractorCompanyId,
       WellBoreRigName: item.WellBoreRigName,
       Basin: (item.Basin).replace('FluidSampleBasin.', ''),
       FormerExplAreaName: item.FormerExplAreaName,
       SeismicLine: item.SeismicLine,
       RotaryTableElavation: item.RotaryTableElavation,
       GroundLevelElavation: item.GroundLevelElavation,
-      TD_MD: item.TD_MD,
-      TD_TVD: item.TD_TVD,
-      TD_Date: item.TD_Date,
-      CoreContractor_id: item.CoreContractor_id,
-      RCI_Taken_id: item.RCI_Taken_id,
-      MDT_Done_id: item.MDT_Done_id,
-      FET_Done_id: item.FET_Done_id,
+      TDMD: item.TDMD,
+      TDTVD: item.TDTVD,
+      TDDate: item.TDDate,
+      CoreContractorId: item.CoreContractorId,
+      RCITakenId: item.RCITakenId,
+      MDTDoneId: item.MDTDoneId,
+      FETDoneId: item.FETDoneId,
       WFTContractor: item.WFTContractor,
-      DST_Done_id: item.DST_Done_id,
-      ManifoldFlowTested_id: item.ManifoldFlowTested_id,
-      DST_Contractor_id: item.DST_Contractor_id,
-      HasPetrophysicalLogs_id: item.HasPetrophysicalLogs_id,
-      PetrophysicalContractor_id: item.PetrophysicalContractor_id,
+      DSTDoneId: item.DSTDoneId,
+      ManifoldFlowTestedId: item.ManifoldFlowTestedId,
+      DSTContractorId: item.DSTContractorId,
+      HasPetrophysicalLogsId: item.HasPetrophysicalLogsId,
+      PetrophysicalContractorId: item.PetrophysicalContractorId,
       TopBasementMD: item.TopBasementMD,
       TopBasementTVD: item.TopBasementTVD,
       WellboreTestStatus:item.WellboreTestStatus,
@@ -235,7 +235,7 @@ export class KfdaComponent implements OnInit {
   }
 
   captureWellsInstance() {
-    this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore/' + this.id)
+    this.http.get('http://127.0.0.1:8899/apiv1/getwellbore/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
         this.formGroup.patchValue({
@@ -244,37 +244,37 @@ export class KfdaComponent implements OnInit {
           WellboreLocalName: this.authservice.stripFormValue(this.updatevalue.WellboreLocalName),
           WellboreAliasName: this.authservice.stripFormValue(this.updatevalue.WellboreAliasName),
           WellboreSpudDate: this.authservice.stripFormValue(this.updatevalue.WellboreSpudDate),
-          WellboreType_id: this.authservice.stripFormValue(this.updatevalue.WellboreType_id),
+          WellboreTypeId: this.authservice.stripFormValue(this.updatevalue.WellboreTypeId),
           InitialWellborePurpose: this.authservice.stripFormValue((this.updatevalue.InitialWellborePurpose).replace('PurposeEnum.', '')),
-          WellborePurpose_id: this.authservice.stripFormValue(this.updatevalue.WellborePurpose_id),
+          WellborePurposeId: this.authservice.stripFormValue(this.updatevalue.WellborePurposeId),
           PurposeChangeDate: this.authservice.stripFormValue(this.updatevalue.PurposeChangeDate),
-          Wellbore_type: this.authservice.stripFormValue((this.updatevalue.Wellbore_type).replace('WellboreTypeEnum.', '')),
-          Prospect_id: this.authservice.stripFormValue(this.updatevalue.Prospect_id),
+          Wellboretype: this.authservice.stripFormValue((this.updatevalue.Wellboretype).replace('WellboreTypeEnum.', '')),
+          ProspectId: this.authservice.stripFormValue(this.updatevalue.ProspectId),
           Discovery: this.authservice.stripFormValue(this.updatevalue.Discovery),
-          WellboreContent_id: this.authservice.stripFormValue(this.updatevalue.WellboreContent_id),
+          WellboreContentId: this.authservice.stripFormValue(this.updatevalue.WellboreContentId),
           WellboreStatus: this.authservice.stripFormValue((this.updatevalue.WellboreStatus).replace('StatusEnum.', '')),
-          // WellboreResponsibleLicence_id:this.authservice.stripFormValue(this.updatevalue.WellboreResponsibleLicence_id),
-          LicenseOperatorCompany_id: this.authservice.stripFormValue(this.updatevalue.LicenseOperatorCompany_id),
-          DrillingContractorCompany_id: this.authservice.stripFormValue(this.updatevalue.DrillingContractorCompany_id),
+          // WellboreResponsibleLicenceId:this.authservice.stripFormValue(this.updatevalue.WellboreResponsibleLicenceId),
+          LicenseOperatorCompanyId: this.authservice.stripFormValue(this.updatevalue.LicenseOperatorCompanyId),
+          DrillingContractorCompanyId: this.authservice.stripFormValue(this.updatevalue.DrillingContractorCompanyId),
           WellBoreRigName: this.authservice.stripFormValue(this.updatevalue.WellBoreRigName),
           Basin: this.authservice.stripFormValue(this.updatevalue.Basin),
           FormerExplAreaName: this.authservice.stripFormValue(this.updatevalue.FormerExplAreaName),
           SeismicLine: this.authservice.stripFormValue(this.updatevalue.SeismicLine),
           RotaryTableElavation: this.authservice.stripFormValue(this.updatevalue.RotaryTableElavation),
           GroundLevelElavation: this.authservice.stripFormValue(this.updatevalue.GroundLevelElavation),
-          TD_MD: this.authservice.stripFormValue(this.updatevalue.TD_MD),
-          TD_TVD: this.authservice.stripFormValue(this.updatevalue.TD_TVD),
-          TD_Date: this.authservice.stripFormValue(this.updatevalue.TD_Date),
-          CoreContractor_id: this.authservice.stripFormValue(this.updatevalue.CoreContractor_id),
-          RCI_Taken_id: this.authservice.stripFormValue(this.updatevalue.RCI_Taken_id),
-          MDT_Done_id: this.authservice.stripFormValue(this.updatevalue.MDT_Done_id),
-          FET_Done_id: this.authservice.stripFormValue(this.updatevalue.FET_Done_id),
+          TDMD: this.authservice.stripFormValue(this.updatevalue.TDMD),
+          TDTVD: this.authservice.stripFormValue(this.updatevalue.TDTVD),
+          TDDate: this.authservice.stripFormValue(this.updatevalue.TDDate),
+          CoreContractorId: this.authservice.stripFormValue(this.updatevalue.CoreContractorId),
+          RCITakenId: this.authservice.stripFormValue(this.updatevalue.RCITakenId),
+          MDTDoneId: this.authservice.stripFormValue(this.updatevalue.MDTDoneId),
+          FETDoneId: this.authservice.stripFormValue(this.updatevalue.FETDoneId),
           WFTContractor: this.authservice.stripFormValue(this.updatevalue.WFTContractor),
-          DST_Done_id: this.authservice.stripFormValue(this.updatevalue.DST_Done_id),
-          ManifoldFlowTested_id: this.authservice.stripFormValue(this.updatevalue.ManifoldFlowTested_id),
-          DST_Contractor_id: this.authservice.stripFormValue(this.updatevalue.DST_Contractor_id),
-          HasPetrophysicalLogs_id: this.authservice.stripFormValue(this.updatevalue.HasPetrophysicalLogs_id),
-          PetrophysicalContractor_id: this.authservice.stripFormValue(this.updatevalue.PetrophysicalContractor_id),
+          DSTDoneId: this.authservice.stripFormValue(this.updatevalue.DSTDoneId),
+          ManifoldFlowTestedId: this.authservice.stripFormValue(this.updatevalue.ManifoldFlowTestedId),
+          DSTContractorId: this.authservice.stripFormValue(this.updatevalue.DSTContractorId),
+          HasPetrophysicalLogsId: this.authservice.stripFormValue(this.updatevalue.HasPetrophysicalLogsId),
+          PetrophysicalContractorId: this.authservice.stripFormValue(this.updatevalue.PetrophysicalContractorId),
           TopBasementMD: this.authservice.stripFormValue(this.updatevalue.TopBasementMD),
           TopBasementTVD: this.authservice.stripFormValue(this.updatevalue.TopBasementTVD),
           WellboreTestStatus: this.authservice.stripFormValue(this.updatevalue.WellboreTestStatus),
@@ -381,37 +381,37 @@ export class KfdaComponent implements OnInit {
       WellboreAliasName: new FormControl(),
       WellboreSpudDate: new FormControl(),
       SpudYear: new FormControl(),
-      Wellbore_type: new FormControl(),
+      Wellboretype: new FormControl(),
       InitialWellborePurpose: new FormControl(),
-      WellborePurpose_id: new FormControl(),
+      WellborePurposeId: new FormControl(),
       PurposeChangeDate: new FormControl(),
-      // Well_id:new FormControl(),
-      Prospect_id: new FormControl(),
+      // WellId:new FormControl(),
+      ProspectId: new FormControl(),
       Discovery: new FormControl(),
-      WellboreContent_id: new FormControl(),
+      WellboreContentId: new FormControl(),
       WellboreStatus: new FormControl(),
-      // WellboreResponsibleLicence_id:new FormControl(),
-      LicenseOperatorCompany_id: new FormControl(),
-      DrillingContractorCompany_id: new FormControl(),
+      // WellboreResponsibleLicenceId:new FormControl(),
+      LicenseOperatorCompanyId: new FormControl(),
+      DrillingContractorCompanyId: new FormControl(),
       WellBoreRigName: new FormControl(),
       Basin: new FormControl(),
       FormerExplAreaName: new FormControl(),
       SeismicLine: new FormControl(),
       RotaryTableElavation: new FormControl(),
       GroundLevelElavation: new FormControl(),
-      TD_MD: new FormControl(),
-      TD_TVD: new FormControl(),
-      TD_Date: new FormControl(),
-      CoreContractor_id: new FormControl(),
-      // RCI_Taken_id:new FormControl(),
-      MDT_Done_id: new FormControl(),
-      FET_Done_id: new FormControl(),
+      TDMD: new FormControl(),
+      TDTVD: new FormControl(),
+      TDDate: new FormControl(),
+      CoreContractorId: new FormControl(),
+      // RCITakenId:new FormControl(),
+      MDTDoneId: new FormControl(),
+      FETDoneId: new FormControl(),
       WFTContractor: new FormControl(),
-      DST_Done_id: new FormControl(),
-      ManifoldFlowTested_id: new FormControl(),
-      DST_Contractor_id: new FormControl(),
-      HasPetrophysicalLogs_id: new FormControl(),
-      PetrophysicalContractor_id: new FormControl(),
+      DSTDoneId: new FormControl(),
+      ManifoldFlowTestedId: new FormControl(),
+      DSTContractorId: new FormControl(),
+      HasPetrophysicalLogsId: new FormControl(),
+      PetrophysicalContractorId: new FormControl(),
       TopBasementMD: new FormControl(),
       TopBasementTVD: new FormControl(),
       WellboreTestStatus: new FormControl(),
@@ -431,7 +431,7 @@ export class KfdaComponent implements OnInit {
       MapPortalWellboreMapLink: new FormControl(),
       WellboreFactsiteUrl: new FormControl(),
       OtherDevelopmentArea: new FormControl(),
-      WellboreType_id: new FormControl()
+      WellboreTypeId: new FormControl()
     });
   }
 
