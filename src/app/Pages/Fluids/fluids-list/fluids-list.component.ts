@@ -17,7 +17,7 @@ export class FluidsListComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   wellboreIds: any;
-  WBCoringContractor_id: any;
+  WBCoringContractorId: any;
   role: any;
   userEmail: any;
   loggedin: any;
@@ -34,6 +34,7 @@ export class FluidsListComponent implements OnInit {
   msg: any;
   viewFiles: boolean = false;
   Basins:any = ['Edward-George','Semiliki','Pakwach', 'The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
+  Purpose: any = ['Crude Oil Analysis','PVT Analysis','Formation Water Analysis','Natural Gas Analysis','Others'];
 
 
   ims: any = [];
@@ -122,17 +123,19 @@ export class FluidsListComponent implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup({
-      Wellbore_id: new FormControl(),
-      Sampling_activity: new FormControl(),
-      Fluid_category: new FormControl(),
-      Sample_type: new FormControl(),
-      Sample_basin: new FormControl(),
-      Sample_volume: new FormControl(),
-      Depth_obtained: new FormControl(),
-      Date_collected: new FormControl(),
-      Date_received: new FormControl(),
-      Sampling_company: new FormControl(),
-      Analysis_reports: new FormControl()
+      WellboreId: new FormControl(),
+      SamplingActivity: new FormControl(),
+      FluidCategory: new FormControl(),
+      SampleType: new FormControl(),
+      SampleBasin: new FormControl(),
+      SampleVolume: new FormControl(),
+      DepthObtained: new FormControl(),
+      DateCollected: new FormControl(),
+      DateReceived: new FormControl(),
+      SamplingCompany: new FormControl(),
+      AnalysisReports: new FormControl(),
+      SamplePurpose: new FormControl(),
+      OtherSpecifiedSamplePurpose: new FormControl()
     });
   }
 
@@ -232,7 +235,7 @@ export class FluidsListComponent implements OnInit {
 
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.Sample_id;
+    this.id = selectedItem.SampleId;
 
     this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
@@ -243,7 +246,7 @@ export class FluidsListComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.Sample_id);
+          console.log("Selected item Id: ", selectedItem.SampleId);
           this.http.delete('http://127.0.0.1:8899/apiv1/delete_fluid_sample/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;
@@ -273,20 +276,22 @@ export class FluidsListComponent implements OnInit {
 
   onView(item: any) {
     this.details = true;
-    this.id = item.Sample_id
+    this.id = item.SampleId
     localStorage.setItem("update-id", this.id);
     this.captureCoreInstance();
     this.catalogs = {
-      Wellbore_id: item.Wellbore_id,
-      Sampling_activity: item.Sampling_activity,
-      Fluid_category: item.Fluid_category.replace('FluidCategoryEnum.', ''),
-      Sample_type: item.Sample_type,
-      Sample_volume: item.Sample_volume,
-      Sample_basin: item.Sample_basin,
-      Depth_obtained: item.Depth_obtained,
-      Date_collected: item.Date_collected,
-      Date_received: item.Date_received,
-      Sampling_company: item.Sampling_company
+      WellboreId: item.WellboreId,
+      SamplingActivity: item.SamplingActivity,
+      FluidCategory: item.FluidCategory.replace('FluidCategoryEnum.', ''),
+      SampleType: item.SampleType,
+      SampleVolume: item.SampleVolume,
+      SampleBasin: item.SampleBasin,
+      DepthObtained: item.DepthObtained,
+      DateCollected: item.DateCollected,
+      DateReceived: item.DateReceived,
+      SamplingCompany: item.SamplingCompany,
+      SamplePurpose: item.SamplePurpose,
+      OtherSpecifiedSamplePurpose: item.OtherSpecifiedSamplePurpose
     }
   }
 
@@ -307,6 +312,13 @@ export class FluidsListComponent implements OnInit {
 
   }
 
+  changePurpose(e:any) {
+    console.log(e.value)
+    this.Purpose.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
 
   getFiles() {
     this.authservice
@@ -317,8 +329,8 @@ export class FluidsListComponent implements OnInit {
 
 
         for (var product of response) {
-          console.log('firat test: ' + product.Analysis_reports)
-          this.ims = product.Analysis_reports
+          console.log('firat test: ' + product.AnalysisReports)
+          this.ims = product.AnalysisReports
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
@@ -338,16 +350,18 @@ export class FluidsListComponent implements OnInit {
       .subscribe(response => {
         this.updatevalue = response;
         this.formGroup.patchValue({
-          Wellbore_id: this.stripFormValue(this.updatevalue.Wellbore_id),
-          Sampling_activity: this.stripFormValue(this.updatevalue.Sampling_activity),
-          Fluid_category: this.stripFormValue(this.updatevalue.Fluid_category).replace('FluidCategoryEnum.', ''),
-          Sample_type: this.stripFormValue(this.updatevalue.Sample_type),
-          Sample_volume: this.stripFormValue(this.updatevalue.Sample_volume),
-          Sample_basin: this.stripFormValue(this.updatevalue.Sample_basin),
-          Depth_obtained: this.stripFormValue(this.updatevalue.Depth_obtained),
-          Date_collected: this.stripFormValue(this.updatevalue.Date_collected),
-          Date_received: this.stripFormValue(this.updatevalue.Date_received),
-          Sampling_company: this.stripFormValue(this.updatevalue.Sampling_company)
+          WellboreId: this.stripFormValue(this.updatevalue.WellboreId),
+          SamplingActivity: this.stripFormValue(this.updatevalue.SamplingActivity),
+          FluidCategory: this.stripFormValue(this.updatevalue.FluidCategory).replace('FluidCategoryEnum.', ''),
+          SampleType: this.stripFormValue(this.updatevalue.SampleType),
+          SampleVolume: this.stripFormValue(this.updatevalue.SampleVolume),
+          SampleBasin: this.stripFormValue(this.updatevalue.SampleBasin),
+          DepthObtained: this.stripFormValue(this.updatevalue.DepthObtained),
+          DateCollected: this.stripFormValue(this.updatevalue.DateCollected),
+         DateReceived: this.stripFormValue(this.updatevalue.DateReceived),
+          SamplingCompany: this.stripFormValue(this.updatevalue.SamplingCompany),
+          SamplePurpose:this.stripFormValue(this.updatevalue.SamplePurpose).replace('FluidSamplePurposeEnum.', ''),
+          OtherSpecifiedSamplePurpose:this.stripFormValue(this.updatevalue.OtherSpecifiedSamplePurpose)
 
         });
         console.log(this.updatevalue)
@@ -365,7 +379,7 @@ export class FluidsListComponent implements OnInit {
 
   changeContractingId(e: any) {
     console.log(e.value)
-    this.WBCoringContractor_id.setValue(e.target.value, {
+    this.WBCoringContractorId.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -379,8 +393,8 @@ export class FluidsListComponent implements OnInit {
 
   getWBCoringContractorId() {
     this.authservice.getCompanies().subscribe(res => {
-      this.WBCoringContractor_id = res;
-      console.log(this.WBCoringContractor_id);
+      this.WBCoringContractorId = res;
+      console.log(this.WBCoringContractorId);
     })
   }
 
@@ -429,7 +443,7 @@ export class FluidsListComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.Core_sample_id);
+          console.log("Selected item Id: ", selectedItem.Core_SampleId);
           this.http.delete('http://127.0.0.1:8899/apiv1/delete_file/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;
