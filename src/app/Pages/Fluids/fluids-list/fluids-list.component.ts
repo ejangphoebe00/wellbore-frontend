@@ -135,7 +135,8 @@ export class FluidsListComponent implements OnInit {
       SamplingCompany: new FormControl(),
       AnalysisReports: new FormControl(),
       SamplePurpose: new FormControl(),
-      OtherSpecifiedSamplePurpose: new FormControl()
+      OtherSpecifiedSamplePurpose: new FormControl(),
+      FluidPhotograph: new FormControl()
     });
   }
 
@@ -217,6 +218,28 @@ export class FluidsListComponent implements OnInit {
 
     console.log(this.currentFile)
     this.authservice.uploadFluidFile(this.currentFile).subscribe(response => {
+      this.selectedFiles.value = '';
+      if (response instanceof HttpResponse) {
+        this.msg = response.body;
+        console.log(response.body);
+        this.toastr.success("File Uploaded successfully.", "", {
+          timeOut: 2000,
+          positionClass: 'toast-top-center',
+          progressBar: true,
+          progressAnimation: 'increasing'
+        })
+        this.formGroup.reset();
+      }
+    });
+  }
+
+
+  uploadImage() {
+    this.currentFile = this.selectedFiles.item(0);
+
+
+    console.log(this.currentFile)
+    this.authservice.uploadFluidImage(this.currentFile).subscribe(response => {
       this.selectedFiles.value = '';
       if (response instanceof HttpResponse) {
         this.msg = response.body;

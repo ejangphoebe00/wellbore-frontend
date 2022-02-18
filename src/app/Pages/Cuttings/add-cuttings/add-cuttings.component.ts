@@ -14,9 +14,11 @@ export class AddCuttingsComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   wellboreIds: any;
-  WBCoringContractor_id: any;
-  today : any;
-  cuttings:any = ['Washed_Dried','Washed_Wet','Wet_Unwashed','Dry_Unwashed'];
+ 
+
+  WBCoringContractorId: any;
+  today: any;
+  cuttings: any = ['Washed_Dried', 'Washed_Wet', 'Wet_Unwashed', 'Dry_Unwashed'];
   maxd: any;
   mindate: any;
 
@@ -24,12 +26,12 @@ export class AddCuttingsComponent implements OnInit {
     private authservice: ApiPipeService,
     private router: Router,
     private toastr: ToastrService
-  ) { 
+  ) {
   }
 
   ngOnInit(): void {
-    this.maxd = new Date(); 
-     this.maxd = new Date();
+    this.maxd = new Date();
+    this.maxd = new Date();
     if (this.maxd.getDate() < 9) {
       this.mindate = this.maxd.getFullYear() + '-' + parseInt(this.maxd.getMonth() + 1) + '-' + 0 + this.maxd.getDate()
     } else {
@@ -41,48 +43,54 @@ export class AddCuttingsComponent implements OnInit {
     this.getWBCoringContractorId();
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = new FormGroup({
-      Wellbore_id:new FormControl(),
-      Sample_box_number:new FormControl(),
-      Cutting_category:new FormControl(),
-      Sample_type:new FormControl(),
-      Minimum_depth:new FormControl(),
-      Maximum_depth:new FormControl(),
-      Sample_interval:new FormControl(),
-      Date_received:new FormControl(),
-      Other_description:new FormControl(),
+      WellboreId: new FormControl(),
+      SampleBoxNumber: new FormControl(),
+      CuttingCategory: new FormControl(),
+      SampleType: new FormControl(),
+      MinimumDepth: new FormControl(),
+      MaximumDepth: new FormControl(),
+      SampleInterval: new FormControl(),
+      DateReceived: new FormControl(),
+      OtherDescription: new FormControl(),
+      TopDepth: new FormControl(),
+      BottomDepth: new FormControl(),
+      StoreIdentifier: new FormControl(),
+      Operator: new FormControl(),
+      SamplingCompany: new FormControl(),
+      SamplingDate: new FormControl()
     });
   }
 
-  logout(){
+  logout() {
     this.authservice.logoutuser()
 
   }
 
-  addCutting(){
+  addCutting() {
     console.log("tested")
-    if(this.formGroup.valid){
-      this.authservice.addCuts(this.formGroup.value).subscribe(result =>{
+    if (this.formGroup.valid) {
+      this.authservice.addCuts(this.formGroup.value).subscribe(result => {
         console.log(result)
 
-        if(result.message == "Cutting added successfuly."){
-          this.toastr.success("Cutting added successfuly.","",{
+        if (result.message == "Cutting added successfuly.") {
+          this.toastr.success("Cutting added successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'increasing'
+            progressAnimation: 'increasing'
           })
           this.formGroup.reset();
         }
       }, error => {
         console.log('oops', error.message)
-        if(error){
-          this.toastr.error(error.error.message,"",{
+        if (error) {
+          this.toastr.error(error.error.message, "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'decreasing'
+            progressAnimation: 'decreasing'
           })
         }
       }
@@ -91,42 +99,42 @@ export class AddCuttingsComponent implements OnInit {
     }
   }
 
-  getWelboreId(){
-    this.authservice.getWelboreIds().subscribe(res =>{
+  getWelboreId() {
+    this.authservice.getWelboreIds().subscribe(res => {
       this.wellboreIds = res;
       console.log(this.wellboreIds);
     })
   }
 
-  changeContractingId(e:any) {
+  changeContractingId(e: any) {
     console.log(e.value)
-    this.WBCoringContractor_id.setValue(e.target.value, {
+    this.WBCoringContractorId.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  changeWellboreId(e:any) {
+  changeWellboreId(e: any) {
     console.log(e.value)
     this.wellboreIds.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  getWBCoringContractorId(){
-    this.authservice.getCompanies().subscribe(res =>{
-      this.WBCoringContractor_id = res;
-      console.log(this.WBCoringContractor_id);
+  getWBCoringContractorId() {
+    this.authservice.getCompanies().subscribe(res => {
+      this.WBCoringContractorId = res;
+      console.log(this.WBCoringContractorId);
     })
   }
 
-  changeFluids(e:any) {
+  changeFluids(e: any) {
     console.log(e.value)
     this.cuttings.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  get f(){return this.formGroup.controls}
+  get f() { return this.formGroup.controls }
 
 }
 

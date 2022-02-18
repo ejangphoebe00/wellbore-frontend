@@ -753,10 +753,35 @@ export class ApiPipeService {
 	
 		return this.http.request(req);
    }
+
+   uploadFluidImage(file1: any): Observable<HttpEvent<{}>> {
+		const formdata: FormData = new FormData();
+    formdata.append('FluidPhotograph', file1);
+    console.log(file1)
+		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
+			  reportProgress: true,
+			  responseType: 'text'
+		});
+	
+		return this.http.request(req);
+   }
    
    uploadRockFile(file1: any): Observable<HttpEvent<{}>> {
 		const formdata: FormData = new FormData();
     formdata.append('PetrographicAnalysisReports', file1);
+    console.log(file1)
+		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
+			  reportProgress: true,
+			  responseType: 'text'
+		});
+	
+		return this.http.request(req);
+   }
+
+
+   uploadRockImage(file1: any): Observable<HttpEvent<{}>> {
+		const formdata: FormData = new FormData();
+    formdata.append('RockPhotograph', file1);
     console.log(file1)
 		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
 			  reportProgress: true,

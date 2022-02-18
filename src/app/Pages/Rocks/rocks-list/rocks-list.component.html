@@ -1,187 +1,238 @@
 <div class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
-        <div class="page-content">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
 
-            <!-- BEGIN PAGE BAR -->
-            <div class="page-bar">
-                <ul class="page-breadcrumb">
-                    <li>
-                        <a [routerLink]="['/dashboard']">Dashboard</a>
-                        <i class="fa fa-circle"></i>
-                    </li>
-                    <li>
-                        <span>Core</span>
-                    </li>
-                </ul>
+        <!-- BEGIN PAGE BAR -->
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a [routerLink]="['/dashboard']">Dashboard</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span>Core</span>
+                </li>
+            </ul>
 
-            </div>
-            <!-- END PAGE BAR -->
-            <!-- BEGIN PAGE TITLE-->
+        </div>
+        <!-- END PAGE BAR -->
+        <!-- BEGIN PAGE TITLE-->
 
-            <!-- END PAGE TITLE-->
+        <!-- END PAGE TITLE-->
 
-            <div class="clearfix"></div>
-            <!-- END DASHBOARD STATS 1-->
-            <div *ngIf="status"  class="portlet light bordered">
+        <div class="clearfix"></div>
+        <!-- END DASHBOARD STATS 1-->
+        <div *ngIf="status" class="portlet light bordered">
 
-                <div class="portlet-body form">
-                    <!-- BEGIN FORM-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light bordered">
-                                <div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="fa fa-chain-broken
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-red-sunglo">
+                                    <i class="fa fa-chain-broken
                                         font-red-sunglo"></i>
-                                        <span class="caption-subject
-                                            bold uppercase">Rocks</span>
-                                    </div>
-                                    <div class="tools"> </div>
+                                    <span class="caption-subject
+                                        bold uppercase">Rocks</span>
                                 </div>
-                                <div class="portlet-body">
+                                <div class="tools"> </div>
+                            </div>
+                            <div class="portlet-body">
 
-                                            <table datatable
-                                            [dtOptions]="dtOptions"
-                                            [dtTrigger]="dtTrigger"
-                                            class="table table-striped
-                                            table-bordered table-hover"
-                                            id="sample_1">
-                                                <thead>
-                                                  <tr >
-                                                    <th>Store_id</th>
-                                                    <th>Date_collected</th>
-                                                    <th>Date_received</th>
-                                                    <th>Sample_name</th>
-                                                    <th>Actions</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr *ngFor="let post of users">
-                                                    <td>{{post.Store_id}}</td>
-                                                    <td>{{post.Date_collected}}</td>
-                                                    <td>{{post.Date_received}}</td>
-                                                    <td>{{post.Sample_name}}</td>
-                                                    <td>
-                                                        <!-- <button type="button" (click)="onSelectEdit(post)"
+                                <table datatable
+                                    [dtOptions]="dtOptions"
+                                    [dtTrigger]="dtTrigger"
+                                    class="table table-striped
+                                    table-bordered table-hover"
+                                    id="sample_1">
+                                    <thead>
+                                        <tr>
+                                            <th>Store_id</th>
+                                            <th>Date_collected</th>
+                                            <th>Date_received</th>
+                                            <th>Sample_name</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let post of users">
+                                            <td>{{post.StoreId}}</td>
+                                            <td>{{post.DateCollected}}</td>
+                                            <td>{{post.DateReceived}}</td>
+                                            <td>{{post.SampleName}}</td>
+                                            <td>
+                                                <!-- <button type="button" (click)="onSelectEdit(post)"
                                                         class="btn blue btn-outline">
                                                         <i class="fa fa-angle-double-right"></i></button> -->
-                                                      <button  *ngIf="checkstaff" type="button" class="btn red btn-outline"
-                                                      (click)="onSelect(post)"><i class="fa fa-trash-o"></i></button>
-                                                      <a class="btn purple btn-outline bold" (click)="onView(post)"
-                                                      data-toggle="modal" href="#large"> More </a>
-                                                    </td>
-                                                  </tr>
+                                                <button *ngIf="checkstaff"
+                                                    type="button" class="btn red
+                                                    btn-outline"
+                                                    (click)="onSelect(post)"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                                <a class="btn purple btn-outline
+                                                    bold" (click)="onView(post)"
+                                                    data-toggle="modal"
+                                                    href="#large"> More </a>
+                                            </td>
+                                        </tr>
 
 
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                    </div>
-                                    <!-- END EXAMPLE TABLE PORTLET-->
-                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                    <!-- END EXAMPLE TABLE PORTLET-->
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
-
-                            <!-- END FORM-->
                         </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <!-- END EXAMPLE TABLE PORTLET-->
                     </div>
+                </div>
+
+                <!-- END FORM-->
+            </div>
+        </div>
 
 
 
-                    <div *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                        <div class="caption font-red-sunglo">
-                                                <i class="fa fa-chain-broken
-                                        font-red-sunglo"></i>
-                                                <span class="caption-subject
-                                                    bold uppercase">Rocks</span>
-                                            </div>
+        <div *ngIf="details" class="modal fade bs-modal-lg" id="large"
+            tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true"></button>
+                        <div class="caption font-red-sunglo">
+                            <i class="fa fa-chain-broken
+                                font-red-sunglo"></i>
+                            <span class="caption-subject
+                                bold uppercase">Rocks</span>
+                        </div>
 
-                                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
-                                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
-                                    </div>
-                                    <div class="modal-body">
-                                      <table class="table table-bordered table-striped">
-                                          <tbody>
-                                            <tr>
-                                                <th style="width:25%"> Sample</th>
-                                                <td style="width:25%">{{catalogs.Store_id}} </td>
-                                                <th style="width:25%"> Date Collected </th>
-                                                <td style="width:25%"> {{catalogs.Date_collected}}</td>
-        
-                                            </tr>
-                                            <tr>
-                                                <th style="width:25%"> Date_received</th>
-                                                <td style="width:25%">{{catalogs.Date_received}} </td>
-                                                <th style="width:25%"> Sample Basin </th>
-                                                <td style="width:25%"> {{catalogs.Sample_basin}}</td>
-        
-                                            </tr>
-                                           
-                                                <tr>
-                                                    <th style="width:25%"> Rock Name</th>
-                                                    <td style="width:25%">{{catalogs.Sample_name}} </td>
-                                                    <th style="width:25%"> Coordinate Location </th>
-                                                    <td style="width:25%"> {{catalogs.Coordinate_location}}</td>
-            
-                                                </tr>
-                                                <tr>
-                                                        <th style="width:25%"> Petrographic Description </th>
-                                                        <td style="width:25%">{{catalogs.Petrographic_description }} </td>
-                                                        <th style="width:25%"> Files </th>
-                                                        <td style="width:25%"><a
-                                                            (click)="onSelectFiles(catalogs)"
-                                                            data-dismiss="modal">View
-                                                            Files</a></td>
-                
-                                                    </tr>
-                                            
-                                           </tbody>
-                                       </table>
-                                       <div class="clearfix"></div>
-                                       <button   *ngIf="checkstaff" (click)="onSelectEdit(catalogs)" data-dismiss="modal"   class="btn blue">Edit</button>
-                                       <button  *ngIf="checkstaff"  (click)="onFile()"  data-dismiss="modal"   class="btn yellow">Add File</button>
+                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
+                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th style="width:25%"> Sample</th>
+                                    <td style="width:25%">{{catalogs.StoreId}}
+                                    </td>
+                                    <th style="width:25%"> Date Collected </th>
+                                    <td style="width:25%">
+                                        {{catalogs.DateCollected}}</td>
 
-                                   </div>
-                                   <!-- <div class="modal-footer">
+                                </tr>
+                                <tr>
+                                    <th style="width:25%"> Date_received</th>
+                                    <td style="width:25%">{{catalogs.DateReceived}}
+                                    </td>
+                                    <th style="width:25%"> Sample Basin </th>
+                                    <td style="width:25%">
+                                        {{catalogs.Sample_basin}}</td>
+
+                                </tr>
+
+                                <tr>
+                                    <th style="width:25%"> Rock Name</th>
+                                    <td style="width:25%">{{catalogs.SampleName}}
+                                    </td>
+                                    <th style="width:25%"> Coordinate Location
+                                    </th>
+                                    <td style="width:25%">
+                                        {{catalogs.CoordinateLocation}}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <th style="width:25%"> SamplePurpose</th>
+                                    <td style="width:25%">{{catalogs.SamplePurpose}}
+                                    </td>
+                                    <th style="width:25%"> Other Specified
+                                        Sample Purpose </th>
+                                    <td style="width:25%">
+                                        {{catalogs.OtherSpecifiedSamplePurpose}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th style="width:25%"> Latitude</th>
+                                    <td style="width:25%">{{catalogs.Latitude}}
+                                    </td>
+                                    <th style="width:25%"> Longtitude </th>
+                                    <td style="width:25%">
+                                        {{catalogs.Longitude}}</td>
+
+                                </tr>
+
+                                <tr>
+                                    <th style="width:25%"> SampleName</th>
+                                    <td style="width:25%">{{catalogs.SampleName}}
+                                    </td>
+                                    <th style="width:25%"> Operator </th>
+                                    <td style="width:25%"> {{catalogs.Operator}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th style="width:25%"> Petrographic
+                                        Description </th>
+                                    <td style="width:25%">{{catalogs.PetrographicDescription
+                                        }} </td>
+                                    <th style="width:25%"> Files </th>
+                                    <td style="width:25%"><a
+                                            (click)="onSelectFiles(catalogs)"
+                                            data-dismiss="modal">View
+                                            Files</a></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                        <button *ngIf="checkstaff"
+                            (click)="onSelectEdit(catalogs)"
+                            data-dismiss="modal" class="btn blue">Edit</button>
+                        <button *ngIf="checkstaff" (click)="onFile()"
+                            data-dismiss="modal" class="btn yellow">Add File</button>
+                    </div>
+                    <!-- <div class="modal-footer">
                                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                                        <button type="button" class="btn green">Save changes</button>
                                    </div> -->
-                                   <!-- /.modal-content -->
-                               </div>
-              
-                               <!-- /.modal-dialog -->
-                           </div>
+                    <!-- /.modal-content -->
+                </div>
+
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+
+        <div *ngIf="uploadFile" class="portlet light bordered">
+            <div class="portlet-body form">
+                <form class="form-horizontal" [formGroup]="formGroup"
+                    (ngSubmit)="upload()" ngNativeValidate>
+
+                    <div class="form-body row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Petrographic Analysis Reports</label>
+                                <input type="file"
+                                    formControlName="Petrographic_analysis_reports"
+                                    (change)="selectFile($event)">
+                            </div>
+
                         </div>
 
-                        <div *ngIf="uploadFile" class="portlet light bordered">
-                            <div class="portlet-body form">
-                                    <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="upload()" ngNativeValidate>
-                
-                                            <div class="form-body row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                             <label>Petrographic Analysis Reports</label>
-                                                             <input type="file" formControlName="Petrographic_analysis_reports" (change)="selectFile($event)">                                         
-                                                        </div>
-                                                        
-                                                    </div>
-                                                  
-                      
-                                                  </div>
-                
-                                    <div class="form-actions">
-                                        <button  type="submit" class="btn blue">Upload</button>
-                                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
-                                    </div>
-                                </form>
-                           
-                                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Upload</button>
+                        <button (click)="navigateBack()" type="button"
+                            class="btn default">Back</button>
+                    </div>
+                </form>
+
+                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
 
                                       
                                     <div class="form-group">
@@ -198,19 +249,19 @@
                                           
                                     <button class="btn btn-primary" type="submit">Submit</button>
                                 </form> -->
-                            </div>
-                      
+            </div>
 
-                       
-                        
 
-                        <!-- <angular-file-uploader
+
+
+
+            <!-- <angular-file-uploader
                             [config]="afuConfig">
                         </angular-file-uploader> -->
-                                                    <!-- <angular-file-uploader
+            <!-- <angular-file-uploader
                             [config]="afuConfig">
                         </angular-file-uploader> -->
-                        <!-- <input type="file" class="file-input"
+            <!-- <input type="file" class="file-input"
                         [accept]="requiredFileType"
                         (change)="onFileSelected($event)" #fileUpload>
                  
@@ -237,115 +288,245 @@
                              *ngIf="uploadProgress">delete_forever</mat-icon>
                  
                  </div> -->
-                        
-                    </div>
-                     
+        </div>
 
-            <div *ngIf="editform" class="portlet light bordered">
-                    <div class="portlet-body form">
-                            <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateRockProcess()" ngNativeValidate>
-        
-                                <div class="form-body row">
-                                    <div class="col-md-6">
-                                       
-                                        
-                                        <div class="form-group">
-                                            <label>Sample</label>
-                                            <span class="error">*</span>
-                                            <input type="number" required formControlName="Store_id" class="form-control">
-                                        </div>
-                                       
-                                        <div class="form-group">
-                                            <label>Date_collected</label>
-                                            <input type="date"  min="1900-10-01" max={{mindate}} formControlName="Date_collected" class="form-control">
-      
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Date Received</label>
-                                            <input type="date" min="1900-10-01" max={{mindate}}  formControlName="Date_received" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Sample_basin</label>
-                                            <select class="form-control"  required formControlName="Sample_basin">
-                                                <option *ngFor="let role of Basins" [ngValue]="role"
-                                                    (change)="changeBasins($event)">{{role}}
-                                                </option>
-                                                </select>
-                                        </div>
-                                      
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="form-group">
-                                              <label>Sample_name</label>
-                                              <input type="text" formControlName="Sample_name" class="form-control">
-                                          </div>
-      
-                                        <div class="form-group">
-                                            <label>Coordinate_location</label>
-                                            <input type="text" formControlName="Coordinate_location" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Petrographic_description</label>
-                                            <input type="text" formControlName="Petrographic_description" class="form-control">
-                                        </div>
-                                                                      
-                                    </div>
-      
-                                  </div>
-                            <div class="form-actions">
-                                <button  type="submit" class="btn blue">Update</button>
-                                <button (click)="navigateBack()" type="button" class="btn default">Back</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>  
 
-                <div *ngIf="viewFiles" class="portlet light bordered">
-                        <div class="portlet-body form">
-    
-                            <h3> Files</h3>
-    
-                            <div class="portlet-body">
-    
-                                <table datatable
-                                    [dtOptions]="dtOptions"
-                                    [dtTrigger]="dtTrigger"
-                                    class="table table-striped
-                                    table-bordered table-hover"
-                                    id="sample_1">
-                                    <thead>
-                                        <tr>
-                                            <th>File Name </th>
-                                            <th>Download link</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let img of cutImg">
-                                            <td>{{img.name}}</td>
-                                            <td><a href={{img.link}}
-                                                    target="_blank">Download</a></td>
-                                                    <td>
-                                                      
-                                                            <button type="button" class="btn
-                                                                red btn-outline"
-                                                                (click)="onDeleteFile(img)"><i
-                                                                    class="fa fa-trash-o"></i></button>
-                                                          
-                                                        </td> 
-                                        </tr>
-                                    </tbody>
-                                </table>
-    
-                                <button (click)="navigateBack()" type="button"
-                                    class="btn default">Back</button>
+        <div *ngIf="editform" class="portlet light bordered">
+            <div class="portlet-body form">
+                <form class="form-horizontal" [formGroup]="formGroup"
+                    (ngSubmit)="updateRockProcess()" ngNativeValidate>
+                    <div class="form-body row">
+                        <div class="col-md-6">
+
+
+                            <div class="form-group">
+                                <label>Store Id</label>
+                                <span class="error">*</span>
+                                <input type="number" required
+                                    formControlName="StoreId"
+                                    class="form-control">
                             </div>
-    
+
+                            <div class="form-group">
+                                <label>Date_collected</label>
+                                <input type="date" min="1900-10-01"
+                                    max={{mindate}}
+                                    formControlName="DateCollected"
+                                    class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Date Received</label>
+                                <input type="date" min="1900-10-01"
+                                    max={{mindate}}
+                                    formControlName="DateReceived"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Sample_basin</label>
+                                <select class="form-control" required
+                                    formControlName="SampleBasin">
+                                    <option *ngFor="let role of Basins"
+                                        [ngValue]="role"
+                                        (change)="changeBasins($event)">{{role}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>SamplePurpose</label>
+                                <select class="form-control" required
+                                    formControlName="SamplePurpose">
+                                    <option *ngFor="let role of Purpose"
+                                        [ngValue]="role"
+                                        (change)="changePurpose($event)">{{role}}
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Other Specified Sample Purpose </label>
+                                <input type="text"
+                                    formControlName="OtherSpecifiedSamplePurpose"
+                                    class="form-control">
+                            </div>
+
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Sample_name</label>
+                                <input type="text" formControlName="SampleName"
+                                    class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Latitude</label>
+                                <input type="text" formControlName="Latitude"
+                                    class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Longitude</label>
+                                <input type="text" formControlName="Longitude"
+                                    class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Operator</label>
+                                <input type="text" formControlName="Operator"
+                                    class="form-control">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Petrographic_description</label>
+                                <input type="text"
+                                    formControlName="PetrographicDescription"
+                                    class="form-control">
+                            </div>
+
+                        </div>
+
                     </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Update</button>
+                        <button (click)="navigateBack()" type="button"
+                            class="btn default">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div *ngIf="viewFiles" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Files</h3>
+
+                <div class="portlet-body">
+
+                    <table datatable
+                        [dtOptions]="dtOptions"
+                        [dtTrigger]="dtTrigger"
+                        class="table table-striped
+                        table-bordered table-hover"
+                        id="sample_1">
+                        <thead>
+                            <tr>
+                                <th>File Name </th>
+                                <th>Download link</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let img of cutImg">
+                                <td>{{img.name}}</td>
+                                <td><a href={{img.link}}
+                                        target="_blank">Download</a></td>
+                                <td>
+
+                                    <button type="button" class="btn
+                                        red btn-outline"
+                                        (click)="onDeleteFile(img)"><i
+                                            class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button (click)="navigateBack()" type="button"
+                        class="btn default">Back</button>
                 </div>
 
-
-                
-                <!-- END CONTENT BODY -->
             </div>
+        </div>
+        <div *ngIf="uploadFile" class="portlet light bordered">
+            <div class="portlet-body form">
+                <form class="form-horizontal" [formGroup]="formGroup"
+                    (ngSubmit)="uploadImage()" ngNativeValidate>
+
+                    <div class="form-body row">
+                        <div class="col-md-6">
+                          
+                            <div class="form-group">
+                                <label>Rock Photograph</label>
+                                <input type="file"
+                                    formControlName="RockPhotograph"
+                                    (change)="selectFile($event)">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Upload</button>
+                        <button (click)="navigateBack()" type="button"
+                            class="btn default">Back</button>
+                    </div>
+                </form>
+
+                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+                                  
+                                <div class="form-group">
+                                    <label for="file">File</label>
+                                    <input 
+                                        formControlName="Core_analysis_reports"
+                                        id="file" 
+                                        type="file" 
+                                        class="form-control"
+                                        (change)="onFileChange($event)">
+                                       
+                                   
+                                </div>
+                                      
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </form> -->
+            </div>
+
+
+
+
+
+            <!-- <angular-file-uploader
+                        [config]="afuConfig">
+                    </angular-file-uploader> -->
+            <!-- <angular-file-uploader
+                        [config]="afuConfig">
+                    </angular-file-uploader> -->
+            <!-- <input type="file" class="file-input"
+                    [accept]="requiredFileType"
+                    (change)="onFileSelected($event)" #fileUpload>
+             
+             <div class="file-upload">
+             
+                {{fileName || "No file uploaded yet."}}
+             
+                 <button mat-mini-fab color="primary" class="upload-btn"
+                   (click)="fileUpload.click()">
+                     <mat-icon>attach_file</mat-icon>
+             
+                 </button>
+             
+             </div>
+             
+             <div class="progress">
+             
+               <mat-progress-bar class="progress-bar" mode="determinate"
+                                 [value]="uploadProgress" *ngIf="uploadProgress">
+             
+               </mat-progress-bar>
+             
+               <mat-icon class="cancel-upload" (click)="cancelUpload()" 
+                         *ngIf="uploadProgress">delete_forever</mat-icon>
+             
+             </div> -->
+        </div>
+
+    </div>
+
+    <!-- END CONTENT BODY -->
+</div>

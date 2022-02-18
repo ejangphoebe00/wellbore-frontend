@@ -13,7 +13,9 @@ export class AddRockSampleComponent implements OnInit {
 
   formGroup!: FormGroup;
   title!: string;
-  Basins:any = ['Edward-George','Semiliki','Pakwach', 'The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
+  Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
+  Purpose: any = ['Rock Minerals Analysis','Clay and Whole-rock Analysis','Rock Pyrolysis Analysis','Others'];
+
   maxd: any;
   mindate: any;
 
@@ -21,13 +23,13 @@ export class AddRockSampleComponent implements OnInit {
     private authservice: ApiPipeService,
     private router: Router,
     private toastr: ToastrService
-  ) { 
-    
+  ) {
+
   }
 
   ngOnInit(): void {
-  
-     this.maxd = new Date();
+
+    this.maxd = new Date();
     if (this.maxd.getDate() < 9) {
       this.mindate = this.maxd.getFullYear() + '-' + parseInt(this.maxd.getMonth() + 1) + '-' + 0 + this.maxd.getDate()
     } else {
@@ -37,45 +39,49 @@ export class AddRockSampleComponent implements OnInit {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = new FormGroup({
-      Store_id:new FormControl(),
-      Date_collected:new FormControl(),
-      Date_received:new FormControl(),
-      Sample_basin:new FormControl(),
-      Sample_name:new FormControl(),
-      Coordinate_location:new FormControl(),
-      Petrographic_description:new FormControl(),
-        });
+      StoreId: new FormControl(),
+      DateCollected: new FormControl(),
+      DateReceived: new FormControl(),
+      SampleBasin: new FormControl(),
+      SampleName: new FormControl(),
+      SamplePurpose: new FormControl(),
+      OtherSpecifiedSamplePurpose: new FormControl(),
+      Latitude: new FormControl(),
+      Longitude: new FormControl(),
+      Operator: new FormControl(),
+      PetrographicDescription: new FormControl(),
+    });
   }
 
-  logout(){
+  logout() {
     this.authservice.logoutuser()
 
   }
 
-  addRockSample(){
+  addRockSample() {
     console.log("tested")
-    if(this.formGroup.valid){
-      this.authservice.addRocks(this.formGroup.value).subscribe(result =>{
+    if (this.formGroup.valid) {
+      this.authservice.addRocks(this.formGroup.value).subscribe(result => {
         console.log(result)
-        if(result.message == "Rock Sample added successfuly."){
-          this.toastr.success("Rock Sample added successfuly.","",{
+        if (result.message == "Rock Sample added successfuly.") {
+          this.toastr.success("Rock Sample added successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'increasing'
+            progressAnimation: 'increasing'
           })
           this.formGroup.reset();
         }
       }, error => {
         console.log('oops', error.message)
-        if(error){
-          this.toastr.error(error.error.message,"",{
+        if (error) {
+          this.toastr.error(error.error.message, "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'decreasing'
+            progressAnimation: 'decreasing'
           })
         }
       }
@@ -84,7 +90,7 @@ export class AddRockSampleComponent implements OnInit {
     }
   }
 
-  changeBasins(e:any) {
+  changeBasins(e: any) {
     console.log(e.value)
     this.Basins.setValue(e.target.value, {
       onlySelf: true
@@ -92,7 +98,15 @@ export class AddRockSampleComponent implements OnInit {
   }
 
 
-  get f(){return this.formGroup.controls}
+  changePurpose(e: any) {
+    console.log(e.value)
+    this.Purpose.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+
+  get f() { return this.formGroup.controls }
 
 }
 

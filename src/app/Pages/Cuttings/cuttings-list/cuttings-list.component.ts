@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { NgPopupsService } from 'ng-popups';
 
 @Component({
@@ -17,7 +17,8 @@ export class CuttingsListComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   wellboreIds: any;
-  WBCoringContractor_id: any;
+  WBCoringContractorId: any;
+  checkstaff: boolean = false;
   role: any;
   userEmail: any;
   loggedin: any;
@@ -29,6 +30,13 @@ export class CuttingsListComponent implements OnInit {
   updatevalue: any;
   catalogs: any;
   cuts:any = ['Washed_Dried','Washed_Wet','Wet_Unwashed','Dry_Unwashed'];
+  ims: any = [];
+  cutImg: any = [];
+  uploadFile: boolean = false;
+  selectedFiles: any;
+  currentFile: any;
+  viewFiles: boolean = false;
+  msg: any;
 
 
   dtOptions: any = {};
@@ -39,7 +47,7 @@ export class CuttingsListComponent implements OnInit {
   dialog: any;
   maxd: any;
   mindate: any;
-  checkstaff: boolean = false;
+
 
 
   constructor(
@@ -110,15 +118,21 @@ export class CuttingsListComponent implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup({
-      Wellbore_id: new FormControl(),
-      Sample_box_number: new FormControl(),
-      Cutting_category: new FormControl(),
-      Sample_type: new FormControl(),
-      Minimum_depth: new FormControl(),
-      Maximum_depth: new FormControl(),
-      Sample_interval: new FormControl(),
-      Date_received: new FormControl(),
-      Other_description: new FormControl(),
+      WellboreId: new FormControl(),
+      SampleBoxNumber: new FormControl(),
+      CuttingCategory: new FormControl(),
+      SampleType: new FormControl(),
+      MinimumDepth: new FormControl(),
+      MaximumDepth: new FormControl(),
+      SampleInterval: new FormControl(),
+      DateReceived: new FormControl(),
+      OtherDescription: new FormControl(),
+      TopDepth: new FormControl(),
+      BottomDepth: new FormControl(),
+      StoreIdentifier: new FormControl(),
+      Operator: new FormControl(),
+      SamplingCompany: new FormControl(),
+      SamplingDate: new FormControl()
     });
   }
 
@@ -186,7 +200,7 @@ export class CuttingsListComponent implements OnInit {
 
 
   onSelect(selectedItem: any) {
-    this.id = selectedItem.Sample_id;
+    this.id = selectedItem.SampleId;
 
     this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
@@ -197,7 +211,7 @@ export class CuttingsListComponent implements OnInit {
     })
       .subscribe(res => {
         if (res) {
-          console.log("Selected item Id: ", selectedItem.Sample_id);
+          console.log("Selected item Id: ", selectedItem.SampleId);
           this.http.delete('http://127.0.0.1:8899/apiv1/delete_cutting/' + this.id)
             .subscribe(response => {
               this.deleteresp = response;
@@ -227,20 +241,26 @@ export class CuttingsListComponent implements OnInit {
 
   onView(item: any) {
     this.details = true;
-    this.id = item.Sample_id
+    this.id = item.SampleId
     localStorage.setItem("update-id", this.id);
     this.captureCoreInstance();
     this.catalogs = {
 
-      Wellbore_id: item.Wellbore_id,
-      Sample_box_number: item.Sample_box_number,
-      Cutting_category: item.Cutting_category.replace('CuttingsCategoryEnum.', ''),
-      Sample_type: item.Sample_type,
-      Minimum_depth: item.Minimum_depth,
-      Maximum_depth: item.Maximum_depth,
-      Sample_interval: item.Sample_interval,
-      Date_received: item.Date_received,
-      Other_description: item.Other_description
+     WellboreId: item.WellboreId,
+      SampleBoxNumber: item.SampleBoxNumber,
+      CuttingCategory: item.CuttingCategory.replace('CuttingsCategoryEnum.', ''),
+      SampleType: item.SampleType,
+      MinimumDepth: item.MinimumDepth,
+      MaximumDepth: item.MaximumDepth,
+      SampleInterval: item.SampleInterval,
+      DateReceived: item.DateReceived,
+      OtherDescription: item.OtherDescription,
+      TopDepth:item.TopDepth,
+      BottomDepth: item.BottomDepth,
+      StoreIdentifier: item.StoreIdentifier,
+      Operator: item.Operator,
+      SamplingCompany: item.SamplingCompany,
+      SamplingDate: item.SamplingDate
 
     }
   }
@@ -257,15 +277,21 @@ export class CuttingsListComponent implements OnInit {
       .subscribe(response => {
         this.updatevalue = response;
         this.formGroup.patchValue({
-          Wellbore_id: this.stripFormValue(this.updatevalue.Wellbore_id),
-          Sample_box_number: this.stripFormValue(this.updatevalue.Sample_box_number),
-          Cutting_category: this.stripFormValue(this.updatevalue.Cutting_category).replace('CuttingsCategoryEnum.', ''),
-          Sample_type: this.stripFormValue(this.updatevalue.Sample_type),
-          Minimum_depth: this.stripFormValue(this.updatevalue.Minimum_depth),
-          Maximum_depth: this.stripFormValue(this.updatevalue.Maximum_depth),
-          Sample_interval: this.stripFormValue(this.updatevalue.Sample_interval),
-          Date_received: this.stripFormValue(this.updatevalue.Date_received),
-          Other_description: this.stripFormValue(this.updatevalue.Other_description)
+         WellboreId: this.stripFormValue(this.updatevalue.WellboreId),
+          SampleBoxNumber: this.stripFormValue(this.updatevalue.SampleBoxNumber),
+          CuttingCategory: this.stripFormValue(this.updatevalue.CuttingCategory).replace('CuttingsCategoryEnum.', ''),
+          SampleType: this.stripFormValue(this.updatevalue.SampleType),
+          MinimumDepth: this.stripFormValue(this.updatevalue.MinimumDepth),
+          MaximumDepth: this.stripFormValue(this.updatevalue.MaximumDepth),
+          SampleInterval: this.stripFormValue(this.updatevalue.SampleInterval),
+          DateReceived: this.stripFormValue(this.updatevalue.DateReceived),
+          OtherDescription: this.stripFormValue(this.updatevalue.OtherDescription),
+          TopDepth:this.stripFormValue(this.updatevalue.ToDepth),
+          BottomDepth: this.stripFormValue(this.updatevalue.BottomDepth),
+          StoreIdentifier: this.stripFormValue(this.updatevalue.StoreIdentifier),
+          Operator: this.stripFormValue(this.updatevalue.Operator),
+          SamplingCompany: this.stripFormValue(this.updatevalue.SamplingCompany),
+          SamplingDate:this.stripFormValue(this.updatevalue.SamplingDate)
         });
         console.log(this.updatevalue)
       });
@@ -282,7 +308,7 @@ export class CuttingsListComponent implements OnInit {
 
   changeContractingId(e: any) {
     console.log(e.value)
-    this.WBCoringContractor_id.setValue(e.target.value, {
+    this.WBCoringContractorId.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -296,8 +322,8 @@ export class CuttingsListComponent implements OnInit {
 
   getWBCoringContractorId() {
     this.authservice.getCompanies().subscribe(res => {
-      this.WBCoringContractor_id = res;
-      console.log(this.WBCoringContractor_id);
+      this.WBCoringContractorId = res;
+      console.log(this.WBCoringContractorId);
     })
   }
 
@@ -321,6 +347,144 @@ export class CuttingsListComponent implements OnInit {
 
   navigateBack() {
     this.authservice.reload();
+  }
+
+
+  onSelectFiles(selectedItem: any) {
+    console.log("hide the elements");
+    this.status = false;
+    this.details = false;
+    this.viewFiles = true;
+    this.getFiles();
+
+  }
+
+
+  getFiles() {
+    this.authservice
+      .getFluids()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.AnalysisReports)
+          this.ims = product.AnalysisReports
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            this.cutImg.push({
+              'link': image.replace('backend', 'http://127.0.0.1:8899'),
+              'name': image.replace('backend/static/files/', '')
+            });
+
+          }
+        }
+      });
+
+  }
+
+
+    onFile() {
+    console.log("Clicked")
+    this.status = false;
+    this.details = false;
+    this.uploadFile = true;
+  }
+
+
+  selectFile(event: any) {
+    this.selectedFiles = event.target.files;
+  }
+
+
+  upload() {
+    this.currentFile = this.selectedFiles.item(0);
+
+
+    console.log(this.currentFile)
+    this.authservice.uploadFluidFile(this.currentFile).subscribe(response => {
+      this.selectedFiles.value = '';
+      if (response instanceof HttpResponse) {
+        this.msg = response.body;
+        console.log(response.body);
+        this.toastr.success("File Uploaded successfully.", "", {
+          timeOut: 2000,
+          positionClass: 'toast-top-center',
+          progressBar: true,
+          progressAnimation: 'increasing'
+        })
+        this.formGroup.reset();
+      }
+    });
+  }
+
+
+  uploadImage() {
+    this.currentFile = this.selectedFiles.item(0);
+
+
+    console.log(this.currentFile)
+    this.authservice.uploadFluidImage(this.currentFile).subscribe(response => {
+      this.selectedFiles.value = '';
+      if (response instanceof HttpResponse) {
+        this.msg = response.body;
+        console.log(response.body);
+        this.toastr.success("File Uploaded successfully.", "", {
+          timeOut: 2000,
+          positionClass: 'toast-top-center',
+          progressBar: true,
+          progressAnimation: 'increasing'
+        })
+        this.formGroup.reset();
+      }
+    });
+  }
+
+  onDeleteFile(selectedItem: any) {
+    console.log('you clicked on element no: ' + selectedItem.file_id);
+
+
+
+    this.id = selectedItem.file_id;
+
+    this.ngPopups.confirm("Are you sure you want to delete this file?", {
+      // theme: 'material',
+      color: 'OrangeRed',
+      okButtonText: 'Yes',
+      cancelButtonText: 'No',
+      title: "Confirm",
+    })
+      .subscribe(res => {
+        if (res) {
+          console.log("Selected item Id: ", selectedItem.Core_SampleId);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_file/' + this.id)
+            .subscribe(response => {
+              this.deleteresp = response;
+              console.log(this.deleteresp.message)
+              if (this.deleteresp.message == "File successfully deleted.") {
+                this.toastr.success("File successfully deleted.", "", {
+                  timeOut: 2000,
+                  positionClass: 'toast-top-center',
+                  progressBar: true,
+                  progressAnimation: 'increasing'
+                })
+                setTimeout(() => {
+                  this.authservice.reload();
+                }, 1000);
+
+              } else {
+                this.authservice.securityStatusUpdate()
+              }
+              console.log(this.deleteresp)
+            });
+        } else {
+          console.log("You clicked cancel.")
+        }
+      });
+
+
   }
 
 }

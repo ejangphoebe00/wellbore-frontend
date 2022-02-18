@@ -19,27 +19,27 @@
                                         <span class="error">*</span>
                                         <select class="form-control"
                                             required
-                                            formControlName="Wellbore_id"
-                                            name="Wellbore_id">
+                                            formControlName="WellboreId"
+                                            name="WellboreId">
                                             <option *ngFor="let city of
                                                 wellboreIds"
-                                                [ngValue]="city.Wellbore_id"
-                                                (change)="changeWellboreId($event)">{{city.Wellbore_id}}-->{{city.WellboreLocalName}}
+                                                [ngValue]="city.WellboreId"
+                                                (change)="changeWellboreId($event)">{{city.WellboreId}}-->{{city.WellboreLocalName}}
                                             </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Sample_box_number</label>
+                                        <label>SampleBoxNumber</label>
                                         <input type="text"
-                                            formControlName="Sample_box_number"
+                                            formControlName="SampleBoxNumber"
                                             class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Cutting_category</label>
+                                        <label>CuttingCategory</label>
                                         <span class="error">*</span>
                                         <select class="form-control" required
-                                            formControlName="Cutting_category">
+                                            formControlName="CuttingCategory">
                                             <option *ngFor="let role of
                                                 cuttings" [ngValue]="role"
                                                 (change)="changeFluids($event)">{{role}}
@@ -47,43 +47,92 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Sample_type</label>
+                                        <label>SampleType</label>
                                         <input type="text" 
-                                            formControlName="Sample_type"
+                                            formControlName="SampleType"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Minimum_depth </label>
+                                        <label>MinimumDepth </label>
                                         <input type="number" step="any"
-                                            formControlName="Minimum_depth"
+                                            formControlName="MinimumDepth"
+                                            class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>MaximumDepth</label>
+                                        <input type="number" step="any"
+                                            formControlName="MaximumDepth"
+                                            class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>SampleInterval</label>
+                                        <input type="text"
+                                            formControlName="SampleInterval"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>DateReceived</label>
+                                        <input type="date" min="1900-10-01" max={{mindate}} 
+                                            formControlName="DateReceived"
                                             class="form-control">
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Maximum_depth</label>
+                                        <label>TopDepthh</label>
                                         <input type="number" step="any"
-                                            formControlName="Maximum_depth"
+                                            formControlName="TopDepth"
                                             class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Sample_interval</label>
-                                        <input type="text"
-                                            formControlName="Sample_interval"
+                                        <label>BottomDepth</label>
+                                        <input type="number"
+                                            formControlName="BottomDepth"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Date_received</label>
+                                        <label>StoreIdentifier</label>
+                                        <input type="text"
+                                            formControlName="StoreIdentifier"
+                                            class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Operator</label>
+                                        <input type="text"
+                                            formControlName="Operator"
+                                            class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Sampling_company</label>
+                                        <select
+                                        formControlName="SamplingCompany"
+                                        name="SamplingCompany"
+                                        class="form-control">
+                                        <option *ngFor="let city of
+                                            WBCoringContractorId"
+                                            [ngValue]="city.CompanyLongName"
+                                            (change)="changeContractingId($event)">{{city.CompanyId}}-->{{city.CompanyLongName}}
+                                        </option>
+                                    </select>  
+                                      </div> 
+
+
+                                    <div class="form-group">
+                                        <label>SamplingDate</label>
                                         <input type="date" min="1900-10-01" max={{mindate}} 
-                                            formControlName="Date_received"
+                                            formControlName="SamplingDate"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Other_description</label>
+                                        <label>OtherDescription</label>
                                         <input type="text"
-                                            formControlName="Other_description"
+                                            formControlName="OtherDescription"
                                             class="form-control">
                                     </div>
                                 </div>
