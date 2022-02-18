@@ -33,8 +33,8 @@ export class FluidsListComponent implements OnInit {
   currentFile: any;
   msg: any;
   viewFiles: boolean = false;
-  Basins:any = ['Edward-George','Semiliki','Pakwach', 'The Albertine Graben','Hoima Basin','Lake Kyoga Basin','Lake Wamala Basin','Kadam-Moroto Basin'];
-  Purpose: any = ['Crude Oil Analysis','PVT Analysis','Formation Water Analysis','Natural Gas Analysis','Others'];
+  Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
+  Purpose: any = ['Crude Oil Analysis', 'PVT Analysis', 'Formation Water Analysis', 'Natural Gas Analysis', 'Others'];
 
 
   ims: any = [];
@@ -66,10 +66,10 @@ export class FluidsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.authservice.getRole()=="Data Admin"){
-      this.checkstaff=true;
-    }else{
-    this.checkstaff=false;
+    if (this.authservice.getRole() == "Data Admin") {
+      this.checkstaff = true;
+    } else {
+      this.checkstaff = false;
     }
 
     this.maxd = new Date();
@@ -173,7 +173,7 @@ export class FluidsListComponent implements OnInit {
 
 
   updateCoreCatProcess() {
-    console.log("tested")
+    console.log("TESTING FLUIDS UPDATE")
     if (this.formGroup.valid) {
       console.log(this.formGroup.value)
       this.authservice.updateFluids(this.formGroup.value).subscribe(result => {
@@ -290,7 +290,7 @@ export class FluidsListComponent implements OnInit {
       DateCollected: item.DateCollected,
       DateReceived: item.DateReceived,
       SamplingCompany: item.SamplingCompany,
-      SamplePurpose: item.SamplePurpose,
+      SamplePurpose: item.SamplePurpose.replace('FluidSamplePurposeEnum.', ''),
       OtherSpecifiedSamplePurpose: item.OtherSpecifiedSamplePurpose
     }
   }
@@ -312,7 +312,7 @@ export class FluidsListComponent implements OnInit {
 
   }
 
-  changePurpose(e:any) {
+  changePurpose(e: any) {
     console.log(e.value)
     this.Purpose.setValue(e.target.value, {
       onlySelf: true
@@ -358,10 +358,10 @@ export class FluidsListComponent implements OnInit {
           SampleBasin: this.stripFormValue(this.updatevalue.SampleBasin),
           DepthObtained: this.stripFormValue(this.updatevalue.DepthObtained),
           DateCollected: this.stripFormValue(this.updatevalue.DateCollected),
-         DateReceived: this.stripFormValue(this.updatevalue.DateReceived),
+          DateReceived: this.stripFormValue(this.updatevalue.DateReceived),
           SamplingCompany: this.stripFormValue(this.updatevalue.SamplingCompany),
-          SamplePurpose:this.stripFormValue(this.updatevalue.SamplePurpose).replace('FluidSamplePurposeEnum.', ''),
-          OtherSpecifiedSamplePurpose:this.stripFormValue(this.updatevalue.OtherSpecifiedSamplePurpose)
+          SamplePurpose: this.stripFormValue(this.updatevalue.SamplePurpose).replace('FluidSamplePurposeEnum.', ''),
+          OtherSpecifiedSamplePurpose: this.stripFormValue(this.updatevalue.OtherSpecifiedSamplePurpose)
 
         });
         console.log(this.updatevalue)
@@ -415,7 +415,7 @@ export class FluidsListComponent implements OnInit {
     })
   }
 
-  changeBasins(e:any) {
+  changeBasins(e: any) {
     console.log(e.value)
     this.Basins.setValue(e.target.value, {
       onlySelf: true

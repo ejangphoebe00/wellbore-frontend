@@ -744,7 +744,7 @@ export class ApiPipeService {
 
    uploadFluidFile(file1: any): Observable<HttpEvent<{}>> {
 		const formdata: FormData = new FormData();
-    formdata.append('Analysis_reports', file1);
+    formdata.append('AnalysisReports', file1);
     console.log(file1)
 		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
 			  reportProgress: true,
@@ -756,7 +756,7 @@ export class ApiPipeService {
    
    uploadRockFile(file1: any): Observable<HttpEvent<{}>> {
 		const formdata: FormData = new FormData();
-    formdata.append('Petrographic_analysis_reports', file1);
+    formdata.append('PetrographicAnalysisReports', file1);
     console.log(file1)
 		const req = new HttpRequest('POST', 'http://127.0.0.1:8899/apiv1/add_file/'+this.getUpdateId(), formdata, {
 			  reportProgress: true,
