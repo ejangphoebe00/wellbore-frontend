@@ -39,6 +39,8 @@ export class FluidsListComponent implements OnInit {
 
   ims: any = [];
   cutImg: any = [];
+  imgObject: Array<object> = [];
+  gal: boolean = false;
 
 
 
@@ -492,6 +494,47 @@ export class FluidsListComponent implements OnInit {
         }
       });
 
+
+  }
+
+  onSelectGallery(selectedItem: any) {
+    this.status = false;
+    this.details = false;
+    this.viewFiles = false;
+    this.gal = true;
+    this.getImages();
+
+  }
+
+  getImages() {
+    this.authservice
+      .getFluids()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.FluidPhotograph)
+          this.ims = product.FluidPhotograph
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            this.cutImg.push({
+              'link': image.replace('backend', 'http://127.0.0.1:8899'),
+              'name': image.replace('backend/static/files/', '')
+            });
+
+            this.imgObject.push({
+              image: image.replace('backend', 'http://127.0.0.1:8899'),
+              thumbImage: image.replace('backend', 'http://127.0.0.1:8899'),
+              title: image.replace('backend/static/files/', ''),
+              alt: image.replace('backend/static/files/', ''),
+            });
+
+          }
+        }
+      });
 
   }
 

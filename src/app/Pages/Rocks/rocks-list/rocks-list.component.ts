@@ -27,12 +27,14 @@ export class RocksListComponent implements OnInit {
   catalogs: any;
   Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
   Purpose: any = ['Rock Minerals Analysis', 'Clay and Whole-rock Analysis', 'Rock Pyrolysis Analysis', 'Others'];
+  imgObject: Array<object> = [];
 
 
   uploadFile: boolean = false;
   selectedFiles: any;
   currentFile: any;
   msg: any;
+  gal: boolean = false;
 
   ims: any = [];
   cutImg: any = [];
@@ -128,6 +130,8 @@ export class RocksListComponent implements OnInit {
       Longitude: new FormControl(),
       Operator: new FormControl(),
       PetrographicDescription: new FormControl(),
+      PetrographicAnalysisReports:new FormControl(),
+      RockPhotograph:new FormControl()
     });
   }
 
@@ -326,8 +330,6 @@ export class RocksListComponent implements OnInit {
 
   }
 
-
-
   stripFormValue(formValue: any) {
     if (formValue == 'None') {
       return null;
@@ -431,8 +433,6 @@ export class RocksListComponent implements OnInit {
 
   uploadImage() {
     this.currentFile = this.selectedFiles.item(0);
-
-
     console.log(this.currentFile)
     this.authservice.uploadRockImage(this.currentFile).subscribe(response => {
       this.selectedFiles.value = '';
@@ -448,6 +448,47 @@ export class RocksListComponent implements OnInit {
         this.formGroup.reset();
       }
     });
+  }
+
+  onSelectGallery(selectedItem: any) {
+    this.status = false;
+    this.details = false;
+    this.viewFiles = false;
+    this.gal = true;
+    this.getImages();
+
+  }
+
+  getImages() {
+    this.authservice
+      .getRocks()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.RockPhotograph)
+          this.ims = product.RockPhotograph
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            this.cutImg.push({
+              'link': image.replace('backend', 'http://127.0.0.1:8899'),
+              'name': image.replace('backend/static/files/', '')
+            });
+
+            this.imgObject.push({
+              image: image.replace('backend', 'http://127.0.0.1:8899'),
+              thumbImage: image.replace('backend', 'http://127.0.0.1:8899'),
+              title: image.replace('backend/static/files/', ''),
+              alt: image.replace('backend/static/files/', ''),
+            });
+
+          }
+        }
+      });
+
   }
 
 }

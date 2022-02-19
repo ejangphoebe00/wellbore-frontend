@@ -163,6 +163,11 @@
                                         data-dismiss="modal">View
                                         Files</a></td>
 
+                                        <td style="width:25%"><a
+                                            (click)="onSelectGallery(catalogs)"
+                                            data-dismiss="modal">Continue to
+                                            Gallery</a></td>
+
 
                                 </tr>
 
@@ -387,9 +392,9 @@
                         <div class="col-md-6">
                           
                             <div class="form-group">
-                                <label>FluidPhotograph</label>
+                                <label>Cuttings Photograph</label>
                                 <input type="file"
-                                    formControlName="FluidPhotograph"
+                                    formControlName="CuttingsPhotograph"
                                     (change)="selectFile($event)">
                             </div>
 
@@ -471,9 +476,9 @@
                     <div class="form-body row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Analysis Report</label>
+                                <label>CuttingsReport</label>
                                 <input type="file"
-                                    formControlName="Analysis_reports"
+                                    formControlName="CuttingsReport"
                                     (change)="selectFile($event)">
                             </div>
 
@@ -546,6 +551,29 @@
                  
                  </div> -->
         </div>
+
+        <div *ngIf="gal" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Uploaded Images </h3>
+
+                <div class="portlet-body">
+
+                    <ng-image-slider #nav
+                    [images]="imgObject"
+                    [infinite]="false"
+                    [autoSlide]="1"
+                    [imagePopup]= "false"
+                    [imageSize]="{width: '70%', height:'70%' }"
+                    slideImage="1"></ng-image-slider>
+
+                    <button (click)="navigateBack()" type="button"
+                        class="btn default">Back</button>
+                </div>
+
+            </div>
+        </div>
+
 
 
 

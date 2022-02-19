@@ -186,6 +186,15 @@
 
                                 </tr>
 
+                                <tr>
+
+                                    <td style="width:25%"><a
+                                            (click)="onSelectGallery(catalogs)"
+                                            data-dismiss="modal">Continue to
+                                            Gallery</a></td>
+
+                                </tr>
+
                             </tbody>
                         </table>
                         <div class="clearfix"></div>
@@ -216,7 +225,7 @@
                             <div class="form-group">
                                 <label>Petrographic Analysis Reports</label>
                                 <input type="file"
-                                    formControlName="Petrographic_analysis_reports"
+                                    formControlName="PetrographicAnalysisReports"
                                     (change)="selectFile($event)">
                             </div>
 
@@ -448,7 +457,7 @@
 
                     <div class="form-body row">
                         <div class="col-md-6">
-                          
+
                             <div class="form-group">
                                 <label>Rock Photograph</label>
                                 <input type="file"
@@ -524,6 +533,28 @@
                          *ngIf="uploadProgress">delete_forever</mat-icon>
              
              </div> -->
+        </div>
+
+        <div *ngIf="gal" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Uploaded Images </h3>
+
+                <div class="portlet-body">
+
+                    <ng-image-slider #nav
+                    [images]="imgObject"
+                    [infinite]="false"
+                    [autoSlide]="1"
+                    [imagePopup]= "false"
+                    [imageSize]="{width: '70%', height:'70%' }"
+                    slideImage="1"></ng-image-slider>
+
+                    <button (click)="navigateBack()" type="button"
+                        class="btn default">Back</button>
+                </div>
+
+            </div>
         </div>
 
     </div>

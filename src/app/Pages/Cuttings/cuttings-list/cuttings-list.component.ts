@@ -48,6 +48,9 @@ export class CuttingsListComponent implements OnInit {
   maxd: any;
   mindate: any;
 
+  imgObject: Array<object> = [];
+  gal: boolean = false;
+
 
 
   constructor(
@@ -132,7 +135,9 @@ export class CuttingsListComponent implements OnInit {
       StoreIdentifier: new FormControl(),
       Operator: new FormControl(),
       SamplingCompany: new FormControl(),
-      SamplingDate: new FormControl()
+      SamplingDate: new FormControl(),
+      CuttingsReport: new FormControl(),
+      CuttingsPhotograph: new FormControl()
     });
   }
 
@@ -362,15 +367,15 @@ export class CuttingsListComponent implements OnInit {
 
   getFiles() {
     this.authservice
-      .getFluids()
+      .getCuts()
       .subscribe((response: any) => {
         this.users = response
         console.log('all Imagess tested')
 
 
         for (var product of response) {
-          console.log('firat test: ' + product.AnalysisReports)
-          this.ims = product.AnalysisReports
+          console.log('firat test: ' + product.CuttingsReport)
+          this.ims = product.CuttingsReport
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
@@ -404,7 +409,7 @@ export class CuttingsListComponent implements OnInit {
 
 
     console.log(this.currentFile)
-    this.authservice.uploadFluidFile(this.currentFile).subscribe(response => {
+    this.authservice.uploadCuttingsFile(this.currentFile).subscribe(response => {
       this.selectedFiles.value = '';
       if (response instanceof HttpResponse) {
         this.msg = response.body;
@@ -423,10 +428,8 @@ export class CuttingsListComponent implements OnInit {
 
   uploadImage() {
     this.currentFile = this.selectedFiles.item(0);
-
-
     console.log(this.currentFile)
-    this.authservice.uploadFluidImage(this.currentFile).subscribe(response => {
+    this.authservice.uploadCuttingsImage(this.currentFile).subscribe(response => {
       this.selectedFiles.value = '';
       if (response instanceof HttpResponse) {
         this.msg = response.body;
@@ -484,6 +487,50 @@ export class CuttingsListComponent implements OnInit {
         }
       });
 
+
+  }
+
+
+ 
+
+  onSelectGallery(selectedItem: any) {
+    this.status = false;
+    this.details = false;
+    this.viewFiles = false;
+    this.gal = true;
+    this.getImages();
+
+  }
+
+  getImages() {
+    this.authservice
+      .getCuts()
+      .subscribe((response: any) => {
+        this.users = response
+        console.log('all Imagess tested')
+
+
+        for (var product of response) {
+          console.log('firat test: ' + product.CuttingsPhotograph)
+          this.ims = product.CuttingsPhotograph
+          console.log('images  array:' + this.ims.length)
+          for (var image of this.ims) {
+            console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
+            this.cutImg.push({
+              'link': image.replace('backend', 'http://127.0.0.1:8899'),
+              'name': image.replace('backend/static/files/', '')
+            });
+
+            this.imgObject.push({
+              image: image.replace('backend', 'http://127.0.0.1:8899'),
+              thumbImage: image.replace('backend', 'http://127.0.0.1:8899'),
+              title: image.replace('backend/static/files/', ''),
+              alt: image.replace('backend/static/files/', ''),
+            });
+
+          }
+        }
+      });
 
   }
 
