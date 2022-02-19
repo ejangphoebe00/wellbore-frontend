@@ -518,7 +518,7 @@ export class WellsComponent implements OnInit {
           CoreReportSoftcopyPath: this.authservice.stripFormValue(this.updatevalue.CoreReportSoftcopyPath),
           CoreReportHyperlink: this.authservice.stripFormValue(this.updatevalue.CoreReportHyperlink),
           ReportUploadDate: this.authservice.stripFormValue(this.updatevalue.ReportUploadDate),
-          ReportFileFormat: this.authservice.stripFormValue(this.updatevalue.ReportFileFormat),
+          ReportFileFormat: this.authservice.stripFormValue(this.updatevalue.ReportFileFormat).replace(''),
           ReportFileSize: this.authservice.stripFormValue(this.updatevalue.ReportFileSize),
           ReportSecurityGrade : this.authservice.stripFormValue((this.updatevalue.ReportSecurityGrade).replace('SecurityGradeEnum.', '')),
           ReportOpenDueDate: this.authservice.stripFormValue(this.updatevalue.ReportOpenDueDate),
