@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           console.log(result)
           console.log(result.access_token);
           localStorage.setItem("role",result.user_role);
-          localStorage.setItem("user-id",result.CraneUser_id);
+          localStorage.setItem("user-id",result.CraneUserId);
           localStorage.setItem("token", this.title);
           this.authservice.loginSucess()
           setTimeout(() => {
