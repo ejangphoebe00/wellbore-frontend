@@ -42,8 +42,7 @@ loggedin:any;
     this.TDA();
     this.Allwells();
 
-   
-
+  
    }
 
 

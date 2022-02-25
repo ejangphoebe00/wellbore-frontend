@@ -1,10 +1,11 @@
 
 
-    <div class = "full-screen-container" >
-        <div id = "login-customise" class="login">
+<div class="full-screen-container">
+    <div id="login-customise" class="login">
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+            <form class="login-form" [formGroup]="formGroup"
+                (ngSubmit)="loginProcess()">
                 <img src="../assets/assets/pages/img/logo.png" alt="" />
                 <h3>PAU Geo-SIMS</h3>
                 <h3 class="form-title font-green">Welcome</h3>
@@ -15,44 +16,48 @@
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
-                    <input formControlName="UserEmailAddress"  class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+                    <input formControlName="UserEmailAddress"
+                        class="form-control form-control-solid
+                        placeholder-no-fix" type="text" autocomplete="off"
+                        placeholder="Username" name="username" /> </div>
                 <div class="form-group inner-addon right-addon">
-                    <!-- <label class="control-label visible-ie8 visible-ie9">Password</label> -->
-                    <!-- <input formControlName="Password" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" />  -->
-                  
-                            <input name="Password" 
-                                formControlName="Password"
-                                [type]="showPasswordOnPress ? 'text' : 'password'"
-                                class="form-control pwd-control"
-                                id="password-field" placeholder="Password">
-                            <div
-                            (mousedown)="showPasswordOnPress = !showPasswordOnPress" 
-                            (mouseup)="showPasswordOnPress = !showPasswordOnPress">
-                              <i alt="show" class="fa fa-eye eye-show"
-                                 [class.hide]="showPasswordOnPress"></i>
-                              <i alt="hide" class="fa fa-eye-slash eye-hide"
-                                 [class.hide]="!showPasswordOnPress"></i>
-                            </div>
-                       
+                   
+                    <input name="Password"
+                        formControlName="Password"
+                        [type]="showPasswordOnPress ? 'text' : 'password'"
+                        class="form-control pwd-control"
+                        id="password-field" placeholder="Password">
+                    <div 
+                        (mousedown)="showPasswordOnPress= !showPasswordOnPress"
+                        (mouseup)="showPasswordOnPress= !showPasswordOnPress"> Show Password
+                        <i alt="show" class="fa fa-eye eye-show"
+                            [class.hide]="showPasswordOnPress"></i>
+                        <i alt="hide" class="fa fa-eye-slash eye-hide"
+                            [class.hide]="!showPasswordOnPress"></i>
+                    </div> 
+
                 </div>
-                
+
+               
+              
+              
                 <div class="form-actions">
                     <button type="submit" class="btn green uppercase">Login</button>
-                    <label class="rememberme check mt-checkbox mt-checkbox-outline">
-                        <input type="checkbox" name="remember" value="1" />Remember Me
+                    <label class="rememberme check mt-checkbox
+                        mt-checkbox-outline">
+                        <input type="checkbox" name="remember" value="1" />Remember
+                        Me
                         <span></span>
                     </label>
                     <div>
                         <hr>
-                       <a> Change Password</a>
+                        <a (click)="recover()">  Change Password</a>
                     </div>
                 </div>
-   
+
             </form>
- 
+
         </div>
-   
+
     </div>
 </div>
-
-

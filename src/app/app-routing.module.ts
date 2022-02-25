@@ -42,6 +42,7 @@ import { AddRockSampleComponent } from './Pages/Rocks/add-rock-sample/add-rock-s
 import { RocksListComponent } from './Pages/Rocks/rocks-list/rocks-list.component';
 import { StatGraphsComponent } from './Pages/Statistics/stat-graphs/stat-graphs.component';
 import { GalleryComponent } from './gal/gallery/gallery.component';
+import { RecoverPasswordComponent } from './password/recover-password/recover-password.component';
 
 
 
@@ -95,6 +96,7 @@ const routes: Routes = [
 
 
   {path: 'login', component: LoginComponent},
+  {path: 'recovery', component:RecoverPasswordComponent },
   {path: '', component: LoginComponent, pathMatch: 'full'}
 
 ];

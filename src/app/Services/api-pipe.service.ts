@@ -116,6 +116,13 @@ export class ApiPipeService {
     return this.http.post('http://127.0.0.1:8899/user/login', data)
   }
 
+
+
+  recover(data: any): Observable<any> {
+    console.log("Logging in process")
+    return this.http.post('http://127.0.0.1:8899/user/forgot_password_email_request/http://localhost:4200/login', data)
+  }
+
   logOutSucess() {
     this.toastr.success("Successfully Logged Out", "", {
       timeOut: 2000,

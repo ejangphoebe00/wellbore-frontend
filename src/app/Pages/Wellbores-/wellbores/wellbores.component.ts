@@ -17,7 +17,7 @@ export class WellboresComponent implements OnInit {
   DevAreas: any = ['KFDA', 'TDA', 'Others'];
   Wellborepurpose: any = ['Wildcat', 'Appraisal', 'Production', 'Injection', 'Observation'];
   WellboreType: any = ['Exploration', 'Development'];
-  Basins: any = ['Edward-George', 'Semiliki', 'Pakwach'];
+  Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
   WellboreStatuses: any = ['Plugged and abandoned', 'Planned', 'Suspended', 'Withdrawn', 'In operation', 'In progress']
   maxd: any;
   formGroup!: FormGroup;

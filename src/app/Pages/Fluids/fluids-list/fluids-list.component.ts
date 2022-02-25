@@ -34,7 +34,7 @@ export class FluidsListComponent implements OnInit {
   msg: any;
   viewFiles: boolean = false;
   Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
-  Purpose: any = ['Crude Oil Analysis', 'PVT Analysis', 'Formation Water Analysis', 'Natural Gas Analysis', 'Others'];
+  Purpose: any = ['Crude Oil Analysis','PVT Analysis','Formation Water Analysis','Natural Gas Analysis','Others'];
 
 
   ims: any = [];

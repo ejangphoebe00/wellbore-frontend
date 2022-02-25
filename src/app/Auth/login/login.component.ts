@@ -75,4 +75,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  recover(){
+    console.log("test recovery")
+    this.router.navigate(['/recovery']);
+  }
+
 }
