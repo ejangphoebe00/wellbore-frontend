@@ -235,7 +235,7 @@ export class KfdaComponent implements OnInit {
   }
 
   captureWellsInstance() {
-    this.http.get('http://127.0.0.1:8899/apiv1/getwellbore/' + this.id)
+    this.http.get('http://127.0.0.1:8899/apiv1/get_wellbore/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
         this.formGroup.patchValue({
@@ -248,7 +248,7 @@ export class KfdaComponent implements OnInit {
           InitialWellborePurpose: this.authservice.stripFormValue((this.updatevalue.InitialWellborePurpose).replace('PurposeEnum.', '')),
           WellborePurposeId: this.authservice.stripFormValue(this.updatevalue.WellborePurposeId),
           PurposeChangeDate: this.authservice.stripFormValue(this.updatevalue.PurposeChangeDate),
-          Wellboretype: this.authservice.stripFormValue((this.updatevalue.Wellboretype).replace('WellboreTypeEnum.', '')),
+          WellboreType: this.authservice.stripFormValue((this.updatevalue.WellboreType).replace('WellboreTypeEnum.', '')),
           ProspectId: this.authservice.stripFormValue(this.updatevalue.ProspectId),
           Discovery: this.authservice.stripFormValue(this.updatevalue.Discovery),
           WellboreContentId: this.authservice.stripFormValue(this.updatevalue.WellboreContentId),
@@ -381,7 +381,7 @@ export class KfdaComponent implements OnInit {
       WellboreAliasName: new FormControl(),
       WellboreSpudDate: new FormControl(),
       SpudYear: new FormControl(),
-      Wellboretype: new FormControl(),
+      WellboreType: new FormControl(),
       InitialWellborePurpose: new FormControl(),
       WellborePurposeId: new FormControl(),
       PurposeChangeDate: new FormControl(),
