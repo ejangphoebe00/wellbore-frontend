@@ -120,7 +120,7 @@ export class ApiPipeService {
 
   recover(data: any): Observable<any> {
     console.log("Logging in process")
-    return this.http.post('http://127.0.0.1:8899/user/forgot_password_email_request/http://localhost:4200/login', data)
+    return this.http.post('http://127.0.0.1:8899/user/forgot_password_email_request/recovery', data)
   }
 
   logOutSucess() {

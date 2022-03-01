@@ -41,8 +41,6 @@ loggedin:any;
     this.KFDA();
     this.TDA();
     this.Allwells();
-
-  
    }
 
 

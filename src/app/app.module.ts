@@ -65,6 +65,7 @@ import { GalleryModule } from '@ngx-gallery/core';
 import { FileSaverModule } from 'ngx-filesaver';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { RecoverPasswordComponent } from './password/recover-password/recover-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { RecoverPasswordComponent } from './password/recover-password/recover-pa
     StatGraphsComponent,
     GalleryComponent,
     RecoverPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

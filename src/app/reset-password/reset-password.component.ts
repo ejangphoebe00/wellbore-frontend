@@ -5,12 +5,11 @@ import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-recover-password',
-  templateUrl: './recover-password.component.html',
-  styleUrls: ['./recover-password.component.css']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.css']
 })
-export class RecoverPasswordComponent implements OnInit {
-
+export class ResetPasswordComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
   date: any;
@@ -30,8 +29,8 @@ export class RecoverPasswordComponent implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup({
-      UserEmailAddress: new FormControl(),
-      // Password: new FormControl()
+      // UserEmailAddress: new FormControl(),
+      Password: new FormControl()
     });
   }
 
@@ -74,3 +73,4 @@ export class RecoverPasswordComponent implements OnInit {
  
 
 }
+
