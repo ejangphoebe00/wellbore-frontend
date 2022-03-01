@@ -56,7 +56,7 @@
                                             <th>Local Name</th>
                                             <th>Alias Name</th>
                                             <th>Spud Date</th>
-                                            <th>Spud Year</th>
+                                            <!-- <th>Spud Year</th> -->
                                             <!-- <th>Well Id</th> -->
                                             <th>Actions</th>
                                         </tr>
@@ -67,7 +67,7 @@
                                             <td>{{post.WellboreLocalName}}</td>
                                             <td>{{post.WellboreAliasName}}</td>
                                             <td>{{post.WellboreSpudDate}}</td>
-                                            <td>{{post.SpudYear}}</td>
+                                            <!-- <td>{{post.SpudYear}}</td> -->
                                             <!-- <td>{{post.WellId}}</td> -->
                                             <td>
                                                 <!-- <button type="button" (click)="onSelectEdit(post)"
@@ -150,12 +150,12 @@
                                         type="date" min="1900-10-01" max={{mindate}}  class="form-control"
                                         placeholder="">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Spud Year</label>
                                     <input formControlName="SpudYear"
                                         type="date"  min="1900-10-01" max={{mindate}} class="form-control"
                                         placeholder="">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Wellbore Type</label>
                                         <select class="form-control"   formControlName="WellboreType">
@@ -645,15 +645,7 @@
 
                                 </tr>
 
-                                <tr>
-                                    <td style="width:25%"> Wellbore SpudDate</td>
-                                    <td style="width:25%">{{wells.WellboreSpudDate}}
-                                    </td>
-                                    <td style="width:25%"> Spud Year</td>
-                                    <td style="width:25%">
-                                        {{wells.SpudYear}}</td>
-
-                                </tr>
+                               
 
                                 <!-- <tr>
                                                 <td style="width:25%"> Was Analysed Id</td>
@@ -765,10 +757,9 @@
                                         Id</td>
                                     <td style="width:25%">{{wells.CoreContractorId}}
                                     </td>
-                                    <!-- <td style="width:25%"> RCI Taken Id
-                                                </td>
-                                                <td style="width:25%">
-                                                    {{wells.RCITakenId}}</td> -->
+                                    <td style="width:25%"> Wellbore SpudDate</td>
+                                    <td style="width:25%">{{wells.WellboreSpudDate}}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td style="width:25%"> MDTDoneId</td>
