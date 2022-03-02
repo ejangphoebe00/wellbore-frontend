@@ -130,7 +130,7 @@
                                     </td>
                                     <th style="width:25%"> Sample Basin </th>
                                     <td style="width:25%">
-                                        {{catalogs.Sample_basin}}</td>
+                                        {{catalogs.SampleBasin}}</td>
 
                                 </tr>
 
@@ -138,10 +138,10 @@
                                     <th style="width:25%"> Rock Name</th>
                                     <td style="width:25%">{{catalogs.SampleName}}
                                     </td>
-                                    <th style="width:25%"> Coordinate Location
-                                    </th>
-                                    <td style="width:25%">
-                                        {{catalogs.CoordinateLocation}}</td>
+                                    <th style="width:25%"> Petrographic
+                                        Description </th>
+                                    <td style="width:25%">{{catalogs.PetrographicDescription
+                                        }} </td>
                                 </tr>
 
 
@@ -174,19 +174,14 @@
                                 </tr>
 
                                 <tr>
-                                    <th style="width:25%"> Petrographic
-                                        Description </th>
-                                    <td style="width:25%">{{catalogs.PetrographicDescription
-                                        }} </td>
+                                    
                                     <th style="width:25%"> Files </th>
                                     <td style="width:25%"><a
                                             (click)="onSelectFiles(catalogs)"
                                             data-dismiss="modal">View
                                             Files</a></td>
 
-                                </tr>
-
-                                <tr>
+                                            <th style="width:25%"> Gallery </th>
 
                                     <td style="width:25%"><a
                                             (click)="onSelectGallery(catalogs)"
@@ -194,6 +189,7 @@
                                             Gallery</a></td>
 
                                 </tr>
+
 
                             </tbody>
                         </table>
