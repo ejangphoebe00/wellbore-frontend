@@ -102,7 +102,9 @@ export class StatGraphsComponent implements OnInit {
   OilbarChartData: ChartDataSets[] = [    
   ];
 
-
+  percentagewellbarChartLabels: Label[] = ['Kfda', 'Tda']; 
+  percentagewellbarChartData: ChartDataSets[] = [
+  ];
   wellbarChartLabels: Label[] = ['Kfda', 'Tda', 'All wells'];
   wellbarChartData: ChartDataSets[] = [
   ];
@@ -193,6 +195,7 @@ export class StatGraphsComponent implements OnInit {
     this.wellbarChartData = [{ data: [parseInt(this.kfda), parseInt(this.tda), parseInt(this.alwelz)], label: 'Registered Wells' }];
     this.OilbarChartData = [{ data: [parseInt(this.OO), parseInt(this.GA), parseInt(this.WA)], label: 'Fluid Samples' }];
     this.doughnutChartData = [this.WD, parseInt(this.WW), parseInt(this.WU), parseInt(this.DU)];
+    this.percentagewellbarChartData = [{ data: [((parseInt(this.kfda))/(parseInt(this.alwelz)))*100, parseInt(this.tda), parseInt(this.alwelz)], label: 'Registered Wells' }];
    
 
 

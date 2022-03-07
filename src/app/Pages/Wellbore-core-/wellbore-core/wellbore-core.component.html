@@ -1,11 +1,11 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-    
-   
+
+
         <!-- END THEME PANEL -->
         <!-- BEGIN PAGE BAR -->
-        <div   class="page-bar">
+        <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
                     <a [routerLink]="['/dashboard']">Dashboard</a>
@@ -15,7 +15,7 @@
                     <span>add-wellbore-core</span>
                 </li>
             </ul>
-            
+
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
@@ -26,321 +26,246 @@
         <!-- END DASHBOARD STATS 1-->
         <div class="portlet light bordered">
             <div class="portlet-body form">
-                <form class="form-horizontal" [formGroup]="formGroup"
-                (ngSubmit)="addWellboreCoreProcess()" ngNativeValidate>
-        
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="addWellboreCoreProcess()"
+                    ngNativeValidate>
+
                     <div class="form-body row">
                         <div class="col-md-3">
-                            
+
 
                             <div class="form-group">
 
                                 <label>Wellbore_PAUID</label>
                                 <span class="error">*</span>
-                                    <select class="form-control"
-                                         required formControlName="WellborePAUID"
-                                        name="WellborePAUID">
-                                        <option *ngFor="let city of wellboreIds"
-                                            [ngValue]="city.PAUID"
-                                            (change)="changeWellboreId($event)">{{city.PAUID}}-->{{city.WellboreLocalName}}
-                                        </option>
-                                    </select>
-                                     
+                                <select class="form-control" required formControlName="WellborePAUID"
+                                    name="WellborePAUID">
+                                    <option *ngFor="let city of wellboreIds" [ngValue]="city.PAUID"
+                                        (change)="changeWellboreId($event)">{{city.PAUID}}-->{{city.WellboreLocalName}}
+                                    </option>
+                                </select>
+
 
                             </div>
                             <div class="form-group">
                                 <label>Core Number</label>
                                 <span class="error">*</span>
-                                <input required formControlName="CoreNumber"
-                                    type="number" class="form-control"
+                                <input required formControlName="CoreNumber" type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Core Type Name</label>
                                 <span class="error">*</span>
-                                <select class="form-control"  required formControlName="CoreTypeName">
-                                        <option *ngFor="let role of CoreNames" [ngValue]="role"
-                                            (change)="changeRoles($event)">{{role}}
-                                        </option>
-                                        </select>    
-                                                                               
+                                <select class="form-control" required formControlName="CoreTypeName">
+                                    <option *ngFor="let role of CoreNames" [ngValue]="role"
+                                        (change)="changeRoles($event)">{{role}}
+                                    </option>
+                                </select>
+
                             </div>
                             <div class="form-group">
                                 <label>Coring Date</label>
-                                <input formControlName="CoringDate"
-                                    type="date" min="1900-10-01" max={{mindate}} class="form-control"
-                                    placeholder="">
+                                <input formControlName="CoringDate" type="date" min="1900-10-01" max={{mindate}}
+                                    class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>WB CoringContractor</label>
-                                <!-- <input formControlName="WBCoringContractorId"
-                                    type="number" class="form-control"
-                                    placeholder=""> -->
-                                    <select
-                                        formControlName="WBCoringContractorId"
-                                        name="WBCoringContractorId"
-                                        class="form-control">
-                                        <option *ngFor="let city of
-                                            WBCoringContractorId"
-                                            [ngValue]="city.CompanyId"
-                                            (change)="changeContractingId($event)">{{city.CompanyId}}-->{{city.CompanyShortName}}
-                                        </option>
-                                    </select>
+                                <select formControlName="WBCoringContractorId" name="WBCoringContractorId"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                            WBCoringContractorId" [ngValue]="city.CompanyId"
+                                        (change)="changeContractingId($event)">
+                                        {{city.CompanyId}}-->{{city.CompanyShortName}}
+                                    </option>
+                                </select>
 
 
 
                             </div>
                             <div class="form-group">
                                 <label>Core Top </label>
-                                <input
-                                    formControlName="CoreTopMD"
-                                    type="number" class="form-control"
-                                    placeholder="">
+                                <input formControlName="CoreTopMD" type="number" class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
-                                    <label>Core Btm </label>
-                                    <input formControlName="CoreBtmMD"
-                                        type="number" class="form-control"
-                                        placeholder="">
+                                <label>Core Btm </label>
+                                <input formControlName="CoreBtmMD" type="number" class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Core Top TVD</label>
-                                <input
-                                    formControlName="CoreTopTVD"
-                                    type="number" class="form-control"
-                                    placeholder="">
+                                <input formControlName="CoreTopTVD" type="number" class="form-control" placeholder="">
                             </div>
-                            
-                            
+
+
                         </div>
                         <div class="col-md-3">
 
-                                <div class="form-group">
-                                        <label>Core Btm TVD</label>
-                                        <input
-                                            formControlName="CoreBtmTVD"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                 </div>
-                               
-                                   
-                                    <div class="form-group">
-                                        <label>Cut Length</label>
-                                        <input
-                                            formControlName="CutLength"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
+                            <div class="form-group">
+                                <label>Core Btm TVD</label>
+                                <input formControlName="CoreBtmTVD" type="number" class="form-control" placeholder="">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Cut Length</label>
+                                <input formControlName="CutLength" type="number" class="form-control" placeholder="">
+                            </div>
 
                             <div class="form-group">
                                 <label>Cut Length TVD</label>
-                                <input
-                                    formControlName="CutLengthTVD"
-                                    type="number" class="form-control"
+                                <input formControlName="CutLengthTVD" type="number" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Recovered Length</label>
+                                <input formControlName="RecoveredLength" type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+
+                            <div *ngIf="role" class="form-group">
+                                <label>PercentageCoreRecovery</label>
+                                <input formControlName="PercentageCoreRecovery" type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                    <label>Recovered Length</label>
-                                    <input
-                                        formControlName="RecoveredLength"
-                                        type="number" class="form-control"
-                                        placeholder="">
-                                </div>
+                                <label>Core Top Strat Litho</label>
 
-                                <div *ngIf="role" class="form-group">
-                                        <label>PercentageCoreRecovery</label>
-                                        <input
-                                            formControlName="PercentageCoreRecovery"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Core Top Strat Litho</label>                                      
-
-                                    <select class="form-control"
-                                    formControlName="CoreTopStratLithoId"
+                                <select class="form-control" formControlName="CoreTopStratLithoId"
                                     name="CoreTopStratLithoId">
                                     <option *ngFor="let city of
-                                        CoreTopStratLithoId"
-                                        [ngValue]="city.StratLithoId"
-                                        (change)="changeCoreTopStratLitho($event)">{{city.StratLithoId}}-->{{city.StratLithoName}}
+                                        CoreTopStratLithoId" [ngValue]="city.StratLithoId"
+                                        (change)="changeCoreTopStratLitho($event)">
+                                        {{city.StratLithoId}}-->{{city.StratLithoName}}
                                     </option>
                                 </select>
 
-                                </div>
-                                <div class="form-group">
-                                    <label>Core Bottom StratLitho</label>
-                                    <!-- <input
-                                        formControlName="CoreBottomStratLithoId"
-                                        type="number" class="form-control"
-                                        placeholder=""> -->
-                                    <select formControlName="CoreBottomStratLithoId"
-                                    name="CoreBottomStratLithoId"
+                            </div>
+                            <div class="form-group">
+                                <label>Core Bottom StratLitho</label>
+                                <select formControlName="CoreBottomStratLithoId" name="CoreBottomStratLithoId"
                                     class="form-control">
                                     <option *ngFor="let city of
-                                        CoreBottomStratLithoId"
-                                        [ngValue]="city.StratLithoId"
-                                        (change)="changeCoreBottomStratLitho($event)">{{city.StratLithoId}}-->{{city.StratLithoName}}
+                                        CoreBottomStratLithoId" [ngValue]="city.StratLithoId"
+                                        (change)="changeCoreBottomStratLitho($event)">
+                                        {{city.StratLithoId}}-->{{city.StratLithoName}}
                                     </option>
                                 </select>
 
-                                </div>
-                                <div class="form-group">
-                                        <label>Core Picture Softcopy Path</label>
-                                        <input
-                                            formControlName="CorePictureSoftcopyPath"
-                                            type="text" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                            <label>Core Picture Hyperlink</label>
-                                            <input
-                                                formControlName="CorePictureHyperlink"
-                                                type="text" class="form-control"
-                                                placeholder="">
-                                        </div>
-                               
+                            </div>
+                            <div class="form-group">
+                                <label>Core Picture Softcopy Path</label>
+                                <input formControlName="CorePictureSoftcopyPath" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Core Picture Hyperlink</label>
+                                <input formControlName="CorePictureHyperlink" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+
 
                         </div>
                         <div class="col-md-3">
-                               
+
                             <div class="form-group">
                                 <label>Picture Upload Date</label>
-                                <input
-                                    formControlName="PictureUploadDate"
-                                    type="date"  min="1900-10-01" max={{mindate}} class="form-control"
-                                    placeholder="">
+                                <input formControlName="PictureUploadDate" type="date" min="1900-10-01" max={{mindate}}
+                                    class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Core Report Softcopy Path</label>
-                                <input
-                                    formControlName="CoreReportSoftcopyPath"
-                                    type="text" class="form-control"
+                                <input formControlName="CoreReportSoftcopyPath" type="text" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Core Report Hyperlink</label>
-                                <input
-                                    formControlName="CoreReportHyperlink"
-                                    type="text" class="form-control"
+                                <input formControlName="CoreReportHyperlink" type="text" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Report Upload Date</label>
-                                <input formControlName="ReportUploadDate"
-                                    type="date"  min="1900-10-01" max={{mindate}} class="form-control"
-                                    placeholder="">
+                                <input formControlName="ReportUploadDate" type="date" min="1900-10-01" max={{mindate}}
+                                    class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Report Format </label>
-                                    <select formControlName="ReportFileFormat"
-                                        name="ReportFileFormat"
-                                        class="form-control">
-                                        <option *ngFor="let city of
-                                        RptFormat"
-                                            [ngValue]="city"
-                                            (change)="changeFormat($event)">{{city}}
-                                        </option>
-                                    </select>
+                                <select formControlName="ReportFileFormat" name="ReportFileFormat" class="form-control">
+                                    <option *ngFor="let city of
+                                        RptFormat" [ngValue]="city" (change)="changeFormat($event)">{{city}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                    <label>Report File Size</label>
-                                    <input
-                                        formControlName="ReportFileSize"
-                                        type="number" class="form-control"
-                                        placeholder="">
-                                </div>
-        
-                                <div class="form-group">
-                                    <label>Core Report Security Grade</label>
-                                    <!-- <input
-                                        formControlName="ReportSecurityGrade"
-                                        type="number" class="form-control"
-                                        placeholder=""> -->
-        
-                                        <select formControlName="ReportSecurityGrade"
-                                        name="ReportSecurityGrade"
-                                        class="form-control">
-                                        <option *ngFor="let city of
-                                        Security"
-                                            [ngValue]="city"
-                                            (change)="changeSecurity($event)">{{city}}
-                                        </option>
-                                    </select>
-                                        
-                                </div>
-                                <div class="form-group">
-                                    <label>Report Open Due Date</label>
-                                    <input
-                                        formControlName="ReportOpenDueDate"
-                                        type="date" min="1900-10-01" max={{mindate}}  class="form-control"
-                                        placeholder="">
-                                </div>
+                                <label>Report File Size</label>
+                                <input formControlName="ReportFileSize" type="number" class="form-control"
+                                    placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Core Report Security Grade</label>
+                                <select formControlName="ReportSecurityGrade" name="ReportSecurityGrade"
+                                    class="form-control">
+                                    <option *ngFor="let city of
+                                        Security" [ngValue]="city" (change)="changeSecurity($event)">{{city}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Report Open Due Date</label>
+                                <input formControlName="ReportOpenDueDate" type="date" min="1900-10-01" max={{mindate}}
+                                    class="form-control" placeholder="">
+                            </div>
                         </div>
                         <div class="col-md-3">
-                        
-                        <div class="form-group">
-                            <label>Report Document Title</label>
-                            <input
-                                formControlName="ReportDocumentTitle"
-                                type="text" class="form-control"
-                                placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label>Report Received Date</label>
-                            <input
-                                formControlName="ReportReceivedDate"
-                                type="date"  min="1900-10-01" max={{mindate}} class="form-control"
-                                placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label>Report Document Date</label>
-                            <input formControlName="ReportDocumentDate"
-                                type="date" min="1900-10-01" max={{mindate}}  class="form-control"
-                                placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label>Report Document Name</label>
-                            <input
-                                formControlName="ReportDocumentName"
-                                type="text" class="form-control"
-                                placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label>Welbore Core Name</label>               
+
+                            <div class="form-group">
+                                <label>Report Document Title</label>
+                                <input formControlName="ReportDocumentTitle" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Received Date</label>
+                                <input formControlName="ReportReceivedDate" type="date" min="1900-10-01" max={{mindate}}
+                                    class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Document Date</label>
+                                <input formControlName="ReportDocumentDate" type="date" min="1900-10-01" max={{mindate}}
+                                    class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Report Document Name</label>
+                                <input formControlName="ReportDocumentName" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Welbore Core Name</label>
 
                                 <span class="error">*</span>
-                                    <select class="form-control"
-                                         required formControlName="WelboreCoreName"
-                                        name="WelboreCoreName">
-                                        <option *ngFor="let city of wellboreIds"
-                                            [ngValue]="city.WellboreOfficialName"
-                                            (change)="changeWellboreId($event)">{{city.WellboreOfficialName}}
-                                        </option>
-                                    </select>
-                        </div>
+                                <select class="form-control" required formControlName="WelboreCoreName"
+                                    name="WelboreCoreName">
+                                    <option *ngFor="let city of wellboreIds" [ngValue]="city.WellboreOfficialName"
+                                        (change)="changeWellboreId($event)">{{city.WellboreOfficialName}}
+                                    </option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label>Store Identifier</label>
-                            <input
-                                formControlName="StoreIdentifier"
-                                type="text" class="form-control"
-                                placeholder="">
-                        </div>
+                            <div class="form-group">
+                                <label>Store Identifier</label>
+                                <input formControlName="StoreIdentifier" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
 
-                        <div class="form-group">
-                            <label>Analysis Report Details</label>
-                            <input
-                                formControlName="AnalysisReportDetails"
-                                type="text" class="form-control"
-                                placeholder="">
-                        </div>
+                            <div class="form-group">
+                                <label>Analysis Report Details</label>
+                                <input formControlName="AnalysisReportDetails" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
 
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label>Comments</label>
-                                <textarea name="name" rows="2" cols="20" formControlName="Comments" class="form-control" placeholder=""></textarea>
-                         </div>
-                        
+                                <textarea name="name" rows="2" cols="20" formControlName="Comments" class="form-control"
+                                    placeholder=""></textarea>
+                            </div>
+
 
                         </div>
                     </div>

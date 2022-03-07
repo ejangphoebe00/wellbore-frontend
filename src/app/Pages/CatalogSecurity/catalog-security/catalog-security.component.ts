@@ -24,47 +24,46 @@ export class CatalogSecurityComponent implements OnInit {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = new FormGroup({
-      CatalogSecurityFlagName:new FormControl(),
-      SortOrder:new FormControl(),
-      Comments:new FormControl(),
+      CatalogSecurityFlagName: new FormControl(),
+      SortOrder: new FormControl(),
+      Comments: new FormControl(),
     });
   }
 
-  logout(){
+  logout() {
     this.authservice.logoutuser()
 
   }
 
 
-  addCatalogSecurity(){
+  addCatalogSecurity() {
     console.log("tested")
-    if(this.formGroup.valid){
+    if (this.formGroup.valid) {
       console.log(this.formGroup.value)
-      this.authservice.addCatalogSecurityFlag(this.formGroup.value).subscribe(result =>{
+      this.authservice.addCatalogSecurityFlag(this.formGroup.value).subscribe(result => {
         console.log(result)
 
-        if(result.message == "Catalog Security Flag added successfuly."){
-          this.toastr.success("Catalog Security successfuly.","",{
+        if (result.message == "Catalog Security Flag added successfuly.") {
+          this.toastr.success("Catalog Security successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'increasing'
+            progressAnimation: 'increasing'
           })
           this.formGroup.reset();
         }
       }, error => {
 
         console.log('oops', error.message)
-        if(error){
-          this.toastr.error(error.error.message,"",{
+        if (error) {
+          this.toastr.error(error.error.message, "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'decreasing'
+            progressAnimation: 'decreasing'
           })
-          // this.authservice.CompanyFaliure()
         }
       }
 
@@ -72,5 +71,5 @@ export class CatalogSecurityComponent implements OnInit {
     }
   }
 
-  get f(){return this.formGroup.controls}
+  get f() { return this.formGroup.controls }
 }

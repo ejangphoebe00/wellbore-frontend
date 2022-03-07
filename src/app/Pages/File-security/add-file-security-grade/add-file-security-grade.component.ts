@@ -30,8 +30,6 @@ export class AddFileSecurityGradeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.authservice.reload();
-
     this.initForm();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
@@ -73,8 +71,7 @@ export class AddFileSecurityGradeComponent implements OnInit {
           })
           this.formGroup.reset();
           
-        } else{          
-        //  this.authservice.CompanyFaliure()
+        } else{
         }
       }, error => {
         
@@ -86,7 +83,6 @@ export class AddFileSecurityGradeComponent implements OnInit {
             progressBar: true,
             progressAnimation:'decreasing'
           })
-          // this.authservice.CompanyFaliure()
         }
       }
       

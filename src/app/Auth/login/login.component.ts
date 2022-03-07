@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
           this.title = result.access_token;
           console.log(result)
           console.log(result.access_token);
-          localStorage.setItem("role",result.user_role);
-          localStorage.setItem("user-id",result.CraneUserId);
+          localStorage.setItem("role", result.user_role);
+          localStorage.setItem("user-id", result.CraneUserId);
           localStorage.setItem("token", this.title);
           this.authservice.loginSucess()
           setTimeout(() => {
@@ -55,16 +55,16 @@ export class LoginComponent implements OnInit {
           this.authservice.loginFaliure()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
-        if(error){
-          this.toastr.error(error.error.message,"",{
+        if (error) {
+          this.toastr.error(error.error.message, "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'decreasing'
+            progressAnimation: 'decreasing'
           })
-          // this.authservice.CompanyFaliure()
+
         }
       }
 
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  recover(){
+  recover() {
     console.log("test recovery")
     this.router.navigate(['/recovery']);
   }

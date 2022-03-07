@@ -9,18 +9,14 @@ import { NgPopupsService } from 'ng-popups';
 import { Gallery } from 'angular-gallery';
 
 
-
 @Component({
   selector: 'app-cores-list',
   templateUrl: './cores-list.component.html',
   styleUrls: ['./cores-list.component.css']
 })
 export class CoresListComponent implements OnInit {
-
-  //file upload
-  // Variable to store shortLink from api response
   shortLink: string = "";
-  loading: boolean = false; // Flag variable
+  loading: boolean = false; 
   file: any;
   fileresponse: any;
   ims: any = [];
@@ -32,12 +28,6 @@ export class CoresListComponent implements OnInit {
   selectedFilesSecond: any;
   currentFile: any;
   currentFile2: any;
-
-  // fileName = '';
-  // uploadProgress:number = 0;
-  // uploadSub: Subscription = any;
-
-
 
   afuConfig = {
     uploadAPI: {
@@ -91,24 +81,10 @@ export class CoresListComponent implements OnInit {
     this.cores();
     this.initForm();
     this.userEmail = this.authservice.getEmail();
-    this.loggedin = this.authservice.getRole();
-    // if(this.authservice.getRole()=="Admin"){
-    //   this.role=true;
-    // }else{
-    // this.role= false;
-    // }
-
+    this.loggedin = this.authservice.getRole(); 
     this.dtOptions = {
       dom: 'Bfrtip',
-      // dom:'Btp',
       buttons: [
-        // 'columnsToggle',
-        // 'colvis',
-        // {
-        //   extend:'copy',
-        //   tag: 'button',
-        //   className: "btn blue btn-outline"
-        // },
         {
           extend: 'print',
           tag: 'button',
@@ -236,7 +212,6 @@ export class CoresListComponent implements OnInit {
             progressBar: true,
             progressAnimation: 'decreasing'
           })
-          // this.authservice.CompanyFaliure()
         }
       }
 
@@ -252,7 +227,6 @@ export class CoresListComponent implements OnInit {
     this.id = selectedItem.Core_sample_id;
 
     this.ngPopups.confirm("Are you sure you want to delete ?", {
-      // theme: 'material',
       color: 'OrangeRed',
       okButtonText: 'Yes',
       cancelButtonText: 'No',
@@ -536,39 +510,13 @@ export class CoresListComponent implements OnInit {
 
   navigateBack() {
     this.authservice.reload();
-  }
-
-  //   onFileSelected(event: { target: { files: File[]; }; }) {
-  //     const file:File = event.target.files[0];
-
-  //     if (file) {
-  //         this.fileName = file.name;
-  //         const formData = new FormData();
-  //         formData.append("thumbnail", file);
-
-  //         const upload$ = this.http.post("/api/thumbnail-upload", formData, {
-  //             reportProgress: true,
-  //             observe: 'events'
-  //         })
-  //         .pipe(
-  //            //  finalize(() => this.reset())
-  //         );
-
-  //         this.uploadSub = upload$.subscribe(event => {
-  //           if (event.type == HttpEventType.UploadProgress) {
-  //             this.uploadProgress = Math.round(100 * (event.loaded / event.total));
-  //           }
-  //         })
-  //     }
-  // }
-
-  // }
+  } 
 
   onChange(event: any) {
     this.file = event.target.files[0];
   }
 
-  // OnClick of button Upload
+ 
   onUpload() {
     this.loading = !this.loading;
     console.log(this.file);

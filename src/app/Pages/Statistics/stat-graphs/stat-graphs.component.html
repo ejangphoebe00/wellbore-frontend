@@ -72,90 +72,98 @@
                             </div>
                         </div>
                     </div>
+
                     <div routerLink="wellbores" class="col-lg-6 col-xs-12 col-sm-12">
-                            <div class="portlet light bordered">
-                                <div class="portlet-title tabbable-line">
-                                    <div routerLink="wellbores" class="caption">
-                                        <i class="icon-bubbles font-dark hide"></i>
-                                        <span class="caption-subject font-dark bold uppercase">Wells</span>
-                                    </div>
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a data-toggle="tab"><h3> {{wells}} Wells </h3></a>
-                                        </li>
-                                    </ul>
+                        <div class="portlet light bordered">
+                            <div class="portlet-title tabbable-line">
+                                <div routerLink="wellbores" class="caption">
+                                    <i class="icon-bubbles font-dark hide"></i>
+                                    <span class="caption-subject font-dark bold uppercase">Wells</span>
                                 </div>
-                                <div class="portlet-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="portlet_comments_1">
-                                            <!-- BEGIN: Comments -->
-                                            <div class="mt-comments">
-                                                <div class="mt-comment">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab"><h3> {{wells}} Wells </h3></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="portlet_comments_1">
+                                        <!-- BEGIN: Comments -->
+                                        <div class="mt-comments">
+                                            <div class="mt-comment">
 
-                                                    <div style="display: block;" >
-                                                        <canvas baseChart 
-                                                          [datasets]="wellbarChartData"
-                                                          [labels]="wellbarChartLabels"
-                                                          [options]="barChartOptions"
-                                                          [plugins]="barChartPlugins"
-                                                          [colors] = "devechartColors"
-                                                          [legend]="barChartLegend"
-                                                          [chartType]="wellChartType">
-                                                        </canvas>
-                                                      </div>
-
-                                                </div>
+                                                <div style="display: block;" >
+                                                    <canvas baseChart 
+                                                      [datasets]="wellbarChartData"
+                                                      [labels]="wellbarChartLabels"
+                                                      [options]="barChartOptions"
+                                                      [plugins]="barChartPlugins"
+                                                      [colors] = "devechartColors"
+                                                      [legend]="barChartLegend"
+                                                      [chartType]="wellChartType">
+                                                    </canvas>
+                                                  </div>
 
                                             </div>
-                                            <!-- END: Comments -->
+
                                         </div>
-
+                                        <!-- END: Comments -->
                                     </div>
+
                                 </div>
-                            </div>
-                        </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                    <div class="portlet light bordered">
-                        <div class="portlet-title tabbable-line">
-                            <div routerLink="core-catalogs" class="caption">
-                                <i class=" icon-social-twitter font-dark hide"></i>
-                                <span class="caption-subject font-dark bold uppercase">Fluid Samples</span>
-                            </div>
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a data-toggle="tab"> Stats </a>
-                                </li>
-
-                            </ul>
-
-                        </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab_actions_pending">
-                                    <!-- BEGIN: Actions -->
-                                    <div class="mt-actions">
-                                        <div class="mt-action">
-                                            <div class="chart-wrapper">
-                                                <canvas baseChart 
-                                                [datasets]="OilbarChartData"
-                                                [labels]="OilbarChartLabels"
-                                                [options]="barChartOptions"
-                                                [plugins]="barChartPlugins"
-                                                [legend]="barChartLegend"
-                                                [colors]="chartColors"
-                                                [chartType]="barChartType">
-                                              </canvas>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- END: Actions -->
-                                </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
+
+                 
+
+                    <div class="col-lg-6 col-xs-12 col-sm-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title tabbable-line">
+                                <div routerLink="core-catalogs" class="caption">
+                                    <i class=" icon-social-twitter font-dark hide"></i>
+                                    <span class="caption-subject font-dark bold uppercase">Fluid Samples</span>
+                                </div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab"> Stats </a>
+                                    </li>
+    
+                                </ul>
+    
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_actions_pending">
+                                        <!-- BEGIN: Actions -->
+                                        <div class="mt-actions">
+                                            <div class="mt-action">
+                                                <div class="chart-wrapper">
+                                                    <canvas baseChart 
+                                                    [datasets]="OilbarChartData"
+                                                    [labels]="OilbarChartLabels"
+                                                    [options]="barChartOptions"
+                                                    [plugins]="barChartPlugins"
+                                                    [legend]="barChartLegend"
+                                                    [colors]="chartColors"
+                                                    [chartType]="barChartType">
+                                                  </canvas>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                        <!-- END: Actions -->
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+               
                 <div class="col-lg-6 col-xs-12 col-sm-12">
                         <div class="portlet light bordered">
                             <div routerLink="wells" class="portlet-title tabbable-line">
@@ -192,8 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                   
+                    </div>                   
                     
             </div>
 

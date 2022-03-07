@@ -53,9 +53,9 @@ export class WellboresComponent implements OnInit {
     private ngPopups: NgPopupsService
   ) { }
 
- 
+
   ngOnInit(): void {
-  
+
 
     this.maxd = new Date();
     if (this.maxd.getDate() < 9) {
@@ -80,15 +80,7 @@ export class WellboresComponent implements OnInit {
     this.getLicenseIds();
     this.dtOptions = {
       dom: 'Bfrtip',
-      // dom:'Btp',
       buttons: [
-        // 'columnsToggle',
-        // 'colvis',
-        // {
-        //   extend: 'copy',
-        //   tag: 'button',
-        //   className: "btn blue btn-outline"
-        // },
         {
           extend: 'print',
           tag: 'button',
@@ -217,7 +209,7 @@ export class WellboresComponent implements OnInit {
       PetrophysicalContractorId: item.PetrophysicalContractorId,
       TopBasementMD: item.TopBasementMD,
       TopBasementTVD: item.TopBasementTVD,
-      WellboreTestStatus:item.WellboreTestStatus,
+      WellboreTestStatus: item.WellboreTestStatus,
       PlannedWellboreCost: item.PlannedWellboreCost,
       ActualWellboreCost: item.ActualWellboreCost,
       WellboreTestCost: item.WellboreTestCost,
@@ -446,9 +438,6 @@ export class WellboresComponent implements OnInit {
     this.DevAreas.setValue(e.target.value, {
       onlySelf: true
     })
-    // if (this.cityName()? == 'Others'){
-    //    console.log('got you nigga')
-    // }
   }
 
   changePurpose(e: any) {

@@ -1,8 +1,8 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-      
-  
+
+
         <!-- END THEME PANEL -->
         <!-- BEGIN PAGE BAR -->
         <div class="page-bar">
@@ -15,7 +15,7 @@
                     <span>add Core Catalog</span>
                 </li>
             </ul>
-        
+
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
@@ -26,7 +26,7 @@
         <!-- END DASHBOARD STATS 1-->
         <div class="portlet light bordered">
             <div class="portlet-body form">
-                 <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="addCoreCatProcess()" ngNativeValidate>
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="addCoreCatProcess()" ngNativeValidate>
 
                     <div class="form-body row">
                         <div class="col-md-6">
@@ -35,129 +35,101 @@
 
                                 <label>Wellbore Core </label>
                                 <span class="error">*</span>
-                                    <select class="custom-select"
-                                   required formControlName="WellboreCoreId"
-                                    name="WellboreCoreId"
-                                    class="form-control">
+                                <select class="custom-select" required formControlName="WellboreCoreId"
+                                    name="WellboreCoreId" class="form-control">
                                     <option *ngFor="let city of
-                                        wellboreCoreIds"
-                                        [ngValue]="city.WellboreCoreId"
-                                        (change)="changeWellboreCoreId($event)">{{city.WellboreCoreId}}-->{{city.CoreNumber}}
+                                        wellboreCoreIds" [ngValue]="city.WellboreCoreId"
+                                        (change)="changeWellboreCoreId($event)">
+                                        {{city.WellboreCoreId}}-->{{city.CoreNumber}}
                                     </option>
                                 </select>
-                                
+
 
 
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>Store Identifier</label>
-                                <input formControlName="StoreIdentifier"
-                                    type="text" class="form-control"
+                                <input formControlName="StoreIdentifier" type="text" class="form-control"
                                     placeholder="">
                             </div>
-                          
+
                             <div class="form-group">
                                 <label>Catalog Core From Depth</label>
-                                <input
-                                    formControlName="CatalogCoreFromDepth"
-                                    type="number" class="form-control"
+                                <input formControlName="CatalogCoreFromDepth" type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Catalog Core To Depth</label>
-                                <input formControlName="CatalogCoreToDepth"
-                                    type="number" class="form-control"
+                                <input formControlName="CatalogCoreToDepth" type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Was Analysed</label>
-                                <input
-                                    formControlName="WasAnalysedId"
-                                    type="number" class="form-control"
+                                <input formControlName="WasAnalysedId" type="number" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>Top StratLitho </label>                               
-                                <select formControlName="TopStratLithoId"
-                                name="TopStratLithoId"
-                                class="form-control">
-                                <option *ngFor="let city of TopStratLithoId"
-                                    [ngValue]="city.StratLithoId"
-                                    (change)="changeTopStratLithoId($event)">{{city.StratLithoId}}-->{{city.	StratLithoName}}
-                                </option>
-                            </select>
+                                <label>Top StratLitho </label>
+                                <select formControlName="TopStratLithoId" name="TopStratLithoId" class="form-control">
+                                    <option *ngFor="let city of TopStratLithoId" [ngValue]="city.StratLithoId"
+                                        (change)="changeTopStratLithoId($event)">{{city.StratLithoId}}-->{{city.
+                                        StratLithoName}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>BottomStratLitho</label>
-                                <select formControlName="BottomStratLithoId"
-                                name="BottomStratLithoId"
-                                class="form-control">
-                                <option *ngFor="let city of TopStratLithoId"
-                                    [ngValue]="city.StratLithoId"
-                                    (change)="changeTopStratLithoId($event)">{{city.StratLithoId}}-->{{city.	StratLithoName}}
-                                </option>
-                            </select>
+                                <select formControlName="BottomStratLithoId" name="BottomStratLithoId"
+                                    class="form-control">
+                                    <option *ngFor="let city of TopStratLithoId" [ngValue]="city.StratLithoId"
+                                        (change)="changeTopStratLithoId($event)">{{city.StratLithoId}}-->{{city.
+                                        StratLithoName}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                    <label>Catalogue Core Picture Name</label>
-                                    <input
-                                        formControlName="CatalogueCorePictureName"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
+                                <label>Catalogue Core Picture Name</label>
+                                <input formControlName="CatalogueCorePictureName" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
                         </div>
-
-
-                      
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Catalogue Picture Softcopy Path</label>
+                                <input formControlName="CataloguePictureSoftcopyPath" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Catalogue Report Softcopy Path </label>
+                                <input formControlName="CatalogueReportSoftcopyPath" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Catalogue Report Hyperlink</label>
+                                <input formControlName="CatalogueReportHyperlink" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
 
-                      
-                                <div class="form-group">
-                                    <label>Catalogue Picture Softcopy Path</label>
-                                    <input
-                                        formControlName="CataloguePictureSoftcopyPath"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Catalogue Report Softcopy Path </label>
-                                    <input
-                                        formControlName="CatalogueReportSoftcopyPath"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Catalogue Report Hyperlink</label>
-                                    <input
-                                        formControlName="CatalogueReportHyperlink"
-                                        type="text" class="form-control"
-                                        placeholder="">
-                                </div>
-                               
-                                    <div class="form-group">
-                                        <label>Catalog Report FileSize</label>  <input
-                                            formControlName="CatalogReportFileSize"
-                                            type="number" class="form-control"
-                                            placeholder="">
-                                    </div>
+                            <div class="form-group">
+                                <label>Catalog Report FileSize</label> <input formControlName="CatalogReportFileSize"
+                                    type="number" class="form-control" placeholder="">
+                            </div>
 
-                                    <div class="form-group">
-                                        <label>Core Catalog Name</label>
-                                        <span class="error">*</span>
-                                        <input
-                                            required 
-                                            formControlName="CoreCatalogName"
-                                            type="text" class="form-control"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Comments</label>
-                                        <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control" placeholder=""></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <label>Core Catalog Name</label>
+                                <span class="error">*</span>
+                                <input required formControlName="CoreCatalogName" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Comments</label>
+                                <textarea name="name" rows="4" cols="40" formControlName="Comments" class="form-control"
+                                    placeholder=""></textarea>
+                            </div>
 
                         </div>
-                      
+
                     </div>
 
                     <div class="form-actions">

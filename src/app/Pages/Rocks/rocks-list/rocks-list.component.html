@@ -63,9 +63,6 @@
                                             <td>{{post.DateReceived}}</td>
                                             <td>{{post.SampleName}}</td>
                                             <td>
-                                                <!-- <button type="button" (click)="onSelectEdit(post)"
-                                                        class="btn blue btn-outline">
-                                                        <i class="fa fa-angle-double-right"></i></button> -->
                                                 <button *ngIf="checkstaff"
                                                     type="button" class="btn red
                                                     btn-outline"
@@ -108,9 +105,6 @@
                             <span class="caption-subject
                                 bold uppercase">Rocks</span>
                         </div>
-
-                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
-                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
                     </div>
                     <div class="modal-body">
                         <table class="table table-bordered table-striped">
@@ -200,14 +194,8 @@
                         <button *ngIf="checkstaff" (click)="onFile()"
                             data-dismiss="modal" class="btn yellow">Add File</button>
                     </div>
-                    <!-- <div class="modal-footer">
-                                       <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                       <button type="button" class="btn green">Save changes</button>
-                                   </div> -->
-                    <!-- /.modal-content -->
+                   
                 </div>
-
-                <!-- /.modal-dialog -->
             </div>
         </div>
 
@@ -236,63 +224,8 @@
                             class="btn default">Back</button>
                     </div>
                 </form>
-
-                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
-
-                                      
-                                    <div class="form-group">
-                                        <label for="file">File</label>
-                                        <input 
-                                            formControlName="Core_analysis_reports"
-                                            id="file" 
-                                            type="file" 
-                                            class="form-control"
-                                            (change)="onFileChange($event)">
-                                           
-                                       
-                                    </div>
-                                          
-                                    <button class="btn btn-primary" type="submit">Submit</button>
-                                </form> -->
+               
             </div>
-
-
-
-
-
-            <!-- <angular-file-uploader
-                            [config]="afuConfig">
-                        </angular-file-uploader> -->
-            <!-- <angular-file-uploader
-                            [config]="afuConfig">
-                        </angular-file-uploader> -->
-            <!-- <input type="file" class="file-input"
-                        [accept]="requiredFileType"
-                        (change)="onFileSelected($event)" #fileUpload>
-                 
-                 <div class="file-upload">
-                 
-                    {{fileName || "No file uploaded yet."}}
-                 
-                     <button mat-mini-fab color="primary" class="upload-btn"
-                       (click)="fileUpload.click()">
-                         <mat-icon>attach_file</mat-icon>
-                 
-                     </button>
-                 
-                 </div>
-                 
-                 <div class="progress">
-                 
-                   <mat-progress-bar class="progress-bar" mode="determinate"
-                                     [value]="uploadProgress" *ngIf="uploadProgress">
-                 
-                   </mat-progress-bar>
-                 
-                   <mat-icon class="cancel-upload" (click)="cancelUpload()" 
-                             *ngIf="uploadProgress">delete_forever</mat-icon>
-                 
-                 </div> -->
         </div>
 
 
@@ -472,63 +405,7 @@
                             class="btn default">Back</button>
                     </div>
                 </form>
-
-                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
-
-                                  
-                                <div class="form-group">
-                                    <label for="file">File</label>
-                                    <input 
-                                        formControlName="Core_analysis_reports"
-                                        id="file" 
-                                        type="file" 
-                                        class="form-control"
-                                        (change)="onFileChange($event)">
-                                       
-                                   
-                                </div>
-                                      
-                                <button class="btn btn-primary" type="submit">Submit</button>
-                            </form> -->
             </div>
-
-
-
-
-
-            <!-- <angular-file-uploader
-                        [config]="afuConfig">
-                    </angular-file-uploader> -->
-            <!-- <angular-file-uploader
-                        [config]="afuConfig">
-                    </angular-file-uploader> -->
-            <!-- <input type="file" class="file-input"
-                    [accept]="requiredFileType"
-                    (change)="onFileSelected($event)" #fileUpload>
-             
-             <div class="file-upload">
-             
-                {{fileName || "No file uploaded yet."}}
-             
-                 <button mat-mini-fab color="primary" class="upload-btn"
-                   (click)="fileUpload.click()">
-                     <mat-icon>attach_file</mat-icon>
-             
-                 </button>
-             
-             </div>
-             
-             <div class="progress">
-             
-               <mat-progress-bar class="progress-bar" mode="determinate"
-                                 [value]="uploadProgress" *ngIf="uploadProgress">
-             
-               </mat-progress-bar>
-             
-               <mat-icon class="cancel-upload" (click)="cancelUpload()" 
-                         *ngIf="uploadProgress">delete_forever</mat-icon>
-             
-             </div> -->
         </div>
 
         <div *ngIf="gal" class="portlet light bordered">

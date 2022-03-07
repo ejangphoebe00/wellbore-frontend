@@ -39,7 +39,6 @@ export class AddUsersComponent implements OnInit {
       this.mindate = this.maxd.getFullYear() + '-' + parseInt(this.maxd.getMonth() + 1) + '-' + this.maxd.getDate()
 
     }
-    // this.authservice.reload();
 
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
@@ -75,7 +74,6 @@ export class AddUsersComponent implements OnInit {
       CraneUserName:new FormControl(),
       LoginID:new FormControl(),
       LoginIDAlias:new FormControl(),
-      // UserCategory:new FormControl(),
       UserCompanyId:new FormControl(),
       UserPremsUserId:new FormControl(),
       UserStaffId:new FormControl(),
@@ -114,11 +112,7 @@ export class AddUsersComponent implements OnInit {
             progressBar: true,
             progressAnimation:'increasing'
           })
-          this.formGroup.reset();
-          // setTimeout(() => {                           
-          //   this.router.navigate(['/web-security-levels']);
-          // }, 1000);
-          
+          this.formGroup.reset();          
         } else{          
           this.authservice.securityStatus()
         }
@@ -132,7 +126,6 @@ export class AddUsersComponent implements OnInit {
             progressBar: true,
             progressAnimation:'decreasing'
           })
-          // this.authservice.CompanyFaliure()
         }
       }
       

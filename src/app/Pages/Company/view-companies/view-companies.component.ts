@@ -22,7 +22,6 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
   role:any;
 
   dtOptions: any = {};
-  // dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
@@ -68,7 +67,6 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       this.mindate = this.maxd.getFullYear() + '-' + parseInt(this.maxd.getMonth() + 1) + '-' + this.maxd.getDate()
 
     }
-    // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
     if(this.authservice.getRole()=="Admin"){
@@ -89,18 +87,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.initForm();
     this.dtOptions = {
       dom:'Bfrtip',
-      // dom:'Btp',
-      // select: true,
       buttons: [
-        // 'columnsToggle',
-        // 'colvis',
-
-        // {
-        //   extend:'copyHtml5',
-        //   tag: 'button',
-        //   className: "btn blue btn-outline",
-        //
-        // },
         {
           extend:'print',
           tag: 'button',
@@ -250,18 +237,6 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       PreviousLegalName: selectedItem.PreviousLegalName,
     }
   }
-
-  // formFilter(formValue:any){
-  //   if(formValue == "None"){
-  //     var oldValue = formValue
-  //     var other = ""
-  //     var newString = formValue.replace(formValue, other)
-  //     return newString
-  //
-  //     // formValue += "";
-  //   }
-  // }
-
   onSelectEdit(selectedItem: any) {
     console.log("hide the elements");
     this.status = false;
@@ -284,12 +259,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
     this.http.get('http://127.0.0.1:8899/apiv1/get_company/' + this.id)
       .subscribe(response => {
         this.updatevalue = response
-
-        // NSDQualificationDate value converted to datetime-local
         this.newval1 = this.updatevalue.NSDQualificationDate.split(" ")
         this.newval2 = this.updatevalue.PAURegistrationDate.split(" ")
-        // console.log(this.newval[0] + "T" + this.newval[1])
-
         this.formGroup.patchValue(
           {
            CompanyId: this.authservice.stripFormValue(this.updatevalue.CompanyId),
@@ -314,10 +285,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            BusinessNatureDescription: this.authservice.stripFormValue(this.updatevalue.BusinessNatureDescription),
            CompanyPostalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPostalAddress),
            CompanyPhysicalAddress: this.authservice.stripFormValue(this.updatevalue.CompanyPhysicalAddress),
-           CompanyOtherEmails: this.authservice.stripFormValue(this.updatevalue.CompanyOtherEmails),
-          // NSDQualificationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
+           CompanyOtherEmails: this.authservice.stripFormValue(this.updatevalue.CompanyOtherEmails),  
            NSDQualificationDate: this.authservice.stripFormValue(this.updatevalue.NSDQualificationDate),
-
            NSDQualificationYear: this.authservice.stripFormValue(this.updatevalue.NSDQualificationYear),
            PrimaryContactEntity: this.authservice.stripFormValue(this.updatevalue.PrimaryContactEntity),
            ContactEntityEmail: this.authservice.stripFormValue(this.updatevalue.ContactEntityEmail),
@@ -326,9 +295,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            ContactDesignation: this.authservice.stripFormValue(this.updatevalue.ContactDesignation),
            OperatorSortOrder: this.authservice.stripFormValue(this.updatevalue.OperatorSortOrder),
            ContractorSortOrder: this.authservice.stripFormValue(this.updatevalue.ContractorSortOrder),
-           //PAURegistrationDate: this.authservice.stripFormValue(this.newval1[0] + "T" + this.newval1[1]),
            PAURegistrationDate: this.authservice.stripFormValue(this.updatevalue.PAURegistrationDate),
-
            CraneNOGTRID: this.authservice.stripFormValue(this.updatevalue.CraneNOGTRID),
            TempNOGTRIPwd: this.authservice.stripFormValue(this.updatevalue.TempNOGTRIPwd),
            RegistrationStatusId: this.authservice.stripFormValue(this.updatevalue.RegistrationStatusId),
@@ -352,17 +319,8 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
            PreviousLegalName: this.authservice.stripFormValue(this.updatevalue.PreviousLegalName),
         });
         console.log(this.updatevalue)
-
-        // console.log("filtering 'None' values")
-        // Object.entries(this.formdata).forEach(([key, value]) => { if (value == "None") {
-        //   value = null}})
-        // console.log(this.formdata)
-      });
-
-
+      })
   }
-
-
 
   navigateBack() {
     this.authservice.reload();
@@ -415,8 +373,7 @@ export class ViewCompaniesComponent implements OnInit, OnDestroy{
       CompanyShortName:new FormControl(),
       NSDNumber:new FormControl(),
       CompanyCategoryId:new FormControl(),
-      Country:new FormControl(),
-     // CountryOfRegistrationId:new FormControl(),
+      Country:new FormControl(),   
       RegistrationNumber:new FormControl(),
       TINNumber:new FormControl(),
       CompanyTelephone:new FormControl(),

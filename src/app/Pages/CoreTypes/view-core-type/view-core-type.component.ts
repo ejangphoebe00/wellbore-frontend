@@ -20,7 +20,7 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
 
   formGroup!: FormGroup;
   title!: string;
-  role:any;
+  role: any;
 
   // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
@@ -39,9 +39,6 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
   loggedin: any;
   data: any;
   formdata: any;
-  // value:any;
-
-
 
   constructor(
     private authservice: ApiPipeService,
@@ -53,41 +50,33 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // this.authservice.reload();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if(this.authservice.getRole()=="Admin"){
-      this.role=true;
-    }else{
-    this.role= false;
+    if (this.authservice.getRole() == "Admin") {
+      this.role = true;
+    } else {
+      this.role = false;
     }
 
     this.posts = [];
     this.users();
     this.initForm();
     this.dtOptions = {
-      dom:'Bfrtip',
-      // dom:'Btp',
+      dom: 'Bfrtip',
       buttons: [
-        // 'columnsToggle',
-        // 'colvis',
-        // {
-        //   extend:'copy',
-        //   tag: 'button',
-        //   className: "btn blue btn-outline"
-        // },
+
         {
-          extend:'print',
+          extend: 'print',
           tag: 'button',
           className: "btn yellow btn-outline"
         },
         {
-          extend:'excel',
+          extend: 'excel',
           tag: 'button',
           className: "btn green btn-outline"
         },
         {
-          extend:'pdf',
+          extend: 'pdf',
           tag: 'button',
           className: "btn red btn-outline"
         },
@@ -126,53 +115,53 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
   onSelect(selectedItem: any) {
     this.id = selectedItem.CoreType_id
 
-    this.ngPopups.confirm("Are you sure you want to delete ?",{
+    this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
-      color:'OrangeRed',
+      color: 'OrangeRed',
       okButtonText: 'Yes',
-      cancelButtonText:'No',
+      cancelButtonText: 'No',
       title: "Confirm",
     })
-    .subscribe(res => {
-      if (res) {
-        console.log("Selected item Id: ", selectedItem.CoreType_id);
-        this.http.delete('http://127.0.0.1:8899/apiv1/delete_core_type/' + this.id)
-          .subscribe(response => {
-            this.deleteresp = response;
-            console.log(this.deleteresp.message)
-            if (this.deleteresp.message == "Core Type successfully deleted.") {
-              this.toastr.success("Core Type successfully deleted.", "", {
-                timeOut: 2000,
-                positionClass: 'toast-top-center',
-                progressBar: true,
-                progressAnimation: 'increasing'
-              })
-              setTimeout(() => {
-                this.authservice.reload();
-              }, 1000);
+      .subscribe(res => {
+        if (res) {
+          console.log("Selected item Id: ", selectedItem.CoreType_id);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_core_type/' + this.id)
+            .subscribe(response => {
+              this.deleteresp = response;
+              console.log(this.deleteresp.message)
+              if (this.deleteresp.message == "Core Type successfully deleted.") {
+                this.toastr.success("Core Type successfully deleted.", "", {
+                  timeOut: 2000,
+                  positionClass: 'toast-top-center',
+                  progressBar: true,
+                  progressAnimation: 'increasing'
+                })
+                setTimeout(() => {
+                  this.authservice.reload();
+                }, 1000);
 
-            } else {
-              this.authservice.coreTypeStatusUpdate()
-            }
-            console.log(this.deleteresp)
-          });
-      } else {
-        console.log("You clicked cancel.")
-      }
-    });
+              } else {
+                this.authservice.coreTypeStatusUpdate()
+              }
+              console.log(this.deleteresp)
+            });
+        } else {
+          console.log("You clicked cancel.")
+        }
+      });
   }
 
   onView(selectedItem: any) {
     this.status = true;
-    this.details= true;
+    this.details = true;
     this.editform = false;
     this.data = {
-      CoreType_id:selectedItem.CoreType_id,
-      CoreTypeName:selectedItem.CoreTypeName,
-      SortOrder:selectedItem.SortOrder,
-      Comments:selectedItem.Comments,
-      ModifiedOn:selectedItem.ModifiedOn,
-      ModifiedBy:selectedItem.ModifiedBy,
+      CoreType_id: selectedItem.CoreType_id,
+      CoreTypeName: selectedItem.CoreTypeName,
+      SortOrder: selectedItem.SortOrder,
+      Comments: selectedItem.Comments,
+      ModifiedOn: selectedItem.ModifiedOn,
+      ModifiedBy: selectedItem.ModifiedBy,
     }
   }
 
@@ -187,12 +176,10 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
     this.http.get('http://127.0.0.1:8899/apiv1/get_core_type/' + this.id)
       .subscribe(response => {
         this.updatevalue = response;
-        // Object.keys(this.formdata).forEach((key) => (this.formdata[key] == "None") && delete this.formdata[key]);
-
         this.formGroup.patchValue({
-          CoreTypeName:this.authservice.stripFormValue(this.updatevalue.CoreTypeName),
-          SortOrder:this.authservice.stripFormValue(this.updatevalue.SortOrder),
-          Comments:this.authservice.stripFormValue(this.updatevalue.Comments),
+          CoreTypeName: this.authservice.stripFormValue(this.updatevalue.CoreTypeName),
+          SortOrder: this.authservice.stripFormValue(this.updatevalue.SortOrder),
+          Comments: this.authservice.stripFormValue(this.updatevalue.Comments),
         });
         console.log(this.updatevalue)
       });
@@ -247,9 +234,9 @@ export class ViewCoreTypeComponent implements OnInit, OnDestroy {
 
   initForm() {
     this.formGroup = new FormGroup({
-      CoreTypeName:new FormControl(),
-      SortOrder:new FormControl(),
-      Comments:new FormControl(),
+      CoreTypeName: new FormControl(),
+      SortOrder: new FormControl(),
+      Comments: new FormControl(),
     });
   }
 

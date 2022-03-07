@@ -8,84 +8,82 @@ import { Router } from '@angular/router';
   styleUrls: ['./base.component.css']
 })
 export class BaseComponent implements OnInit {
-role:any;
-checkstaff:any;
-userEmail:any;
-loggedin:any;
-
+  role: any;
+  checkstaff: any;
+  userEmail: any;
+  loggedin: any;
 
   constructor(
     private authservice: ApiPipeService,
     private router: Router
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.authservice.reload();
-    // this.loadScripts();
     this.authservice.viewingStatus();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if(this.authservice.getRole()=="Application Admin"){
-      this.role=true;
-    }else{
-    this.role=false;
+    if (this.authservice.getRole() == "Application Admin") {
+      this.role = true;
+    } else {
+      this.role = false;
     }
 
 
-    if(this.authservice.getRole()=="Data Admin"){
-      this.checkstaff=true;
-    }else{
-    this.checkstaff=false;
+    if (this.authservice.getRole() == "Data Admin") {
+      this.checkstaff = true;
+    } else {
+      this.checkstaff = false;
     }
 
     this.KFDA();
     this.TDA();
     this.Allwells();
-   }
+  }
 
 
-   TDA(): void {
+  TDA(): void {
     this.authservice
       .getTdaWellbores()
       .subscribe((response: any) => {
         console.log(response)
-        localStorage.setItem("tda",response.length);
+        localStorage.setItem("tda", response.length);
       });
-  }  
+  }
 
   KFDA(): void {
     this.authservice
       .getKdaWellbores()
       .subscribe((response: any) => {
         console.log(response)
-        localStorage.setItem("kfda",response.length);
+        localStorage.setItem("kfda", response.length);
       });
-  } 
+  }
 
   Allwells(): void {
     this.authservice
       .getWellbores()
       .subscribe((response: any) => {
         console.log(response)
-        localStorage.setItem("alwelz",response.length);
+        localStorage.setItem("alwelz", response.length);
 
       });
   }
 
-  logout(){
-  this.authservice.logoutuser();
+  logout() {
+    this.authservice.logoutuser();
   }
 
-  switchAccount(){
+  switchAccount() {
     this.authservice.switchAccounts();
-    }
+  }
 
-  updatePassword(){
+  updatePassword() {
     this.router.navigate(['/update-password']);
   }
 
   loadScripts() {
-    
+
     const dynamicScripts = [
       '../assets/assets/global/plugins/bootstrap/js/bootstrap.min.js'
     ];
@@ -97,9 +95,5 @@ loggedin:any;
       document.getElementsByTagName('head')[0].appendChild(node);
     }
   }
-
-
-    
-
 
 }

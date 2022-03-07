@@ -39,7 +39,7 @@ export class AddCompanyComponent implements OnInit {
     console.log("final working date" + this.mindate)
 
     this.initForm();
-    // this.authservice.reload();
+
     this.currentYear = new Date().getFullYear();
     while (this.currentYear >= 1900) {
       this.allYears.push(this.currentYear);
@@ -57,7 +57,6 @@ export class AddCompanyComponent implements OnInit {
       NSDNumber: new FormControl(),
       CompanyCategoryId: new FormControl(),
       Country: new FormControl(),
-      // CountryOfRegistrationId:new FormControl(),
       RegistrationNumber: new FormControl(),
       TINNumber: new FormControl(),
       CompanyTelephone: new FormControl(),
@@ -136,7 +135,7 @@ export class AddCompanyComponent implements OnInit {
           this.formGroup.reset();
         }
         else {
-          // this.authservice.companyStatus()
+
         }
       }, error => {
 
@@ -148,7 +147,7 @@ export class AddCompanyComponent implements OnInit {
             progressBar: true,
             progressAnimation: 'decreasing'
           })
-          // this.authservice.CompanyFaliure()
+
         }
       }
 

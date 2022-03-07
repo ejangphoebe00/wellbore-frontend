@@ -52,7 +52,6 @@ export class WellboreCoreComponent implements OnInit {
 
     }
     this.coreRecovery =true
-    // this.authservice.reload();
     this.initForm();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
@@ -153,8 +152,7 @@ export class WellboreCoreComponent implements OnInit {
           })
           this.formGroup.reset();
           
-        } else{          
-         // this.authservice.CompanyFaliure()
+        } else{ 
         }
       }, error => {
         
@@ -166,7 +164,6 @@ export class WellboreCoreComponent implements OnInit {
             progressBar: true,
             progressAnimation:'decreasing'
           })
-          // this.authservice.CompanyFaliure()
         }
       }
       
@@ -260,12 +257,6 @@ export class WellboreCoreComponent implements OnInit {
       onlySelf: true
     })
   }
-
-  // get FirstName(){return this.formGroup.get('FirstName')}
-
-  // get f(){return this.formGroup.controls}
-
-
 }
 
 

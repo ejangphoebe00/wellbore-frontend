@@ -25,80 +25,73 @@
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
-            <div  *ngIf="role"class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a routerLink='users' class="dashboard-stat dashboard-stat-v2 blue"
-                   >
+            <div *ngIf="role" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a routerLink='users' class="dashboard-stat dashboard-stat-v2 blue">
                     <div class="visual">
                         <i class="fa fa-comments"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup"
-                                >{{users}}</span>
+                            <span data-counter="counterup">{{users}}</span>
                         </div>
-                        <div  routerLink='users' class="desc">Users</div>
+                        <div routerLink='users' class="desc">Users</div>
                     </div>
                 </a>
             </div>
 
 
-      <div *ngIf="staffstatus" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <a routerLink="view-strat-litho" class="dashboard-stat dashboard-stat-v2 blue">
-                        <div class="visual">
-                            <i class="fa fa-comments"></i>
+            <div *ngIf="staffstatus" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a routerLink="view-strat-litho" class="dashboard-stat dashboard-stat-v2 blue">
+                    <div class="visual">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup">{{lithoz}}</span>
                         </div>
-                        <div class="details">
-                            <div class="number">
-                                <span data-counter="counterup">{{lithoz}}</span>
-                            </div>
-                            <div  routerLink="view-strat-litho" class="desc">Stratigraphies</div>
-                        </div>
-                    </a>
-                </div>
+                        <div routerLink="view-strat-litho" class="desc">Stratigraphies</div>
+                    </div>
+                </a>
+            </div>
             <div routerLink="view-companies" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a routerLink="view-companies" class="dashboard-stat dashboard-stat-v2 red"
-                    >
+                <a routerLink="view-companies" class="dashboard-stat dashboard-stat-v2 red">
                     <div class="visual">
                         <i class="fa fa-bar-chart-o"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup"
-                               >{{companies}}</span> </div>
+                            <span data-counter="counterup">{{companies}}</span>
+                        </div>
                         <div class="desc">Companies</div>
                     </div>
                 </a>
             </div>
             <div routerLink="wellbores" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a  routerLink="wellbores" class="dashboard-stat dashboard-stat-v2 green"
-                    >
+                <a routerLink="wellbores" class="dashboard-stat dashboard-stat-v2 green">
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup"
-                                >{{wells}}</span>
+                            <span data-counter="counterup">{{wells}}</span>
                         </div>
                         <div class="desc">Wells </div>
                     </div>
                 </a>
             </div>
             <div routerLink="core-catalogs" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <a routerLink="core-catalogs" routerLink="core-catalogs" class="dashboard-stat dashboard-stat-v2 green"
-                        >
-                        <div class="visual">
-                            <i class="fa fa-shopping-cart"></i>
+                <a routerLink="core-catalogs" routerLink="core-catalogs" class="dashboard-stat dashboard-stat-v2 green">
+                    <div class="visual">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup">{{coreCatalogz}}</span>
                         </div>
-                        <div class="details">
-                            <div class="number">
-                                <span data-counter="counterup"
-                                    >{{coreCatalogz}}</span>
-                            </div>
-                            <div  routerLink="core-catalogs" class="desc">Core Catalog </div>
-                        </div>
-                    </a>
-                </div>
+                        <div routerLink="core-catalogs" class="desc">Core Catalog </div>
+                    </div>
+                </a>
+            </div>
             <!-- <div *ngIf="staffstatus" routerLink="view-strat-litho-unit" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <a routerLink="view-strat-litho-unit" class="dashboard-stat dashboard-stat-v2 purple"
                    >
@@ -118,490 +111,522 @@
 
 
         <div class="row">
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                        <div class="portlet light bordered">
-                            <div routerLink="view-strat-litho" class="portlet-title tabbable-line">
-                                <div class="caption">
-                                    <i class="icon-bubbles font-dark hide"></i>
-                                    <span  routerLink="view-strat-litho"class="caption-subject font-dark bold uppercase">Stratigraphy</span>
-                                </div>
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a data-toggle="tab"> Actions </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div routerLink="view-strat-litho" class="portlet-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="portlet_comments_1">
-                                        <!-- BEGIN: Comments -->
-                                        <div class="mt-comments">
-                                            <div class="mt-comment">
-
-                                                <div class="mt-comment-body">
-                                                    <div class="mt-comment-info">
-                                                        <span class="mt-comment-author">Registered</span>
-
-                                                        <span class="mt-comment-date">
-
-                                                                <div routerLink="view-strat-litho" class="mt-action-buttons ">
-                                                                        <div routerLink="view-strat-litho" class="btn-group btn-group-circle">
-                                                                            <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                            <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                            <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                        </div>
-                                                                    </div>
-                                                        </span>
-                                                    </div>
-                                                    <div class="mt-comment-text"> {{lithoz}} Stratigraphies </div>
-
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        <!-- END: Comments -->
-                                    </div>
-
-                                </div>
-                            </div>
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div routerLink="view-strat-litho" class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class="icon-bubbles font-dark hide"></i>
+                            <span routerLink="view-strat-litho"
+                                class="caption-subject font-dark bold uppercase">Stratigraphy</span>
                         </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div routerLink="wellbores" class="col-lg-6 col-xs-12 col-sm-12">
-                            <div class="portlet light bordered">
-                                <div class="portlet-title tabbable-line">
-                                    <div routerLink="wellbores" class="caption">
-                                        <i class="icon-bubbles font-dark hide"></i>
-                                        <span class="caption-subject font-dark bold uppercase">Wells</span>
-                                    </div>
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a data-toggle="tab"> Actions </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="portlet_comments_1">
-                                            <!-- BEGIN: Comments -->
-                                            <div class="mt-comments">
-                                                <div class="mt-comment">
+                    <div routerLink="view-strat-litho" class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="portlet_comments_1">
+                                <!-- BEGIN: Comments -->
+                                <div class="mt-comments">
+                                    <div class="mt-comment">
 
-                                                    <div class="mt-comment-body">
-                                                        <div routerLink="wellbores" class="mt-comment-info">
-                                                            <span class="mt-comment-author">Registered</span>
+                                        <div class="mt-comment-body">
+                                            <div class="mt-comment-info">
+                                                <span class="mt-comment-author">Registered</span>
 
-                                                            <span class="mt-comment-date">
+                                                <span class="mt-comment-date">
 
-                                                                    <div class="mt-action-buttons ">
-                                                                            <div routerLink="wellbores" class="btn-group btn-group-circle">
-                                                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                                <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                                <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                            </div>
-                                                                        </div>
-                                                            </span>
+                                                    <div routerLink="view-strat-litho" class="mt-action-buttons ">
+                                                        <div routerLink="view-strat-litho"
+                                                            class="btn-group btn-group-circle">
+                                                            <button type="button"
+                                                                class="btn btn-outline green btn-sm">View</button>
+                                                            <button type="button"
+                                                                class="btn btn-outline black btn-sm">Search</button>
+                                                            <button type="button"
+                                                                class="btn btn-outline green btn-sm">Print</button>
                                                         </div>
-                                                        <div class="mt-comment-text"> {{wells}} Wells </div>
-
-
                                                     </div>
-
-                                                </div>
-
+                                                </span>
                                             </div>
-                                            <!-- END: Comments -->
+                                            <div class="mt-comment-text"> {{lithoz}} Stratigraphies </div>
+
+
                                         </div>
 
                                     </div>
+
                                 </div>
+                                <!-- END: Comments -->
                             </div>
-                        </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                    <div class="portlet light bordered">
-                        <div class="portlet-title tabbable-line">
-                            <div routerLink="core-catalogs" class="caption">
-                                <i class=" icon-social-twitter font-dark hide"></i>
-                                <span class="caption-subject font-dark bold uppercase">Core Catalog</span>
-                            </div>
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a data-toggle="tab"> Actions </a>
-                                </li>
 
-                            </ul>
-
-                        </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab_actions_pending">
-                                    <!-- BEGIN: Actions -->
-                                    <div class="mt-actions">
-                                        <div class="mt-action">
-                                            <div routerLink="core-catalogs" class="mt-action-body">
-                                                <div class="mt-action-row">
-                                                    <div class="mt-action-info ">
-                                                        <div class="mt-action-icon ">
-
-                                                        </div>
-                                                        <div class="mt-action-details ">
-                                                            <span class="mt-action-author">Registered</span>
-                                                            <p class="mt-action-desc"> {{coreCatalogz}} Core Catalogs</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mt-action-buttons ">
-                                                        <div class="btn-group btn-group-circle">
-                                                            <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                            <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                            <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- END: Actions -->
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                        <div class="portlet light bordered">
-                            <div routerLink="wells" class="portlet-title tabbable-line">
-                                <div class="caption">
-                                    <i class=" icon-social-twitter font-dark hide"></i>
-                                    <span class="caption-subject font-dark bold uppercase">Cores</span>
-                                </div>
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a data-toggle="tab"> Actions </a>
-                                    </li>
+            </div>
+            <div routerLink="wellbores" class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div routerLink="wellbores" class="caption">
+                            <i class="icon-bubbles font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">Wells</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="portlet_comments_1">
+                                <!-- BEGIN: Comments -->
+                                <div class="mt-comments">
+                                    <div class="mt-comment">
 
-                                </ul>
+                                        <div class="mt-comment-body">
+                                            <div routerLink="wellbores" class="mt-comment-info">
+                                                <span class="mt-comment-author">Registered</span>
 
-                            </div>
-                            <div class="portlet-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="tab_actions_pending">
-                                        <!-- BEGIN: Actions -->
-                                        <div class="mt-actions">
-                                            <div class="mt-action">
-                                                <div class="mt-action-body">
-                                                    <div class="mt-action-row">
-                                                        <div class="mt-action-info ">
-                                                            <div class="mt-action-icon ">
+                                                <span class="mt-comment-date">
 
-                                                            </div>
-                                                            <div class="mt-action-details ">
-                                                                <span class="mt-action-author">Registered</span>
-                                                                <p class="mt-action-desc"> {{wellborecore}} Cores</p>
-                                                            </div>
-                                                        </div>
-
-                                                        <div  class="mt-action-buttons ">
-                                                            <div routerLink="wells" class="btn-group btn-group-circle">
-                                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                            </div>
+                                                    <div class="mt-action-buttons ">
+                                                        <div routerLink="wellbores" class="btn-group btn-group-circle">
+                                                            <button type="button"
+                                                                class="btn btn-outline green btn-sm">View</button>
+                                                            <button type="button"
+                                                                class="btn btn-outline black btn-sm">Search</button>
+                                                            <button type="button"
+                                                                class="btn btn-outline green btn-sm">Print</button>
                                                         </div>
                                                     </div>
-
-                                                </div>
+                                                </span>
                                             </div>
+                                            <div class="mt-comment-text"> {{wells}} Wells </div>
+
 
                                         </div>
-                                        <!-- END: Actions -->
+
                                     </div>
 
                                 </div>
+                                <!-- END: Comments -->
                             </div>
+
                         </div>
                     </div>
-                    <div *ngIf="role" class="col-lg-6 col-xs-12 col-sm-12">
-                            <div class="portlet light bordered">
-                                <div class="portlet-title tabbable-line">
-                                    <div class="caption">
-                                        <i class=" icon-social-twitter font-dark hide"></i>
-                                        <span  routerLink='users' class="caption-subject font-dark bold uppercase">Users</span>
-                                    </div>
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a  data-toggle="tab"> Actions </a>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-                                <div  class="portlet-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab_actions_pending">
-                                            <!-- BEGIN: Actions -->
-                                            <div class="mt-actions">
-                                                <div class="mt-action">
-                                                    <div class="mt-action-body">
-                                                        <div class="mt-action-row">
-                                                            <div class="mt-action-info ">
-                                                                <div class="mt-action-icon ">
-
-                                                                </div>
-                                                                <div routerLink='users' class="mt-action-details ">
-                                                                    <span class="mt-action-author">Accounts</span>
-                                                                    <p class="mt-action-desc"> {{users}} Accounts </p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="mt-action-buttons ">
-                                                                <div routerLink='users' class="btn-group btn-group-circle">
-                                                                    <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                    <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                    <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <!-- END: Actions -->
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div routerLink="core-catalogs" class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">Core Catalog</span>
                         </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
-                                    <div class="portlet-title tabbable-line">
-                                        <div class="caption">
-                                            <i class=" icon-social-twitter font-dark hide"></i>
-                                            <span routerLink="view-companies" class="caption-subject font-dark bold uppercase">Companies</span>
-                                        </div>
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a data-toggle="tab"> Actions </a>
-                                            </li>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
 
-                                        </ul>
+                        </ul>
 
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_actions_pending">
-                                                <!-- BEGIN: Actions -->
-                                                <div class="mt-actions">
-                                                    <div class="mt-action">
-                                                        <div class="mt-action-body">
-                                                            <div class="mt-action-row">
-                                                                <div class="mt-action-info ">
-                                                                    <div class="mt-action-icon ">
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div routerLink="core-catalogs" class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
 
-                                                                    </div>
-                                                                    <div class="mt-action-details ">
-                                                                        <span class="mt-action-author">Registered</span>
-                                                                        <p class="mt-action-desc"> {{companies}} Companies</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mt-action-buttons ">
-                                                                    <div routerLink="view-companies" class="btn-group btn-group-circle">
-                                                                        <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                        <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                        <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
                                                     </div>
-
+                                                    <div class="mt-action-details ">
+                                                        <span class="mt-action-author">Registered</span>
+                                                        <p class="mt-action-desc"> {{coreCatalogz}} Core Catalogs</p>
+                                                    </div>
                                                 </div>
-                                                <!-- END: Actions -->
+
+                                                <div class="mt-action-buttons ">
+                                                    <div class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
                                     </div>
+
                                 </div>
+                                <!-- END: Actions -->
                             </div>
 
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
-                                    <div class="portlet-title tabbable-line">
-                                        <div class="caption">
-                                            <i class=" icon-social-twitter font-dark hide"></i>
-                                            <span routerLink="fluids" class="caption-subject font-dark bold uppercase">Fluid Samples</span>
-                                        </div>
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a data-toggle="tab"> Actions </a>
-                                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div routerLink="wells" class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">Cores</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
 
-                                        </ul>
+                        </ul>
 
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_actions_pending">
-                                                <!-- BEGIN: Actions -->
-                                                <div class="mt-actions">
-                                                    <div class="mt-action">
-                                                        <div class="mt-action-body">
-                                                            <div class="mt-action-row">
-                                                                <div class="mt-action-info ">
-                                                                    <div class="mt-action-icon ">
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
 
-                                                                    </div>
-                                                                    <div class="mt-action-details ">
-                                                                        <span class="mt-action-author">Fluid Samples</span>
-                                                                        <p class="mt-action-desc"> {{companies}} Fluid Samples</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mt-action-buttons ">
-                                                                    <div routerLink="fluids" class="btn-group btn-group-circle">
-                                                                        <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                        <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                        <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
                                                     </div>
-
+                                                    <div class="mt-action-details ">
+                                                        <span class="mt-action-author">Registered</span>
+                                                        <p class="mt-action-desc"> {{wellborecore}} Cores</p>
+                                                    </div>
                                                 </div>
-                                                <!-- END: Actions -->
+
+                                                <div class="mt-action-buttons ">
+                                                    <div routerLink="wells" class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
                                     </div>
+
                                 </div>
+                                <!-- END: Actions -->
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="role" class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span routerLink='users' class="caption-subject font-dark bold uppercase">Users</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
 
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
-                                    <div class="portlet-title tabbable-line">
-                                        <div class="caption">
-                                            <i class=" icon-social-twitter font-dark hide"></i>
-                                            <span routerLink="cuttings" class="caption-subject font-dark bold uppercase">Cuttings</span>
-                                        </div>
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a data-toggle="tab"> Actions </a>
-                                            </li>
+                        </ul>
 
-                                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
 
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_actions_pending">
-                                                <!-- BEGIN: Actions -->
-                                                <div class="mt-actions">
-                                                    <div class="mt-action">
-                                                        <div class="mt-action-body">
-                                                            <div class="mt-action-row">
-                                                                <div class="mt-action-info ">
-                                                                    <div class="mt-action-icon ">
-
-                                                                    </div>
-                                                                    <div class="mt-action-details ">
-                                                                        <span class="mt-action-author">Registered</span>
-                                                                        <p class="mt-action-desc"> {{companies}} Cuttings</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mt-action-buttons ">
-                                                                    <div routerLink="cuttings" class="btn-group btn-group-circle">
-                                                                        <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                        <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                        <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
                                                     </div>
-
+                                                    <div routerLink='users' class="mt-action-details ">
+                                                        <span class="mt-action-author">Accounts</span>
+                                                        <p class="mt-action-desc"> {{users}} Accounts </p>
+                                                    </div>
                                                 </div>
-                                                <!-- END: Actions -->
+
+                                                <div class="mt-action-buttons ">
+                                                    <div routerLink='users' class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
                                     </div>
+
                                 </div>
+                                <!-- END: Actions -->
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span routerLink="view-companies"
+                                class="caption-subject font-dark bold uppercase">Companies</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
 
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
-                                    <div class="portlet-title tabbable-line">
-                                        <div class="caption">
-                                            <i class=" icon-social-twitter font-dark hide"></i>
-                                            <span routerLink="rocks" class="caption-subject font-dark bold uppercase">Rock Samples</span>
-                                        </div>
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a data-toggle="tab"> Actions </a>
-                                            </li>
+                        </ul>
 
-                                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
 
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_actions_pending">
-                                                <!-- BEGIN: Actions -->
-                                                <div class="mt-actions">
-                                                    <div class="mt-action">
-                                                        <div class="mt-action-body">
-                                                            <div class="mt-action-row">
-                                                                <div class="mt-action-info ">
-                                                                    <div class="mt-action-icon ">
-
-                                                                    </div>
-                                                                    <div class="mt-action-details ">
-                                                                        <span class="mt-action-author">Registered</span>
-                                                                        <p class="mt-action-desc"> {{companies}} Rock Samples</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mt-action-buttons ">
-                                                                    <div routerLink="rocks" class="btn-group btn-group-circle">
-                                                                        <button type="button" class="btn btn-outline green btn-sm">View</button>
-                                                                        <button type="button" class="btn btn-outline black btn-sm">Search</button>
-                                                                        <button type="button" class="btn btn-outline green btn-sm">Print</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
                                                     </div>
-
+                                                    <div class="mt-action-details ">
+                                                        <span class="mt-action-author">Registered</span>
+                                                        <p class="mt-action-desc"> {{companies}} Companies</p>
+                                                    </div>
                                                 </div>
-                                                <!-- END: Actions -->
+
+                                                <div class="mt-action-buttons ">
+                                                    <div routerLink="view-companies" class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
                                     </div>
+
                                 </div>
+                                <!-- END: Actions -->
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span routerLink="fluids" class="caption-subject font-dark bold uppercase">Fluid
+                                Samples</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
+
+                                                    </div>
+                                                    <div class="mt-action-details ">
+                                                        <span class="mt-action-author">Fluid Samples</span>
+                                                        <p class="mt-action-desc"> {{companies}} Fluid Samples</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mt-action-buttons ">
+                                                    <div routerLink="fluids" class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END: Actions -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span routerLink="cuttings" class="caption-subject font-dark bold uppercase">Cuttings</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
+
+                                                    </div>
+                                                    <div class="mt-action-details ">
+                                                        <span class="mt-action-author">Registered</span>
+                                                        <p class="mt-action-desc"> {{companies}} Cuttings</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mt-action-buttons ">
+                                                    <div routerLink="cuttings" class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END: Actions -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span routerLink="rocks" class="caption-subject font-dark bold uppercase">Rock
+                                Samples</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Actions </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="mt-action">
+                                        <div class="mt-action-body">
+                                            <div class="mt-action-row">
+                                                <div class="mt-action-info ">
+                                                    <div class="mt-action-icon ">
+
+                                                    </div>
+                                                    <div class="mt-action-details ">
+                                                        <span class="mt-action-author">Registered</span>
+                                                        <p class="mt-action-desc"> {{companies}} Rock Samples</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mt-action-buttons ">
+                                                    <div routerLink="rocks" class="btn-group btn-group-circle">
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">View</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline black btn-sm">Search</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline green btn-sm">Print</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END: Actions -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
 
-                <!-- END PORTLET-->
+        </div>
+
+
+
+        <!-- END PORTLET-->
 
     </div>
     <!-- END CONTENT BODY -->

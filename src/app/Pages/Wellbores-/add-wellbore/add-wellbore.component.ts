@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl,  Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiPipeService } from 'src/app/Services/api-pipe.service';
 import { ToastrService } from 'ngx-toastr';
@@ -12,16 +12,16 @@ import { ToastrService } from 'ngx-toastr';
 export class AddWellboreComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
-  role:any;
+  role: any;
   userEmail: any;
   loggedin: any;
   prospectIds: any;
   licenceIds: any
-  DevAreas:any = ['KFDA','TDA','Others'];
-  Wellborepurpose: any = ['Wildcat','Appraisal','Production','Injection','Observation'];
-  WellboreType: any = ['Exploration','Development'];
-  Basins:any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
-  WellboreStatuses:any = ['Plugged and abandoned','Planned','Suspended','Withdrawn','In operation','In progress']
+  DevAreas: any = ['KFDA', 'TDA', 'Others'];
+  Wellborepurpose: any = ['Wildcat', 'Appraisal', 'Production', 'Injection', 'Observation'];
+  WellboreType: any = ['Exploration', 'Development'];
+  Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
+  WellboreStatuses: any = ['Plugged and abandoned', 'Planned', 'Suspended', 'Withdrawn', 'In operation', 'In progress']
   maxd: any;
   mindate: any;
 
@@ -30,11 +30,11 @@ export class AddWellboreComponent implements OnInit {
     private authservice: ApiPipeService,
     private router: Router,
     private toastr: ToastrService
-        
+
   ) { }
 
   ngOnInit(): void {
-     this.maxd = new Date();
+    this.maxd = new Date();
     if (this.maxd.getDate() < 9) {
       this.mindate = this.maxd.getFullYear() + '-' + parseInt(this.maxd.getMonth() + 1) + '-' + 0 + this.maxd.getDate()
     } else {
@@ -55,91 +55,91 @@ export class AddWellboreComponent implements OnInit {
     this.getLicenseIds();
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = new FormGroup({
-      PAUID:new FormControl(),
-      WellboreOfficialName:new FormControl(),
-      WellboreLocalName:new FormControl(),
-      WellboreAliasName:new FormControl(),
-      WellboreSpudDate:new FormControl(),
-      SpudYear:new FormControl(),
-      WellboreType:new FormControl(),
-      InitialWellborePurpose:new FormControl(),
-      WellborePurpose:new FormControl(),
-      PurposeChangeDate:new FormControl(),
+      PAUID: new FormControl(),
+      WellboreOfficialName: new FormControl(),
+      WellboreLocalName: new FormControl(),
+      WellboreAliasName: new FormControl(),
+      WellboreSpudDate: new FormControl(),
+      SpudYear: new FormControl(),
+      WellboreType: new FormControl(),
+      InitialWellborePurpose: new FormControl(),
+      WellborePurpose: new FormControl(),
+      PurposeChangeDate: new FormControl(),
       WellborePurposeId: new FormControl(),
       // Well:new FormControl(),
-      ProspectId:new FormControl(),
-      Discovery:new FormControl(),
-      WellboreContentId:new FormControl(),
-      WellboreStatus:new FormControl(),
-      WellboreResponsibleLicenceId:new FormControl(),
-      LicenseOperatorCompanyId:new FormControl(),
-      DrillingContractorCompanyId:new FormControl(),
-      WellBoreRigName:new FormControl(),
-      Basin:new FormControl(),
-      FormerExplAreaName:new FormControl(),
-      SeismicLine:new FormControl(),
-      RotaryTableElavation:new FormControl(),
-      GroundLevelElavation:new FormControl(),
-      TDMD:new FormControl(),
-      TDTVD:new FormControl(),
-      TDDate:new FormControl(),
-      CoreContractorId:new FormControl(),
+      ProspectId: new FormControl(),
+      Discovery: new FormControl(),
+      WellboreContentId: new FormControl(),
+      WellboreStatus: new FormControl(),
+      WellboreResponsibleLicenceId: new FormControl(),
+      LicenseOperatorCompanyId: new FormControl(),
+      DrillingContractorCompanyId: new FormControl(),
+      WellBoreRigName: new FormControl(),
+      Basin: new FormControl(),
+      FormerExplAreaName: new FormControl(),
+      SeismicLine: new FormControl(),
+      RotaryTableElavation: new FormControl(),
+      GroundLevelElavation: new FormControl(),
+      TDMD: new FormControl(),
+      TDTVD: new FormControl(),
+      TDDate: new FormControl(),
+      CoreContractorId: new FormControl(),
       // RCITakenId:new FormControl(),
-      MDTDoneId:new FormControl(),
-      FETDoneId:new FormControl(),
-      WFTContractor:new FormControl(),
-      DSTDoneId:new FormControl(),
-      ManifoldFlowTestedId:new FormControl(),
-      DSTContractorId:new FormControl(),
-      HasPetrophysicalLogsId:new FormControl(),
-      PetrophysicalContractorId:new FormControl(),
-      TopBasementMD:new FormControl(),
-      TopBasementTVD:new FormControl(),
-      WellboreTestStatus:new FormControl(),
-      PlannedWellboreCost:new FormControl(),
-      ActualWellboreCost:new FormControl(),
-      WellboreTestCost:new FormControl(),
-      CompletionDate:new FormControl(),
-      What3WordWellboreLocation:new FormControl(),
-      DevelopmentAreaName:new FormControl(),
-      Comments:new FormControl(),
-      LocationPictureName:new FormControl(),
-      LocationPicture:new FormControl(),
-      LocationPictureSoftcopyPath:new FormControl(),
-      LocationPictureHyperlink:new FormControl(),
-      WellboreMapSoftcopyPath:new FormControl(),
-      WellboreMapHyperlink:new FormControl(),
-      MapPortalWellboreMapLink:new FormControl(),
-      WellboreFactsiteUrl:new FormControl(),
-      OtherDevelopmentArea:new FormControl(),
-      WellboreTypeId:new FormControl()
+      MDTDoneId: new FormControl(),
+      FETDoneId: new FormControl(),
+      WFTContractor: new FormControl(),
+      DSTDoneId: new FormControl(),
+      ManifoldFlowTestedId: new FormControl(),
+      DSTContractorId: new FormControl(),
+      HasPetrophysicalLogsId: new FormControl(),
+      PetrophysicalContractorId: new FormControl(),
+      TopBasementMD: new FormControl(),
+      TopBasementTVD: new FormControl(),
+      WellboreTestStatus: new FormControl(),
+      PlannedWellboreCost: new FormControl(),
+      ActualWellboreCost: new FormControl(),
+      WellboreTestCost: new FormControl(),
+      CompletionDate: new FormControl(),
+      What3WordWellboreLocation: new FormControl(),
+      DevelopmentAreaName: new FormControl(),
+      Comments: new FormControl(),
+      LocationPictureName: new FormControl(),
+      LocationPicture: new FormControl(),
+      LocationPictureSoftcopyPath: new FormControl(),
+      LocationPictureHyperlink: new FormControl(),
+      WellboreMapSoftcopyPath: new FormControl(),
+      WellboreMapHyperlink: new FormControl(),
+      MapPortalWellboreMapLink: new FormControl(),
+      WellboreFactsiteUrl: new FormControl(),
+      OtherDevelopmentArea: new FormControl(),
+      WellboreTypeId: new FormControl()
     });
   }
 
-  getLicenseIds(){
-    this.authservice.getAllCompanies().subscribe(res =>{
+  getLicenseIds() {
+    this.authservice.getAllCompanies().subscribe(res => {
       this.licenceIds = res;
       console.log(this.licenceIds);
     })
   }
 
-  getProspectIds(){
-    this.authservice.getAllCompanies().subscribe(res =>{
+  getProspectIds() {
+    this.authservice.getAllCompanies().subscribe(res => {
       this.prospectIds = res;
       console.log(this.prospectIds);
     })
   }
 
-  changeProspect(e:any) {
+  changeProspect(e: any) {
     console.log(e.value)
     this.prospectIds.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  changeLicense(e:any) {
+  changeLicense(e: any) {
     console.log(e.value)
     this.licenceIds.setValue(e.target.value, {
       onlySelf: true
@@ -147,50 +147,50 @@ export class AddWellboreComponent implements OnInit {
   }
 
 
-  logout(){
+  logout() {
     this.authservice.logoutuser()
 
   }
 
 
-  addWellboreProcess(){
+  addWellboreProcess() {
     console.log("tested")
-    if(this.formGroup.valid){
+    if (this.formGroup.valid) {
       console.log(this.formGroup.value)
-      this.authservice.adddWellbore(this.formGroup.value).subscribe(result =>{
-       
-        if(result.message == "Wellbore added successfuly."){
-          this.toastr.success("Wellbore added successfuly.","",{
+      this.authservice.adddWellbore(this.formGroup.value).subscribe(result => {
+
+        if (result.message == "Wellbore added successfuly.") {
+          this.toastr.success("Wellbore added successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'increasing'
+            progressAnimation: 'increasing'
           })
           this.formGroup.reset();
-          
-        } else{          
+
+        } else {
           this.authservice.wellboreFaliure()
         }
       }, error => {
-        
+
         console.log('oops', error.message)
-        if(error){
-          this.toastr.error(error.error.message,"",{
+        if (error) {
+          this.toastr.error(error.error.message, "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'decreasing'
+            progressAnimation: 'decreasing'
           })
           // this.authservice.CompanyFaliure()
         }
       }
-      
+
       )
     }
   }
 
-  changeDevAreas(e:any) {
-    console.log(e.target.value)  
+  changeDevAreas(e: any) {
+    console.log(e.target.value)
     this.DevAreas.setValue(e.target.value, {
       onlySelf: true
     })
@@ -199,14 +199,14 @@ export class AddWellboreComponent implements OnInit {
     // }
   }
 
-  changePurpose(e:any) {
+  changePurpose(e: any) {
     console.log(e.value)
     this.Wellborepurpose.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  changeWelboreType(e:any) {
+  changeWelboreType(e: any) {
     console.log("getting type")
     console.log(e.value)
     this.WellboreType.setValue(e.target.value, {
@@ -214,19 +214,19 @@ export class AddWellboreComponent implements OnInit {
     })
   }
 
-  changeBasins(e:any) {
+  changeBasins(e: any) {
     console.log(e.value)
     this.Basins.setValue(e.target.value, {
       onlySelf: true
     })
   }
-  
-  changeWellboreStatus (e:any) {
+
+  changeWellboreStatus(e: any) {
     console.log(e.value)
     this.WellboreStatuses.setValue(e.target.value, {
       onlySelf: true
     })
-    
+
   }
 
   get dev() {
@@ -234,7 +234,7 @@ export class AddWellboreComponent implements OnInit {
   }
 
 
-  get f(){return this.formGroup.controls}
+  get f() { return this.formGroup.controls }
 }
 
 

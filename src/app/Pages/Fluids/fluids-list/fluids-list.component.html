@@ -41,12 +41,8 @@
                             </div>
                             <div class="portlet-body">
 
-                                <table datatable
-                                    [dtOptions]="dtOptions"
-                                    [dtTrigger]="dtTrigger"
-                                    class="table table-striped
-                                    table-bordered table-hover"
-                                    id="sample_1">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped
+                                    table-bordered table-hover" id="sample_1">
                                     <thead>
                                         <tr>
                                             <th>WellboreId</th>
@@ -66,15 +62,12 @@
                                             <td>{{post.SampleVolume}}</td>
                                             <td>
 
-                                                <button *ngIf="checkstaff"
-                                                    type="button" class="btn red
-                                                    btn-outline"
-                                                    (click)="onSelect(post)"><i
+                                                <button *ngIf="checkstaff" type="button" class="btn red
+                                                    btn-outline" (click)="onSelect(post)"><i
                                                         class="fa fa-trash-o"></i></button>
                                                 <a class="btn purple btn-outline
-                                                    bold" (click)="onView(post)"
-                                                    data-toggle="modal"
-                                                    href="#large"> More </a>
+                                                    bold" (click)="onView(post)" data-toggle="modal" href="#large">
+                                                    More </a>
                                             </td>
                                         </tr>
 
@@ -95,22 +88,17 @@
 
 
 
-        <div *ngIf="details" class="modal fade bs-modal-lg" id="large"
-            tabindex="-1" role="dialog" aria-hidden="true">
+        <div *ngIf="details" class="modal fade bs-modal-lg" id="large" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                            aria-hidden="true"></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                         <div class="caption font-red-sunglo">
                             <i class="fa fa-flask
                                 font-red-sunglo"></i>
                             <span class="caption-subject
                                 bold uppercase">Fluids</span>
                         </div>
-
-                        <!-- <h4 class="modal-title">{{ data.StratLithoName }}</h4> -->
-                        <!-- <button type="button" data-dismiss="modal" class="btn blue" (click)="onSelectEdit(data)">Edit</button> -->
                     </div>
                     <div class="modal-body">
                         <table class="table table-bordered table-striped">
@@ -169,21 +157,13 @@
                                     <td style="width:25%">{{catalogs.SamplingCompany}}
                                     </td>
                                     <th style="width:25%"> Files </th>
-                                    <td style="width:25%"><a
-                                            (click)="onSelectFiles(catalogs)"
-                                            data-dismiss="modal">View
+                                    <td style="width:25%"><a (click)="onSelectFiles(catalogs)" data-dismiss="modal">View
                                             Files</a></td>
 
-                                
-
-                                </tr>                              
-
-
-
+                                </tr>
                                 <tr>
                                     <th style="width:25%"> Slide Gallerry</th>
-                                    <td style="width:25%"><a
-                                            (click)="onSelectGallery(catalogs)"
+                                    <td style="width:25%"><a (click)="onSelectGallery(catalogs)"
                                             data-dismiss="modal">Continue to
                                             Gallery</a></td>
 
@@ -192,37 +172,25 @@
                             </tbody>
                         </table>
                         <div class="clearfix"></div>
-                        <button (click)="onSelectEdit(catalogs)"
-                            data-dismiss="modal" class="btn blue">Edit</button>
-                        <button (click)="onFile()" data-dismiss="modal"
-                            class="btn yellow">Add File</button>
+                        <button (click)="onSelectEdit(catalogs)" data-dismiss="modal" class="btn blue">Edit</button>
+                        <button (click)="onFile()" data-dismiss="modal" class="btn yellow">Add File</button>
 
 
                     </div>
-                    <!-- <div class="modal-footer">
-                                       <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                       <button type="button" class="btn green">Save changes</button>
-                                   </div> -->
-                    <!-- /.modal-content -->
                 </div>
-
-                <!-- /.modal-dialog -->
             </div>
         </div>
 
 
         <div *ngIf="uploadFile" class="portlet light bordered">
             <div class="portlet-body form">
-                <form class="form-horizontal" [formGroup]="formGroup"
-                    (ngSubmit)="upload()" ngNativeValidate>
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="upload()" ngNativeValidate>
 
                     <div class="form-body row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Analysis Report</label>
-                                <input type="file"
-                                    formControlName="Analysis_reports"
-                                    (change)="selectFile($event)">
+                                <input type="file" formControlName="Analysis_reports" (change)="selectFile($event)">
                             </div>
 
                         </div>
@@ -232,67 +200,10 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn blue">Upload</button>
-                        <button (click)="navigateBack()" type="button"
-                            class="btn default">Back</button>
+                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                     </div>
                 </form>
-
-                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
-
-                                      
-                                    <div class="form-group">
-                                        <label for="file">File</label>
-                                        <input 
-                                            formControlName="Core_analysis_reports"
-                                            id="file" 
-                                            type="file" 
-                                            class="form-control"
-                                            (change)="onFileChange($event)">
-                                           
-                                       
-                                    </div>
-                                          
-                                    <button class="btn btn-primary" type="submit">Submit</button>
-                                </form> -->
             </div>
-
-
-
-
-
-            <!-- <angular-file-uploader
-                            [config]="afuConfig">
-                        </angular-file-uploader> -->
-            <!-- <angular-file-uploader
-                            [config]="afuConfig">
-                        </angular-file-uploader> -->
-            <!-- <input type="file" class="file-input"
-                        [accept]="requiredFileType"
-                        (change)="onFileSelected($event)" #fileUpload>
-                 
-                 <div class="file-upload">
-                 
-                    {{fileName || "No file uploaded yet."}}
-                 
-                     <button mat-mini-fab color="primary" class="upload-btn"
-                       (click)="fileUpload.click()">
-                         <mat-icon>attach_file</mat-icon>
-                 
-                     </button>
-                 
-                 </div>
-                 
-                 <div class="progress">
-                 
-                   <mat-progress-bar class="progress-bar" mode="determinate"
-                                     [value]="uploadProgress" *ngIf="uploadProgress">
-                 
-                   </mat-progress-bar>
-                 
-                   <mat-icon class="cancel-upload" (click)="cancelUpload()" 
-                             *ngIf="uploadProgress">delete_forever</mat-icon>
-                 
-                 </div> -->
         </div>
 
 
@@ -301,58 +212,47 @@
 
         <div *ngIf="editform" class="portlet light bordered">
             <div class="portlet-body form">
-                <form class="form-horizontal" [formGroup]="formGroup"
-                    (ngSubmit)="updateCoreCatProcess()" ngNativeValidate>
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="updateCoreCatProcess()"
+                    ngNativeValidate>
 
                     <div class="form-body row">
                         <div class="col-md-6">
 
                             <div class="form-group">
                                 <label>Wellbore</label>
-                                <select class="form-control"
-                                    required formControlName="WellboreId"
-                                    name="WellboreId">
-                                    <option *ngFor="let city of wellboreIds"
-                                        [ngValue]="city.WellboreId"
-                                        (change)="changeWellboreId($event)">{{city.WellboreId}}-->{{city.WellboreLocalName}}
+                                <select class="form-control" required formControlName="WellboreId" name="WellboreId">
+                                    <option *ngFor="let city of wellboreIds" [ngValue]="city.WellboreId"
+                                        (change)="changeWellboreId($event)">
+                                        {{city.WellboreId}}-->{{city.WellboreLocalName}}
                                     </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Sampling Activity</label>
-                                <input type="text"
-                                    formControlName="SamplingActivity"
-                                    class="form-control">
+                                <input type="text" formControlName="SamplingActivity" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Fluid Category</label>
                                 <span class="error">*</span>
-                                <select class="form-control" required
-                                    formControlName="FluidCategory">
-                                    <option *ngFor="let role of Fluids"
-                                        [ngValue]="role"
+                                <select class="form-control" required formControlName="FluidCategory">
+                                    <option *ngFor="let role of Fluids" [ngValue]="role"
                                         (change)="changeFluids($event)">{{role}}
                                     </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>SampleType</label>
-                                <input type="text" formControlName="SampleType"
-                                    class="form-control">
+                                <input type="text" formControlName="SampleType" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>SampleVolume</label>
-                                <input type="text"
-                                    formControlName="SampleVolume"
-                                    class="form-control">
+                                <input type="text" formControlName="SampleVolume" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Sample_Purpose</label>
-                                <select class="form-control"
-                                    formControlName="SamplePurpose">
-                                    <option *ngFor="let role of Purpose"
-                                        [ngValue]="role"
+                                <select class="form-control" formControlName="SamplePurpose">
+                                    <option *ngFor="let role of Purpose" [ngValue]="role"
                                         (change)="changePurpose($event)">{{role}}
                                     </option>
                                 </select>
@@ -362,52 +262,39 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Other Specified SamplePurpose</label>
-                                <input type="text"
-                                    formControlName="OtherSpecifiedSamplePurpose"
-                                    class="form-control">
+                                <input type="text" formControlName="OtherSpecifiedSamplePurpose" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label> Sample Basin </label>
                                 <span class="error">*</span>
-                                <select class="form-control" required
-                                    formControlName="SampleBasin">
-                                    <option *ngFor="let area of Basins"
-                                        [ngValue]="area"
+                                <select class="form-control" required formControlName="SampleBasin">
+                                    <option *ngFor="let area of Basins" [ngValue]="area"
                                         (change)="changeBasins($event)">{{area}}
                                     </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>DepthObtained</label>
-                                <input type="number" step="any"
-                                    formControlName="DepthObtained"
-                                    class="form-control">
+                                <input type="number" step="any" formControlName="DepthObtained" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>DateCollected</label>
-                                <input type="date" min="1900-10-01"
-                                    max={{mindate}}
-                                    formControlName="DateCollected"
+                                <input type="date" min="1900-10-01" max={{mindate}} formControlName="DateCollected"
                                     class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>DateReceived</label>
-                                <input type="date" min="1900-10-01"
-                                    max={{mindate}}
-                                    formControlName="DateReceived"
+                                <input type="date" min="1900-10-01" max={{mindate}} formControlName="DateReceived"
                                     class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>SamplingCompany</label>
-                                <select
-                                    formControlName="SamplingCompany"
-                                    name="SamplingCompany"
-                                    class="form-control">
+                                <select formControlName="SamplingCompany" name="SamplingCompany" class="form-control">
                                     <option *ngFor="let city of
-                                        WBCoringContractorId"
-                                        [ngValue]="city.CompanyId"
-                                        (change)="changeContractingId($event)">{{city.CompanyId}}-->{{city.CompanyShortName}}
+                                        WBCoringContractorId" [ngValue]="city.CompanyId"
+                                        (change)="changeContractingId($event)">
+                                        {{city.CompanyId}}-->{{city.CompanyShortName}}
                                     </option>
                                 </select>
                             </div>
@@ -416,8 +303,7 @@
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn blue">Update</button>
-                        <button (click)="navigateBack()" type="button"
-                            class="btn default">Back</button>
+                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                     </div>
                 </form>
             </div>
@@ -432,12 +318,8 @@
 
                 <div class="portlet-body">
 
-                    <table datatable
-                        [dtOptions]="dtOptions"
-                        [dtTrigger]="dtTrigger"
-                        class="table table-striped
-                        table-bordered table-hover"
-                        id="sample_1">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped
+                        table-bordered table-hover" id="sample_1">
                         <thead>
                             <tr>
                                 <th>File Name </th>
@@ -448,21 +330,18 @@
                         <tbody>
                             <tr *ngFor="let img of cutImg">
                                 <td>{{img.name}}</td>
-                                <td><a href={{img.link}}
-                                        target="_blank">Download</a></td>
+                                <td><a href={{img.link}} target="_blank">Download</a></td>
                                 <td>
 
                                     <button type="button" class="btn
-                                        red btn-outline"
-                                        (click)="onDeleteFile(img)"><i
+                                        red btn-outline" (click)="onDeleteFile(img)"><i
                                             class="fa fa-trash-o"></i></button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <button (click)="navigateBack()" type="button"
-                        class="btn default">Back</button>
+                    <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                 </div>
 
             </div>
@@ -472,17 +351,14 @@
 
         <div *ngIf="uploadFile" class="portlet light bordered">
             <div class="portlet-body form">
-                <form class="form-horizontal" [formGroup]="formGroup"
-                    (ngSubmit)="uploadImage()" ngNativeValidate>
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="uploadImage()" ngNativeValidate>
 
                     <div class="form-body row">
                         <div class="col-md-6">
 
                             <div class="form-group">
                                 <label>FluidPhotograph</label>
-                                <input type="file"
-                                    formControlName="FluidPhotograph"
-                                    (change)="selectFile($event)">
+                                <input type="file" formControlName="FluidPhotograph" (change)="selectFile($event)">
                             </div>
 
                         </div>
@@ -492,67 +368,10 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn blue">Upload</button>
-                        <button (click)="navigateBack()" type="button"
-                            class="btn default">Back</button>
+                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                     </div>
                 </form>
-
-                <!-- <form [formGroup]="formGroup" (ngSubmit)="submit()">
-
-                                  
-                                <div class="form-group">
-                                    <label for="file">File</label>
-                                    <input 
-                                        formControlName="Core_analysis_reports"
-                                        id="file" 
-                                        type="file" 
-                                        class="form-control"
-                                        (change)="onFileChange($event)">
-                                       
-                                   
-                                </div>
-                                      
-                                <button class="btn btn-primary" type="submit">Submit</button>
-                            </form> -->
             </div>
-
-
-
-
-
-            <!-- <angular-file-uploader
-                        [config]="afuConfig">
-                    </angular-file-uploader> -->
-            <!-- <angular-file-uploader
-                        [config]="afuConfig">
-                    </angular-file-uploader> -->
-            <!-- <input type="file" class="file-input"
-                    [accept]="requiredFileType"
-                    (change)="onFileSelected($event)" #fileUpload>
-             
-             <div class="file-upload">
-             
-                {{fileName || "No file uploaded yet."}}
-             
-                 <button mat-mini-fab color="primary" class="upload-btn"
-                   (click)="fileUpload.click()">
-                     <mat-icon>attach_file</mat-icon>
-             
-                 </button>
-             
-             </div>
-             
-             <div class="progress">
-             
-               <mat-progress-bar class="progress-bar" mode="determinate"
-                                 [value]="uploadProgress" *ngIf="uploadProgress">
-             
-               </mat-progress-bar>
-             
-               <mat-icon class="cancel-upload" (click)="cancelUpload()" 
-                         *ngIf="uploadProgress">delete_forever</mat-icon>
-             
-             </div> -->
         </div>
 
     </div>

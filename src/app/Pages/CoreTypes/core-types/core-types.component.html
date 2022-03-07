@@ -1,63 +1,68 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-      <div class="page-bar">
-          <ul class="page-breadcrumb">
-              <li>
-                  <a routerLink="dashboard">Dashboard</a>
-                  <i class="fa fa-circle"></i>
-              </li>
-              <li>
-                  <span>add Core type</span>
-              </li>
-          </ul>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a routerLink="dashboard">Dashboard</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span>add Core type</span>
+                </li>
+            </ul>
 
-      </div>
-      <!-- END PAGE BAR -->
+        </div>
+        <!-- END PAGE BAR -->
 
 
-      <div class="clearfix"></div>
-      <div class="portlet light bordered">
-          <div class="portlet-title">
-              <div class="caption font-red-sunglo">
-                  <i class="fa fa-cubes font-red-sunglo"></i>
-                  <span class="caption-subject bold uppercase"> Core Types</span>
-              </div>
-          </div>
-          <div class="portlet-body form">
-              <form role="form" [formGroup]="formGroup" class="form-horizontal"
-              (ngSubmit)="addCoreTypeDetails()" ngNativeValidate>
-                  <div class="form-body">
+        <div class="clearfix"></div>
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-red-sunglo">
+                    <i class="fa fa-cubes font-red-sunglo"></i>
+                    <span class="caption-subject bold uppercase"> Core Types</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form role="form" [formGroup]="formGroup" class="form-horizontal" (ngSubmit)="addCoreTypeDetails()"
+                    ngNativeValidate>
+                    <div class="form-body">
 
-                      <div class="form-group">
-                          <label class="col-md-3 control-label">Core Type Name<span class="red asterisk-validate ml-2">*</span></label>
-                          <div class="col-md-4">
-                            <input type="text" formControlName="CoreTypeName" class="form-control" placeholder=""></div>
-                      </div>
-                      <div class="form-group">
-                          <label class="col-md-3 control-label">Sort Order</label>
-                          <div class="col-md-4">
-                            <input type="number" formControlName="SortOrder" class="form-control" placeholder=""></div>
-                      </div>
-
-                      <div class="form-group">
-                          <label class="col-md-3 control-label">Comments</label>
-                          <div class="col-md-4">
-                            <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control" placeholder=""></textarea></div>
-                      </div>
-
-                      <div class="form-actions">
-                          <div class="row">
-                            <div class="col-md-offset-3 col-md-4">
-                              <button type="submit" class="btn blue">Submit</button>
-                              <button type="button" class="btn default">Cancel</button>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Core Type Name<span
+                                    class="red asterisk-validate ml-2">*</span></label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="CoreTypeName" class="form-control" placeholder="">
                             </div>
-                          </div>
-                      </div>
-                  </div>
-              </form>
-          </div>
-      </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Sort Order</label>
+                            <div class="col-md-4">
+                                <input type="number" formControlName="SortOrder" class="form-control" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Comments</label>
+                            <div class="col-md-4">
+                                <textarea name="name" formControlName="Comments" rows="8" cols="80" class="form-control"
+                                    placeholder=""></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-4">
+                                    <button type="submit" class="btn blue">Submit</button>
+                                    <button type="button" class="btn default">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <!-- END CONTENT BODY -->
 </div>

@@ -15,15 +15,14 @@ import { NgPopupsService } from 'ng-popups';
 export class FileSecurityGradesComponent implements OnInit {
   formGroup!: FormGroup;
   title!: string;
-  // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
 
-grades: any = [];
-role:any;
-  userEmail:any;
-  loggedin:any;
+  grades: any = [];
+  role: any;
+  userEmail: any;
+  loggedin: any;
   deleteresp: any;
   status: boolean = true;
   editform: boolean = false;
@@ -46,34 +45,26 @@ role:any;
     this.initForm();
     this.userEmail = this.authservice.getEmail();
     this.loggedin = this.authservice.getRole();
-    if(this.authservice.getRole()=="Admin"){
-      this.role=true;
-    }else{
-    this.role= false;
+    if (this.authservice.getRole() == "Admin") {
+      this.role = true;
+    } else {
+      this.role = false;
     }
     this.dtOptions = {
-      dom:'Bfrtip',
-      // dom:'Btp',
+      dom: 'Bfrtip',
       buttons: [
-        // 'columnsToggle',
-        // 'colvis',
-        // {
-        //   extend:'copy',
-        //   tag: 'button',
-        //   className: "btn blue btn-outline"
-        // },
         {
-          extend:'print',
+          extend: 'print',
           tag: 'button',
           className: "btn yellow btn-outline"
         },
         {
-          extend:'excel',
+          extend: 'excel',
           tag: 'button',
           className: "btn green btn-outline"
         },
         {
-          extend:'pdf',
+          extend: 'pdf',
           tag: 'button',
           className: "btn red btn-outline"
         },
@@ -87,42 +78,42 @@ role:any;
 
   allGrades(): void {
     this.authservice
-        .getAllGrades()
-        .subscribe((response: any) => {
-          console.log(response)
-          this.grades = response;
+      .getAllGrades()
+      .subscribe((response: any) => {
+        console.log(response)
+        this.grades = response;
 
-          this.dtTrigger.next();
-        });
-      }
+        this.dtTrigger.next();
+      });
+  }
 
-  addSecurityGradeProcess(){
+  addSecurityGradeProcess() {
     console.log("tested")
-    if(this.formGroup.valid){
+    if (this.formGroup.valid) {
       console.log(this.formGroup.value)
-      this.authservice.updateSecurityGrade(this.formGroup.value).subscribe(result =>{
+      this.authservice.updateSecurityGrade(this.formGroup.value).subscribe(result => {
 
-        if(result.message == "File Security Grade updated successfuly."){
-          this.toastr.success("File Security Grade updated successfuly.","",{
+        if (result.message == "File Security Grade updated successfuly.") {
+          this.toastr.success("File Security Grade updated successfuly.", "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'increasing'
+            progressAnimation: 'increasing'
           })
           this.formGroup.reset();
 
-        } else{
-        //  this.authservice.CompanyFaliure()
+        } else {
+          //  this.authservice.CompanyFaliure()
         }
       }, error => {
 
         console.log('oops', error.message)
-        if(error){
-          this.toastr.error(error.error.message,"",{
+        if (error) {
+          this.toastr.error(error.error.message, "", {
             timeOut: 2000,
             positionClass: 'toast-top-center',
             progressBar: true,
-            progressAnimation:'decreasing'
+            progressAnimation: 'decreasing'
           })
           // this.authservice.CompanyFaliure()
         }
@@ -132,7 +123,7 @@ role:any;
     }
   }
 
-  logout(){
+  logout() {
     this.authservice.logoutuser()
   }
 
@@ -140,48 +131,48 @@ role:any;
   onSelect(selectedItem: any) {
     this.id = selectedItem.FileSecurityGrade_id
 
-    this.ngPopups.confirm("Are you sure you want to delete ?",{
+    this.ngPopups.confirm("Are you sure you want to delete ?", {
       // theme: 'material',
-      color:'OrangeRed',
+      color: 'OrangeRed',
       okButtonText: 'Yes',
-      cancelButtonText:'No',
+      cancelButtonText: 'No',
       title: "Confirm",
     })
-    .subscribe(res => {
-      if (res) {
-      console.log("Selected item Id: ", selectedItem.FileSecurityGrade_id);
-      this.http.delete('http://127.0.0.1:8899/apiv1/delete_file_security_grade/'+this.id)
-        .subscribe(response => {
-          this.deleteresp = response;
-          console.log(this.deleteresp.message)
-          if (this.deleteresp.message == "File Security Grade successfully deleted.") {
-            this.toastr.success("File Security Grade successfully deleted.", "", {
-              timeOut: 2000,
-              positionClass: 'toast-top-center',
-              progressBar: true,
-              progressAnimation: 'increasing'
-            })
-            setTimeout(() => {
-              this.authservice.reload();
-            }, 1000);
+      .subscribe(res => {
+        if (res) {
+          console.log("Selected item Id: ", selectedItem.FileSecurityGrade_id);
+          this.http.delete('http://127.0.0.1:8899/apiv1/delete_file_security_grade/' + this.id)
+            .subscribe(response => {
+              this.deleteresp = response;
+              console.log(this.deleteresp.message)
+              if (this.deleteresp.message == "File Security Grade successfully deleted.") {
+                this.toastr.success("File Security Grade successfully deleted.", "", {
+                  timeOut: 2000,
+                  positionClass: 'toast-top-center',
+                  progressBar: true,
+                  progressAnimation: 'increasing'
+                })
+                setTimeout(() => {
+                  this.authservice.reload();
+                }, 1000);
 
-          } else {
-            this.authservice.securityStatusUpdate()
-          }
-          console.log(this.deleteresp)
-        });
-      } else {
-        console.log("You clicked cancel.")
-      }
-    });
+              } else {
+                this.authservice.securityStatusUpdate()
+              }
+              console.log(this.deleteresp)
+            });
+        } else {
+          console.log("You clicked cancel.")
+        }
+      });
 
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = new FormGroup({
-      FileSecurityGradeName:new FormControl(),
-      SortOrder:new FormControl(),
-      Comments:new FormControl()
+      FileSecurityGradeName: new FormControl(),
+      SortOrder: new FormControl(),
+      Comments: new FormControl()
 
     });
   }
@@ -209,7 +200,6 @@ role:any;
   }
 
   navigateBack() {
-    // this.router.navigate(['/web-security-levels']);
     this.authservice.reload();
 
   }

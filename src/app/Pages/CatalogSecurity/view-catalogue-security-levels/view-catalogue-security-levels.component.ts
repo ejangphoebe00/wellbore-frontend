@@ -20,8 +20,6 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
   formGroup!: FormGroup;
   title!: string;
   role:any;
-
-  // dtOptions: DataTables.Settings = {};
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -64,15 +62,7 @@ export class ViewCatalogueSecurityLevelsComponent implements OnInit, OnDestroy {
     this.initForm();
     this.dtOptions = {
       dom:'Bfrtip',
-      // dom:'Btp',
-      buttons: [
-        // 'columnsToggle',
-        // 'colvis',
-        // {
-        //   extend:'copy',
-        //   tag: 'button',
-        //   className: "btn blue btn-outline"
-        // },
+       buttons: [
         {
           extend:'print',
           tag: 'button',
