@@ -47,8 +47,16 @@ export class StatGraphsComponent implements OnInit {
 
   };
 
+  public fluidPie: Label[] =['Oil', 'Gas', 'Water'];
+
+  public wellsPieChartLabels: Label[] = ['Kfda', 'Tda'];
+  public cuttingsChart: Label[]  = ['Washed_Dried', 'Washed_Wet', 'Wet_Unwashed', 'Dry_Unwashed']  
+  public cuttingsPieChartData : SingleDataSet = [];
+
   public pieChartLabels: Label[] = ['Application Admins', 'Data Admin', 'Staff'];
   public pieChartData: SingleDataSet = [];
+  public wellsPieChartData : SingleDataSet = [];
+  public fluidPieChartData : SingleDataSet = [];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -67,6 +75,8 @@ export class StatGraphsComponent implements OnInit {
 
   };
 
+
+ 
 
   public barChartLabels: Label[] = ['KFDA', 'TDA'];
   public barChartType: ChartType = 'bar';
@@ -195,8 +205,19 @@ export class StatGraphsComponent implements OnInit {
     this.wellbarChartData = [{ data: [parseInt(this.kfda), parseInt(this.tda), parseInt(this.alwelz)], label: 'Registered Wells' }];
     this.OilbarChartData = [{ data: [parseInt(this.OO), parseInt(this.GA), parseInt(this.WA)], label: 'Fluid Samples' }];
     this.doughnutChartData = [this.WD, parseInt(this.WW), parseInt(this.WU), parseInt(this.DU)];
-    this.percentagewellbarChartData = [{ data: [((parseInt(this.kfda))/(parseInt(this.alwelz)))*100, parseInt(this.tda), parseInt(this.alwelz)], label: 'Registered Wells' }];
-   
+    this.wellsPieChartData =  [((parseInt(this.kfda))/(parseInt(this.alwelz)))*100, ((parseInt(this.tda))/(parseInt(this.alwelz)))*100];
+   this.fluidPieChartData = [
+     (((parseInt(this.OO)))/((parseInt(this.OO))+(parseInt(this.GA))+(parseInt(this.WA))))*100,
+     (((parseInt(this.GA)))/((parseInt(this.OO))+(parseInt(this.GA))+(parseInt(this.WA))))*100,
+     (((parseInt(this.WA)))/((parseInt(this.OO))+(parseInt(this.GA))+(parseInt(this.WA))))*100,
+    ];
+
+    this.cuttingsPieChartData = [
+      (((parseInt(this.WD)))/((parseInt(this.WD))+(parseInt(this.WW))+(parseInt(this.WU))+(parseInt(this.DU))))*100,
+      (((parseInt(this.WW)))/((parseInt(this.WD))+(parseInt(this.WW))+(parseInt(this.WU))+(parseInt(this.DU))))*100,
+      (((parseInt(this.WU)))/((parseInt(this.WD))+(parseInt(this.WW))+(parseInt(this.WU))+(parseInt(this.DU))))*100,
+      (((parseInt(this.DU)))/((parseInt(this.WD))+(parseInt(this.WW))+(parseInt(this.WU))+(parseInt(this.DU))))*100,
+     ];
 
 
     }, 1500);
