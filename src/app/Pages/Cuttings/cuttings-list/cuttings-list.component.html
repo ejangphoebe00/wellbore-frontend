@@ -152,7 +152,7 @@
                         <div class="clearfix"></div>
                         <button *ngIf="checkstaff" (click)="onSelectEdit(catalogs)" data-dismiss="modal"
                             class="btn blue">Edit</button>
-                        <button (click)="onFile()" data-dismiss="modal" class="btn yellow">Add File</button>
+                        <button *ngIf="checkstaff" (click)="onFile()" data-dismiss="modal" class="btn yellow">Add File</button>
                     </div>
                 </div>
             </div>
@@ -275,14 +275,14 @@
                             <tr>
                                 <th>File Name </th>
                                 <th>Download link</th>
-                                <th>Actions</th>
+                                <th *ngIf="checkstaff">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let img of cutImg">
                                 <td>{{img.name}}</td>
                                 <td><a href={{img.link}} target="_blank">Download</a></td>
-                                <td>
+                                <td *ngIf="checkstaff">
 
                                     <button type="button" class="btn
                                         red btn-outline" (click)="onDeleteFile(img)"><i

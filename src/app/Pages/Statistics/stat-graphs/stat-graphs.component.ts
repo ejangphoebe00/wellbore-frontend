@@ -115,7 +115,7 @@ export class StatGraphsComponent implements OnInit {
   percentagewellbarChartLabels: Label[] = ['Kfda', 'Tda']; 
   percentagewellbarChartData: ChartDataSets[] = [
   ];
-  wellbarChartLabels: Label[] = ['Kfda', 'Tda', 'All wells'];
+  wellbarChartLabels: Label[] = ['Kfda', 'Tda'];
   wellbarChartData: ChartDataSets[] = [
   ];
   wellChartType: ChartType = 'bar';
@@ -201,9 +201,22 @@ export class StatGraphsComponent implements OnInit {
     this.WellsList();
     this.lithos();
     this.coreCatalogs();
-    this.pieChartData = [parseInt(this.AA), parseInt(this.DA), parseInt(this.SF)];
-    this.wellbarChartData = [{ data: [parseInt(this.kfda), parseInt(this.tda), parseInt(this.alwelz)], label: 'Registered Wells' }];
-    this.OilbarChartData = [{ data: [parseInt(this.OO), parseInt(this.GA), parseInt(this.WA)], label: 'Fluid Samples' }];
+    this.pieChartData = [
+      (((parseInt(this.AA)))/((parseInt(this.AA))+(parseInt(this.DA))+(parseInt(this.SF))))*100,
+      (((parseInt(this.DA)))/((parseInt(this.AA))+(parseInt(this.DA))+(parseInt(this.SF))))*100,
+      (((parseInt(this.SF)))/((parseInt(this.AA))+(parseInt(this.DA))+(parseInt(this.SF))))*100,
+     ];
+    [
+      (((parseInt(this.AA)))/((parseInt(this.AA))+(parseInt(this.DA))+(parseInt(this.SF))))*100,
+      (((parseInt(this.DA)))/((parseInt(this.AA))+(parseInt(this.DA))+(parseInt(this.SF))))*100,
+      (((parseInt(this.SF)))/((parseInt(this.AA))+(parseInt(this.DA))+(parseInt(this.SF))))*100,
+     ]
+    this.wellbarChartData = [{ data: [((parseInt(this.kfda))/(parseInt(this.alwelz)))*100, ((parseInt(this.tda))/(parseInt(this.alwelz)))*100], label: 'Registered Wells' }];
+    this.OilbarChartData = [{ data: [
+      (((parseInt(this.OO)))/((parseInt(this.OO))+(parseInt(this.GA))+(parseInt(this.WA))))*100,
+      (((parseInt(this.GA)))/((parseInt(this.OO))+(parseInt(this.GA))+(parseInt(this.WA))))*100,
+      (((parseInt(this.WA)))/((parseInt(this.OO))+(parseInt(this.GA))+(parseInt(this.WA))))*100,
+     ], label: 'Fluid Samples' }];
     this.doughnutChartData = [this.WD, parseInt(this.WW), parseInt(this.WU), parseInt(this.DU)];
     this.wellsPieChartData =  [((parseInt(this.kfda))/(parseInt(this.alwelz)))*100, ((parseInt(this.tda))/(parseInt(this.alwelz)))*100];
    this.fluidPieChartData = [

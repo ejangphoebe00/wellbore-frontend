@@ -28,21 +28,50 @@
 
 
         <div class="row">
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div routerLink="wells" class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">The Percentage Of Cuttings</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab"> Stats </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_actions_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="mt-actions">
+                                    <div class="chart-wrapper">
+                                        <canvas baseChart [data]="cuttingsPieChartData" [labels]="doughnutChartLabels"
+                                            [colors]="chartColors" [chartType]="pieChartType">
+                                        </canvas>
+                                    </div>
+
+                                </div>
+                                <!-- END: Actions -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div *ngIf="role" class="col-lg-6 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
                     <div routerLink="view-strat-litho-unit" class="portlet-title tabbable-line">
                         <div class="caption">
                             <i class="icon-bubbles font-dark hide"></i>
                             <span routerLink="view-strat-litho-unit"
-                                class="caption-subject font-dark bold uppercase">System Users</span>
+                                class="caption-subject font-dark bold uppercase">Percentage Of System Users</span>
                         </div>
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a data-toggle="tab">
-                                    <h3>{{users}} Accounts</h3>
-                                </a>
-                            </li>
-                        </ul>
+                        
                     </div>
                     <div routerLink="view-strat-litho-unit" class="portlet-body">
                         <div class="tab-content">
@@ -75,7 +104,7 @@
                     <div class="portlet-title tabbable-line">
                         <div routerLink="core-catalogs" class="caption">
                             <i class=" icon-social-twitter font-dark hide"></i>
-                            <span class="caption-subject font-dark bold uppercase">Fluid Samples</span>
+                            <span class="caption-subject font-dark bold uppercase">The Percentage Of Fluid Samples</span>
                         </div>
                         <ul class="nav nav-tabs">
                             <li class="active">
@@ -109,46 +138,13 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-xs-12 col-sm-12">
-                <div class="portlet light bordered">
-                    <div class="portlet-title tabbable-line">
-                        <div routerLink="core-catalogs" class="caption">
-                            <i class=" icon-social-twitter font-dark hide"></i>
-                            <span class="caption-subject font-dark bold uppercase">AS A PERCENTANGE</span>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a data-toggle="tab"> Stats </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <div class="portlet-body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_actions_pending">
-                                <!-- BEGIN: Actions -->
-                                <div class="chart-wrapper">
-                                    <canvas baseChart [data]="fluidPieChartData" [labels]="fluidPie"
-                                        [chartType]="pieChartType" [options]="pieChartOptions"
-                                        [plugins]="pieChartPlugins" [colors]="piechartColors" [legend]="pieChartLegend">
-                                    </canvas>
-                                </div>
-                                <!-- END: Actions -->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+         
             <div routerLink="wellbores" class="col-lg-6 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
                     <div class="portlet-title tabbable-line">
                         <div routerLink="wellbores" class="caption">
                             <i class="icon-bubbles font-dark hide"></i>
-                            <span class="caption-subject font-dark bold uppercase">Wells</span>
+                            <span class="caption-subject font-dark bold uppercase">The Percentage Of Wells </span>
                         </div>
 
                     </div>
@@ -176,113 +172,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>           
 
 
-            <div class="col-lg-6 col-xs-12 col-sm-12">
-                <div class="portlet light bordered">
-                    <div routerLink="wellbores" class="portlet-title tabbable-line">
-                        <div class="caption">
-                            <i class="icon-bubbles font-dark hide"></i>
-                            <span routerLink="wellbores" class="caption-subject font-dark bold uppercase">Wells
-                                expressed as a percentage</span>
-                        </div>
-                    </div>
-                    <div routerLink="wellbores" class="portlet-body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="portlet_comments_1">
-                                <!-- BEGIN: Comments -->
-                                <div class="mt-comments">
-                                    <div class="mt-comment">
 
-                                        <div class="chart-wrapper">
-                                            <canvas baseChart [data]="wellsPieChartData" [labels]="wellsPieChartLabels"
-                                                [chartType]="pieChartType" [options]="pieChartOptions"
-                                                [plugins]="pieChartPlugins" [colors]="piechartColors"
-                                                [legend]="pieChartLegend">
-                                            </canvas>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <!-- END: Comments -->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-xs-12 col-sm-12">
-                <div class="portlet light bordered">
-                    <div routerLink="wells" class="portlet-title tabbable-line">
-                        <div class="caption">
-                            <i class=" icon-social-twitter font-dark hide"></i>
-                            <span class="caption-subject font-dark bold uppercase">Cuttings Percentages</span>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a data-toggle="tab"> Stats </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <div class="portlet-body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_actions_pending">
-                                <!-- BEGIN: Actions -->
-                                <div class="mt-actions">
-                                    <div class="chart-wrapper">
-                                        <canvas baseChart [data]="cuttingsPieChartData" [labels]="doughnutChartLabels"
-                                            [colors]="chartColors" [chartType]="pieChartType">
-                                        </canvas>
-                                    </div>
-
-                                </div>
-                                <!-- END: Actions -->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-xs-12 col-sm-12">
-                <div class="portlet light bordered">
-                    <div routerLink="wells" class="portlet-title tabbable-line">
-                        <div class="caption">
-                            <i class=" icon-social-twitter font-dark hide"></i>
-                            <span class="caption-subject font-dark bold uppercase">Cuttings</span>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a data-toggle="tab"> Stats </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <div class="portlet-body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_actions_pending">
-                                <!-- BEGIN: Actions -->
-                                <div class="mt-actions">
-                                    <div class="chart-wrapper">
-                                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
-                                            [colors]="chartColors" [chartType]="doughnutChartType">
-                                        </canvas>
-                                    </div>
-
-                                </div>
-                                <!-- END: Actions -->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
 
 

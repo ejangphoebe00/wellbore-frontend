@@ -354,7 +354,7 @@
                             <tr>
                                 <th>File Name </th>
                                 <th>Download link</th>
-                                <th>Actions</th>
+                                <th *ngIf="checkstaff">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -362,8 +362,7 @@
                                 <td>{{img.name}}</td>
                                 <td><a href={{img.link}}
                                         target="_blank">Download</a></td>
-                                <td>
-
+                                <td *ngIf="checkstaff">
                                     <button type="button" class="btn
                                         red btn-outline"
                                         (click)="onDeleteFile(img)"><i
