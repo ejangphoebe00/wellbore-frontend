@@ -208,7 +208,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Petrographic Analysis Reports</label>
-                                <input type="file" multiple
+                                <input type="file" multiple accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,.xlsx"
                                     formControlName="PetrographicAnalysisReports"
                                     (change)="selectFile($event)">
                             </div>
@@ -388,7 +388,7 @@
 
                             <div class="form-group">
                                 <label>Rock Photograph</label>
-                                <input type="file" multiple
+                                <input type="file" multiple accept = "image/*"
                                     formControlName="RockPhotograph"
                                     (change)="selectFile($event)">
                             </div>

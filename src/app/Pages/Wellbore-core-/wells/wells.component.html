@@ -602,7 +602,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Core_analysis_reports</label>
-                                <input type="file" multiple formControlName="CoreAnalysisReports"
+                                <input type="file"  accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,.xlsx" multiple formControlName="CoreAnalysisReports"
                                     (change)="selectFile($event)">
                             </div>
                         </div>
@@ -625,7 +625,7 @@
                         <div class="col-md-6">                           
                             <div class="form-group">
                                 <label>Core_photograph</label>
-                                <input type="file"  multiple formControlName="CorePhotograph" (change)="selectFile($event)">
+                                <input type="file"  multiple accept="image/*"  formControlName="CorePhotograph" (change)="selectFile($event)">
                             </div>
 
                         </div>

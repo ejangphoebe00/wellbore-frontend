@@ -190,7 +190,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Analysis Report</label>
-                                <input type="file"  multiple formControlName="AnalysisReports" (change)="selectFile($event)">
+                                <input type="file"  multiple  accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,.xlsx" formControlName="AnalysisReports" (change)="selectFile($event)">
                             </div>
 
                         </div>
@@ -356,9 +356,8 @@
 
                             <div class="form-group">
                                 <label>FluidPhotograph</label>
-                                <input type="file"  multiple formControlName="FluidPhotograph" (change)="selectFile($event)">
+                                <input type="file"  multiple accept = "image/*" formControlName="FluidPhotograph" (change)="selectFile($event)">
                             </div>
-
                         </div>
 
 

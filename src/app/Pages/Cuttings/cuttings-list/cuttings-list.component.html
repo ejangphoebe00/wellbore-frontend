@@ -309,7 +309,7 @@
 
                             <div class="form-group">
                                 <label>Cuttings Photograph</label>
-                                <input type="file" multiple formControlName="CuttingsPhotograph" (change)="selectFile($event)">
+                                <input type="file" multiple  accept = "image/*" formControlName="CuttingsPhotograph" (change)="selectFile($event)">
                             </div>
 
                         </div>
@@ -333,7 +333,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>CuttingsReport</label>
-                                <input type="file" multiple formControlName="CuttingsReport" (change)="selectFile($event)">
+                                <input type="file" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,.xlsx" multiple formControlName="CuttingsReport" (change)="selectFile($event)">
                             </div>
 
                         </div>
