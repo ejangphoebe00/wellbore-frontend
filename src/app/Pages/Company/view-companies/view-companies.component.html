@@ -423,8 +423,8 @@
                                                 <td style="width:25%"> {{
                                                     data.Country }} </td>
 
-                                                <!-- <th  style="width:25%">Country Of Registration Id</th>
-                                <td  style="width:25%"> {{ data.CountryOfRegistrationId }} </td> -->
+                                                <th  style="width:25%">Company Type</th>
+                                <td  style="width:25%"> {{ data.CompanyType }} </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -454,8 +454,8 @@
                     <div class="form-body row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>PAUID<span class="red asterisk-validate
-                                        ml-2">*</span></label>
+                                <label>PAUID<span class="red
+                                        asterisk-validate ml-2">*</span></label>
                                 <input type="text" required
                                     formControlName="PAUID"
                                     class="form-control">
@@ -464,7 +464,8 @@
                                 <label>Company Long Name<span class="red
                                         asterisk-validate ml-2">*</span></label>
                                 <input type="text"
-                                    formControlName="CompanyLongName" required
+                                    formControlName="CompanyLongName"
+                                    required
                                     class="form-control">
                             </div>
                             <div class="form-group">
@@ -474,7 +475,17 @@
                                     class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>NSD Number <span class="red
+                                <label>Company Type </label>
+                                <select class="form-control"
+                                    formControlName="CompanyType">
+                                    <option *ngFor="let role of
+                                        companyType" [ngValue]="role"
+                                        (change)="changeCompanyType($event)">{{role}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>NSD Number<span class="red
                                         asterisk-validate ml-2">*</span></label>
                                 <input type="text" required
                                     formControlName="NSDNumber"
@@ -487,26 +498,20 @@
                                     class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Country</label>
+                                <label>Country </label>
                                 <select class="form-control"
                                     formControlName="Country">
-                                    <option *ngFor="let role of Countries"
-                                        [ngValue]="role"
+                                    <option *ngFor="let role of
+                                        Countries" [ngValue]="role"
                                         (change)="changeCountries($event)">{{role}}
                                     </option>
                                 </select>
                             </div>
-                            <!-- <div class="form-group">
-                            <label>Country Of Registration</label>
-                            <select class="form-control" formControlName="CountryOfRegistrationId" >
-                                <option *ngFor="let role of Countries" [ngValue]="role"
-                                    (change)="changeCountries($event)">{{role}}
-                                </option>
-                                </select> 
-                        </div> -->
+
                             <div class="form-group">
-                                <label>Registration Number<span class="red
-                                        asterisk-validate ml-2">*</span></label>
+                                <label>Registration Number<span
+                                        class="red asterisk-validate
+                                        ml-2">*</span></label>
                                 <input type="text" required
                                     formControlName="RegistrationNumber"
                                     class="form-control">
@@ -514,8 +519,9 @@
                             <div class="form-group">
                                 <label>TIN Number<span class="red
                                         asterisk-validate ml-2">*</span></label>
-                                <input type="text" formControlName="TINNumber"
-                                    required class="form-control">
+                                <input type="text"
+                                    formControlName="TINNumber" required
+                                    class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Company Telephone</label>
@@ -523,18 +529,22 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </span>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control"
                                         formControlName="CompanyTelephone">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Company Email</label>
+                                <label>Company Email<span class="red
+                                        asterisk-validate ml-2">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="fa fa-envelope"></i>
                                     </span>
-                                    <input type="text" class="form-control"
-                                        formControlName="CompanyEmail"> </div>
+                                    <input type="text"
+                                        class="form-control" required
+                                        formControlName="CompanyEmail">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Company Website</label>
@@ -543,16 +553,19 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-link"></i>
                                     </span>
-                                    <input type="text" class="form-control"
-                                        formControlName="CompanyWebsite"> </div>
+                                    <input type="text"
+                                        class="form-control"
+                                        formControlName="CompanyWebsite">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label>Company Entity Type</label>
-                                <input type="number" class="form-control"
+                                <label>Company Entity Type </label>
+                                <input type="number"
+                                    class="form-control"
                                     formControlName="CompanyEntityTypeId">
                             </div>
                             <div class="form-group">
-                                <label>Company Entity Sub Type</label>
+                                <label>Company Entity Sub Type </label>
                                 <input type="number"
                                     formControlName="CompanyEntitySubTypeId"
                                     class="form-control">
@@ -568,7 +581,8 @@
                                     class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Company Activity Division </label>
+                                <label>Company Activity Division
+                                </label>
                                 <input type="number"
                                     formControlName="CompanyActivityDivisionId"
                                     class="form-control">
@@ -580,8 +594,8 @@
                                     class="form-control">
                             </div>
                             <div class="form-group">
-                                <label> Company Activity Division Class Category
-                                </label>
+                                <label> Company Activity Division Class
+                                    Category </label>
                                 <input type="number"
                                     formControlName="CompanyActivityDivisionClassCategoryId"
                                     class="form-control">
@@ -611,22 +625,25 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-envelope"></i>
                                     </span>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control"
                                         formControlName="CompanyOtherEmails">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>NSD Qualification Date</label>
-                                <input type="datetime-local" min="1900-10-01"
-                                    max={{mindate}} class="form-control"
+                                <input type="date" max={{mindate}}
+                                    class="form-control"
                                     formControlName="NSDQualificationDate">
                             </div>
                             <div class="form-group">
                                 <label>NSD Qualification Year</label>
                                 <!-- <input type="date" class="form-control" formControlName="NSDQualificationYear"> -->
-                                <select formControlName="NSDQualificationYear"
+                                <select
+                                    formControlName="NSDQualificationYear"
                                     class="form-control">
-                                    <option *ngFor="let year of allYears">{{year}}</option>
+                                    <option *ngFor="let year of
+                                        allYears">{{year}}</option>
                                 </select>
 
                             </div>
@@ -643,7 +660,8 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-envelope"></i>
                                     </span>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control"
                                         formControlName="ContactEntityEmail">
                                 </div>
                             </div>
@@ -653,7 +671,8 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </span>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control"
                                         formControlName="ContactEntityTelephone">
                                 </div>
                             </div>
@@ -667,7 +686,8 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </span>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control"
                                         formControlName="ContactEntityMobile">
                                 </div>
                             </div>
@@ -691,7 +711,7 @@
                             </div>
                             <div class="form-group">
                                 <label>PAU Registration Date</label>
-                                <input type="datetime-local" min="1900-10-01"
+                                <input type="date" min="1900-10-01"
                                     max={{mindate}} class="form-control"
                                     formControlName="PAURegistrationDate">
                             </div>
@@ -738,7 +758,7 @@
                                     class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Company Group</label>
+                                <label>Company Group </label>
                                 <input type="number"
                                     formControlName="CompanyGroupId"
                                     class="form-control">
@@ -753,12 +773,15 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </span>
-                                    <input type="text" class="form-control"
-                                        formControlName="CompanyMobile"> </div>
+                                    <input type="text"
+                                        class="form-control"
+                                        formControlName="CompanyMobile">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Company Fax</label>
-                                <input type="text" formControlName="CompanyFax"
+                                <input type="text"
+                                    formControlName="CompanyFax"
                                     class="form-control">
                             </div>
                             <div class="form-group">
@@ -769,7 +792,8 @@
                             </div>
                             <div class="form-group">
                                 <label>NSD From Date</label>
-                                <input type="date" class="form-control"
+                                <input type="date" min="1900-10-01"
+                                    max={{mindate}} class="form-control"
                                     formControlName="NSDFromDate">
                             </div>
                             <div class="form-group">
@@ -790,13 +814,14 @@
                             <div class="form-group">
                                 <label>Imported Date</label>
                                 <input type="date" min="1900-10-01"
-                                    max={{mindate}} class="form-control"
+                                    max="{{mindate}}"
+                                    class="form-control"
                                     formControlName="ImportedDate">
                             </div>
                             <div class="form-group">
                                 <label>Exported Date</label>
                                 <input type="date" min="1900-10-01"
-                                    max={{mindate}} class="form-control"
+                                    max=mindate class="form-control"
                                     formControlName="ExportedDate">
                             </div>
                             <div class="form-group">

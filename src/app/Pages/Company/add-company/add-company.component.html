@@ -33,6 +33,16 @@
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
+                                        <label>Company Type </label>
+                                        <select class="form-control"
+                                            formControlName="CompanyType">
+                                            <option *ngFor="let role of
+                                                companyType" [ngValue]="role"
+                                                (change)="changeCompanyType($event)">{{role}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label>NSD Number<span class="red
                                                 asterisk-validate ml-2">*</span></label>
                                         <input type="text" required
