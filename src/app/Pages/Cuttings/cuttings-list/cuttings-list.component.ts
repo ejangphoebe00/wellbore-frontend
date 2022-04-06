@@ -157,15 +157,10 @@ export class CuttingsListComponent implements OnInit {
       });
   }
 
-
-
   logout() {
     this.authservice.logoutuser()
 
   }
-
-
-
 
   updateCoreCatProcess() {
     console.log("tested")
@@ -201,8 +196,6 @@ export class CuttingsListComponent implements OnInit {
       )
     }
   }
-
-
 
   onSelect(selectedItem: any) {
     this.id = selectedItem.SampleId;
@@ -349,11 +342,9 @@ export class CuttingsListComponent implements OnInit {
     })
   }
 
-
   navigateBack() {
     this.authservice.reload();
   }
-
 
   onSelectFiles(selectedItem: any) {
     console.log("hide the elements");
@@ -363,7 +354,6 @@ export class CuttingsListComponent implements OnInit {
     this.getFiles();
 
   }
-
 
   getFiles() {
     this.authservice
@@ -390,7 +380,6 @@ export class CuttingsListComponent implements OnInit {
 
   }
 
-
     onFile() {
     console.log("Clicked")
     this.status = false;
@@ -405,44 +394,46 @@ export class CuttingsListComponent implements OnInit {
 
 
   upload() {
-    this.currentFile = this.selectedFiles.item(0);
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadCuttingsFile(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
 
-
-    console.log(this.currentFile)
-    this.authservice.uploadCuttingsFile(this.currentFile).subscribe(response => {
-      this.selectedFiles.value = '';
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-        this.toastr.success("File Uploaded successfully.", "", {
-          timeOut: 2000,
-          positionClass: 'toast-top-center',
-          progressBar: true,
-          progressAnimation: 'increasing'
-        })
-        this.formGroup.reset();
-      }
-    });
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
   }
 
 
   uploadImage() {
-    this.currentFile = this.selectedFiles.item(0);
-    console.log(this.currentFile)
-    this.authservice.uploadCuttingsImage(this.currentFile).subscribe(response => {
-      this.selectedFiles.value = '';
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-        this.toastr.success("File Uploaded successfully.", "", {
-          timeOut: 2000,
-          positionClass: 'toast-top-center',
-          progressBar: true,
-          progressAnimation: 'increasing'
-        })
-        this.formGroup.reset();
-      }
-    });
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadCuttingsImage(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
+
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
   }
 
   onDeleteFile(selectedItem: any) {
@@ -489,9 +480,6 @@ export class CuttingsListComponent implements OnInit {
 
 
   }
-
-
- 
 
   onSelectGallery(selectedItem: any) {
     this.status = false;

@@ -23,6 +23,9 @@ export class CoresListComponent implements OnInit {
   cutImg: any = [];
   filenames: any = [];
 
+  imgObject: Array<object> = [];
+  gal: boolean = false;
+
 
   selectedFiles: any;
   selectedFilesSecond: any;
@@ -36,6 +39,8 @@ export class CoresListComponent implements OnInit {
   };
 
   formGroup!: FormGroup;
+  public AllowMulitple: any;
+  public Core_photograph: any
   title!: string;
   wellboreIds: any;
   WBCoringContractor_id: any;
@@ -102,6 +107,7 @@ export class CoresListComponent implements OnInit {
         },
       ]
     }
+    this.AllowMulitple = true
   }
 
   initForm() {
@@ -131,29 +137,48 @@ export class CoresListComponent implements OnInit {
   }
 
   upload() {
-    this.currentFile = this.selectedFiles.item(0);
-    this.currentFile2 = this.selectedFilesSecond.item(0);
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadFile(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
 
-    console.log(this.currentFile)
-    this.authservice.uploadFile(this.currentFile, this.currentFile2).subscribe(response => {
-      this.fileresponse = response;
-      console.log(this.fileresponse.message)
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
 
-      this.selectedFiles.value = '';
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-        this.toastr.success("File Uploaded successfully.", "", {
-          timeOut: 2000,
-          positionClass: 'toast-top-center',
-          progressBar: true,
-          progressAnimation: 'increasing'
-        })
-        this.formGroup.reset();
-      }
-    });
   }
 
+  uploadImage() {
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadCorePhotograph(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
+
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
+
+  }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();

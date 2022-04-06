@@ -190,7 +190,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Analysis Report</label>
-                                <input type="file" formControlName="Analysis_reports" (change)="selectFile($event)">
+                                <input type="file"  multiple formControlName="AnalysisReports" (change)="selectFile($event)">
                             </div>
 
                         </div>
@@ -347,8 +347,6 @@
             </div>
         </div>
 
-
-
         <div *ngIf="uploadFile" class="portlet light bordered">
             <div class="portlet-body form">
                 <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="uploadImage()" ngNativeValidate>
@@ -358,7 +356,7 @@
 
                             <div class="form-group">
                                 <label>FluidPhotograph</label>
-                                <input type="file" formControlName="FluidPhotograph" (change)="selectFile($event)">
+                                <input type="file"  multiple formControlName="FluidPhotograph" (change)="selectFile($event)">
                             </div>
 
                         </div>
@@ -371,6 +369,22 @@
                         <button (click)="navigateBack()" type="button" class="btn default">Back</button>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div *ngIf="gal" class="portlet light bordered">
+            <div class="portlet-body form">
+
+                <h3> Uploaded Images </h3>
+
+                <div class="portlet-body">
+
+                    <ng-image-slider #nav [images]="imgObject" [infinite]="false" [autoSlide]="1" [imagePopup]="false"
+                        [imageSize]="{width: '70%', height:'70%' }" slideImage="1"></ng-image-slider>
+
+                    <button (click)="navigateBack()" type="button" class="btn default">Back</button>
+                </div>
+
             </div>
         </div>
 

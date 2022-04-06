@@ -14,6 +14,7 @@ import { NgPopupsService } from 'ng-popups';
 })
 export class FluidsListComponent implements OnInit {
 
+  myFiles: string[] = [];
   formGroup!: FormGroup;
   title!: string;
   wellboreIds: any;
@@ -34,7 +35,7 @@ export class FluidsListComponent implements OnInit {
   msg: any;
   viewFiles: boolean = false;
   Basins: any = ['Edward-George', 'Semiliki', 'Pakwach', 'The Albertine Graben', 'Hoima Basin', 'Lake Kyoga Basin', 'Lake Wamala Basin', 'Kadam-Moroto Basin'];
-  Purpose: any = ['Crude Oil Analysis','PVT Analysis','Formation Water Analysis','Natural Gas Analysis','Others'];
+  Purpose: any = ['Crude Oil Analysis', 'PVT Analysis', 'Formation Water Analysis', 'Natural Gas Analysis', 'Others'];
 
 
   ims: any = [];
@@ -215,46 +216,46 @@ export class FluidsListComponent implements OnInit {
   }
 
   upload() {
-    this.currentFile = this.selectedFiles.item(0);
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadFluidFile(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
 
-
-    console.log(this.currentFile)
-    this.authservice.uploadFluidFile(this.currentFile).subscribe(response => {
-      this.selectedFiles.value = '';
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-        this.toastr.success("File Uploaded successfully.", "", {
-          timeOut: 2000,
-          positionClass: 'toast-top-center',
-          progressBar: true,
-          progressAnimation: 'increasing'
-        })
-        this.formGroup.reset();
-      }
-    });
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
   }
 
 
   uploadImage() {
-    this.currentFile = this.selectedFiles.item(0);
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadFluidImage(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
 
-
-    console.log(this.currentFile)
-    this.authservice.uploadFluidImage(this.currentFile).subscribe(response => {
-      this.selectedFiles.value = '';
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-        this.toastr.success("File Uploaded successfully.", "", {
-          timeOut: 2000,
-          positionClass: 'toast-top-center',
-          progressBar: true,
-          progressAnimation: 'increasing'
-        })
-        this.formGroup.reset();
-      }
-    });
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
   }
 
 
@@ -447,16 +448,12 @@ export class FluidsListComponent implements OnInit {
     })
   }
 
-
   navigateBack() {
     this.authservice.reload();
   }
 
   onDeleteFile(selectedItem: any) {
     console.log('you clicked on element no: ' + selectedItem.file_id);
-
-
-
     this.id = selectedItem.file_id;
 
     this.ngPopups.confirm("Are you sure you want to delete this file?", {
@@ -511,12 +508,13 @@ export class FluidsListComponent implements OnInit {
       .getFluids()
       .subscribe((response: any) => {
         this.users = response
-        console.log('all Imagess tested')
+        console.log('Start Image Testing')
 
 
         for (var product of response) {
-          console.log('firat test: ' + product.FluidPhotograph)
-          this.ims = product.FluidPhotograph
+          console.log(response)
+          console.log('firat test: ' + product.FluidPhotographs)
+          this.ims = product.FluidPhotographs
           console.log('images  array:' + this.ims.length)
           for (var image of this.ims) {
             console.log(' Testing each image:' + image.replace('backend', 'http://127.0.0.1:8899'))
@@ -537,7 +535,6 @@ export class FluidsListComponent implements OnInit {
       });
 
   }
-
 
 }
 

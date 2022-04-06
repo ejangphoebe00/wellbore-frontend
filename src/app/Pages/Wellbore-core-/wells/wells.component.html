@@ -602,12 +602,30 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Core_analysis_reports</label>
-                                <input type="file" formControlName="Core_analysis_reports"
+                                <input type="file" multiple formControlName="CoreAnalysisReports"
                                     (change)="selectFile($event)">
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Upload</button>
+                        <button (click)="navigateBack()" type="button" class="btn default">Back</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div *ngIf="uploadFile" class="portlet light bordered">
+            <div class="portlet-body form">
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="uploadImage()" ngNativeValidate>
+
+                    <div class="form-body row">
+                        <div class="col-md-6">                           
                             <div class="form-group">
                                 <label>Core_photograph</label>
-                                <input type="file" formControlName="Core_photograph" (change)="selectFileAgain($event)">
+                                <input type="file"  multiple formControlName="CorePhotograph" (change)="selectFile($event)">
                             </div>
 
                         </div>

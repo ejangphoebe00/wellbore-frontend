@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import "~bootstrap/dist/css/bootstrap.css" */
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500i&display=swap");
 .page-sidebar .page-sidebar-menu>li>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li>a {
   border-top: 1px solid #3d4957;

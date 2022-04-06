@@ -584,22 +584,7 @@ export class WellsComponent implements OnInit {
     this.file = event.target.files[0];
   }
 
-  // OnClick of button Upload
-  onUpload() {
-    this.loading = !this.loading;
-    console.log(this.file);
-    this.authservice.upload(this.file).subscribe(
-      (event: any) => {
-        if (typeof (event) === 'object') {
-
-          // Short link via api response
-          this.shortLink = event.link;
-
-          this.loading = false; // Flag variable 
-        }
-      }
-    );
-  }
+ 
 
   get f() {
     return this.formGroup.controls;
@@ -627,38 +612,57 @@ export class WellsComponent implements OnInit {
       })
   }
 
-  upload() {
-    this.currentFile = this.selectedFiles.item(0);
-    this.currentFile2 = this.selectedFilesSecond.item(0);
-
-    console.log(this.currentFile)
-    this.authservice.uploadFile(this.currentFile, this.currentFile2).subscribe(response => {
-      this.fileresponse = response;
-      console.log(this.fileresponse.message)
-
-      this.selectedFiles.value = '';
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-        this.toastr.success("File Uploaded successfully.", "", {
-          timeOut: 2000,
-          positionClass: 'toast-top-center',
-          progressBar: true,
-          progressAnimation: 'increasing'
-        })
-        this.formGroup.reset();
-      }
-    });
-  }
+ 
 
 
   selectFile(event: any) {
     this.selectedFiles = event.target.files;
   }
 
-  selectFileAgain(event: any) {
-    this.selectedFilesSecond = event.target.files;
+  upload() {
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadFile(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
+
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
+
   }
+
+  uploadImage() {
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.currentFile = this.selectedFiles[i];
+      this.authservice.uploadCorePhotograph(this.currentFile).subscribe(response => {
+        this.selectedFiles.value = '';
+          if (response instanceof HttpResponse) {
+            this.msg = response.body;
+            console.log(response.body);       
+        }
+      });
+    }
+
+    this.toastr.success("File(s) Uploaded successfully.", "", {
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      progressAnimation: 'increasing'
+    })
+    this.formGroup.reset();
+
+  }
+
 
   onFile() {
     console.log("Clicked")
